@@ -100,7 +100,7 @@
               <Link cls="navbar-item" title="Вопросы и ответы">Вопросы и ответы</Link>
               <Link cls="navbar-item" title="Калькуляторы">Калькуляторы</Link>
               <Link cls="navbar-item" title="Нормативные документы">Нормативные документы</Link>
-              <Link cls="navbar-item" title="Статьи">Статьи</Link>
+              <Link cls="navbar-item" title="Статьи" slug="articles">Статьи</Link>
             </div>
           </div>
         </div>

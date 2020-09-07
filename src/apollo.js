@@ -97,3 +97,45 @@ export const NEWS_ARTICLES = gql`
     }
   }
 `
+
+export const ARTICLE_BY_SLUG_QUERY = gql`
+  query ($slug: String!){
+    articles(where: {slug: $slug}) {
+      slug
+      title
+      image{
+        url
+        alternativeText
+      }
+      sidebar{
+        __typename
+        ... on ComponentDefaultImage{
+          image{
+            formats
+            alternativeText
+          }
+        }
+      }
+      content{
+        __typename
+        ... on ComponentDefaultParagraph{
+          content
+        }
+      }
+    }
+  }
+`
+
+export const ARTICLES = gql`
+  query {
+    articles {
+      slug
+      title
+      image{
+        url
+        formats
+        alternativeText
+      }
+    }
+  }
+`
