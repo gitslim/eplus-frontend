@@ -39,25 +39,25 @@
         <div class="navbar-dropdown is-boxed is-hidden-mobile" class:is-hidden={!showDropdown}>
           <div class="container is-fluid columns">
             <div class="column">
-              <Link cls="navbar-item navbar-title" title="Проектирование">Проектирование</Link>
+              <Link cls="navbar-item navbar-title" path="page" title="Проектирование">Проектирование</Link>
               <Link cls="navbar-item" path="page" title="Проектирование магистральных газопроводов и ГРС">Магистральные
                 газопроводы и ГРС
               </Link>
               <Link cls="navbar-item" path="page" title="Проектирование Газораспределительных Систем И ГРП">
                 Газораспределительные системы и ГРП
               </Link>
-              <Link cls="navbar-item" path="page" title="Внутриплощадочные газопроводы">Внутриплощадочные газопроводы
+              <Link cls="navbar-item" path="page" title="Внутриплощадочные газопроводы" slug="vnutriploshadochnye-i-vnutrennie-gazoprovody">Внутриплощадочные газопроводы
               </Link>
-              <Link cls="navbar-item" path="page" title="Котельные">Котельные</Link>
+              <Link cls="navbar-item" path="page" title="Котельные" slug="proektirovanie-avtonomnyh-kotelnyh">Котельные</Link>
               <Link cls="navbar-item" path="page" title="Блочно-модульные котельные">Блочно-модульные котельные</Link>
-              <Link cls="navbar-item" path="page" title="Энергоцентры">Энергоцентры</Link>
-              <Link cls="navbar-item" path="page" title="Тепловые пункты">Тепловые пункты</Link>
+              <Link cls="navbar-item" path="page" title="Энергоцентры" slug="proektirovanie-energocentrov">Энергоцентры</Link>
+              <Link cls="navbar-item" path="page" title="Тепловые пункты" slug="teplovye-punkty">Тепловые пункты</Link>
               <Link cls="navbar-item" path="page" title="Функции генерального проектировщика">Функции генерального
                 проектировщика
               </Link>
             </div>
             <div class="column">
-              <Link cls="navbar-item navbar-title" title="Строительство">Строительство</Link>
+              <Link cls="navbar-item navbar-title" path="page" title="Строительство">Строительство</Link>
               <Link cls="navbar-item" path="page" title="Поставка оборудования">Поставка оборудования</Link>
               <Link cls="navbar-item" path="page" title="Строительно-монтажные работы">Строительно-монтажные работы
               </Link>
@@ -67,7 +67,7 @@
               </Link>
             </div>
             <div class="column">
-              <Link cls="navbar-item navbar-title" title="Энергоаудит">Энергоаудит</Link>
+              <Link cls="navbar-item navbar-title" path="page" title="Энергоаудит" slug="energoaudit">Энергоаудит</Link>
             </div>
             <div class="column">
               <Link cls="navbar-item navbar-title" title="Экспресс расчет">Экспресс расчет</Link>
