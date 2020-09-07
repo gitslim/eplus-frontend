@@ -68,3 +68,24 @@ $link: $main-brand-color;
     }
   }
 }
+
+.vk {
+  color: #4c75a3;
+  &:hover{
+    color: black;
+  }
+}
+
+.twitter {
+  color: #00acee;
+  &:hover{
+    color: black;
+  }
+}
+
+.fb {
+  color: #3b5998;
+  &:hover{
+    color: black;
+  }
+}

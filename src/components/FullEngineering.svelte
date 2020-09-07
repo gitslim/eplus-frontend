@@ -1,3 +1,10 @@
+<script>
+  import Icon from 'fa-svelte'
+  import {faMedal,faCubes,faBurn,faDraftingCompass,faUserShield,} from '@fortawesome/free-solid-svg-icons'
+  import {} from '@fortawesome/free-regular-svg-icons'
+  import {faBattleNet} from '@fortawesome/free-brands-svg-icons'
+</script>
+
 <div class="columns is-vcentered">
   <div class="column is-5">
     <figure class="image is-4by3">
@@ -14,23 +21,23 @@
 
     <ul>
       <li>
-        <span class="icon has-text-warning"><i class="fas fa-phone"></i></span>
+        <Icon class="icon has-text-primary" icon="{faBurn}"/>
           Получение тех. возможности подачи газа
       </li>
       <li>
-        <span class="icon has-text-warning"><i class="fas fa-phone"></i></span>
+        <Icon class="icon has-text-primary" icon="{faDraftingCompass}"/>
         Оптимальные технические решения в 2D, 3D
       </li>
       <li>
-        <span class="icon has-text-warning"><i class="fas fa-phone"></i></span>
+        <Icon class="icon has-text-primary" icon="{faBattleNet}"/>
         Комплексные проекты энергообеспечения
       </li>
       <li>
-        <span class="icon has-text-warning"><i class="fas fa-phone"></i></span>
+        <Icon class="icon has-text-primary" icon="{faUserShield}"/>
         Своевременная сдача результата работ
       </li>
       <li>
-        <span class="icon has-text-warning"><i class="fas fa-phone"></i></span>
+        <Icon class="icon has-text-primary" icon="{faMedal}"/>
         Гарантия положительного заключения экспертизы
       </li>
     </ul>

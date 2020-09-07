@@ -1,5 +1,7 @@
 <script>
   import Link from "./Link.svelte";
+  import Icon from 'fa-svelte'
+  import {faPhone,faEnvelope,faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 
   export let segment
 
@@ -99,7 +101,7 @@
             <div class="column">
               <Link cls="navbar-item" title="Вопросы и ответы">Вопросы и ответы</Link>
               <Link cls="navbar-item" title="Калькуляторы">Калькуляторы</Link>
-              <Link cls="navbar-item" title="Нормативные документы">Нормативные документы</Link>
+              <Link cls="navbar-item" title="Нормативные документы" slug="documents">Нормативные документы</Link>
               <Link cls="navbar-item" title="Статьи" slug="articles">Статьи</Link>
             </div>
           </div>
@@ -123,9 +125,8 @@
       <Link cls="navbar-item" slug="contacts">Контакты</Link>
     </div>
     <div class="navbar-end">
-      <!--      <a class="navbar-item"><i class="fa fa-search"></i></a>-->
       <a class="navbar-item" href="tel:+74957907697">
-        <i class="fa fa-phone"></i>
+        <Icon icon="{faPhone}"/>
         <span class="callibri_phone">+7 (495) 790-76-97</span>
         <br>
       </a>

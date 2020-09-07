@@ -16,4 +16,8 @@ const chooseImageUrl = function (image) {
   return image.url
 }
 
-export {formatDate, chooseImageUrl}
+const twitter = function (url, title){
+
+}
+
+export {formatDate, chooseImageUrl, twitter}

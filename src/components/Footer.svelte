@@ -1,3 +1,9 @@
+<script>
+  import Icon from 'fa-svelte'
+  import {faPhone,faEnvelope,faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+  import {faVk, faTwitter, faFacebook} from '@fortawesome/free-brands-svg-icons'
+</script>
+
 <style lang="scss">
   .footer {
     //background-color: rgb(248, 105, 35);
@@ -30,19 +36,19 @@
           <ul>
             <li>
               <span>
-                <i class="fa fa-home"></i>
+                <Icon icon="{faMapMarkerAlt}"/>
                 111123, Москва, 1-я Владимирская, д.10А, стр. 1
               </span>
             </li>
             <li>
               <a href="tel:+74957907697">
-                <i class="fa fa-phone"></i>
+                <Icon icon="{faPhone}"/>
                 <span class="callibri_phone">+7 (495) 790-76-97</span>
               </a>
             </li>
             <li>
               <a href="mailto:info@energy-plus.biz">
-                <i class="fa fa-envelope"></i>
+                <Icon icon="{faEnvelope}"/>
                 info@energy-plus.biz
               </a>
             </li>
@@ -116,9 +122,6 @@
         <!--        <span>CC BY-SA 4.0</span>-->
       </div>
       <div class="column is-narrow">
-        <!--        <a class="" href="tel:+74957907697">-->
-        <!--          <i class="fa fa-phone"></i> +7 (495) 790-76-97<br>-->
-        <!--        </a>-->
         <span>Инжиниринговая компания</span>
         <!--        <a class="track-event" data-event-name="click" data-ref="footer" data-service-slug="linode" href="https://promo.linode.com/saashub?utm_source=saashub&amp;utm_medium=affiliate&amp;utm_campaign=affiliate-saashub-saashub_website&amp;utm_content=website-signup&amp;utm_term=SAASHUB6060" rel="sponsored" style="color: #02b159;">Linode</a>-->
       </div>

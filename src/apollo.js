@@ -84,7 +84,7 @@ export const NEWS_ARTICLE_BY_SLUG_QUERY = gql`
 
 export const NEWS_ARTICLES = gql`
   query {
-    newsArticles {
+    newsArticles(sort:"date:desc") {
       slug
       title
       date
@@ -128,13 +128,25 @@ export const ARTICLE_BY_SLUG_QUERY = gql`
 
 export const ARTICLES = gql`
   query {
-    articles {
+    articles(sort:"date:desc") {
       slug
       title
       image{
         url
         formats
         alternativeText
+      }
+    }
+  }
+`
+
+export const DOCUMENTS = gql`
+  query {
+    documents(sort:"date:desc") {
+      title
+      date
+      file {
+        url
       }
     }
   }
