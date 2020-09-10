@@ -151,3 +151,17 @@ export const DOCUMENTS = gql`
     }
   }
 `
+
+export const TESTIMONIALS = gql`
+  query {
+    testimonials(sort:"date:desc") {
+      customer
+      date
+      image{
+        url
+        formats
+        alternativeText
+      }
+    }
+  }
+`

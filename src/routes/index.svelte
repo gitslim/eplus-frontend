@@ -1,10 +1,24 @@
+<script context="module">
+  import {client, TESTIMONIALS} from "../apollo";
+
+  export async function preload(page, session) {
+
+    let cache = await client.query({
+      query: TESTIMONIALS,
+      variables: {},
+    });
+    return {testimonials: cache.data.testimonials};
+  }
+</script>
+
 <script>
   import VideoHero from "../components/VideoHero.svelte";
   import FullEngineering from "../components/FullEngineering.svelte";
   import MobileHero from "../components/MobileHero.svelte";
   import ServiceCard from "../components/ServiceCard.svelte";
+  import Testimonials from "../components/Testimonials.svelte";
 
-  export let segment
+  export let segment, testimonials
 </script>
 
 <style>
@@ -62,7 +76,6 @@
 </VideoHero>
 
 
-
 <section class="section">
   <div class="container">
 
@@ -81,5 +94,7 @@
     <br/>
 
     <FullEngineering/>
+
+    <Testimonials testimonials="{testimonials}"/>
   </div>
 </section>

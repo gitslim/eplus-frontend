@@ -7,6 +7,7 @@ $primary: $main-brand-color;
 $link: $main-brand-color;
 
 @import "../../node_modules/bulma/bulma.sass";
+//@import "../../node_modules/bulma-carousel/src/sass/index.sass";
 
 .main-logo{
   content: url("/logo.png");
