@@ -18,6 +18,16 @@
   })
 </script>
 
+<style lang="scss">
+  .control :global(svg) {
+    width: 100%;
+    height: 100%;
+    color: orangered;
+    //border: 2px solid black;
+    //border-radius: 32px;
+  }
+</style>
+
 <Carousel loop="false" startIndex="2" perPage={{ 800: 6, 500: 3 }}>
   <span class="control" slot="left-control">
     <ChevronLeftIcon />
