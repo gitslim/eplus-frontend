@@ -19,6 +19,7 @@
   import Testimonials from "../components/TestimonialsCarousel.svelte";
   import TestimonialsCarousel from "../components/TestimonialsCarousel.svelte";
   import ProjectsCarousel from "../components/ProjectsCarousel.svelte";
+  import PortfolioCounters from "../components/PortfolioCounters.svelte";
 
   export let segment, testimonials
 </script>
@@ -94,16 +95,15 @@
     </div>
 
     <div class="is-divider" data-content="Комплексный подход"></div>
-
     <FullEngineering/>
-
-    <div class="is-divider" data-content="Выполненные проекты"></div>
-
+    <div class="is-divider" data-content="Примеры выполненных проектов"></div>
     <ProjectsCarousel/>
-
+    <div class="is-divider" data-content="Цифры"></div>
+    <PortfolioCounters/>
     <div class="is-divider" data-content="Отзывы клиентов"></div>
-
     <TestimonialsCarousel items="{testimonials}"/>
+
+
 
   </div>
 </section>
