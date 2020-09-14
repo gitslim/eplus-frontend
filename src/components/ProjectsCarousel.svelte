@@ -66,12 +66,14 @@
   {#each items as item}
     <div class="slide-content">
       <div class="columns is-vcentered">
-        <div class="column">
-      <LazyImage
-        src="{item.image}"
-        alt="{item.title}"
-        placeholder="{item.image}"
-      />
+        <div class="column is-6">
+          <figure class="image">
+          <LazyImage
+            src="{item.image}"
+            alt="{item.title}"
+            placeholder="{item.image}"
+          />
+          </figure>
         </div>
         <div class="column has-text-centered">
             <Link slug="{item.slug}">

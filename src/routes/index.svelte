@@ -97,8 +97,9 @@
 
     <FullEngineering/>
 
+    <ProjectsCarousel/>
+
     <TestimonialsCarousel items="{testimonials}"/>
 
-    <ProjectsCarousel/>
   </div>
 </section>
