@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/__sapper__" />
+      <excludeFolder url="file://$MODULE_DIR$/cypress" />
       <excludeFolder url="file://$MODULE_DIR$/pinegrow" />
       <excludeFolder url="file://$MODULE_DIR$/src/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/untracked" />

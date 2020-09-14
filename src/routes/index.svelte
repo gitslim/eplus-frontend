@@ -16,7 +16,9 @@
   import FullEngineering from "../components/FullEngineering.svelte";
   import MobileHero from "../components/MobileHero.svelte";
   import ServiceCard from "../components/ServiceCard.svelte";
-  import Testimonials from "../components/Testimonials.svelte";
+  import Testimonials from "../components/TestimonialsCarousel.svelte";
+  import TestimonialsCarousel from "../components/TestimonialsCarousel.svelte";
+  import ProjectsCarousel from "../components/ProjectsCarousel.svelte";
 
   export let segment, testimonials
 </script>
@@ -95,6 +97,8 @@
 
     <FullEngineering/>
 
-    <Testimonials testimonials="{testimonials}"/>
+    <TestimonialsCarousel items="{testimonials}"/>
+
+    <ProjectsCarousel/>
   </div>
 </section>

@@ -40,7 +40,7 @@
   const {preloading, page} = stores();
   const path = $page.path;
 
-  export let meta, segment, child;
+  export let meta, segment;
 </script>
 
 <style global lang="scss">

@@ -70,6 +70,19 @@ $link: $main-brand-color;
   }
 }
 
+.carousel-button {
+  filter: drop-shadow(3px 3px 2px gray);
+  color: orangered;
+  font-size: xx-large;
+  &:hover{
+    filter: drop-shadow(1px 1px 1px gray);
+    //color: darkred;
+    //background-color: orangered;
+    //border: 1px solid black;
+    cursor: pointer;
+  }
+}
+
 .vk {
   color: #4c75a3;
   &:hover{
