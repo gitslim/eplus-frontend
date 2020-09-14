@@ -35,8 +35,8 @@
 </script>
 
 <style lang="scss">
-  .window-wrap .container {
-    margin: 0;
+  :global(.window-wrap .container) {
+    margin: 0 !important;
   }
 </style>
 

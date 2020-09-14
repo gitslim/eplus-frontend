@@ -93,11 +93,15 @@
       </div>
     </div>
 
-    <br/>
+    <div class="is-divider" data-content="Комплексный подход"></div>
 
     <FullEngineering/>
 
+    <div class="is-divider" data-content="Выполненные проекты"></div>
+
     <ProjectsCarousel/>
+
+    <div class="is-divider" data-content="Отзывы клиентов"></div>
 
     <TestimonialsCarousel items="{testimonials}"/>
 

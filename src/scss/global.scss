@@ -6,8 +6,8 @@ $main-brand-color: #f86923;
 $primary: $main-brand-color;
 $link: $main-brand-color;
 
-@import "../../node_modules/bulma/bulma.sass";
-//@import "../../node_modules/bulma-carousel/src/sass/index.sass";
+@import "../../node_modules/bulma/bulma";
+@import "../../node_modules/bulma-extensions/bulma-divider/dist/css/bulma-divider";
 
 .main-logo{
   content: url("/logo.png");
