@@ -5,7 +5,7 @@
 </script>
 
 <style lang="scss">
-  .counter-icon {
+  :global(.portfolio-counter-icon) {
     font-size: xx-large;
   }
 </style>
@@ -19,7 +19,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <Icon class="counter-icon" icon="{faHistory}" />
+                <Icon class="portfolio-counter-icon" icon="{faHistory}" />
               </figure>
             </div>
             <div class="media-content has-text-right">
@@ -36,7 +36,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <Icon class="counter-icon counter-icon-years" icon="{faUsers}" />
+                <Icon class="portfolio-counter-icon portfolio-counter-icon-years" icon="{faUsers}" />
               </figure>
             </div>
             <div class="media-content has-text-right">
@@ -53,7 +53,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <Icon class="counter-icon counter-icon-years" icon="{faChartBar}" />
+                <Icon class="portfolio-counter-icon portfolio-counter-icon-years" icon="{faChartBar}" />
               </figure>
             </div>
             <div class="media-content has-text-right">
@@ -70,7 +70,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <Icon class="counter-icon counter-icon-years" icon="{faRoad}" />
+                <Icon class="portfolio-counter-icon portfolio-counter-icon-years" icon="{faRoad}" />
               </figure>
             </div>
             <div class="media-content has-text-right">
