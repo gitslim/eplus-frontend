@@ -46,7 +46,8 @@ const preprocess = sveltePreprocess({
       ]
     },
     postcss: {
-      plugins: postcssPlugins(!dev) // Don't need purgecss because Svelte handle unused css for you.
+      // plugins: postcssPlugins(!dev) // Don't need purgecss because Svelte handle unused css for you.
+      plugins: postcssPlugins(false) // TODO: fix purgecss broken selectors
     }
   }
 })

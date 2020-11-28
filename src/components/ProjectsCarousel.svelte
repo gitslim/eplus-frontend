@@ -71,7 +71,7 @@
           <LazyImage
             src="{item.image}"
             alt="{item.title}"
-            placeholder="{item.image}"
+            placeholder="/white-200.png"
           />
           </figure>
         </div>
