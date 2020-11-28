@@ -15,6 +15,12 @@ const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
+class SvelteExtractor {
+  static extract( content ) {
+    return content.match( /[A-Za-z0-9-_:\/]+/g ) || [];
+  }
+}
+
 const postcssPlugins = (purgecss = false) => {
   return [
     require("postcss-import")(),
@@ -22,18 +28,28 @@ const postcssPlugins = (purgecss = false) => {
     require("autoprefixer")({
       overrideBrowserslist: "last 3 version"
     }),
-    // Do not purge the CSS in dev mode to be able to play with classes in the browser dev-tools.
     purgecss &&
-    require('@fullhuman/postcss-purgecss')({
-      content: ['./src/**/*.html',
-        './src/**/*.svelte',
-        './src/**/*.css',
-        './static/**/*.css'],
-    }),
-    purgecss &&
-    require('cssnano')({
+    require( 'cssnano' )( {
       preset: 'default',
     }),
+    // TODO: Enable purgecss
+    // // Do not purge the CSS in dev mode to be able to play with classes in the browser dev-tools.
+    // purgecss &&
+    // require( '@fullhuman/postcss-purgecss' )( {
+    //   content: [ './src/**/*.html',
+    //     './src/**/*.svelte',
+    //     './src/**/*.css',
+    //     './static/**/*.css' ],
+    //   extractors: [ {
+    //     extractor: content => content.match( /[A-Za-z0-9-_:\/]+/g ) || [],
+    //     // Specify the file extensions to include when scanning for
+    //     // class names.
+    //     extensions: [ 'svelte', 'css', 'html' ],
+    //   }, ],
+    //   fontFace: true,
+    //   // Whitelist selectors to stop Purgecss from removing them from your CSS.
+    //   whitelist: [ 'html', 'body' ],
+    // } ),
   ].filter(Boolean)
 }
 

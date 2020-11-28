@@ -77,11 +77,12 @@ $link: $main-brand-color;
   font-size: xx-large;
   &:hover{
     filter: drop-shadow(1px 1px 1px gray);
-    //color: darkred;
-    //background-color: orangered;
-    //border: 1px solid black;
     cursor: pointer;
   }
+}
+
+.portfolio-counter-icon {
+  font-size: xx-large;
 }
 
 .vk {

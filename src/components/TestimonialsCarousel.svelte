@@ -1,24 +1,16 @@
 <script>
   import Carousel from '@beyonk/svelte-carousel'
-  import {onMount} from 'svelte'
-  import LazyImage from 'svelte-lazy-image'
+  // import LazyImage from 'svelte-lazy-image'
   import Icon from 'fa-svelte'
   import {faChevronCircleLeft, faChevronCircleRight} from "@fortawesome/free-solid-svg-icons"
-  import * as svelteImages from "svelte-images"
-  const { Modal, open, close } = svelteImages.Carousel
+  import {Modal} from 'svelma'
+  import LazyImage from "./LazyImage.svelte";
 
   export let items, startIndex = 0
-  let carousel
-
-  const popModal = idx =>
-    setTimeout(() => {
-      open(items.map(function(o){
-        return {src: o.image.url}
-      }), idx);
-    }, 0)
+  let carousel, modalOpen = false, modalImage
 
   const perPage = {
-    800: Math.min(items.length, 4),
+    800: Math.min(items.length, 5),
     500: Math.min(items.length, 2)
   }
 
@@ -30,39 +22,56 @@
     carousel.resume();
   }
 
-  onMount(async () => {
-  })
+  function toggleModal(itemIdx) {
+    modalImage = items[itemIdx].image
+    modalOpen = !modalOpen;
+  }
+
+  const options = {
+    // root: carousel,
+    // rootMargin: '20px',
+    // threshold: 0.1
+  }
+  // console.log(items)
 </script>
 
 <style lang="scss">
-  :global(.window-wrap .container) {
-    margin: 0 !important;
+    :global(.slide-content img:hover) {
+    opacity: 0.5;
+    filter: grayscale(0.5) blur(1px);
+    cursor: pointer;
   }
 </style>
 
-
 <Carousel bind:this={carousel} on:mouseenter={enter} on:mouseleave={leave}
-          loop="true" startIndex="{startIndex}" perPage="{perPage}">
+                loop="false" startIndex="{startIndex}" perPage="{perPage}">
 
-  <span class="control" slot="left-control">
+  <span class="control" slot="left-control" class:is-hidden={modalOpen}>
       <Icon icon={faChevronCircleLeft} class="carousel-button"/>
   </span>
 
   {#each items as item, i}
-    <div class="slide-content" on:click="{()=>popModal(i)}">
-      <figure class="image">
+    <div class="slide-content columns">
+      <figure class="image" on:click={() => toggleModal(i)}>
       <LazyImage
+        options={options}
         src="{item.image.url}"
         alt="{item.image.alternativeText}"
-        placeholder="{item.image.url}"
+        placeholder=""
       />
       </figure>
       </div>
   {/each}
 
-  <span class="control" slot="right-control">
+  <span class="control" slot="right-control" class:is-hidden={modalOpen}>
     <Icon icon={faChevronCircleRight} class="carousel-button"/>
   </span>
 </Carousel>
 
-<Modal/>
+{#if modalOpen}
+  <Modal bind:active={modalOpen}>
+    <p class="image is-fullheight">
+      <img src="{modalImage.url}"/>
+    </p>
+  </Modal>
+{/if}

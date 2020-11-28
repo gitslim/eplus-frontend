@@ -5,9 +5,7 @@
 </script>
 
 <style lang="scss">
-  :global(.portfolio-counter-icon) {
-    font-size: xx-large;
-  }
+
 </style>
 
 
