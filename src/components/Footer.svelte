@@ -22,7 +22,7 @@
       <div class="column">
         <!--        <div class="">-->
         <!--          <span class="column-title">О компании</span>-->
-        <a class="footer-logo" href="/"></a>
+        <a class="footer-logo" href="/">«Энергия Плюс» - Инжиниринговая компания</a>
         <!--        </div>-->
         <div class="pt-4">
           <p>

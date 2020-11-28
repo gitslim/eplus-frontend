@@ -25,7 +25,7 @@
 
 <nav class="navbar has-centered-menu has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="main-logo" href="/"></a>
+    <a class="main-logo" href="/">«Энергия Плюс» - Инжиниринговая компания</a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar"
        on:click={toggleMenu}>
       <span aria-hidden="true"></span>

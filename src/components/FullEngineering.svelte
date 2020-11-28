@@ -2,12 +2,16 @@
   import Icon from 'fa-svelte'
   import {faMedal,faCubes,faBurn,faDraftingCompass,faUserShield,} from '@fortawesome/free-solid-svg-icons'
   import {faBattleNet} from '@fortawesome/free-brands-svg-icons'
+  import LazyImage from 'svelte-lazy-image'
 </script>
 
 <div class="columns is-vcentered">
   <div class="column is-5">
     <figure class="image is-4by3">
-      <img src="/images/Инжиниринг полного цикла.png">
+      <LazyImage
+        src="/images/Инжиниринг полного цикла.png"
+        alt="Инжиниринг полного цикла в энергетике"
+      />
     </figure>
   </div>
   <div class="column is-6 is-offset-1">

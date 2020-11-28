@@ -84,13 +84,16 @@
 
     <div class="columns">
       <div class="column">
-        <ServiceCard title="Магистральные газопроводы" image="/images/Магистральные газопроводы.jpg"/>
+        <ServiceCard title="Магистральные газопроводы" image="/images/Магистральные газопроводы.jpg"
+        path="page" slug="proektirovanie-magistralnyh-gazoprovodov-i-grs" />
       </div>
       <div class="column">
-        <ServiceCard title="Газораспределительные системы" image="/images/Газораспределительные системы.jpg"/>
+        <ServiceCard title="Газораспределительные системы" image="/images/Газораспределительные системы.jpg"
+        path="page" slug="proektirovanie-gazoraspredelitelnyh-sistem-i-grp"/>
       </div>
       <div class="column">
-        <ServiceCard title="Теплоэнергетика" image="/images/Теплоэнергетика.jpg"/>
+        <ServiceCard title="Теплоэнергетика" image="/images/Теплоэнергетика.jpg"
+        path="page" slug="teplovye-punkty"/>
       </div>
     </div>
 

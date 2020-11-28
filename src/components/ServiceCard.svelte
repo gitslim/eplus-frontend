@@ -1,15 +1,23 @@
 <script>
-  export let title, image
+  import Link from "./Link.svelte"
+  import LazyImage from 'svelte-lazy-image'
+
+  export let title, image, path, slug
 </script>
 
 <div class="card  has-text-centered">
+  <Link title="{title}" path="{path}" slug="{slug}">
   <div class="card-header">
     <div class="card-header-title has-text-primary-dark">{title}</div>
   </div>
 
   <div class="card-image">
     <figure class="image is-16by9">
-      <img src="{image}" alt="{title}">
+      <LazyImage
+        src="{image}"
+        alt="{title}"
+        placeholder="/white-200.png"
+      />
     </figure>
   </div>
 <!--  <div class="card-content">-->
@@ -33,4 +41,5 @@
 <!--      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>-->
 <!--    </div>-->
 <!--  </div>-->
+  </Link>
 </div>
