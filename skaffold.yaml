@@ -1,14 +1,13 @@
-apiVersion: skaffold/v2beta1
+apiVersion: skaffold/v2beta8
 kind: Config
 metadata:
   name: energyplus-frontend
 build:
-  tagPolicy:
-    gitCommit:
-      {}
   artifacts:
   - image: energyplus-frontend
     context: .
+  tagPolicy:
+    gitCommit: {}
 deploy:
   kubectl:
     manifests:

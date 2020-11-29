@@ -1,7 +1,7 @@
 <script>
-  import Link from "./Link.svelte";
+  import Link from "./Link.svelte"
   import Icon from 'fa-svelte'
-  import {faPhone,faEnvelope,faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+  import {faPhone} from '@fortawesome/free-solid-svg-icons'
 
   export let segment
 
@@ -48,11 +48,16 @@
               <Link cls="navbar-item" path="page" title="Проектирование Газораспределительных Систем И ГРП">
                 Газораспределительные системы и ГРП
               </Link>
-              <Link cls="navbar-item" path="page" title="Внутриплощадочные газопроводы" slug="vnutriploshadochnye-i-vnutrennie-gazoprovody">Внутриплощадочные газопроводы
+              <Link cls="navbar-item" path="page" title="Внутриплощадочные газопроводы"
+                    slug="vnutriploshadochnye-i-vnutrennie-gazoprovody">Внутриплощадочные газопроводы
               </Link>
-              <Link cls="navbar-item" path="page" title="Котельные" slug="proektirovanie-avtonomnyh-kotelnyh">Котельные</Link>
+              <Link cls="navbar-item" path="page" title="Котельные" slug="proektirovanie-avtonomnyh-kotelnyh">
+                Котельные
+              </Link>
               <Link cls="navbar-item" path="page" title="Блочно-модульные котельные">Блочно-модульные котельные</Link>
-              <Link cls="navbar-item" path="page" title="Энергоцентры" slug="proektirovanie-energocentrov">Энергоцентры</Link>
+              <Link cls="navbar-item" path="page" title="Энергоцентры" slug="proektirovanie-energocentrov">
+                Энергоцентры
+              </Link>
               <Link cls="navbar-item" path="page" title="Тепловые пункты" slug="teplovye-punkty">Тепловые пункты</Link>
               <Link cls="navbar-item" path="page" title="Функции генерального проектировщика">Функции генерального
                 проектировщика
@@ -110,13 +115,16 @@
       <Link cls="navbar-item" slug="news" title="Новости">Новости</Link>
       <div class="navbar-item has-dropdown is-hoverable" on:mouseover={()=>toggleDropdown(true)}
            on:mouseleave={()=>toggleDropdown(false)}>
-        <Link cls="navbar-link" title="О компании">О компании</Link>
+        <Link cls="navbar-link" title="О компании" slug="company">О компании</Link>
         <div class="navbar-dropdown is-boxed is-hidden-mobile" class:is-hidden={!showDropdown}>
           <div class="container is-fluid columns">
             <div class="column">
-              <Link cls="navbar-item" title="История">История</Link>
-              <Link cls="navbar-item" title="Допуски СРО и аттестаты">Допуски СРО и аттестаты</Link>
-              <Link cls="navbar-item" title="Референс-лист">Референс-лист</Link>
+              <Link cls="navbar-item" title="История" path="company" slug="history">История</Link>
+              <Link cls="navbar-item" title="Допуски СРО и аттестаты" path="company" slug="dopuski-sro">
+                Допуски СРО и аттестаты
+              </Link>
+              <Link cls="navbar-item" title="Референс-лист" path="company" slug="referens-list">Референс-лист</Link>
+              <a target="_blank" class="navbar-item" href="/presentation/index.html">Буклет</a>
               <Link cls="navbar-item" title="Отзывы клиентов">Отзывы клиентов</Link>
             </div>
           </div>
