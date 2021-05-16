@@ -38,12 +38,12 @@
 
         <div class="is-divider"></div>
 
-        <h3 class="subtitle has-text-centered">Буклет о компании</h3>
-        <a target="_blank" title="Буклет о компании" href="/presentation/index.html">
+        <h3 class="subtitle has-text-centered">Презентация (pdf)</h3>
+        <a target="_blank" title="Презентация Энергия Плюс" href="/presentation/Энергия%20Плюс.pdf">
           <figure class="image">
             <LazyImage
-              src="/images/company/booklet-cover.jpg"
-              alt="Буклет о компании"
+              src="/presentation/presentation-cover.jpg"
+              alt="Презентация Энергия Плюс"
             />
           </figure>
         </a>

@@ -10,7 +10,7 @@
     });
     return {articles: cache.data.articles};
 
-    return this.error(404, "Страница не найдена");
+    // return this.error(404, "Страница не найдена");
   }
 </script>
 

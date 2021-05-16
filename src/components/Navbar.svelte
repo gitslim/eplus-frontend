@@ -77,7 +77,7 @@
               <Link cls="navbar-item navbar-title" path="page" title="Энергоаудит" slug="energoaudit">Энергоаудит</Link>
             </div>
             <div class="column">
-              <Link cls="navbar-item navbar-title" title="Экспресс расчет">Экспресс расчет</Link>
+              <Link cls="navbar-item navbar-title" slug="kalkulyatory" title="Экспресс расчет">Экспресс расчет</Link>
               <Link cls="navbar-item" title="Теплотехнический расчет">Теплотехнический расчет</Link>
               <img src="https://source.unsplash.com/random/500x300" alt="">
             </div>
@@ -104,7 +104,7 @@
         <div class="navbar-dropdown is-boxed is-hidden-mobile" class:is-hidden={!showDropdown}>
           <div class="container is-fluid columns">
             <div class="column">
-              <Link cls="navbar-item" title="Вопросы и ответы">Вопросы и ответы</Link>
+              <Link cls="navbar-item" slug="faq" title="Вопросы и ответы">Вопросы и ответы</Link>
               <Link cls="navbar-item" title="Калькуляторы">Калькуляторы</Link>
               <Link cls="navbar-item" title="Нормативные документы" slug="documents">Нормативные документы</Link>
               <Link cls="navbar-item" title="Статьи" slug="articles">Статьи</Link>
@@ -124,7 +124,7 @@
                 Допуски СРО и аттестаты
               </Link>
               <Link cls="navbar-item" title="Референс-лист" path="company" slug="referens-list">Референс-лист</Link>
-              <a target="_blank" class="navbar-item" href="/presentation/index.html">Буклет</a>
+              <a target="_blank" class="navbar-item" href="/presentation/Энергия%20Плюс.pdf">Презентация</a>
               <Link cls="navbar-item" title="Отзывы клиентов">Отзывы клиентов</Link>
             </div>
           </div>
