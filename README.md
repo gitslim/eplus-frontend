@@ -1,4 +1,4 @@
-# Frontend for site [Энергияплюс.рф](http://xn--c1adkmgpem4hrai.xn--p1ai/)
+# Frontend for site [Энергияплюс.рф](https://new.xn--c1adkmgpem4hrai.xn--p1ai/)
 
 ### Features
 - Modern SPA with server-side rendering
