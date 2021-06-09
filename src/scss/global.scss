@@ -10,6 +10,19 @@ $link: $main-brand-color;
 @import "../../node_modules/bulma-extensions/bulma-divider/dist/css/bulma-divider";
 @import "../../node_modules/bulma-extensions/bulma-pricingtable/dist/css/bulma-pricingtable";
 
+*{
+  box-sizing: border-box;
+}
+
+body {
+ // font-family: Montserrat,sans-serif;
+  color: #383838;
+  font-size: 16px;
+  line-height: 1.8;
+  background-color: #fff;
+  font-weight: 400;
+}
+
 .main-logo{
   content: url("/logo.png");
   height: 3em;
