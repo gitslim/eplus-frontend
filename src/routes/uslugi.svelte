@@ -1,4 +1,6 @@
 <script>
+  import CallbackForm from "../components/callbackForm.svelte";
+
 </script>
 
 <style lang="scss">
@@ -188,26 +190,8 @@
           </h3>
           <hr class="hr-line" />
         </div>
-
         <div class="content-bottom">
-          <div class="content block-content">
-            <div class="contact-link">
-              <div class="title__bottom">Нужна консультация ?</div>
-              <div class="desc">
-                Позвоните нам по телефону:<br />
-                <b style="font-size:15px;" class="roistat-phone">+7 (495)
-                  790-76-97</b><br />
-                или воспользуйтесь формой обратной связи
-              </div>
-              <div class="action">
-                <!--<a class="btn-white" href="#/modal/contact-form">обратная связь</a>-->
-                <a
-                  class="btn-white use-ajax"
-                  data-dialog-type="modal"
-                  href="/contact/kontaktnaa_forma">Мы перезвоним вам</a>
-              </div>
-            </div>
-          </div>
+          <CallbackForm />
         </div>
       </div>
     </div>

@@ -117,3 +117,38 @@ body {
     color: black;
   }
 }
+
+.container{
+  color: #222;
+}
+
+.widget{
+    padding: 5px 0 30px;
+    display: block;
+    width: 100%;
+}
+
+.node__content {
+  text-align: justify;
+}
+
+.title {
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  font-size: 26px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.heading-line {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  height: 1px;
+  width: 60px;
+  background: #F86923;
+  position: absolute;
+  bottom: 0;
+}
