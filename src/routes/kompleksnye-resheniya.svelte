@@ -1,6 +1,6 @@
 <script>
-import CallbackForm from "../components/callbackForm.svelte";
-import SidebarRight from "../components/sidebarRight.svelte";
+  import CallbackForm from "../components/CallbackForm.svelte";
+  import SidebarRight from "../components/SidebarRight.svelte";
 
 </script>
 
@@ -10,7 +10,7 @@ import SidebarRight from "../components/sidebarRight.svelte";
   }
 
   .content__wrap {
-    display: flex
+    display: flex;
   }
 
   ul {
@@ -29,7 +29,6 @@ import SidebarRight from "../components/sidebarRight.svelte";
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
-
   }
 
 </style>
@@ -63,7 +62,7 @@ import SidebarRight from "../components/sidebarRight.svelte";
       </div>
     </div>
     <div class="block-sidebar">
-      <SidebarRight/>
+      <SidebarRight />
     </div>
   </div>
 </main>

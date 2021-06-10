@@ -1,5 +1,5 @@
 <script>
-  import CallbackForm from "../components/callbackForm.svelte";
+  import CallbackForm from "../components/CallbackForm.svelte";
 
 </script>
 
