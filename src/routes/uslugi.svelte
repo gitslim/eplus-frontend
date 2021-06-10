@@ -1,5 +1,12 @@
+<script context="module">
+  import SvelteSeo from "svelte-seo";
+
+</script>
+
 <script>
   import CallbackForm from "../components/CallbackForm.svelte";
+
+  let title = "Услуги";
 
 </script>
 
@@ -7,6 +14,8 @@
   @import "../scss/uslugi.scss";
 
 </style>
+
+<SvelteSeo {title} />
 
 <main role="main" class="main main-page">
   <div class="row">
