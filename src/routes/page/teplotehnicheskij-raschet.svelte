@@ -49,9 +49,10 @@
     display: block;
     padding-top: 180px !important;
     padding-bottom: 130px;
-    background-color: rgba(0, 0, 0, 0.3);
+
     background: url("../../../static/images/teplotehnicheskijRaschet/mainBanner.jpg")
       no-repeat center;
+    background-color: rgba(0, 0, 0, 0.3);
 
     overflow: hidden;
     color: #fff;
@@ -145,7 +146,7 @@
 
   .documentation {
     background-image: url("../../../static/images/teplotehnicheskijRaschet/documentationBg.jpg");
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.616);
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
@@ -189,10 +190,10 @@
   }
   .order {
     background-image: url("../../../static/images/teplotehnicheskijRaschet/formBg.jpg");
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(66, 56, 102, 0.651);
     background-position: center;
     background-repeat: no-repeat;
-    color: rgba(66, 56, 102, 0.651);
+
     &__row {
       display: flex;
       justify-content: flex-end;
@@ -202,20 +203,23 @@
     }
 
     &__desc {
+      text-align: left;
+      margin-top: 30px;
       max-width: 893px;
-      margin: 0 auto 50px;
+      margin: 30px auto 20px;
       font-size: 18px;
       font-weight: 300;
       line-height: 30px;
     }
 
     &__btn {
+      display: inline-flex;
+      align-items: center;
       padding-top: 10px;
       text-decoration: none;
       margin-bottom: 30px;
       vertical-align: text-bottom;
       height: 51px;
-      display: inline-block;
       background-color: #f60;
       padding: 0 60px;
       color: #fefefe;
@@ -224,6 +228,10 @@
       border: none;
       cursor: pointer;
       transition: 0.3s all;
+
+      &-wrap {
+        display: flex;
+      }
 
       &:hover {
         background-color: #ff7d27;
@@ -362,13 +370,15 @@
       <div class="order__row">
         <div class="order__wrap">
           <HeaderLanding {...footerCaption} />
-          <p class="order_desc">
+          <p class="order__desc">
             Оставьте заявку и мы свяжемся с вами для уточнения деталей, вышлем
             опросный лист и произведем расчет. Оплата производится после
             получения расчета.
           </p>
-          <a class="order__btn" data-dialog-type="modal" href="/#/">Оставить
-            заявку</a>
+          <div class="order__btn-wrap">
+            <a class="order__btn" data-dialog-type="modal" href="/#/">Оставить
+              заявку</a>
+          </div>
         </div>
       </div>
     </div>
