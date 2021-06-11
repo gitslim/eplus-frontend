@@ -1,15 +1,50 @@
 <script>
   import Link from "./Link.svelte";
 
-  export let headerTitile = "";
+  export let caption = "",
+    subtitle = "";
 
 </script>
 
 <style lang="scss">
-  /* your styles go here */
+  .container {
+    &__title {
+      margin-top: 15px;
+      text-align: left;
+      max-width: 580px;
+      font-size: 45px;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 45px;
+      position: relative;
+      text-transform: uppercase;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 150px;
+        height: 10px;
+        background-color: #f60;
+        top: -50px;
+      }
+    }
+
+    &__text {
+      margin-bottom: 10px;
+      text-align: left;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
 
 </style>
 
-<div class="container-fluid">
-  <h2>Heder blok</h2>
+<div class="container">
+  <h1 class="container__title">{caption}</h1>
+  {#if subtitle}
+    <p class="container__text">{subtitle}</p>
+  {/if}
 </div>
