@@ -26,19 +26,19 @@
       id: 1,
       text: "Определение потребности объекта в тепловой энергии (Гкал) на нужды отопления, вентиляции, горячего водоснабжения, технологические нужды(максимально-часовые и годовые нагрузки)",
       alt: "image-card",
-      src: "../../../static/images/teplotehnicheskijRaschet/target__img1.png",
+      src: "/images/teplotehnicheskijRaschet/target__img1.png",
     },
     {
       id: 2,
       text: "Определение количества природного газа (м3), необходимого для выработки тепловой энергии и технологические нужды (максимально-часовой и годовой расход газа)",
       alt: "image-card",
-      src: "../../../static/images/teplotehnicheskijRaschet/target__img2.png",
+      src: "/images/teplotehnicheskijRaschet/target__img2.png",
     },
     {
       id: 3,
       text: "Подбор газоиспользующего оборудования для выработки тепловой энергии",
       alt: "image-card",
-      src: "../../../static/images/teplotehnicheskijRaschet/target__img3.png",
+      src: "/images/teplotehnicheskijRaschet/target__img3.png",
     },
   ];
 
@@ -50,7 +50,7 @@
     padding-top: 180px !important;
     padding-bottom: 130px;
 
-    background: url("../../../static/images/teplotehnicheskijRaschet/mainBanner.jpg")
+    background: url("/images/teplotehnicheskijRaschet/mainBanner.jpg")
       no-repeat center;
     background-color: rgba(0, 0, 0, 0.3);
 
@@ -145,7 +145,7 @@
   }
 
   .documentation {
-    background-image: url("../../../static/images/teplotehnicheskijRaschet/documentationBg.jpg");
+    background-image: url("/images/teplotehnicheskijRaschet/documentationBg.jpg");
     background-color: rgba(0, 0, 0, 0.616);
     background-position: center;
     background-repeat: no-repeat;
@@ -189,7 +189,7 @@
     }
   }
   .order {
-    background-image: url("../../../static/images/teplotehnicheskijRaschet/formBg.jpg");
+    background-image: url("/images/teplotehnicheskijRaschet/formBg.jpg");
     background-color: rgba(66, 56, 102, 0.651);
     background-position: center;
     background-repeat: no-repeat;
@@ -278,7 +278,7 @@
         <div class="steps__all">
           <div class="steps__elem">
             <img
-              src="/static/images/teplotehnicheskijRaschet/steps-icon1.png"
+              src="/images/teplotehnicheskijRaschet/steps-icon1.png"
               alt="icon1.png"
               class="steps__img" />
             <p class="steps__info">
@@ -287,7 +287,7 @@
           </div>
           <div class="steps__elem">
             <img
-              src="/static/images/teplotehnicheskijRaschet/steps-icon2.png"
+              src="/images/teplotehnicheskijRaschet/steps-icon2.png"
               alt="icon2.png"
               class="steps__img" />
             <p class="steps__info">
@@ -296,21 +296,21 @@
           </div>
           <div class="steps__elem">
             <img
-              src="/static/images/teplotehnicheskijRaschet/steps-icon3.png"
+              src="/images/teplotehnicheskijRaschet/steps-icon3.png"
               alt="icon3.png"
               class="steps__img" />
             <p class="steps__info">Направляем типовой договор</p>
           </div>
           <div class="steps__elem">
             <img
-              src="/static/images/teplotehnicheskijRaschet/steps-icon4.png"
+              src="/images/teplotehnicheskijRaschet/steps-icon4.png"
               alt="icon4.png"
               class="steps__img" />
             <p class="steps__info">Выполняем теплотехнический рассчет</p>
           </div>
           <div class="steps__elem">
             <img
-              src="/static/images/teplotehnicheskijRaschet/steps-icon5.png"
+              src="/images/teplotehnicheskijRaschet/steps-icon5.png"
               alt="icon5.png"
               class="steps__img" />
             <p class="steps__info">
