@@ -1,5 +1,6 @@
 <script>
-  export let titleText = "";
+  export let titleText = "",
+    white = false;
 
 </script>
 
@@ -23,6 +24,10 @@
     }
   }
 
+  .white-color {
+    color: #fff;
+  }
+
 </style>
 
-<h2 class="title">{titleText}</h2>
+<h2 class="title {white ? 'white-color' : ''}">{titleText}</h2>

@@ -7,9 +7,10 @@
 
 <style lang="scss">
   .target {
-    box-shadow: 0 19px 46px 3px rgb(0 0 0 / 15%);
+    box-shadow: 0 19px 46px 3px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     min-height: 450px;
+    width: 27%;
     background-color: #fff;
     margin-bottom: 30px;
 
@@ -38,7 +39,7 @@
 
 </style>
 
-<div class="target">
+<div class="target is-4">
   <div class="target__img"><img {src} {alt} /></div>
 
   <div class="target__info">

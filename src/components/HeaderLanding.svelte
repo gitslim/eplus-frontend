@@ -2,7 +2,8 @@
   import Link from "./Link.svelte";
 
   export let caption = "",
-    subtitle = "";
+    subtitle = "",
+    order = false;
 
 </script>
 
@@ -40,10 +41,27 @@
     }
   }
 
+  .order__title {
+    text-align: left;
+    font-size: 25px;
+    font-weight: 700;
+    position: relative;
+    text-transform: unset;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 150px;
+      height: 10px;
+      background-color: #f60;
+      top: -50px;
+    }
+  }
+
 </style>
 
 <div class="container">
-  <h1 class="container__title">{caption}</h1>
+  <h1 class={order ? 'order__title' : 'container__title'}>{caption}</h1>
   {#if subtitle}
     <p class="container__text">{subtitle}</p>
   {/if}
