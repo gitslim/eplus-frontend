@@ -7,6 +7,7 @@
   import HeaderLanding from "../../components/HeaderLanding.svelte";
   import TitleLanding from "../../components/TitleLanding.svelte";
   import PurposeCard from "../../components/PurposeCard.svelte";
+  import BtnZayavka from "../../components/BtnZayavka.svelte";
 
   let title = "Теплотехнический расчёт";
 
@@ -51,14 +52,12 @@
     display: block;
     padding-top: 180px !important;
     padding-bottom: 130px;
-
     background: url("/images/teplotehnicheskijRaschet/mainBanner.jpg") no-repeat
       center;
-
+    background-size: cover;
     overflow: hidden;
     color: #fff;
     width: 100vw;
-    max-height: 530px;
   }
 
   .section {
@@ -212,33 +211,6 @@
       font-weight: 300;
       line-height: 30px;
     }
-
-    &__btn {
-      display: inline-flex;
-      align-items: center;
-      padding-top: 10px;
-      text-decoration: none;
-      margin-bottom: 30px;
-      vertical-align: text-bottom;
-      height: 51px;
-      background-color: #f60;
-      padding: 0 60px;
-      color: #fefefe;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s all;
-
-      &-wrap {
-        display: flex;
-      }
-
-      &:hover {
-        background-color: #ff7d27;
-        box-shadow: 0 3px 37px rgba(255, 102, 0, 0.4);
-      }
-    }
   }
 
 </style>
@@ -247,11 +219,13 @@
 
 <main class="container-fluid">
   <section class="section caption">
-    <HeaderLanding {...headerCaption} />
+    <div class="container is-max-widescreen">
+      <HeaderLanding {...headerCaption} />
+    </div>
   </section>
   <section class="section">
-    <TitleLanding titleText="Назначение" />
-    <div class="container functions">
+    <div class="container is-widescreen functions">
+      <TitleLanding titleText="Назначение" />
       <p class="functions__desc">
         Расчет потребности в тепле и топливе (ТТР) требуется для объектов, на
         которых предполагается использование природного газа в качестве топлива
@@ -273,9 +247,9 @@
     </p>
   </section>
   <section class="section steps">
-    <TitleLanding titleText="Этапы работы" />
     <div class="steps__icon">
-      <div class="container">
+      <div class="container is-max-widescreen">
+        <TitleLanding titleText="Этапы работы" />
         <div class="steps__all">
           <div class="steps__elem">
             <img
@@ -367,7 +341,7 @@
     </div>
   </section>
   <section class="section order">
-    <div class="container">
+    <div class="container is-max-widescreen">
       <div class="order__row">
         <div class="order__wrap">
           <HeaderLanding {...footerCaption} />
@@ -376,10 +350,7 @@
             опросный лист и произведем расчет. Оплата производится после
             получения расчета.
           </p>
-          <div class="order__btn-wrap">
-            <a class="order__btn" data-dialog-type="modal" href="/#/">Оставить
-              заявку</a>
-          </div>
+          <BtnZayavka btnText="Оставить заявку" />
         </div>
       </div>
     </div>

@@ -10,9 +10,9 @@
     box-shadow: 0 19px 46px 3px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     min-height: 450px;
-    width: 27%;
     background-color: #fff;
-    margin-bottom: 30px;
+    margin: 0 10px 30px;
+    min-width: 30%;
 
     &__img {
       display: flex;
@@ -23,7 +23,7 @@
     }
 
     &__info {
-      padding: 35px 22px;
+      padding: 35px 0;
       font-size: 16px;
       font-weight: 300;
       line-height: 30px;
@@ -39,9 +39,8 @@
 
 </style>
 
-<div class="target is-4">
+<div class="target column is-one-quarter">
   <div class="target__img"><img {src} {alt} /></div>
-
   <div class="target__info">
     <p>{text}</p>
   </div>
