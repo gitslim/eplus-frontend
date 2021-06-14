@@ -17,7 +17,7 @@
       position: absolute;
       width: 100px;
       height: 5px;
-      top: -20px;
+      top: -30px;
       left: 50%;
       transform: translateX(-50%);
       background-color: #f60;
