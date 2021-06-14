@@ -185,6 +185,7 @@
             <div class="column">
               <Link
                 cls="navbar-item"
+                path="page"
                 title="Техническое перевооружение котельной">
                 Техническое перевооружение котельной
               </Link>

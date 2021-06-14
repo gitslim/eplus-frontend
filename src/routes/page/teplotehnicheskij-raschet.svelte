@@ -54,7 +54,6 @@
 
     background: url("/images/teplotehnicheskijRaschet/mainBanner.jpg") no-repeat
       center;
-    background-color: rgba(0, 0, 0, 0.3);
 
     overflow: hidden;
     color: #fff;
@@ -100,7 +99,7 @@
       content: "";
       display: block;
       position: absolute;
-      top: 247px;
+      top: 281px;
       left: 0;
       width: 100vw;
       height: 4px;
@@ -148,7 +147,6 @@
 
   .documentation {
     background-image: url("/images/teplotehnicheskijRaschet/documentationBg.jpg");
-    background-color: rgba(0, 0, 0, 0.616);
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
@@ -170,6 +168,7 @@
       width: 24%;
       padding-left: 15px;
       padding-right: 15px;
+      margin-bottom: 50px;
     }
     &__num {
       text-shadow: 0 3px 37px rgba(255, 102, 0, 0.24);
