@@ -10,6 +10,7 @@
     position: relative;
     text-transform: uppercase;
     font-size: 30px;
+    text-align: center;
 
     &::before {
       content: "";

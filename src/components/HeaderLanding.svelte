@@ -1,6 +1,4 @@
 <script>
-  import Link from "./Link.svelte";
-
   export let caption = "",
     subtitle = "",
     order = false;
