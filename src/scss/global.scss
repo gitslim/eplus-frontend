@@ -5,17 +5,16 @@ $main-brand-color: #f86923;
 //$widescreen-enabled: false;
 $primary: $main-brand-color;
 $link: $main-brand-color;
-
 @import "../../node_modules/bulma/bulma.sass";
 @import "../../node_modules/bulma-extensions/bulma-divider/dist/css/bulma-divider";
 @import "../../node_modules/bulma-extensions/bulma-pricingtable/dist/css/bulma-pricingtable";
 
-*{
+* {
   box-sizing: border-box;
 }
 
 body {
- // font-family: Montserrat,sans-serif;
+  // font-family: Montserrat,sans-serif;
   color: #383838;
   font-size: 16px;
   line-height: 1.8;
@@ -23,12 +22,12 @@ body {
   font-weight: 400;
 }
 
-.main-logo{
+.main-logo {
   content: url("/logo.png");
   height: 3em;
 }
 
-.footer-logo{
+.footer-logo {
   content: url("/logo.png");
   height: 2em;
 }
@@ -88,7 +87,8 @@ body {
   filter: drop-shadow(3px 3px 2px gray);
   color: orangered;
   font-size: xx-large;
-  &:hover{
+
+  &:hover {
     filter: drop-shadow(1px 1px 1px gray);
     //color: darkred;
     //background-color: orangered;
@@ -99,33 +99,36 @@ body {
 
 .vk {
   color: #4c75a3;
-  &:hover{
+
+  &:hover {
     color: black;
   }
 }
 
 .twitter {
   color: #00acee;
-  &:hover{
+
+  &:hover {
     color: black;
   }
 }
 
 .fb {
   color: #3b5998;
-  &:hover{
+
+  &:hover {
     color: black;
   }
 }
 
-.container{
+.container {
   color: #222;
 }
 
-.widget{
-    padding: 5px 0 30px;
-    display: block;
-    width: 100%;
+.widget {
+  padding: 5px 0 30px;
+  display: block;
+  width: 100%;
 }
 
 .node__content {

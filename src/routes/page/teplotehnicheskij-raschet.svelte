@@ -9,6 +9,8 @@
   import PurposeCard from "../../components/PurposeCard.svelte";
 
   let title = "Теплотехнический расчёт";
+
+  //белый цвет текста
   let white = true;
 
   const headerCaption = {
@@ -50,8 +52,8 @@
     padding-top: 180px !important;
     padding-bottom: 130px;
 
-    background: url("/images/teplotehnicheskijRaschet/mainBanner.jpg")
-      no-repeat center;
+    background: url("/images/teplotehnicheskijRaschet/mainBanner.jpg") no-repeat
+      center;
     background-color: rgba(0, 0, 0, 0.3);
 
     overflow: hidden;
