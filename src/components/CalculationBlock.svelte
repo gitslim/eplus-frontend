@@ -51,9 +51,12 @@
 <div class="calc">
   <TitleLanding titleText="Расчет стоимости" white />
   <ul class="calc__nav">
-    <li class="calc__item">
-      <a class="calc__link active" href="/#/">Котельные</a>
+    <li class="calc__item"><a class="calc__link" href="/#/">Котельные</a></li>
+    <li class="calc__item active">
+      <a class="calc__link" href="/#/">Газопроводы</a>
     </li>
-    <li class="calc__item"><a class="calc__link" href="/#/">Газопроводы</a></li>
   </ul>
+  <div class="calc-form__wrap">
+    <GaslinesForm />
+  </div>
 </div>
