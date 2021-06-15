@@ -14,7 +14,7 @@
   let title = "Техническое переворужение котельной";
 
   const headerCaption = {
-    caption: "Техническое перевооружение котельной",
+    caption: title,
   };
 
   const info = {
