@@ -5,8 +5,12 @@ $main-brand-color: #f86923;
 //$widescreen-enabled: false;
 $primary: $main-brand-color;
 $link: $main-brand-color;
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
+
 @import "../../node_modules/bulma/bulma.sass";
+@import "../../node_modules/bulma/sass/base/_all.sass";
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+
+
 @import "../../node_modules/bulma-extensions/bulma-divider/dist/css/bulma-divider";
 @import "../../node_modules/bulma-extensions/bulma-pricingtable/dist/css/bulma-pricingtable";
 
