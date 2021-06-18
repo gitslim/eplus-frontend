@@ -31,7 +31,6 @@
       color: #fff;
     }
   }
-  $opasity: false;
   .input__wrap {
     display: flex;
     justify-content: center;
@@ -40,11 +39,9 @@
     width: 360px;
 
     & input {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
+      display: none;
     }
-    &-label {
+    &_label {
       display: block;
       position: relative;
 
@@ -58,23 +55,32 @@
         border: none;
         background: #fff;
       }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: -20px;
+        width: 14px;
+        height: 14px;
+        background: url("/images/form-checkbox.png") center no-repeat;
+        transition: 0.2s;
+        opacity: 0;
+      }
     }
   }
-  .checd {
-    position: absolute;
-    top: 8px;
-    left: -20px;
-    width: 14px;
-    height: 14px;
-    background: url("/images/form-checkbox.png") center no-repeat;
-    background-size: contain;
-    transition: 0.2s;
+
+  input[type="checkbox"]:checked + .input__wrap_label::after {
     opacity: 1;
   }
   hr {
     width: 100%;
     height: 2px;
     background-color: gray;
+  }
+
+  .wrapper {
+    padding-left: 1.3rem;
   }
 
   .price {
@@ -99,51 +105,43 @@
   <div class="form__group">
     <div class="input__wrap">
       <div class="form__subtext">Вид работ</div>
-      <label class="input__wrap-label" for="projectOnSiteGas">
+      <div class="wrapper">
         <input
           type="checkbox"
           id="projectOnSiteGas"
           name="projectOnSiteGas"
           bind:checked={projectOnSiteGas}
           value="yes" />
+        <label class="input__wrap_label" for="projectOnSiteGas">
+          проект на внутриплощадочный газопровод</label>
 
-        {#if projectOnSiteGas}
-          <div class="checd" />
-        {/if}
-        проект на внутриплощадочный газопровод</label>
-      <label class="input__wrap-label" for="projecItnternalGas">
         <input
           type="checkbox"
           id="projecItnternalGas"
           name="projecItnternalGas"
           value="yes"
           bind:checked={projecItnternalGas} />
-        {#if projecItnternalGas}
-          <div class="checd" />
-        {/if}
-        проект на внутренний газопровод</label>
-      <label class="input__wrap-label" for="installationOnSiteGas">
+        <label class="input__wrap_label" for="projecItnternalGas">
+          проект на внутренний газопровод</label>
+
         <input
           type="checkbox"
           id="installationOnSiteGas"
           name="installationOnSiteGas"
           value="yes"
           bind:checked={installationOnSiteGas} />
-        {#if installationOnSiteGas}
-          <div class="checd" />
-        {/if}
-        монтаж внутриплощадочного газопровода</label>
-      <label class="input__wrap-label" for="installationInternalGas">
+        <label class="input__wrap_label" for="installationOnSiteGas">
+          монтаж внутриплощадочного газопровода</label>
+
         <input
           type="checkbox"
           id="installationInternalGas"
           name="installationInternalGas"
           value="yes"
           bind:checked={installationInternalGas} />
-        {#if installationInternalGas}
-          <div class="checd" />
-        {/if}
-        монтаж внутреннего газопровода</label>
+        <label class="input__wrap_label" for="installationInternalGas">
+          монтаж внутреннего газопровода</label>
+      </div>
     </div>
     <hr />
   </div>

@@ -7,6 +7,86 @@
 </script>
 
 <style lang="scss">
+  .title-block {
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 15px;
+  }
+  .radio-label {
+    position: relative;
+    padding: 0 0 0 24px;
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    text-align: left;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      border: none;
+      background: #fff;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 11px;
+      left: 2px;
+      width: 10px;
+      height: 10px;
+      background: #ff6600;
+      opacity: 0;
+    }
+  }
+
+  .checkbox-label {
+    position: relative;
+    padding: 0 0 0 24px;
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    text-align: left;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      border: none;
+      background: #fff;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 11px;
+      left: 2px;
+      width: 10px;
+      height: 10px;
+      background: url("/images/form-checkbox.png") no-repeat center;
+
+      opacity: 0;
+    }
+  }
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="radio"]:checked + .radio-label::after,
+  input[type="checkbox"]:checked + .checkbox-label::after {
+    opacity: 1;
+  }
+
+  .btn-wrap {
+    padding-bottom: 24px;
+  }
   hr {
     width: 100%;
     height: 2px;
@@ -34,7 +114,29 @@
 
 <form class="form" name="boilerForm">
   <div class="colums is-max-desktop is-flex is-justify-content-center">
-    <div class="column is-3"><strong>Вид Строительства</strong></div>
+    <div class="column is-3">
+      <div class="construction title-block">Вид строительства</div>
+      <div class="construction__inputs">
+        <input type="radio" id="new" value="new" name="construction" checked />
+        <label class="construction__label radio-label" for="new">новое</label>
+        <input
+          type="radio"
+          id="rearmament"
+          value="rearmament"
+          name="construction" />
+        <label class="construction__label radio-label" for="rearmament">
+          тех. перевооружение
+        </label>
+        <input
+          type="radio"
+          id="reconstruction"
+          value="reconstruction"
+          name="construction" />
+        <label class="construction__label radio-label" for="reconstruction">
+          реконструкция
+        </label>
+      </div>
+    </div>
 
     <div class="column is-3">
       <InputForm
@@ -43,12 +145,39 @@
         name="gazPower"
         placeholder="Мощность оринтеровочная" />
     </div>
+
     <div class="column is-3">
-      <strike>Оборудование</strike>
+      <div class="title-block equipment">Оборудование</div>
+      <div class="equipment__inputs">
+        <input
+          type="radio"
+          id="Imported"
+          name="equipment"
+          value="Imported"
+          checked />
+        <label
+          class="radio-label equipment__label"
+          for="Imported">Импортное</label>
+        <input type="radio" id="domestic" name="equipment" value="domestic" />
+        <label
+          class="radio-label equipment__label"
+          for="domestic">Отечественное</label>
+      </div>
     </div>
-    <div class="column is-3"><small>Вид работ</small></div>
+
+    <div class="column is-3 pl-4">
+      <div class="title-block job">Вид работ</div>
+      <div class="job__inputs">
+        <input type="checkbox" id="project" name="projectJob" value="project" />
+        <label class="checkbox-label job__label" for="project">Проект</label>
+        <input type="checkbox" id="inst" name="instJob" value="inst" />
+        <label class="checkbox-label job__label" for="inst">Монтаж</label>
+      </div>
+    </div>
   </div>
+
   <hr />
+
   <div class="colums is-max-desktop is-flex is-justify-content-center ">
     <div class="column is-3">
       <InputForm
@@ -64,9 +193,12 @@
         placeholder="Телефон или email"
         textLable="Телефон или email" />
     </div>
-    <div class="column is-3 is-flex is-align-items-flex-end pb-6">
-      <Button btnName="boilerForm">Расчитать</Button>
+    <div class="column is-3 is-flex is-align-items-flex-end pb-4">
+      <div class="btn-wrap">
+        <Button btnName="boilerForm">Расчитать</Button>
+      </div>
     </div>
+
     <div class="column is-3">
       <div class="price">
         <div class="price__block">

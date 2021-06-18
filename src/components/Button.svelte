@@ -1,7 +1,7 @@
 <script>
   function clickHandler(e) {
-    console.log("click ===>", e.target);
-    console.log("Button name: ".e.name);
+    //console.log("click ===>", e.target);
+    console.log("event:", e);
   }
   export let btnName = "";
 
@@ -10,6 +10,7 @@
 <style lang="scss">
   .btn {
     width: 100%;
+    height: 3rem;
     color: #222;
     margin-top: 20px;
     border: 2px solid #f86923;
