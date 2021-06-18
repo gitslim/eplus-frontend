@@ -95,7 +95,7 @@
 
 </style>
 
-<form class="form">
+<form class="form" name="gazlineForm">
   <div class="form__group">
     <div class="input__wrap">
       <div class="form__subtext">Вид работ</div>
@@ -104,7 +104,8 @@
           type="checkbox"
           id="projectOnSiteGas"
           name="projectOnSiteGas"
-          bind:checked={projectOnSiteGas} />
+          bind:checked={projectOnSiteGas}
+          value="yes" />
 
         {#if projectOnSiteGas}
           <div class="checd" />
@@ -115,6 +116,7 @@
           type="checkbox"
           id="projecItnternalGas"
           name="projecItnternalGas"
+          value="yes"
           bind:checked={projecItnternalGas} />
         {#if projecItnternalGas}
           <div class="checd" />
@@ -125,6 +127,7 @@
           type="checkbox"
           id="installationOnSiteGas"
           name="installationOnSiteGas"
+          value="yes"
           bind:checked={installationOnSiteGas} />
         {#if installationOnSiteGas}
           <div class="checd" />
@@ -135,6 +138,7 @@
           type="checkbox"
           id="installationInternalGas"
           name="installationInternalGas"
+          value="yes"
           bind:checked={installationInternalGas} />
         {#if installationInternalGas}
           <div class="checd" />
@@ -188,7 +192,7 @@
         </div>
       </div>
       <div class="column is-3 is-flex is-align-items-flex-end pb-5">
-        <Button>Расчитать</Button>
+        <Button btnName="gazlineForm">Расчитать</Button>
       </div>
     </div>
   </div>

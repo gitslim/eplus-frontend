@@ -4,6 +4,13 @@
   import TitleLanding from "./TitleLanding.svelte";
 
   let white = true;
+  let swichToggle = true;
+  let active = true;
+
+  function HandlerClick() {
+    swichToggle = !swichToggle;
+    active = !active;
+  }
 
 </script>
 
@@ -51,12 +58,24 @@
 <div class="calc">
   <TitleLanding titleText="Расчет стоимости" white />
   <ul class="calc__nav">
-    <li class="calc__item"><a class="calc__link" href="/#/">Котельные</a></li>
-    <li class="calc__item active">
-      <a class="calc__link" href="/#/">Газопроводы</a>
+    <li class="calc__item" class:active>
+      <a
+        class="calc__link"
+        on:click|preventDefault={HandlerClick}
+        href="/#/">Котельные</a>
+    </li>
+    <li class="calc__item active" class:active={!active}>
+      <a
+        class="calc__link"
+        href="/#/"
+        on:click|preventDefault={HandlerClick}>Газопроводы</a>
     </li>
   </ul>
   <div class="calc-form__wrap">
-    <GaslinesForm />
+    {#if swichToggle}
+      <BoilerForm />
+    {:else}
+      <GaslinesForm />
+    {/if}
   </div>
 </div>

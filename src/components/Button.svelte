@@ -1,7 +1,9 @@
 <script>
   function clickHandler(e) {
     console.log("click ===>", e.target);
+    console.log("Button name: ".e.name);
   }
+  export let btnName = "";
 
 </script>
 
@@ -32,6 +34,6 @@
 
 </style>
 
-<button class="btn" on:click|preventDefault={clickHandler}>
+<button class="btn" name={btnName} on:click|preventDefault={clickHandler}>
   <slot />
 </button>
