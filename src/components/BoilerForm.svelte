@@ -85,6 +85,7 @@
   }
 
   .btn-wrap {
+    width: 100%;
     padding-bottom: 24px;
   }
   hr {
