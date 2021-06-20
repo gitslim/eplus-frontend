@@ -1,8 +1,10 @@
-import ApolloClient, {gql} from 'apollo-boost'
-import fetch from 'node-fetch'
+import ApolloClient, { gql } from "apollo-boost";
+import fetch from "node-fetch";
 
 const dev = process.env.NODE_ENV === "development";
-const uri = dev ? 'http://localhost:1337/graphql' : 'https://api.xn--c1adkmgpem4hrai.xn--p1ai/graphql'
+const uri = dev
+  ? "http://localhost:1337/graphql"
+  : "https://api.xn--c1adkmgpem4hrai.xn--p1ai/graphql";
 
 export const client = new ApolloClient({
   // link: createHttpLink({
@@ -10,85 +12,84 @@ export const client = new ApolloClient({
   fetch,
   // }),
   // cache: new InMemoryCache(),
-})
+});
 
 client.defaultOptions = {
   watchQuery: {
-    fetchPolicy: 'no-cache',
-    errorPolicy: 'all',
+    fetchPolicy: "no-cache",
+    errorPolicy: "all",
   },
   query: {
-    fetchPolicy: 'no-cache'
-  }
+    fetchPolicy: "no-cache",
+  },
 };
 
-
 export const PAGES_BY_SLUG_QUERY = gql`
-  query ($slug: String!){
-    pages(where: {slug: $slug}) {
+  query($slug: String!) {
+    pages(where: { slug: $slug }) {
       slug
       title
-      sidebar{
+      sidebar {
         __typename
-        ... on ComponentDefaultImage{
-          image{
+        ... on ComponentDefaultImage {
+          image {
             formats
             alternativeText
           }
         }
       }
-      content{
+      content {
         __typename
-        ... on ComponentDefaultParagraph{
+        ... on ComponentDefaultParagraph {
           content
         }
       }
     }
   }
-`
+`;
 
 export const SITE_META = gql`
-  query{
-    siteMeta{
+  query {
+    siteMeta {
       title
       description
-      redirects{
-        ... on ComponentDefaultRedirect{
+      redirects {
+        ... on ComponentDefaultRedirect {
           from
           to
         }
       }
     }
   }
-`
+`;
 
 export const NEWS_ARTICLE_BY_SLUG_QUERY = gql`
-  query ($slug: String!){
-    newsArticles(where: {slug: $slug}) {
+  query($slug: String!) {
+    newsArticles(where: { slug: $slug }) {
       slug
       title
       date
-      image{
+      image {
         url
         alternativeText
       }
-      content{
+      content {
         __typename
-        ... on ComponentDefaultParagraph{
+        ... on ComponentDefaultParagraph {
           content
         }
       }
     }
   }
-`
+`;
 
 export const NEWS_ARTICLES = gql`
   query {
-    newsArticles(sort:"date:desc") {
+    newsArticles(sort: "date:desc") {
       slug
       title
       date
-      image{
+      image {
         url
         formats
         alternativeText
@@ -96,53 +97,53 @@ export const NEWS_ARTICLES = gql`
       summary
     }
   }
-`
+`;
 
 export const ARTICLE_BY_SLUG_QUERY = gql`
-  query ($slug: String!){
-    articles(where: {slug: $slug}) {
+  query($slug: String!) {
+    articles(where: { slug: $slug }) {
       slug
       title
-      image{
+      image {
         url
         alternativeText
       }
-      sidebar{
+      sidebar {
         __typename
-        ... on ComponentDefaultImage{
-          image{
+        ... on ComponentDefaultImage {
+          image {
             formats
             alternativeText
           }
         }
       }
-      content{
+      content {
         __typename
-        ... on ComponentDefaultParagraph{
+        ... on ComponentDefaultParagraph {
           content
         }
       }
     }
   }
-`
+`;
 
 export const ARTICLES = gql`
   query {
-    articles(sort:"date:desc") {
+    articles(sort: "date:desc") {
       slug
       title
-      image{
+      image {
         url
         formats
         alternativeText
       }
     }
   }
-`
+`;
 
 export const DOCUMENTS = gql`
   query {
-    documents(sort:"date:desc") {
+    documents(sort: "date:desc") {
       title
       date
       file {
@@ -150,18 +151,28 @@ export const DOCUMENTS = gql`
       }
     }
   }
-`
+`;
 
 export const TESTIMONIALS = gql`
   query {
-    testimonials(sort:"date:desc") {
+    testimonials(sort: "date:desc") {
       customer
       date
-      image{
+      image {
         url
         formats
         alternativeText
       }
     }
   }
-`
+`;
+
+export const FAQS = gql`
+  query {
+    faqs(sort: "num") {
+      slug
+      title
+      answer
+    }
+  }
+`;
