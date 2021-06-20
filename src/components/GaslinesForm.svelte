@@ -9,7 +9,6 @@
   $: projecItnternalGas = false;
   $: projectOnSiteGas = false;
   $: installationOnSiteGas = false;
-
 </script>
 
 <style lang="scss">
@@ -98,7 +97,6 @@
       top: 45px;
     }
   }
-
 </style>
 
 <form class="form" name="gazlineForm">
@@ -146,7 +144,7 @@
     <hr />
   </div>
   <div class="is-max-desktop computing">
-    <div class="columns is-justify-content-center">
+    <div class="columns" style="justify-content: center;">
       <div class="column is-3">
         <InputForm
           id="name"
@@ -180,16 +178,15 @@
         </div>
       {/if}
     </div>
-    <div class="columns is-justify-content-center">
+    <div class="columns" style="justify-content: center;">
       <div class="column is-3">
         <div class="price">
           <div class="price__block">
-            Стоимость, руб
-            <span class="price__num">{price}</span>
+            Стоимость, руб <span class="price__num">{price}</span>
           </div>
         </div>
       </div>
-      <div class="column is-3 is-flex is-align-items-flex-end pb-5">
+      <div class="column is-3 is-flex pb-5" style="align-items: flex-end;">
         <Button btnName="gazlineForm">Расчитать</Button>
       </div>
     </div>

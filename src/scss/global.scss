@@ -7,8 +7,9 @@ $primary: $main-brand-color;
 $link: $main-brand-color;
 
 @import "../../node_modules/bulma/bulma.sass";
-@import "../../node_modules/bulma/sass/base/_all.sass";
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
+// @import "../../node_modules/bulma/sass/base/_all.sass";
+// @import "../../node_modules/bulma/sass/utilities/_all.sass";
+// @import "../../node_modules//bulma//sass/helpers/_all.sass";
 
 
 @import "../../node_modules/bulma-extensions/bulma-divider/dist/css/bulma-divider";
