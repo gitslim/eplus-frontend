@@ -169,7 +169,17 @@ export const TESTIMONIALS = gql`
 
 export const FAQS = gql`
   query {
-    faqs(sort: "num") {
+    faqs {
+      slug
+      title
+      answer
+    }
+  }
+`;
+
+export const FAQ_BY_ID = gql`
+  query($slug: String!) {
+    faqs(where: { slug: $slug }) {
       slug
       title
       answer
