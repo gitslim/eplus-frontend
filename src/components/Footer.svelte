@@ -1,6 +1,6 @@
 <script>
   import Address from "Address.svelte";
-
+  import Modal from "Modal.svelte";
 </script>
 
 <style lang="scss">
@@ -13,7 +13,6 @@
       //color: black;
     }
   }
-
 </style>
 
 <footer class="footer">
@@ -102,4 +101,9 @@
       </div>
     </div>
   </div>
+
+  <!--modal blok -->
+  <Modal>
+    <p>fom and btn</p>
+  </Modal>
 </footer>
