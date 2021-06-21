@@ -1,6 +1,10 @@
 <script>
   function handlerClick(e) {
-    console.log("type ===>", e.target.attr("dialog-type"));
+    if (e.target.dataset.dialogType === "modal") {
+      const modal = document.querySelector(e.target.dataset.dialogType);
+      modal.classList.add("is-active");
+      // e.target.dataset.dialogType
+    }
   }
 </script>
 
