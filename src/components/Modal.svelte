@@ -1,12 +1,14 @@
 <script>
-  export let open = false
-  export let onClose
+  export let open = true;
+  export const onToggle = () => {
+    open = !open;
+  };
 </script>
 
 <div class="modal {open ? 'is-active' : ''}">
-  <div class="modal-background"></div>
+  <div class="modal-background" on:click={onToggle} />
   <div class="modal-content">
-    <slot/>
+    <slot />
   </div>
-  <button class="modal-close is-large" aria-label="close" on:click={onClose}></button>
+  <button class="modal-close is-large" aria-label="close" on:click={onToggle} />
 </div>

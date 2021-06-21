@@ -1,6 +1,7 @@
 <script>
   import Address from "Address.svelte";
   import Modal from "Modal.svelte";
+  import Button from "./Button.svelte";
 </script>
 
 <style lang="scss">
@@ -12,6 +13,24 @@
     .column-title {
       //color: black;
     }
+  }
+  .title {
+    color: #fff;
+    background-color: gray;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .modal-wrap {
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  form {
+    padding: 10px;
   }
 </style>
 
@@ -103,7 +122,25 @@
   </div>
 
   <!--modal blok -->
+
   <Modal>
-    <p>fom and btn</p>
+    <div class="column modal-wrap is-6">
+      <div class="title is-flex is-size-4">Оставить заявку</div>
+      <form name="modal-form">
+        <div class="field">
+          <label class="label">ВАШЕ ИМЯ</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Ваше имя" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">ТЕЛЕФОН</label>
+          <div class="control">
+            <input class="input" type="tel" placeholder="Телефон" />
+          </div>
+        </div>
+        <Button btnName="modalSend">Отправить</Button>
+      </form>
+    </div>
   </Modal>
 </footer>

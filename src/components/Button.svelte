@@ -4,14 +4,14 @@
     console.log("event:", e);
   }
   export let btnName = "";
-
 </script>
 
 <style lang="scss">
   .btn {
     width: 100%;
     height: 3rem;
-    color: #222;
+    color: #fff;
+    font-size: 1.3rem;
     margin-top: 20px;
     border: 2px solid #f86923;
     background: #f86923;
@@ -30,9 +30,9 @@
 
     &:hover {
       background: #fff;
+      color: black;
     }
   }
-
 </style>
 
 <button class="btn" name={btnName} on:click|preventDefault={clickHandler}>
