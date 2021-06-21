@@ -1,59 +1,71 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo"
-  import {client, ARTICLES} from "../../apollo";
+  import SvelteSeo from "svelte-seo";
+  import { client, FAQS } from "../../apollo";
 
   export async function preload(page, session) {
-
     let cache = await client.query({
-      query: ARTICLES,
+      query: FAQS,
       variables: {},
     });
-    return {articles: cache.data.articles};
 
-    // return this.error(404, "Страница не найдена");
+    return { faqs: cache.data.faqs };
+
+    //return this.error(404, "Страница не найдена");
   }
+  //cache.data.faqs
 </script>
 
 <script>
-  import ArticleIndexItem from "../../components/ArticleIndexItem.svelte";
-  export let articles, segment;
-  let title = 'Вопросы и ответы'
+  import CallbackForm from "../../components/CallbackForm.svelte";
+  import SidebarRight from "../../components/SidebarRight.svelte";
+
+  let title = "Часто задаваемые вопросы";
+
+  export let faqs, segment;
 </script>
 
-<!--<div>-->
-<!--    {#await $pageContent}-->
-<!--        <li>Loading...</li>-->
-<!--    {:then result}-->
-<!--        <li>{result.title}</li>-->
-<!--    {:catch error}-->
-<!--        <li>Error loading page: {error}</li>-->
-<!--    {/await}-->
-<!--    {page.title}-->
+<style lang="scss">
+  .aside__right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
 
-<SvelteSeo
-  title="{title}"
-/>
+<SvelteSeo {title} />
 
-<section class="section">
-  <div class="container">
-    <h1 class="title">{title}</h1>
+<div class="container .is-widescreen mt-5">
+  <main class="main columns">
+    <section class="section column is-8">
+      <div class="widget">
+        <h2 class="title">
+          <span>{title}</span>
+          <span class="heading-line" />
+        </h2>
+      </div>
 
-    <div class="columns">
-      <div class="column is-9">
-        <div class="columns is-multiline">
-          {#each articles as article, i}
-            <div class="column is-4">
-              <ArticleIndexItem article="{article}"/>
+      <div class="is-centered">
+        <ul class="faq">
+          {#each faqs as faq}
+            <div class="box">
+              <li class="faq__item">
+                <a href="/faq/{faq.slug}" class="faq__link">{faq.title}</a>
+              </li>
             </div>
           {/each}
-        </div>
+        </ul>
       </div>
+    </section>
+    <div class="column is-4">
+      <aside class="aside__right">
+        <SidebarRight />
 
-      <div class="column">
-        <div class="box">
-          sidebar
-        </div>
-      </div>
+        <CallbackForm />
+      </aside>
     </div>
-  </div>
-</section>
+  </main>
+</div>

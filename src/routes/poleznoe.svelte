@@ -2,7 +2,6 @@
   import CallbackForm from "../components/CallbackForm.svelte";
 
   import SidebarRight from "../components/SidebarRight.svelte";
-
 </script>
 
 <style lang="scss">
@@ -40,7 +39,6 @@
     margin-top: 12.5px;
     margin-bottom: 12.5px;
   }
-
 </style>
 
 <main class="container">
@@ -54,7 +52,7 @@
         </div>
         <div class="builder-element-inside">
           <div class="builder-element-children-wrapper">
-            <h3><a href="/faq-page">Вопросы и ответы</a></h3>
+            <h3><a href="/faq">Вопросы и ответы</a></h3>
             <h3><a href="/kalkulatory">Калькуляторы</a></h3>
             <h3>
               <a href="/kalkulator-rasceta-stoimosti-gazoprovoda">Расчет
@@ -69,9 +67,9 @@
         </div>
       </section>
     </div>
-    <div class="block-sidebar">
+    <aside class="block-sidebar">
       <SidebarRight />
       <CallbackForm />
-    </div>
+    </aside>
   </div>
 </main>
