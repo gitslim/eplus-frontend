@@ -1,27 +1,27 @@
 <script context="module">
   import SvelteSeo from "svelte-seo";
-
 </script>
 
 <script>
   import CallbackForm from "../components/CallbackForm.svelte";
 
   let title = "Услуги";
-
 </script>
 
 <style lang="scss">
   @import "../scss/uslugi.scss";
-
 </style>
 
 <SvelteSeo {title} />
 
 <main role="main" class="main main-page">
-  <div class="row">
+  <div class="columns">
     <div class="container mt-2">
       <div class="widget">
-        <h2 class="title"><span>Услуги</span> <span class="heading-line" /></h2>
+        <h2 class="title">
+          <span>{title}</span>
+          <span class="heading-line" />
+        </h2>
       </div>
       <div class="container-wrap">
         <div class="widget">
@@ -107,8 +107,7 @@
 
         <div class="widget">
           <h2 class="title">
-            <span><span><a href="/stroitelstvo">Строительство</a></span>
-            </span><span class="heading-line">&nbsp;</span>
+            <span><span><a href="/stroitelstvo">Строительство</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
         <div class="item-wrap node__content">
@@ -160,8 +159,7 @@
         </div>
         <div class="widget">
           <h2 class="title">
-            <span><span><a href="/obsluzivanie">Обслуживание</a></span>
-            </span><span class="heading-line">&nbsp;</span>
+            <span><span><a href="/obsluzivanie">Обслуживание</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
         <div class="item-wrap node__content">
@@ -187,8 +185,7 @@
         </div>
         <div class="widget">
           <h2 class="title">
-            <span><span><a href="/energoaudit">Энергоаудит</a></span>
-            </span><span class="heading-line">&nbsp;</span>
+            <span><span><a href="/energoaudit">Энергоаудит</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
         <div class="item-wrap node__content">

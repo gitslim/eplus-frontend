@@ -3,7 +3,6 @@
   import InputForm from "./InputForm.svelte";
 
   let price = 0;
-
 </script>
 
 <style lang="scss">
@@ -85,6 +84,7 @@
   }
 
   .btn-wrap {
+    width: 100%;
     padding-bottom: 24px;
   }
   hr {
@@ -109,7 +109,6 @@
       top: 45px;
     }
   }
-
 </style>
 
 <form class="form" name="boilerForm">
@@ -178,7 +177,7 @@
 
   <hr />
 
-  <div class="colums is-max-desktop is-flex is-justify-content-center ">
+  <div class="colums is-max-desktop is-flex is-justify-content-center">
     <div class="column is-3">
       <InputForm
         id="name"
@@ -193,7 +192,7 @@
         placeholder="Телефон или email"
         textLable="Телефон или email" />
     </div>
-    <div class="column is-3 is-flex is-align-items-flex-end pb-4">
+    <div class="column is-3 is-flex pb-4" style="align-items: flex-end;">
       <div class="btn-wrap">
         <Button btnName="boilerForm">Расчитать</Button>
       </div>
@@ -202,8 +201,7 @@
     <div class="column is-3">
       <div class="price">
         <div class="price__block">
-          Стоимость, руб
-          <span class="price__num">{price}</span>
+          Стоимость, руб <span class="price__num">{price}</span>
         </div>
       </div>
     </div>
