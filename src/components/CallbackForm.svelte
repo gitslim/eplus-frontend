@@ -1,4 +1,7 @@
 <script>
+  function handlerClick(e) {
+    console.log("type ===>", e.target.attr("dialog-type"));
+  }
 </script>
 
 <style lang="scss">
@@ -36,7 +39,6 @@
       background-color: #f86923;
     }
   }
-
 </style>
 
 <div class="contact-link">
@@ -50,7 +52,8 @@
     <!--<a class="btn-white" href="#/modal/contact-form">обратная связь</a>-->
     <a
       class="btn-white"
+      on:click|preventDefault={handlerClick}
       data-dialog-type="modal"
-      href="/contact/kontaktnaa_forma">Мы перезвоним вам</a>
+      href="/#/">Мы перезвоним вам</a>
   </div>
 </div>
