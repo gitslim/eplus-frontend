@@ -5,6 +5,8 @@
 <script>
   import CalcBoiler from "../components/CalcBoiler.svelte";
   import CalcGaslines from "../components/calcGazline.svelte";
+  import CallbackForm from "../components/CallbackForm.svelte";
+  import SidebarRight from "../components/SidebarRight.svelte";
 
   let swichToggle = true;
   let active = true;
@@ -24,7 +26,7 @@
       color: #222;
       padding: 8px 18px !important;
       border: none;
-      font-size: 13px;
+      font-size: 1em;
       text-transform: uppercase;
       background: none;
       letter-spacing: 1px;
@@ -53,39 +55,62 @@
     pointer-events: none;
     cursor: default;
   }
+
+  .aside__right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 </style>
 
 <SvelteSeo {title} />
-<main role="main" class="main main-page">
+<main role="main" class="main main-page columns my-6">
   <div class="container mt-4">
-    <div class="widget column is-8">
-      <h2 class="title"><span>{title}</span> <span class="heading-line" /></h2>
-    </div>
-    <div class="column is-8 calc">
-      <ul class="calc__nav is-flex">
-        <li class="calc__item">
-          <a
-            class="calc__link"
-            class:active
-            on:click|preventDefault={handlerClick}
-            href="/#/">Котельные</a>
-        </li>
-        <li class="calc__item">
-          <a
-            class="calc__link"
-            class:active={!active}
-            href="/#/"
-            on:click|preventDefault={handlerClick}>Газопроводы</a>
-        </li>
-      </ul>
-    </div>
-    <div class="column is-8">
-      <div class="calc-form__wrap">
-        {#if swichToggle}
-          <CalcBoiler />
-        {:else}
-          <CalcGaslines />
-        {/if}
+    <div class="columns">
+      <div class="column is-8">
+        <div class="widget column">
+          <h2 class="title">
+            <span>{title}</span>
+            <span class="heading-line" />
+          </h2>
+        </div>
+        <div class="column calc">
+          <ul class="calc__nav is-flex">
+            <li class="calc__item">
+              <a
+                class="calc__link"
+                class:active
+                on:click|preventDefault={handlerClick}
+                href="/#/">Котельные</a>
+            </li>
+            <li class="calc__item">
+              <a
+                class="calc__link"
+                class:active={!active}
+                href="/#/"
+                on:click|preventDefault={handlerClick}>Газопроводы</a>
+            </li>
+          </ul>
+        </div>
+        <div class="column">
+          <div class="calc-form__wrap">
+            {#if swichToggle}
+              <CalcBoiler />
+            {:else}
+              <CalcGaslines />
+            {/if}
+          </div>
+        </div>
+      </div>
+      <div class="column is-4">
+        <aside class="aside__right">
+          <SidebarRight />
+          <CallbackForm />
+        </aside>
       </div>
     </div>
   </div>
