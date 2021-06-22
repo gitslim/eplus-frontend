@@ -16,7 +16,7 @@
 
 <main role="main" class="main main-page">
   <div class="columns">
-    <div class="container mt-2">
+    <div class="container mt-4">
       <div class="widget">
         <h2 class="title">
           <span>{title}</span>

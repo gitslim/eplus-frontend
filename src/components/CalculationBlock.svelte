@@ -11,7 +11,6 @@
     swichToggle = !swichToggle;
     active = !active;
   }
-
 </script>
 
 <style lang="scss">
@@ -48,8 +47,9 @@
 
   .active {
     background: #ff6600;
+    pointer-events: none;
+    cursor: default;
   }
-
 </style>
 
 <!-- <BoilerForm/>
