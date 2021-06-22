@@ -1,5 +1,5 @@
 <script>
-  export let open = true;
+  export let open = false;
   export const onToggle = () => {
     open = !open;
   };
