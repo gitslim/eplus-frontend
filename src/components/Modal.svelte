@@ -1,9 +1,15 @@
 <script>
-  export let open = false;
+  export let open = true;
   export const onToggle = () => {
     open = !open;
   };
 </script>
+
+<style lang="scss">
+  button {
+    position: absolute;
+  }
+</style>
 
 <div class="modal {open ? 'is-active' : ''}">
   <div class="modal-background" on:click={onToggle} />

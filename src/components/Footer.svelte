@@ -125,7 +125,7 @@
 
   <Modal>
     <div class="column modal-wrap is-6">
-      <div class="title is-flex is-size-4">Оставить заявку</div>
+      <div class="title is-flex is-size-5">Оставить заявку</div>
       <form name="modal-form">
         <div class="field">
           <label class="label">ВАШЕ ИМЯ</label>
