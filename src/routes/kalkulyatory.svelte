@@ -4,12 +4,12 @@
 
 <script>
   import CalcBoiler from "../components/CalcBoiler.svelte";
-  import CalcGaslines from "../components/calcGazline.svelte";
+  import CalcGaslines from "../components/CalcGazline.svelte";
   import CallbackForm from "../components/CallbackForm.svelte";
   import SidebarRight from "../components/SidebarRight.svelte";
 
-  let swichToggle = true;
-  let active = true;
+  let swichToggle = false;
+  let active = false;
 
   function handlerClick() {
     active = !active;
