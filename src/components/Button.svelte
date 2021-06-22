@@ -3,7 +3,9 @@
     //console.log("click ===>", e.target);
     console.log("event:", e);
   }
-  export let btnName = "";
+  export let btnName = "",
+    radius = false,
+    disabled = false;
 </script>
 
 <style lang="scss">
@@ -33,8 +35,17 @@
       color: black;
     }
   }
+
+  .radius {
+    border-radius: 30px;
+  }
 </style>
 
-<button class="btn" name={btnName} on:click|preventDefault={clickHandler}>
+<button
+  class="btn"
+  class:radius
+  name={btnName}
+  disabled:disabled
+  on:click|preventDefault={clickHandler}>
   <slot />
 </button>
