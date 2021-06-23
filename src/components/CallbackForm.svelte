@@ -1,11 +1,7 @@
 <script>
-  function handlerClick(e) {
-    if (e.target.dataset.dialogType === "modal") {
-      const modal = document.querySelector(e.target.dataset.dialogType);
-      modal.classList.add("is-active");
-      // e.target.dataset.dialogType
-    }
-  }
+  import { bind } from "svelte/internal";
+import Modal from "./Modal.svelte";
+  let modal;
 </script>
 
 <style lang="scss">
@@ -52,12 +48,14 @@
     <b style="font-size:15px;" class="roistat-phone">+7 (495) 790-76-97</b><br />
     или воспользуйтесь формой обратной связи
   </div>
-  <div class="action">
+  <div>
     <!--<a class="btn-white" href="#/modal/contact-form">обратная связь</a>-->
     <a
       class="btn-white"
-      on:click|preventDefault={handlerClick}
-      data-dialog-type="modal"
+      on:click|preventDefault={() => {
+        modal.isOpen();
+      }}
       href="/#/">Мы перезвоним вам</a>
   </div>
 </div>
+<Modal bind:this={modal}/>
