@@ -14,24 +14,6 @@
       //color: black;
     }
   }
-  .title {
-    color: #fff;
-    background-color: gray;
-    justify-content: center;
-    padding: 10px;
-  }
-
-  .modal-wrap {
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  form {
-    padding: 10px;
-  }
 </style>
 
 <footer class="footer">
@@ -122,7 +104,6 @@
   </div>
 
   <!--modal blok -->
-
   <Modal>
     <div class="column modal-wrap is-6">
       <div class="title is-flex is-size-5">Оставить заявку</div>
@@ -143,4 +124,5 @@
       </form>
     </div>
   </Modal>
+  
 </footer>
