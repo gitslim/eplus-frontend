@@ -1,4 +1,4 @@
-<script>
+
   import { UniqueTypeNamesRule } from "graphql";
 
   import { createEventDispatcher, onDestroy } from "svelte";
@@ -30,6 +30,7 @@
       tabbable[index].focus();
       e.preventDefault();
     }
+
   };
 
   const previously_focused =
@@ -51,6 +52,7 @@
 </script>
 
 <style lang="scss">
+
   .title {
     color: #fff;
     background-color: gray;
@@ -75,6 +77,7 @@
 
 <div class="modal {shown ? 'is-active' : ''}">
   <div class="modal-background" on:click={isClose} />
+
   <div class="modal-content">
     <div class="column modal-wrap is-6">
       <div class="title is-flex is-size-4">Оставить заявку</div>
