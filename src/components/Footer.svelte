@@ -104,4 +104,25 @@
   </div>
 
   <!--modal blok -->
+  <Modal>
+    <div class="column modal-wrap is-6">
+      <div class="title is-flex is-size-5">Оставить заявку</div>
+      <form name="modal-form">
+        <div class="field">
+          <label class="label">ВАШЕ ИМЯ</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Ваше имя" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">ТЕЛЕФОН</label>
+          <div class="control">
+            <input class="input" type="tel" placeholder="Телефон" />
+          </div>
+        </div>
+        <Button btnName="modalSend">Отправить</Button>
+      </form>
+    </div>
+  </Modal>
+  
 </footer>
