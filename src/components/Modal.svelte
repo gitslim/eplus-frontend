@@ -1,4 +1,4 @@
-
+<script>
   import { UniqueTypeNamesRule } from "graphql";
 
   import { createEventDispatcher, onDestroy } from "svelte";
@@ -30,7 +30,6 @@
       tabbable[index].focus();
       e.preventDefault();
     }
-
   };
 
   const previously_focused =
@@ -52,7 +51,6 @@
 </script>
 
 <style lang="scss">
-
   .title {
     color: #fff;
     background-color: gray;
