@@ -21,7 +21,7 @@
 
   let title = "Часто задаваемые вопросы";
 
-  export let faqs, segment;
+  export let faqs;
 </script>
 
 <style lang="scss">
