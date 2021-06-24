@@ -1,14 +1,15 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo"
-  import {client, ARTICLES} from "../../apollo";
+  import SvelteSeo from "svelte-seo";
+  import { client, ARTICLES } from "../../apollo";
+  import CallbackForm from "../../components/CallbackForm.svelte";
+  import SidebarRight from "../../components/SidebarRight.svelte";
 
   export async function preload(page, session) {
-
     let cache = await client.query({
       query: ARTICLES,
       variables: {},
     });
-    return {articles: cache.data.articles};
+    return { articles: cache.data.articles };
 
     // return this.error(404, "Страница не найдена");
   }
@@ -17,7 +18,7 @@
 <script>
   import ArticleIndexItem from "../../components/ArticleIndexItem.svelte";
   export let articles, segment;
-  let title = 'Статьи'
+  let title = "Статьи";
 </script>
 
 <!--<div>-->
@@ -30,9 +31,7 @@
 <!--    {/await}-->
 <!--    {page.title}-->
 
-<SvelteSeo
-  title="{title}"
-/>
+<SvelteSeo {title} />
 
 <section class="section">
   <div class="container">
@@ -43,16 +42,17 @@
         <div class="columns is-multiline">
           {#each articles as article, i}
             <div class="column is-4">
-              <ArticleIndexItem article="{article}"/>
+              <ArticleIndexItem {article} />
             </div>
           {/each}
         </div>
       </div>
 
       <div class="column">
-        <div class="box">
-          sidebar
-        </div>
+        <aside class="aside__right">
+          <SidebarRight />
+          <CallbackForm />
+        </aside>
       </div>
     </div>
   </div>
