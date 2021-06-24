@@ -56,7 +56,7 @@
     cursor: default;
   }
 
-  .aside__right {
+  :global(.aside__right) {
     display: flex;
     justify-content: center;
     flex-direction: column;
