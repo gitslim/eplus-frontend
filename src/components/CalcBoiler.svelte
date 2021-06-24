@@ -4,10 +4,15 @@
 
   $: project = false;
   $: inst = false;
+  $: amaunt = 0;
+  $: gazPower = "";
 
   $: valid = project || inst ? true : false;
 
-  export let amaunt = 0;
+  function calcAmount(event) {
+    event.preventDefault();
+    amaunt = gazPower ? 80000 + (+gazPower - 1) * 8000 : 0;
+  }
 </script>
 
 <style lang="scss">
@@ -103,7 +108,8 @@
             textLable="Мощность котельной, МВт"
             id="gazPower"
             name="gazPower"
-            placeholder="Мощность котельной, МВт" />
+            placeholder="Мощность котельной, МВт"
+            bind:value={gazPower} />
         </div>
         <div class="container column is-12 is-flex ml-3">
           <div class="column is-4 desc"><span>Оборудование</span></div>
@@ -175,7 +181,9 @@
           class="container column is-8 is-flex pb-4"
           style="align-items: center;">
           <div class="btn-wrap column is-6">
-            <Button btnName="boilerForm" radius>Расчитать</Button>
+            <Button on:click={calcAmount} btnName="boilerForm" radius>
+              Расчитать
+            </Button>
           </div>
         </div>
         <div class="amaunt container column is-12 is-flex">
