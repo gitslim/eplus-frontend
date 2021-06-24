@@ -53,7 +53,7 @@
         <div class="builder-element-inside">
           <div class="builder-element-children-wrapper">
             <h3><a href="/faq">Вопросы и ответы</a></h3>
-            <h3><a href="/kalkulatory">Калькуляторы</a></h3>
+            <h3><a href="/kalkulyatory">Калькуляторы</a></h3>
             <h3>
               <a href="/kalkulator-rasceta-stoimosti-gazoprovoda">Расчет
                 газопровода</a>
@@ -61,7 +61,7 @@
             <h3>
               <a href="/kalkulator-rasceta-stoimosti-kotelnoi">Расчет котельной</a>
             </h3>
-            <h3><a href="/normativnye-dokumenty">Нормативные документы</a></h3>
+            <h3><a href="/documents">Нормативные документы</a></h3>
             <h3><a href="/stati-po-energetike">Статьи</a></h3>
           </div>
         </div>
