@@ -1,14 +1,15 @@
 <script>
-  import { UniqueTypeNamesRule } from "graphql";
-
   import { createEventDispatcher, onDestroy } from "svelte";
-  import Button from "./Button.svelte";
+  import fetch from "node-fetch";
 
   const dispatch = createEventDispatcher();
   const close = () => dispatch("close");
 
   let modal,
     shown = false;
+  $: uName = "";
+  $: uPhone = "";
+  let disabled = false;
 
   const handle_keydown = (e) => {
     if (e.key === "Escape") {
@@ -48,6 +49,20 @@
   export function isClose() {
     shown = false;
   }
+  async function send() {
+    //const uri = "https://energy-plus.bitrix24.ru/rest/24/1r1d4lsvi52ba17t/crm.lead.add.json";
+    const uriGet = `https://energy-plus.bitrix24.ru/rest/24/sdffnlbl90oxjik5/crm.lead.add.json?FIELDS[TITLE]=Обращение с сайта&FIELDS[NAME]=${uName}&FIELDS[PHONE][0][VALUE]=${uPhone}`;
+
+    let response = await fetch(uriGet);
+    if (response.error) {
+      alert(response.error);
+    }
+    if (response.ok) {
+      //console.log(response);
+      shown = false;
+      alert("Ваша заявка принята");
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -69,6 +84,33 @@
   form {
     padding: 10px;
   }
+
+  .btn {
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    font-size: 1.3rem;
+    margin-top: 20px;
+    border: 2px solid #f86923;
+    background: #f86923;
+    // border-radius: 30px;
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 9px 24px 9px;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+
+    &:hover {
+      background: #fff;
+      color: black;
+    }
+  }
 </style>
 
 <svelte:window on:keydown={handle_keydown} />
@@ -81,18 +123,30 @@
       <div class="title is-flex is-size-4">Оставить заявку</div>
       <form name="modal-form">
         <div class="field">
-          <label class="label">ВАШЕ ИМЯ</label>
+          <label for="uName" class="label">ВАШЕ ИМЯ</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Ваше имя" />
+            <input
+              bind:value={uName}
+              class="input"
+              type="text"
+              id="uName"
+              placeholder="Ваше имя" />
           </div>
         </div>
         <div class="field">
-          <label class="label">ТЕЛЕФОН</label>
+          <label for="uPhone" class="label">ТЕЛЕФОН</label>
           <div class="control">
-            <input class="input" type="tel" placeholder="Телефон" />
+            <input
+              bind:value={uPhone}
+              class="input"
+              type="tel"
+              id="uPhone"
+              placeholder="Телефон" />
           </div>
         </div>
-        <Button btnName="modalSend">Отправить</Button>
+        <button
+          class="button btn"
+          on:click|preventDefault={send}>Отправить</button>
       </form>
     </div>
   </div>

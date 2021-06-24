@@ -1,8 +1,4 @@
 <script>
-  function clickHandler(e) {
-    //console.log("click ===>", e.target);
-    console.log("event:", e);
-  }
   export let btnName = "",
     radius = false,
     disabled = false;
@@ -41,11 +37,6 @@
   }
 </style>
 
-<button
-  class="btn"
-  class:radius
-  name={btnName}
-  disabled:disabled
-  on:click|preventDefault={clickHandler}>
+<button class="btn button" class:radius name={btnName} {disabled}>
   <slot />
 </button>

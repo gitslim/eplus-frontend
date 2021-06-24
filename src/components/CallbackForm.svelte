@@ -1,6 +1,5 @@
 <script>
-  import { bind } from "svelte/internal";
-import Modal from "./Modal.svelte";
+  import Modal from "./Modal.svelte";
   let modal;
 </script>
 
@@ -58,4 +57,4 @@ import Modal from "./Modal.svelte";
       href="/#/">Мы перезвоним вам</a>
   </div>
 </div>
-<Modal bind:this={modal}/>
+<Modal bind:this={modal} />
