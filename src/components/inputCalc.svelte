@@ -1,16 +1,22 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
   $: val = "";
   $: danger = false;
 
   export let id = "",
     placeholder = "",
     textLable = "",
-    name = "";
+    name = "",
+    val;
 
   function emptiness(val) {
     if (!val) {
       return (danger = true);
-    } else return (danger = false);
+    } else danger = false;
+    dispatch("val", val);
   }
 </script>
 

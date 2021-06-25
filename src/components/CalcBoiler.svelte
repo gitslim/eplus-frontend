@@ -1,17 +1,26 @@
 <script>
   import Button from "./Button.svelte";
   import InputCalc from "./inputCalc.svelte";
+  //import { calculation } from "../utils";
 
   $: project = false;
   $: inst = false;
   $: amaunt = 0;
   $: gazPower = "";
+  $: construction = "";
+  $: equipment = "";
 
   $: valid = project || inst ? true : false;
 
-  function calcAmount(event) {
-    event.preventDefault();
-    amaunt = gazPower ? 80000 + (+gazPower - 1) * 8000 : 0;
+  function handlerGazPower() {
+    gazPower = val;
+  }
+
+  function submitHandler(e) {
+    console.log("submitHandler: ", gazPower);
+    console.log("construction: ", construction);
+    console.log("equipment: ", equipment);
+    console.log("gazPower: ", gazPower.$$ctx["0"]);
   }
 </script>
 
@@ -68,7 +77,7 @@
 </style>
 
 <div class="container">
-  <form name="calcBoiler">
+  <form on:submit|preventDefault={submitHandler} name="calcBoiler">
     <div class="control">
       <div class="container is-flex columns is-multiline">
         <div class="column absolute-center is-4 desc">
@@ -81,6 +90,7 @@
               id="new"
               value="new"
               name="construction"
+              bind:group={construction}
               checked />
             <span>новое</span>
           </label>
@@ -90,7 +100,9 @@
               type="radio"
               id="rearmament"
               value="rearmament"
+              bind:group={construction}
               name="construction" />
+
             <span>тех. перевооружение</span>
           </label>
 
@@ -99,6 +111,7 @@
               type="radio"
               id="reconstruction"
               value="reconstruction"
+              bind:group={construction}
               name="construction" />
             <span>реконструкция</span>
           </label>
@@ -109,7 +122,7 @@
             id="gazPower"
             name="gazPower"
             placeholder="Мощность котельной, МВт"
-            bind:value={gazPower} />
+            bind:this={gazPower} />
         </div>
         <div class="container column is-12 is-flex ml-3">
           <div class="column is-4 desc"><span>Оборудование</span></div>
@@ -121,6 +134,7 @@
                 id="Imported"
                 name="equipment"
                 value="Imported"
+                bind:group={equipment}
                 checked />
               <span>Импортное</span>
             </label>
@@ -129,7 +143,8 @@
                 type="radio"
                 id="domestic"
                 name="equipment"
-                value="domestic" />
+                value="domestic"
+                bind:group={equipment} />
               <span>Отечественное</span>
             </label>
           </div>
@@ -181,9 +196,7 @@
           class="container column is-8 is-flex pb-4"
           style="align-items: center;">
           <div class="btn-wrap column is-6">
-            <Button on:click={calcAmount} btnName="boilerForm" radius>
-              Расчитать
-            </Button>
+            <Button btnName="boilerForm" radius>Расчитать</Button>
           </div>
         </div>
         <div class="amaunt container column is-12 is-flex">
