@@ -14,6 +14,10 @@
     : false;
 
   export let amaunt = 0;
+
+  function submitHandler(e) {
+    console.log("submitHandler: ", e);
+  }
 </script>
 
 <style lang="scss">
@@ -62,7 +66,7 @@
 </style>
 
 <div class="contauner">
-  <form class="calcGazline">
+  <form on:submit|preventDefault={submitHandler} class="calcGazline">
     <div class="control">
       <div class="container is-flex columns is-multiline">
         <div class="container column is-12 is-flex mt-4">
