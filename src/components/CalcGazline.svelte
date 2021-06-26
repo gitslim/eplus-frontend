@@ -1,22 +1,33 @@
 <script>
   import Button from "./Button.svelte";
   import InputCalc from "./inputCalc.svelte";
+  import { calculation } from "../utils";
 
-  $: projekts = {
-    projectOnSiteGas: false,
-    projecItnternalGas: false,
-    installationOnSiteGas: false,
-    installationInternalGas: false,
+  $: amount = 0;
+
+  $: projectOnSiteGas = false;
+  $: projectInternalGas = false;
+  $: installOnSiteGas = false;
+  $: installInternalGas = false;
+
+  const props = {
+    project: false,
+    install: false,
+    gazPower: "",
+    gazLine: "",
+    construction: "",
+    equipment: "",
+    name: "",
+    PhoneOrEmail: "",
   };
 
-  $: valid = Object.keys(projekts).find((key) => projekts[key] === true)
-    ? true
-    : false;
+  function submitHandler() {
+    props.project = projectOnSiteGas || projectInternalGas ? true : false;
 
-  export let amaunt = 0;
+    props.install = installOnSiteGas || installInternalGas ? true : false;
 
-  function submitHandler(e) {
-    console.log("submitHandler: ", e);
+    //console.log(props);
+    amount = calculation(props);
   }
 </script>
 
@@ -65,28 +76,29 @@
   }
 </style>
 
-<div class="contauner">
+<div class="container">
   <form on:submit|preventDefault={submitHandler} class="calcGazline">
     <div class="control">
       <div class="container is-flex columns is-multiline">
         <div class="container column is-12 is-flex mt-4">
           <div class="column pr-2 is-4 desc"><span>Вид работ</span></div>
-          <div class="job column py-0 is-8 {valid ? 'valid' : 'invalid'}">
+          <div
+            class="job column py-0 is-8 {projectOnSiteGas || projectInternalGas || installOnSiteGas || installInternalGas ? 'valid' : 'invalid'}">
             <label class="checkbox-label job__label" for="projectOnSiteGas">
               <input
                 type="checkbox"
                 id="projectOnSiteGas"
                 name="projectOnSiteGas"
-                bind:checked={projekts.projectOnSiteGas} />
+                bind:checked={projectOnSiteGas} />
               <span>проект на внутриплощадочный газопровод</span>
             </label>
 
-            <label class="checkbox-label job__label" for="projecItnternalGas">
+            <label class="checkbox-label job__label" for="projectInternalGas">
               <input
                 type="checkbox"
-                id="projecItnternalGas"
-                name="projecItnternalGas"
-                bind:checked={projekts.projecItnternalGas} />
+                id="projectInternalGas"
+                name="projectInternalGas"
+                bind:checked={projectInternalGas} />
               <span>проект на внутренний газопровод</span>
             </label>
 
@@ -97,7 +109,7 @@
                 type="checkbox"
                 id="installationOnSiteGas"
                 name="installationOnSiteGas"
-                bind:checked={projekts.installationOnSiteGas} />
+                bind:checked={installOnSiteGas} />
               <span> монтаж внутриплощадочного газопровода</span>
             </label>
 
@@ -108,28 +120,30 @@
                 type="checkbox"
                 id="installationInternalGas"
                 name="installationInternalGas"
-                bind:checked={projekts.installationInternalGas} />
+                bind:checked={installInternalGas} />
               <span>монтаж внутреннего газопровода</span>
             </label>
           </div>
         </div>
-        {#if projekts.installationOnSiteGas || projekts.projectOnSiteGas}
+        {#if projectInternalGas || installInternalGas}
           <div class="container py-0 column is-12 is-flex">
             <InputCalc
-              textLable="Протяженность, м"
+              textLabel="Протяженность, м"
               id="gazLen"
               name="gazLen"
-              placeholder="Протяженность оринтеровочная" />
+              placeholder="Протяженность оринтеровочная"
+              bind:val={props.gazLine} />
           </div>
         {/if}
 
-        {#if projekts.installationInternalGas || projekts.projecItnternalGas}
+        {#if projectOnSiteGas || installOnSiteGas}
           <div class="container py-0 column is-12 is-flex">
             <InputCalc
-              textLable="Мощность, МВт"
+              textLabel="Мощность, МВт"
               id="gazPower"
               name="gazPower"
-              placeholder="Мощность оринтеровочная" />
+              placeholder="Мощность оринтеровочная"
+              bind:val={props.gazPower} />
           </div>
         {/if}
 
@@ -138,7 +152,8 @@
             id="name"
             name="name"
             placeholder="Ваше Имя"
-            textLable="Ваше Имя" />
+            textLabel="Ваше Имя"
+            bind:val={props.name} />
         </div>
 
         <div class="container py-0 column is-12 is-flex">
@@ -146,7 +161,8 @@
             id="PhoneOrEmail"
             name="PhoneOrEmail"
             placeholder="Телефон или email"
-            textLable="Телефон или email" />
+            textLabel="Телефон или email"
+            bind:val={props.PhoneOrEmail} />
         </div>
 
         <div
@@ -160,7 +176,7 @@
           <div class="column amaunt__text absolute-center py-0 is-4 desc">
             <span>Стоимость, руб</span>
           </div>
-          <div class="amaunt__num"><span>{amaunt}</span></div>
+          <div class="amaunt__num"><span>{amount}</span></div>
         </div>
       </div>
     </div>
