@@ -1,26 +1,22 @@
 <script>
   import Button from "./Button.svelte";
   import InputCalc from "./inputCalc.svelte";
-  //import { calculation } from "../utils";
 
-  $: project = false;
-  $: inst = false;
-  $: amaunt = 0;
-  $: gazPower = "";
-  $: construction = "";
-  $: equipment = "";
+  import { calculation } from "../utils";
+  let amount = 0;
 
-  $: valid = project || inst ? true : false;
+  const props = {
+    project: false,
+    install: false,
+    gazPower: "",
+    construction: "",
+    equipment: "",
+    name: "",
+    PhoneOrEmail: "",
+  };
 
-  function handlerGazPower() {
-    gazPower = val;
-  }
-
-  function submitHandler(e) {
-    console.log("submitHandler: ", gazPower);
-    console.log("construction: ", construction);
-    console.log("equipment: ", equipment);
-    console.log("gazPower: ", gazPower.$$ctx["0"]);
+  function submitHandler() {
+    amount = calculation(props);
   }
 </script>
 
@@ -90,8 +86,8 @@
               id="new"
               value="new"
               name="construction"
-              bind:group={construction}
-              checked />
+              checked
+              bind:group={props.construction} />
             <span>новое</span>
           </label>
 
@@ -100,7 +96,7 @@
               type="radio"
               id="rearmament"
               value="rearmament"
-              bind:group={construction}
+              bind:group={props.construction}
               name="construction" />
 
             <span>тех. перевооружение</span>
@@ -111,7 +107,7 @@
               type="radio"
               id="reconstruction"
               value="reconstruction"
-              bind:group={construction}
+              bind:group={props.construction}
               name="construction" />
             <span>реконструкция</span>
           </label>
@@ -122,7 +118,7 @@
             id="gazPower"
             name="gazPower"
             placeholder="Мощность котельной, МВт"
-            bind:this={gazPower} />
+            bind:val={props.gazPower} />
         </div>
         <div class="container column is-12 is-flex ml-3">
           <div class="column is-4 desc"><span>Оборудование</span></div>
@@ -134,7 +130,7 @@
                 id="Imported"
                 name="equipment"
                 value="Imported"
-                bind:group={equipment}
+                bind:group={props.equipment}
                 checked />
               <span>Импортное</span>
             </label>
@@ -144,7 +140,7 @@
                 id="domestic"
                 name="equipment"
                 value="domestic"
-                bind:group={equipment} />
+                bind:group={props.equipment} />
               <span>Отечественное</span>
             </label>
           </div>
@@ -153,14 +149,15 @@
         <div class="container column is-12 is-flex mt-4">
           <div class="column is-4 desc"><span>Вид работ</span></div>
 
-          <div class="job column is-8 {valid ? 'valid' : 'invalid'}">
+          <div
+            class="job column is-8 {props.project || props.install ? 'valid' : 'invalid'}">
             <label class="checkbox-label job__label" for="project">
               <input
                 type="checkbox"
                 id="project"
                 name="projectJob"
                 value="project"
-                bind:checked={project} />
+                bind:checked={props.project} />
               <span>Проект</span>
             </label>
 
@@ -170,7 +167,7 @@
                 id="inst"
                 name="instJob"
                 value="inst"
-                bind:checked={inst} />
+                bind:checked={props.install} />
               <span>Монтаж</span>
             </label>
           </div>
@@ -181,7 +178,8 @@
             id="name"
             name="name"
             placeholder="Ваше Имя"
-            textLable="Ваше Имя" />
+            textLable="Ваше Имя"
+            bind:val={props.name} />
         </div>
 
         <div class="container column is-12 is-flex">
@@ -189,7 +187,8 @@
             id="PhoneOrEmail"
             name="PhoneOrEmail"
             placeholder="Телефон или email"
-            textLable="Телефон или email" />
+            textLable="Телефон или email"
+            bind:val={props.PhoneOrEmail} />
         </div>
 
         <div
@@ -203,7 +202,7 @@
           <div class="column amaunt__text absolute-center is-4 desc">
             <span>Стоимость, руб</span>
           </div>
-          <div class="column is-8 amaunt__num"><span>{amaunt}</span></div>
+          <div class="column is-8 amaunt__num"><span>{amount}</span></div>
         </div>
       </div>
     </div>
