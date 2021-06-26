@@ -1,17 +1,17 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
   $: val = "";
-  $: danger = false;
 
   export let id = "",
     placeholder = "",
-    textLable = "",
-    name = "";
+    textLabel = "",
+    name = "",
+    val;
 
-  function emptiness(val) {
-    if (!val) {
-      return (danger = true);
-    } else return (danger = false);
-  }
+  dispatch("val", val);
 </script>
 
 <style lang="scss">
@@ -61,7 +61,7 @@
 </style>
 
 <div class="item column">
-  <label class="item__lable column is-4" for={id}>{textLable}</label>
+  <label class="item__lable column is-4" for={id}>{textLabel}</label>
   <div class="item__input-wrap column">
     <input
       class="item__input column {val ? 'valid' : 'invalid'}"
@@ -69,8 +69,7 @@
       {id}
       {name}
       {placeholder}
-      bind:value={val}
-      on:input={emptiness(val)} />
+      bind:value={val} />
   </div>
-  {#if danger}<span class="item__danger">Обязательное поле</span>{/if}
+  {#if !val}<span class="item__danger">Обязательное поле</span>{/if}
 </div>
