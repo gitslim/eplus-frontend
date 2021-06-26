@@ -3,12 +3,34 @@
 
   import Button from "./Button.svelte";
   import InputForm from "./InputForm.svelte";
+  import { calculation } from "../utils";
 
-  let price = 0;
-  $: installationInternalGas = false;
-  $: projecItnternalGas = false;
+  $: amount = 0;
+
   $: projectOnSiteGas = false;
-  $: installationOnSiteGas = false;
+  $: projectInternalGas = false;
+  $: installOnSiteGas = false;
+  $: installInternalGas = false;
+
+  const props = {
+    project: false,
+    install: false,
+    gazPower: "",
+    gazLine: "",
+    construction: "",
+    equipment: "",
+    name: "",
+    PhoneOrEmail: "",
+  };
+
+  function submitHandler() {
+    props.project = projectOnSiteGas || projectInternalGas ? true : false;
+
+    props.install = installOnSiteGas || installInternalGas ? true : false;
+
+    //console.log(props);
+    amount = calculation(props);
+  }
 </script>
 
 <style lang="scss">
@@ -99,7 +121,7 @@
   }
 </style>
 
-<form class="form" name="gazlineForm">
+<form class="form" name="gazlineForm" on:submit|preventDefault={submitHandler}>
   <div class="form__group">
     <div class="input__wrap">
       <div class="form__subtext">Вид работ</div>
@@ -118,7 +140,7 @@
           id="projecItnternalGas"
           name="projecItnternalGas"
           value="yes"
-          bind:checked={projecItnternalGas} />
+          bind:checked={projectInternalGas} />
         <label class="input__wrap_label" for="projecItnternalGas">
           проект на внутренний газопровод</label>
 
@@ -127,7 +149,7 @@
           id="installationOnSiteGas"
           name="installationOnSiteGas"
           value="yes"
-          bind:checked={installationOnSiteGas} />
+          bind:checked={installOnSiteGas} />
         <label class="input__wrap_label" for="installationOnSiteGas">
           монтаж внутриплощадочного газопровода</label>
 
@@ -136,7 +158,7 @@
           id="installationInternalGas"
           name="installationInternalGas"
           value="yes"
-          bind:checked={installationInternalGas} />
+          bind:checked={installInternalGas} />
         <label class="input__wrap_label" for="installationInternalGas">
           монтаж внутреннего газопровода</label>
       </div>
@@ -150,31 +172,35 @@
           id="name"
           name="name"
           placeholder="Ваше Имя"
-          textLable="Ваше Имя" />
+          textLable="Ваше Имя"
+          bind:val={props.name} />
       </div>
       <div class="column is-3">
         <InputForm
           id="PhoneOrEmail"
           name="PhoneOrEmail"
           placeholder="Телефон или email"
-          textLable="Телефон или email" />
+          textLable="Телефон или email"
+          bind:val={props.PhoneOrEmail} />
       </div>
-      {#if projectOnSiteGas || installationOnSiteGas}
+      {#if projectInternalGas || installInternalGas}
         <div class="column is-3">
           <InputForm
             textLable="Протяженность, м"
             id="gazLen"
             name="gazLen"
-            placeholder="Протяженность оринтеровочная" />
+            placeholder="Протяженность оринтеровочная"
+            bind:val={props.gazLine} />
         </div>
       {/if}
-      {#if projecItnternalGas || installationInternalGas}
+      {#if projectOnSiteGas || installOnSiteGas}
         <div class="column is-3">
           <InputForm
             textLable="Мощность, МВт"
             id="gazPower"
             name="gazPower"
-            placeholder="Мощность оринтеровочная" />
+            placeholder="Мощность оринтеровочная"
+            bind:val={props.gazPower} />
         </div>
       {/if}
     </div>
@@ -182,7 +208,7 @@
       <div class="column is-3">
         <div class="price">
           <div class="price__block">
-            Стоимость, руб <span class="price__num">{price}</span>
+            Стоимость, руб <span class="price__num">{amount}</span>
           </div>
         </div>
       </div>

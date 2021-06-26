@@ -8,8 +8,8 @@
   import CallbackForm from "../components/CallbackForm.svelte";
   import SidebarRight from "../components/SidebarRight.svelte";
 
-  let swichToggle = false;
-  let active = false;
+  let swichToggle = true;
+  let active = true;
 
   function handlerClick() {
     active = !active;
