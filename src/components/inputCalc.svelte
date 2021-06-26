@@ -4,7 +4,6 @@
   const dispatch = createEventDispatcher();
 
   $: val = "";
-  $: danger = false;
 
   export let id = "",
     placeholder = "",
@@ -12,12 +11,7 @@
     name = "",
     val;
 
-  function emptiness(val) {
-    if (!val) {
-      return (danger = true);
-    } else danger = false;
-    dispatch("val", val);
-  }
+  dispatch("val", val);
 </script>
 
 <style lang="scss">
@@ -75,8 +69,7 @@
       {id}
       {name}
       {placeholder}
-      bind:value={val}
-      on:input={emptiness(val)} />
+      bind:value={val} />
   </div>
-  {#if danger}<span class="item__danger">Обязательное поле</span>{/if}
+  {#if !val}<span class="item__danger">Обязательное поле</span>{/if}
 </div>

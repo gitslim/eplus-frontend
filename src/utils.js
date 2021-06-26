@@ -28,18 +28,29 @@ const chooseImageUrl = function (image) {
 const twitter = function (url, title) {};
 
 const calculation = function (data) {
-  const projectGazLine = data.projectGazLine
-    ? 90000 + (data.projectGazLine - 100) * 600
-    : 0;
-  const projectPower = data.projectPower
-    ? 80000 + (data.projectPower - 1) * 8000
-    : 0;
-  const installGazLine = data.installGazLine ? 20000 * data.installGazLine : 0;
-  const installPower = data.installPower
-    ? 1000000 + (data.installPower - 1) * 7500
-    : 0;
+  let projectGazLine = 0,
+    projectPower = 0,
+    installGazLine = 0,
+    installPower = 0;
 
-  return +(projectGazLine + projectPower + installGazLine + installPower);
+  if (data.project) {
+    projectGazLine = data.gazLine
+      ? 90000 + (parseInt(data.gazLine) - 100) * 600
+      : 0;
+    projectPower = data.gazPower
+      ? 80000 + (parseInt(data.gazPower) - 1) * 8000
+      : 0;
+  }
+
+  if (data.install) {
+    installGazLine = data.gazLine ? 20000 * parseInt(data.gazLine) : 0;
+    installPower = data.gazPower
+      ? 1000000 + (parseInt(data.gazPower) - 1) * 7500
+      : 0;
+  }
+
+  let amount = projectGazLine + projectPower + installGazLine + installPower;
+  return amount;
 };
 
 export { formatDate, chooseImageUrl, twitter, calculation };
