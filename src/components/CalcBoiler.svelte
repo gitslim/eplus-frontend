@@ -1,9 +1,9 @@
 <script>
   import Button from "./Button.svelte";
   import InputCalc from "./inputCalc.svelte";
-
   import { calculation } from "../utils";
-  let amount = 0;
+
+  $: amount = 0;
 
   const props = {
     project: false,
@@ -114,7 +114,7 @@
         </div>
         <div class="container column is-12 is-flex">
           <InputCalc
-            textLable="Мощность котельной, МВт"
+            textLabel="Мощность котельной, МВт"
             id="gazPower"
             name="gazPower"
             placeholder="Мощность котельной, МВт"

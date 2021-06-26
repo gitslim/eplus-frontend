@@ -7,7 +7,7 @@
 
   export let id = "",
     placeholder = "",
-    textLable = "",
+    textLabel = "",
     name = "",
     val;
 
@@ -61,7 +61,7 @@
 </style>
 
 <div class="item column">
-  <label class="item__lable column is-4" for={id}>{textLable}</label>
+  <label class="item__lable column is-4" for={id}>{textLabel}</label>
   <div class="item__input-wrap column">
     <input
       class="item__input column {val ? 'valid' : 'invalid'}"
