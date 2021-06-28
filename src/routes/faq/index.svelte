@@ -39,7 +39,7 @@
 <SvelteSeo {title} />
 
 <div class="container .is-widescreen mt-5">
-  <main class="main columns">
+  <main class="main columns is-desktop">
     <section class="section column is-8">
       <div class="widget">
         <h2 class="title">
@@ -63,7 +63,6 @@
     <div class="column is-4">
       <aside class="aside__right">
         <SidebarRight />
-
         <CallbackForm />
       </aside>
     </div>

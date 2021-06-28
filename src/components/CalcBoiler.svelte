@@ -41,10 +41,10 @@
     padding-bottom: 0;
   }
   .construction {
-    padding-left: 33px;
+    padding-left: 19px;
   }
   .equipment {
-    padding-left: 19px;
+    padding-left: 3px;
   }
   .job {
     margin-left: 16px;
@@ -82,11 +82,11 @@
         <div class="field is-flex column is-8 construction">
           <label class="construction__label radio-label" for="new">
             <input
+              checked="true"
               type="radio"
               id="new"
               value="new"
               name="construction"
-              checked
               bind:group={props.construction} />
             <span>новое</span>
           </label>
@@ -120,7 +120,7 @@
             placeholder="Мощность котельной, МВт"
             bind:val={props.gazPower} />
         </div>
-        <div class="container column is-12 is-flex ml-3">
+        <div class="container column is-12 is-flex ml-3 mt-4">
           <div class="column is-4 desc"><span>Оборудование</span></div>
 
           <div class="field equipment is-flex column is-8">
@@ -178,7 +178,7 @@
             id="name"
             name="name"
             placeholder="Ваше Имя"
-            textLable="Ваше Имя"
+            textLabel="Ваше Имя"
             bind:val={props.name} />
         </div>
 
@@ -187,7 +187,7 @@
             id="PhoneOrEmail"
             name="PhoneOrEmail"
             placeholder="Телефон или email"
-            textLable="Телефон или email"
+            textLabel="Телефон или email"
             bind:val={props.PhoneOrEmail} />
         </div>
 

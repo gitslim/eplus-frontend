@@ -1,6 +1,5 @@
 <script context="module">
   import SvelteSeo from "svelte-seo";
-
 </script>
 
 <script>
@@ -8,7 +7,6 @@
   import SidebarRight from "../components/SidebarRight.svelte";
 
   let title = "Комплексные решения";
-
 </script>
 
 <style lang="scss">
@@ -37,7 +35,6 @@
     margin-left: auto;
     margin-right: auto;
   }
-
 </style>
 
 <SvelteSeo {title} />
@@ -53,12 +50,11 @@
         <div class="column-content">
           <ul>
             <li>
-              <a href="/tehniceskoe-perevooruzenie">Техническое перевооружение
-                котельной</a>
+              <a href="/page/tehnicheskoe-perevooruzhenie-kotelnoj">Техническое
+                перевооружение котельной</a>
             </li>
             <li>
-              <a
-                href="/vnutriplosadocnye-i-vnutrennie-gazoprovody">Внутриплощадочные
+              <a href="/page/vnutriploshadochnye-gazoprovody">Внутриплощадочные
                 и внутренние газопроводы</a>
             </li>
           </ul>

@@ -28,7 +28,8 @@
           <h2 class="title">
             <span>
               <span>
-                <a class="title-link" href="/proektirovanie">Проектирование </a>
+                <a class="title-link" href="/page/proektirovanie">Проектирование
+                </a>
               </span>
             </span>
             <span class="heading-line">&nbsp;</span>
@@ -37,7 +38,7 @@
         <div class="item-wrap node__content">
           <h3>
             <a
-              href="/proektirovanie-magistralnyh-gazoprovodov-i-grs">Магистральные
+              href="/page/proektirovanie-magistralnyh-gazoprovodov-i-grs">Магистральные
               газопроводы и ГРС</a>
           </h3>
 
@@ -49,7 +50,7 @@
 
           <h3>
             <a
-              href="/proektirovanie-gazoraspredelitelnyh-sistem-i-grp">Газораспределительные
+              href="/page/proektirovanie-gazoraspredelitelnyh-sistem-i-grp">Газораспределительные
               системы и ГРП</a>
           </h3>
 
@@ -61,8 +62,7 @@
           </p>
 
           <h3>
-            <a
-              href="/vnutriplosadocnye-i-vnutrennie-gazoprovody">Внутриплощадочные
+            <a href="/page/vnutriploshadochnye-gazoprovody">Внутриплощадочные
               газопроводы</a>
           </h3>
 
@@ -74,14 +74,16 @@
             сжигания газа.
           </p>
 
-          <h3><a href="/proektirovanie-avtonomnyh-kotelnyh">Котельные</a></h3>
+          <h3>
+            <a href="/page/proektirovanie-avtonomnyh-kotelnyh">Котельные</a>
+          </h3>
 
           <p>
             Компания «Энергия Плюс» специализируется на разработке проектов
             паровых и водогрейных котельных.
           </p>
 
-          <h3><a href="/proektirovanie-energocentrov">Энергоцентры</a></h3>
+          <h3><a href="/page/proektirovanie-energocentrov">Энергоцентры</a></h3>
 
           <p>
             Строительство малых теплоэлектростанций (мини-ТЭС) с
@@ -89,11 +91,11 @@
             экологически безопасными.
           </p>
 
-          <h3><a href="/teplovye-punkty">Тепловые пункты</a></h3>
+          <h3><a href="/page/teplovye-punkty">Тепловые пункты</a></h3>
 
           <h3>
-            <a href="/funkcii-generalnogo-proektirovsika">Функции генерального
-              проектировщика</a>
+            <a href="/page/funkcii-generalnogo-proektirovshika">Функции
+              генерального проектировщика</a>
           </h3>
 
           <p>
@@ -107,11 +109,14 @@
 
         <div class="widget">
           <h2 class="title">
-            <span><span><a href="/stroitelstvo">Строительство</a></span> </span><span class="heading-line">&nbsp;</span>
+            <span><span><a href="/page/stroitelstvo">Строительство</a></span>
+            </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
         <div class="item-wrap node__content">
-          <h3><a href="/postavka-oborudovania">Поставка оборудования</a></h3>
+          <h3>
+            <a href="/page/postavka-oborudovaniya">Поставка оборудования</a>
+          </h3>
 
           <p>
             Комплектная поставка оборудования объектов теплоэнергетики
@@ -121,7 +126,8 @@
           </p>
 
           <h3>
-            <a href="/stroitelno-montaznye-raboty">Строительно-монтажные работы</a>
+            <a href="/page/stroitelno-montazhnye-raboty">Строительно-монтажные
+              работы</a>
           </h3>
 
           <p>
@@ -131,7 +137,7 @@
           </p>
 
           <h3>
-            <a href="/pusko-naladocnye-raboty">Пуско-наладочные работы</a>
+            <a href="/page/pusko-naladochnye-raboty">Пуско-наладочные работы</a>
           </h3>
 
           <p>
@@ -143,8 +149,8 @@
           </p>
 
           <h3>
-            <a href="/funkcii-tehniceskogo-zakazcika">Функции технического
-              заказчика</a>
+            <a href="/page/funkcii-tehnicheskogo-zakazchika">Функции
+              технического заказчика</a>
           </h3>
 
           <p>
@@ -159,11 +165,12 @@
         </div>
         <div class="widget">
           <h2 class="title">
-            <span><span><a href="/obsluzivanie">Обслуживание</a></span> </span><span class="heading-line">&nbsp;</span>
+            <span><span><a href="/page/obsluzivanie">Обслуживание</a></span>
+            </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
         <div class="item-wrap node__content">
-          <h3><a href="/avtorskii-nadzor">Авторский надзор</a></h3>
+          <h3><a href="/page/avtorskii-nadzor">Авторский надзор</a></h3>
 
           <p>
             Полный комплекс услуг по авторскому сопровождению проектов, которое
@@ -172,7 +179,8 @@
           </p>
 
           <h3>
-            <a href="/tehniceskoe-servisnoe-obsluzivanie">Сервисное обслуживание</a>
+            <a href="/page/tehniceskoe-servisnoe-obsluzivanie">Сервисное
+              обслуживание</a>
           </h3>
 
           <p>
@@ -185,14 +193,18 @@
         </div>
         <div class="widget">
           <h2 class="title">
-            <span><span><a href="/energoaudit">Энергоаудит</a></span> </span><span class="heading-line">&nbsp;</span>
+            <span><span><a href="/page/energoaudit">Энергоаудит</a></span>
+            </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
         <div class="item-wrap node__content">
-          <h3><a href="/energeticeskii-pasport">Энергетический паспорт</a></h3>
+          <h3>
+            <a href="/page/energeticeskii-pasport">Энергетический паспорт</a>
+          </h3>
 
           <h3>
-            <a href="/energeticeskoe-obsledovanie">Энергетическое обследование</a>
+            <a href="/page/energeticeskoe-obsledovanie">Энергетическое
+              обследование</a>
           </h3>
           <hr class="hr-line" />
         </div>

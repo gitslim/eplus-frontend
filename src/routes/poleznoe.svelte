@@ -5,15 +5,17 @@
 </script>
 
 <style lang="scss">
-  .content__wrap {
-    display: flex;
-  }
+  // .content__wrap {
+  //   display: flex;
+  // }
+
   .content-block {
-    width: 65%;
+    // width: 65%;
     margin-right: 10px;
   }
+
   .block-sidebar {
-    width: 370px;
+    // width: 370px;
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -22,9 +24,11 @@
   .builder-element-inside {
     padding-left: 15px;
   }
+
   a {
     color: #202020;
     text-decoration: none;
+
     &:hover {
       color: #f86923;
     }
@@ -41,13 +45,13 @@
   }
 </style>
 
-<main class="container">
-  <div class="row content__wrap">
-    <div class="content-block col-8">
+<main class="container .is-widescreen">
+  <div class="columns is-desktop content__wrap">
+    <div class="content-block column is-8">
       <section>
         <div class="widget">
           <h2 class="title">
-            <span><span>Полезное</span> </span><span class="heading-line" />
+            <span><span>Полезное</span></span><span class="heading-line" />
           </h2>
         </div>
         <div class="builder-element-inside">
@@ -55,21 +59,24 @@
             <h3><a href="/faq">Вопросы и ответы</a></h3>
             <h3><a href="/kalkulyatory">Калькуляторы</a></h3>
             <h3>
-              <a href="/kalkulator-rasceta-stoimosti-gazoprovoda">Расчет
+              <a href="/page/kalkulator-rasceta-stoimosti-gazoprovoda">Расчет
                 газопровода</a>
             </h3>
             <h3>
-              <a href="/kalkulator-rasceta-stoimosti-kotelnoi">Расчет котельной</a>
+              <a href="/page/kalkulator-rasceta-stoimosti-kotelnoi">Расчет
+                котельной</a>
             </h3>
             <h3><a href="/documents">Нормативные документы</a></h3>
-            <h3><a href="/stati-po-energetike">Статьи</a></h3>
+            <h3><a href="/articles">Статьи</a></h3>
           </div>
         </div>
       </section>
     </div>
-    <aside class="block-sidebar">
-      <SidebarRight />
-      <CallbackForm />
-    </aside>
+    <div class="column is-4 mt-5">
+      <aside class="aside__right">
+        <SidebarRight />
+        <CallbackForm />
+      </aside>
+    </div>
   </div>
 </main>

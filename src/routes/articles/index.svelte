@@ -37,8 +37,8 @@
   <div class="container">
     <h1 class="title">{title}</h1>
 
-    <div class="columns">
-      <div class="column is-9">
+    <div class="columns is-desktop">
+      <div class="column is-8">
         <div class="columns is-multiline">
           {#each articles as article, i}
             <div class="column is-4">
@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <div class="column">
+      <div class="column is-4">
         <aside class="aside__right">
           <SidebarRight />
           <CallbackForm />
