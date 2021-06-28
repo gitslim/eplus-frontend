@@ -172,7 +172,12 @@ export const FAQS = gql`
     faqs {
       slug
       title
-      answer
+      content {
+        __typename
+        ... on ComponentDefaultParagraph {
+          content
+        }
+      }
     }
   }
 `;
@@ -182,7 +187,12 @@ export const FAQ_BY_ID = gql`
     faqs(where: { slug: $slug }) {
       slug
       title
-      answer
+      content {
+        __typename
+        ... on ComponentDefaultParagraph {
+          content
+        }
+      }
     }
   }
 `;

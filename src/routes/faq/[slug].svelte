@@ -15,7 +15,9 @@
 </script>
 
 <script>
-  export let faq;
+  import DynamicZone from "../../components/DynamicZone.svelte";
+
+  export let faq, segment;
 </script>
 
 <style>
@@ -25,11 +27,17 @@
 </style>
 
 <SvelteSeo title={faq.title} />
-<main class="container">
-  <article class="message mt-5 mb-5">
-    <div class="message-header">
-      <p>{faq.title}</p>
+<main class="main">
+  <section class="section">
+    <div class="container">
+      <div class="message mt-5 mb-5">
+        <div class="message-header">
+          <p>{faq.title}</p>
+        </div>
+        <div class="box">
+          <DynamicZone content={faq.content} />
+        </div>
+      </div>
     </div>
-    <div class="message-body">{faq.answer}</div>
-  </article>
+  </section>
 </main>
