@@ -68,7 +68,7 @@
 </style>
 
 <SvelteSeo {title} />
-<main role="main" class="main main-page columns my-6">
+<main role="main" class="main main-page columns is-desktop my-6">
   <div class="container mt-4">
     <div class="columns">
       <div class="column is-8">

@@ -45,7 +45,7 @@
       position: absolute;
       bottom: -5px;
       color: red;
-      left: 316px;
+      left: 323px;
     }
   }
 
