@@ -4,10 +4,8 @@
 
 <script>
   import CallbackForm from "../components/CallbackForm.svelte";
-  import { fly } from "svelte/transition";
 
   let y = 0;
-  $: console.log(y);
   export let title = "Услуги",
     segment;
 </script>
