@@ -1,7 +1,7 @@
 <script>
   export let btnName = "",
-    radius = false;
-  // disabled = false;
+    radius = false,
+    isDisabled = false;
 </script>
 
 <style lang="scss">
@@ -37,6 +37,6 @@
   }
 </style>
 
-<button class="btn button" class:radius name={btnName}>
+<button class="btn button" class:radius name={btnName} disabled={isDisabled}>
   <slot />
 </button>

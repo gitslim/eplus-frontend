@@ -3,6 +3,8 @@
   import InputCalc from "./inputCalc.svelte";
   import { calculation } from "../utils";
 
+  let valid = false;
+
   $: amount = 0;
 
   const props = {
@@ -14,6 +16,16 @@
     name: "",
     PhoneOrEmail: "",
   };
+
+  $: if (
+    (props.gazPower.trim().length >= 1 &&
+      props.name.trim().length >= 2 &&
+      props.PhoneOrEmail.trim().length > 5 &&
+      props.project) ||
+    props.install
+  ) {
+    valid = true;
+  } else valid = false;
 
   function submitHandler() {
     amount = calculation(props);
@@ -195,7 +207,9 @@
           class="container column is-8 is-flex pb-4"
           style="align-items: center;">
           <div class="btn-wrap column is-6">
-            <Button btnName="boilerForm" radius>Расчитать</Button>
+            <Button btnName="boilerForm" radius isDisabled={!valid}>
+              Расчитать
+            </Button>
           </div>
         </div>
         <div class="amaunt container column is-12 is-flex">

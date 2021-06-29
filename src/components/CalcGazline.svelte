@@ -3,6 +3,8 @@
   import InputCalc from "./inputCalc.svelte";
   import { calculation } from "../utils";
 
+  let valid = false;
+
   $: amount = 0;
 
   $: projectOnSiteGas = false;
@@ -20,6 +22,17 @@
     name: "",
     PhoneOrEmail: "",
   };
+
+  $: props.project = projectOnSiteGas || projectInternalGas ? true : false;
+  $: props.install = installOnSiteGas || installInternalGas ? true : false;
+  $: if (
+    (props.name.trim().length > 1 &&
+      props.PhoneOrEmail.trim().length > 5 &&
+      props.project) ||
+    props.install
+  ) {
+    valid = true;
+  } else valid = false;
 
   function submitHandler() {
     props.project = projectOnSiteGas || projectInternalGas ? true : false;
@@ -169,7 +182,13 @@
           class="container column is-8 is-flex py-0"
           style="align-items: center;">
           <div class="btn-wrap column py-0 is-6">
-            <Button class="mt-0" btnName="boilerForm" radius>Расчитать</Button>
+            <Button
+              class="mt-0"
+              btnName="boilerForm"
+              radius
+              isDisabled={!valid}>
+              Расчитать
+            </Button>
           </div>
         </div>
         <div class="amaunt container column is-12 is-flex">

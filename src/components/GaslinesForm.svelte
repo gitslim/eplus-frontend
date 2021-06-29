@@ -6,6 +6,7 @@
   import { calculation } from "../utils";
 
   $: amount = 0;
+  let valid = false;
 
   $: projectOnSiteGas = false;
   $: projectInternalGas = false;
@@ -22,6 +23,17 @@
     name: "",
     PhoneOrEmail: "",
   };
+
+  $: props.project = projectOnSiteGas || projectInternalGas ? true : false;
+  $: props.install = installOnSiteGas || installInternalGas ? true : false;
+  $: if (
+    (props.name.trim().length > 1 &&
+      props.PhoneOrEmail.trim().length > 5 &&
+      props.project) ||
+    props.install
+  ) {
+    valid = true;
+  } else valid = false;
 
   function submitHandler() {
     props.project = projectOnSiteGas || projectInternalGas ? true : false;
@@ -213,7 +225,7 @@
         </div>
       </div>
       <div class="column is-3 is-flex pb-5" style="align-items: flex-end;">
-        <Button btnName="gazlineForm">Расчитать</Button>
+        <Button btnName="gazlineForm" isDisabled={!valid}>Расчитать</Button>
       </div>
     </div>
   </div>
