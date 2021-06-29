@@ -1,7 +1,12 @@
+<script context="module">
+  import SvelteSeo from "svelte-seo";
+</script>
+
 <script>
   import CallbackForm from "../components/CallbackForm.svelte";
   import SidebarRight from "../components/SidebarRight.svelte";
 
+  let title = "Комплексные решения";
 </script>
 
 <style lang="scss">
@@ -30,28 +35,26 @@
     margin-left: auto;
     margin-right: auto;
   }
-
 </style>
 
+<SvelteSeo {title} />
 <main class="container">
-  <div class="row content__wrap">
-    <div class="content-block col-8">
+  <div class="content__wrap">
+    <div class="content-block is-max-desctop">
       <section>
         <div class="widget">
           <h2 class="title">
-            <span><span>Комплексные решения</span> </span><span
-              class="heading-line" />
+            <span><span>{title}</span> </span><span class="heading-line" />
           </h2>
         </div>
         <div class="column-content">
           <ul>
             <li>
-              <a href="/tehniceskoe-perevooruzenie">Техническое перевооружение
-                котельной</a>
+              <a href="/page/tehnicheskoe-perevooruzhenie-kotelnoj">Техническое
+                перевооружение котельной</a>
             </li>
             <li>
-              <a
-                href="/vnutriplosadocnye-i-vnutrennie-gazoprovody">Внутриплощадочные
+              <a href="/page/vnutriploshadochnye-gazoprovody">Внутриплощадочные
                 и внутренние газопроводы</a>
             </li>
           </ul>

@@ -1,6 +1,7 @@
 <script>
   import Address from "Address.svelte";
-
+  import Modal from "Modal.svelte";
+  import Button from "./Button.svelte";
 </script>
 
 <style lang="scss">
@@ -13,7 +14,6 @@
       //color: black;
     }
   }
-
 </style>
 
 <footer class="footer">
@@ -46,32 +46,39 @@
           <div class="column">
             <p><span>Услуги</span></p>
             <ul>
-              <li><a href="/">Проектирование</a></li>
-              <li><a href="/">Строительство</a></li>
-              <li><a href="/">Энергоаудит</a></li>
+              <li><a href="/page/proektirovanie">Проектирование</a></li>
+              <li><a href="/page/stroitelstvo">Строительство</a></li>
+              <li><a href="/page/energoaudit">Энергоаудит</a></li>
             </ul>
 
             <p class="pt-4"><span>Комплексные решения</span></p>
             <ul>
-              <li><a href="/">Тех. перевооружение котельной</a></li>
-              <li><a href="/">Внутриплощадочные газопроводы</a></li>
+              <li>
+                <a href="/page/tehnicheskoe-perevooruzhenie-kotelnoj">Тех.
+                  перевооружение котельной</a>
+              </li>
+              <li>
+                <a
+                  href="/page/vnutriploshadochnye-gazoprovody">Внутриплощадочные
+                  газопроводы</a>
+              </li>
             </ul>
           </div>
           <div class="column">
             <p><span>О компании</span></p>
             <ul>
-              <li><a href="/">История</a></li>
-              <li><a href="/">Проекты</a></li>
-              <li><a href="/">Допуски СРО</a></li>
-              <li><a href="/">Отзывы клиентов</a></li>
+              <li><a href="/company/history">История</a></li>
+              <li><a href="/company/referens-list">Проекты</a></li>
+              <li><a href="/company/dopuski-sro">Допуски СРО</a></li>
+              <li><a href="/company/otzyvy-klientov">Отзывы клиентов</a></li>
             </ul>
 
             <p class="pt-4"><span>Полезное</span></p>
             <ul>
-              <li><a href="/">Калькуляторы</a></li>
-              <li><a href="/">Документы</a></li>
-              <li><a href="/">Статьи</a></li>
-              <li><a href="/">FAQ</a></li>
+              <li><a href="/kalkulyatory">Калькуляторы</a></li>
+              <li><a href="/documents">Документы</a></li>
+              <li><a href="/articles">Статьи</a></li>
+              <li><a href="/faq">FAQ</a></li>
             </ul>
           </div>
 
@@ -102,4 +109,26 @@
       </div>
     </div>
   </div>
+
+  <!--modal blok -->
+  <Modal>
+    <div class="column modal-wrap is-6">
+      <div class="title is-flex is-size-5">Оставить заявку</div>
+      <form name="modal-form">
+        <div class="field">
+          <label class="label">ВАШЕ ИМЯ</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Ваше имя" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">ТЕЛЕФОН</label>
+          <div class="control">
+            <input class="input" type="tel" placeholder="Телефон" />
+          </div>
+        </div>
+        <Button btnName="modalSend">Отправить</Button>
+      </form>
+    </div>
+  </Modal>
 </footer>

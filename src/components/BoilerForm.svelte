@@ -1,9 +1,35 @@
 <script>
   import Button from "./Button.svelte";
   import InputForm from "./InputForm.svelte";
+  import { calculation } from "../utils";
 
-  let price = 0;
+  $: amount = 0;
 
+  let valid = false;
+
+  const props = {
+    project: false,
+    install: false,
+    gazPower: "",
+    construction: "",
+    equipment: "",
+    name: "",
+    PhoneOrEmail: "",
+  };
+
+  $: if (
+    (props.gazPower.trim().length >= 1 &&
+      props.name.trim().length >= 2 &&
+      props.PhoneOrEmail.trim().length > 5 &&
+      props.project) ||
+    props.install
+  ) {
+    valid = true;
+  } else valid = false;
+
+  function submitHandler() {
+    amount = calculation(props);
+  }
 </script>
 
 <style lang="scss">
@@ -110,10 +136,9 @@
       top: 45px;
     }
   }
-
 </style>
 
-<form class="form" name="boilerForm">
+<form class="form" name="boilerForm" on:submit|preventDefault={submitHandler}>
   <div class="colums is-max-desktop is-flex is-justify-content-center">
     <div class="column is-3">
       <div class="construction title-block">Вид строительства</div>
@@ -122,9 +147,11 @@
         <label class="construction__label radio-label" for="new">новое</label>
         <input
           type="radio"
-          id="rearmament"
-          value="rearmament"
-          name="construction" />
+          id="new"
+          value="new"
+          name="construction"
+          checked
+          bind:group={props.construction} />
         <label class="construction__label radio-label" for="rearmament">
           тех. перевооружение
         </label>
@@ -132,6 +159,7 @@
           type="radio"
           id="reconstruction"
           value="reconstruction"
+          bind:group={props.construction}
           name="construction" />
         <label class="construction__label radio-label" for="reconstruction">
           реконструкция
@@ -144,7 +172,8 @@
         textLable="Мощность, МВт"
         id="gazPower"
         name="gazPower"
-        placeholder="Мощность оринтеровочная" />
+        placeholder="Мощность оринтеровочная"
+        bind:val={props.gazPower} />
     </div>
 
     <div class="column is-3">
@@ -155,11 +184,17 @@
           id="Imported"
           name="equipment"
           value="Imported"
+          bind:group={props.equipment}
           checked />
         <label
           class="radio-label equipment__label"
           for="Imported">Импортное</label>
-        <input type="radio" id="domestic" name="equipment" value="domestic" />
+        <input
+          type="radio"
+          id="domestic"
+          name="equipment"
+          value="domestic"
+          bind:group={props.equipment} />
         <label
           class="radio-label equipment__label"
           for="domestic">Отечественное</label>
@@ -169,9 +204,19 @@
     <div class="column is-3 pl-4">
       <div class="title-block job">Вид работ</div>
       <div class="job__inputs">
-        <input type="checkbox" id="project" name="projectJob" value="project" />
+        <input
+          type="checkbox"
+          id="project"
+          name="projectJob"
+          value="project"
+          bind:checked={props.project} />
         <label class="checkbox-label job__label" for="project">Проект</label>
-        <input type="checkbox" id="inst" name="instJob" value="inst" />
+        <input
+          type="checkbox"
+          id="inst"
+          name="instJob"
+          value="inst"
+          bind:checked={props.install} />
         <label class="checkbox-label job__label" for="inst">Монтаж</label>
       </div>
     </div>
@@ -179,32 +224,33 @@
 
   <hr />
 
-  <div class="colums is-max-desktop is-flex is-justify-content-center ">
+  <div class="colums is-max-desktop is-flex is-justify-content-center">
     <div class="column is-3">
       <InputForm
         id="name"
         name="name"
         placeholder="Ваше Имя"
-        textLable="Ваше Имя" />
+        textLable="Ваше Имя"
+        bind:val={props.name} />
     </div>
     <div class="column is-3">
       <InputForm
         id="PhoneOrEmail"
         name="PhoneOrEmail"
         placeholder="Телефон или email"
-        textLable="Телефон или email" />
+        textLable="Телефон или email"
+        bind:val={props.PhoneOrEmail} />
     </div>
-    <div class="column is-3 is-flex is-align-items-flex-end pb-4">
+    <div class="column is-3 is-flex pb-4" style="align-items: flex-end;">
       <div class="btn-wrap">
-        <Button btnName="boilerForm">Расчитать</Button>
+        <Button btnName="boilerForm" isDisabled={!valid}>Расчитать</Button>
       </div>
     </div>
 
     <div class="column is-3">
       <div class="price">
         <div class="price__block">
-          Стоимость, руб
-          <span class="price__num">{price}</span>
+          Стоимость, руб <span class="price__num">{amount}</span>
         </div>
       </div>
     </div>
