@@ -5,6 +5,8 @@
 
   $: amount = 0;
 
+  let valid = false;
+
   const props = {
     project: false,
     install: false,
@@ -14,6 +16,16 @@
     name: "",
     PhoneOrEmail: "",
   };
+
+  $: if (
+    (props.gazPower.trim().length >= 1 &&
+      props.name.trim().length >= 2 &&
+      props.PhoneOrEmail.trim().length > 5 &&
+      props.project) ||
+    props.install
+  ) {
+    valid = true;
+  } else valid = false;
 
   function submitHandler() {
     amount = calculation(props);
@@ -231,7 +243,7 @@
     </div>
     <div class="column is-3 is-flex pb-4" style="align-items: flex-end;">
       <div class="btn-wrap">
-        <Button btnName="boilerForm">Расчитать</Button>
+        <Button btnName="boilerForm" isDisabled={!valid}>Расчитать</Button>
       </div>
     </div>
 

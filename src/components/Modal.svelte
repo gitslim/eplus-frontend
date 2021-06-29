@@ -9,7 +9,11 @@
     shown = false;
   $: uName = "";
   $: uPhone = "";
-  let disabled = false;
+  let disabled = true;
+
+  $: if (uName && uPhone) {
+    disabled = false;
+  } else disabled = true;
 
   const handle_keydown = (e) => {
     if (e.key === "Escape") {
@@ -139,13 +143,14 @@
             <input
               bind:value={uPhone}
               class="input"
-              type="tel"
+              type="phone"
               id="uPhone"
               placeholder="Телефон" />
           </div>
         </div>
         <button
           class="button btn"
+          {disabled}
           on:click|preventDefault={send}>Отправить</button>
       </form>
     </div>
