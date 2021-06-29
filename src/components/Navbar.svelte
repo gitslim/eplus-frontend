@@ -264,7 +264,7 @@
                 target="_blank"
                 class="navbar-item"
                 href="/presentation/Энергия%20Плюс.pdf">Презентация</a>
-              <Link cls="navbar-item" title="Отзывы клиентов">
+              <Link path="company" cls="navbar-item" title="Отзывы клиентов">
                 Отзывы клиентов
               </Link>
             </div>

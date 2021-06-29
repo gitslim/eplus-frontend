@@ -1,4 +1,6 @@
 <script>
+  import Modal from "./Modal.svelte";
+  let modal;
 </script>
 
 <style lang="scss">
@@ -36,7 +38,6 @@
       background-color: #f86923;
     }
   }
-
 </style>
 
 <div class="contact-link">
@@ -46,11 +47,14 @@
     <b style="font-size:15px;" class="roistat-phone">+7 (495) 790-76-97</b><br />
     или воспользуйтесь формой обратной связи
   </div>
-  <div class="action">
+  <div>
     <!--<a class="btn-white" href="#/modal/contact-form">обратная связь</a>-->
     <a
       class="btn-white"
-      data-dialog-type="modal"
-      href="/contact/kontaktnaa_forma">Мы перезвоним вам</a>
+      on:click|preventDefault={() => {
+        modal.isOpen();
+      }}
+      href="/#/">Мы перезвоним вам</a>
   </div>
 </div>
+<Modal bind:this={modal} />
