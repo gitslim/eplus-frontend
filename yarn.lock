@@ -3046,11 +3046,6 @@ jest-worker@^26.0.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
-  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
-
 js-base64@^2.1.8:
   version "2.6.4"
   resolved "https://registry.npmjs.org/js-base64/-/js-base64-2.6.4.tgz"
@@ -5402,22 +5397,10 @@ svelte-preprocess@^3.9.10:
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
 
-svelte-scrollto@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/svelte-scrollto/-/svelte-scrollto-0.2.0.tgz#a1da47876466796bba4533a4346537f752f01680"
-  integrity sha512-l4K2E4jr6dXCODtZDCkpp/TzknVVoq8gecHM0UOOmihvLosczdyLuyDUhZ+U2HkhLWi7nnimuOstZSFKtXSpmA==
-  dependencies:
-    svelte "3.x"
-
 svelte-seo@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/svelte-seo/-/svelte-seo-1.0.1.tgz"
   integrity sha512-SUgD688ybHJZEsOVK8fwR3ufKZu27hMOO6vjA37Rty+bl6GnikVMVzWC5d070APxlLDAqny2abNUbRm6TIgiVg==
-
-svelte@3.x:
-  version "3.38.3"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.38.3.tgz#e15a1da98ee4b10162a6c8cb4c80aa86b2b589ed"
-  integrity sha512-N7bBZJH0iF24wsalFZF+fVYMUOigaAUQMIcEKHO3jstK/iL8VmP9xE+P0/a76+FkNcWt+TDv2Gx1taUoUscrvw==
 
 svelte@^3.23.2:
   version "3.24.1"
