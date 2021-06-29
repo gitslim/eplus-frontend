@@ -5,15 +5,61 @@
 <script>
   import CallbackForm from "../components/CallbackForm.svelte";
 
-  let title = "Услуги";
+
+  let y = 0;
+  export let title = "Услуги",
+    segment;
 </script>
 
 <style lang="scss">
-  @import "../scss/uslugi.scss";
+  a {
+    color: #202020;
+    text-decoration: none;
+
+    &:hover {
+      color: #f86923;
+    }
+  }
+
+  h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #202020;
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+  }
+
+  .container-wrap {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .hr-line {
+    background-color: #f86923;
+    height: 1px;
+  }
+
+  .content-bottom {
+    margin-bottom: 20px;
+  }
+  .hide {
+    position: relative;
+    left: 150%;
+  }
+
+  .show {
+    left: 0;
+    transition: all 1s ease-in-out;
+  }
+
 </style>
 
+<svelte:window bind:scrollY={y} />
 <SvelteSeo {title} />
-
 <main role="main" class="main main-page">
   <div class="columns">
     <div class="container mt-4">
@@ -24,7 +70,7 @@
         </h2>
       </div>
       <div class="container-wrap">
-        <div class="widget">
+        <div class="widget hide" class:show={y >= 0 && y <= 106}>
           <h2 class="title">
             <span>
               <span>
@@ -35,7 +81,10 @@
             <span class="heading-line">&nbsp;</span>
           </h2>
         </div>
-        <div class="item-wrap node__content">
+
+        <div
+          class="item-wrap node__content hide"
+          class:show={y >= 0 && y <= 848}>
           <h3>
             <a
               href="/page/proektirovanie-magistralnyh-gazoprovodov-i-grs">Магистральные
@@ -107,16 +156,18 @@
           <hr class="hr-line" />
         </div>
 
-        <div class="widget">
+        <div class="widget hide" class:show={y >= 106 && y <= 954}>
           <h2 class="title">
-            <span><span><a href="/page/stroitelstvo">Строительство</a></span>
-            </span><span class="heading-line">&nbsp;</span>
+
+            <span><span><a href="/stroitelstvo">Строительство</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
-        <div class="item-wrap node__content">
-          <h3>
-            <a href="/page/postavka-oborudovaniya">Поставка оборудования</a>
-          </h3>
+
+        <div
+          class="item-wrap node__content hide"
+          class:show={y >= 265 && y <= 1484}>
+          <h3><a href="/postavka-oborudovania">Поставка оборудования</a></h3>
+
 
           <p>
             Комплектная поставка оборудования объектов теплоэнергетики
@@ -163,14 +214,19 @@
 
           <hr class="hr-line" />
         </div>
-        <div class="widget">
+
+        <div class="widget hide" class:show={y >= 742 && y <= 1590}>
           <h2 class="title">
-            <span><span><a href="/page/obsluzivanie">Обслуживание</a></span>
-            </span><span class="heading-line">&nbsp;</span>
+
+            <span><span><a href="/obsluzivanie">Обслуживание</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
-        <div class="item-wrap node__content">
-          <h3><a href="/page/avtorskii-nadzor">Авторский надзор</a></h3>
+
+        <div
+          class="item-wrap node__content hide"
+          class:show={y >= 848 && y <= 1853}>
+          <h3><a href="/avtorskii-nadzor">Авторский надзор</a></h3>
+
 
           <p>
             Полный комплекс услуг по авторскому сопровождению проектов, которое
@@ -191,16 +247,17 @@
 
           <hr class="hr-line" />
         </div>
-        <div class="widget">
+
+        <div class="widget hide" class:show={y >= 1111 && y <= 1959}>
           <h2 class="title">
-            <span><span><a href="/page/energoaudit">Энергоаудит</a></span>
-            </span><span class="heading-line">&nbsp;</span>
+
+            <span><span><a href="/energoaudit">Энергоаудит</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
-        <div class="item-wrap node__content">
-          <h3>
-            <a href="/page/energeticeskii-pasport">Энергетический паспорт</a>
-          </h3>
+
+        <div class="item-wrap node__content hide" class:show={y >= 1164}>
+          <h3><a href="/energeticeskii-pasport">Энергетический паспорт</a></h3>
+
 
           <h3>
             <a href="/page/energeticeskoe-obsledovanie">Энергетическое
@@ -208,7 +265,8 @@
           </h3>
           <hr class="hr-line" />
         </div>
-        <div class="content-bottom">
+
+        <div class="content-bottom hide" class:show={y >= 1270}>
           <CallbackForm />
         </div>
       </div>
