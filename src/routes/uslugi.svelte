@@ -52,7 +52,7 @@
 
   .show {
     left: 0;
-    transition: all 1, 5s ease-in-out;
+    transition: all 1.5s ease-in-out;
   }
 </style>
 
