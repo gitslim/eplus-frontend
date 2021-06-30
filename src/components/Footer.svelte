@@ -5,15 +5,7 @@
 </script>
 
 <style lang="scss">
-  .footer {
-    //background-color: rgb(248, 105, 35);
-    //color: white;
-    //padding-bottom: 1rem;
-
-    .column-title {
-      //color: black;
-    }
-  }
+  //code style
 </style>
 
 <footer class="footer">
@@ -168,15 +160,23 @@
       <div class="title is-flex is-size-5">Оставить заявку</div>
       <form name="modal-form">
         <div class="field">
-          <label class="label">ВАШЕ ИМЯ</label>
+          <label for="uName" class="label">ВАШЕ ИМЯ</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Ваше имя" />
+            <input
+              id="uName"
+              class="input"
+              type="text"
+              placeholder="Ваше имя" />
           </div>
         </div>
         <div class="field">
-          <label class="label">ТЕЛЕФОН</label>
+          <label class="label" for="uPhone">ТЕЛЕФОН</label>
           <div class="control">
-            <input class="input" type="tel" placeholder="Телефон" />
+            <input
+              id="uPnone"
+              class="input"
+              type="phone"
+              placeholder="Телефон" />
           </div>
         </div>
         <Button btnName="modalSend">Отправить</Button>
