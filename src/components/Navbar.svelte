@@ -20,7 +20,6 @@
   function toggleDropdown(payload) {
     showDropdown = payload;
   }
-
 </script>
 
 <nav
@@ -145,7 +144,7 @@
                 Функции технического заказчика
               </Link>
             </div>
-            <div class="column">
+            <!-- <div class="column">
               <Link
                 cls="navbar-item navbar-title"
                 path="page"
@@ -153,7 +152,7 @@
                 slug="energoaudit">
                 Энергоаудит
               </Link>
-            </div>
+            </div> -->
             <div class="column">
               <Link
                 cls="navbar-item navbar-title"
