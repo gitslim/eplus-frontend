@@ -5,7 +5,6 @@
 <script>
   import CallbackForm from "../components/CallbackForm.svelte";
 
-
   let y = 0;
   export let title = "Услуги",
     segment;
@@ -55,7 +54,6 @@
     left: 0;
     transition: all 1s ease-in-out;
   }
-
 </style>
 
 <svelte:window bind:scrollY={y} />
@@ -70,7 +68,7 @@
         </h2>
       </div>
       <div class="container-wrap">
-        <div class="widget hide" class:show={y >= 0 && y <= 106}>
+        <div class="widget hide mt-1" class:show={y >= 0 && y <= 106}>
           <h2 class="title">
             <span>
               <span>
@@ -158,7 +156,6 @@
 
         <div class="widget hide" class:show={y >= 106 && y <= 954}>
           <h2 class="title">
-
             <span><span><a href="/stroitelstvo">Строительство</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
@@ -167,7 +164,6 @@
           class="item-wrap node__content hide"
           class:show={y >= 265 && y <= 1484}>
           <h3><a href="/postavka-oborudovania">Поставка оборудования</a></h3>
-
 
           <p>
             Комплектная поставка оборудования объектов теплоэнергетики
@@ -217,7 +213,6 @@
 
         <div class="widget hide" class:show={y >= 742 && y <= 1590}>
           <h2 class="title">
-
             <span><span><a href="/obsluzivanie">Обслуживание</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
@@ -226,7 +221,6 @@
           class="item-wrap node__content hide"
           class:show={y >= 848 && y <= 1853}>
           <h3><a href="/avtorskii-nadzor">Авторский надзор</a></h3>
-
 
           <p>
             Полный комплекс услуг по авторскому сопровождению проектов, которое
@@ -250,14 +244,12 @@
 
         <div class="widget hide" class:show={y >= 1111 && y <= 1959}>
           <h2 class="title">
-
             <span><span><a href="/energoaudit">Энергоаудит</a></span> </span><span class="heading-line">&nbsp;</span>
           </h2>
         </div>
 
         <div class="item-wrap node__content hide" class:show={y >= 1164}>
           <h3><a href="/energeticeskii-pasport">Энергетический паспорт</a></h3>
-
 
           <h3>
             <a href="/page/energeticeskoe-obsledovanie">Энергетическое

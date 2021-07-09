@@ -1,13 +1,12 @@
 <script context="module">
-  import {client, TESTIMONIALS} from "../apollo";
+  import { client, TESTIMONIALS } from "../apollo";
 
   export async function preload(page, session) {
-
     let cache = await client.query({
       query: TESTIMONIALS,
       variables: {},
     });
-    return {testimonials: cache.data.testimonials};
+    return { testimonials: cache.data.testimonials };
   }
 </script>
 
@@ -21,10 +20,11 @@
   import ProjectsCarousel from "../components/ProjectsCarousel.svelte";
   import PortfolioCounters from "../components/PortfolioCounters.svelte";
 
-  export let segment, testimonials
+  export let segment, testimonials;
 </script>
 
 <style>
+
 </style>
 
 <MobileHero>
@@ -32,7 +32,7 @@
     <p class="title has-text-white">
       Проектирование и строительство объектов энергетики
     </p>
-    <br/>
+    <br />
     <p class="subtitle">
       <button class="button is-white">Получить консультацию</button>
     </p>
@@ -44,7 +44,7 @@
     <p class="title has-text-white">
       Проектирование и строительство объектов энергетики
     </p>
-    <br/>
+    <br />
     <p class="subtitle">
       <button class="button is-primary">Получить консультацию</button>
     </p>
@@ -75,38 +75,41 @@
   <!--      </div>-->
   <!--    </nav>-->
   <!--  </div>-->
-
 </VideoHero>
-
 
 <section class="section">
   <div class="container">
-
     <div class="columns">
       <div class="column">
-        <ServiceCard title="Магистральные газопроводы" image="/images/Магистральные газопроводы.jpg"
-        path="page" slug="proektirovanie-magistralnyh-gazoprovodov-i-grs" />
+        <ServiceCard
+          title="Магистральные газопроводы"
+          image="/images/Магистральные газопроводы.jpg"
+          path="page"
+          slug="proektirovanie-magistralnyh-gazoprovodov-i-grs" />
       </div>
       <div class="column">
-        <ServiceCard title="Газораспределительные системы" image="/images/Газораспределительные системы.jpg"
-        path="page" slug="proektirovanie-gazoraspredelitelnyh-sistem-i-grp"/>
+        <ServiceCard
+          title="Газораспределительные системы"
+          image="/images/Газораспределительные системы.jpg"
+          path="page"
+          slug="proektirovanie-gazoraspredelitelnyh-sistem-i-grp" />
       </div>
       <div class="column">
-        <ServiceCard title="Теплоэнергетика" image="/images/Теплоэнергетика.jpg"
-        path="page" slug="teplovye-punkty"/>
+        <ServiceCard
+          title="Теплоэнергетика"
+          image="/images/Теплоэнергетика.jpg"
+          path="page"
+          slug="teplovye-punkty" />
       </div>
     </div>
 
-    <div class="is-divider" data-content="Комплексный подход"></div>
-    <FullEngineering/>
-    <div class="is-divider" data-content="Примеры выполненных проектов"></div>
-    <ProjectsCarousel/>
-    <div class="is-divider" data-content="Цифры"></div>
-    <PortfolioCounters/>
-    <div class="is-divider" data-content="Отзывы клиентов"></div>
-    <TestimonialsCarousel items="{testimonials}"/>
-
-
-
+    <div class="is-divider" data-content="Комплексный подход" />
+    <FullEngineering />
+    <div class="is-divider" data-content="Примеры выполненных проектов" />
+    <ProjectsCarousel />
+    <div class="is-divider" data-content="Цифры" />
+    <PortfolioCounters />
+    <div class="is-divider" data-content="Отзывы клиентов" />
+    <TestimonialsCarousel items={testimonials} />
   </div>
 </section>
