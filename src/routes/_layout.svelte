@@ -1,28 +1,28 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo"
-  import {client, SITE_META} from "../apollo";
+  import SvelteSeo from "svelte-seo";
+  import { client, SITE_META } from "../apollo";
 
   export async function preload(page, session) {
-    const {slug} = page.params;
+    const { slug } = page.params;
 
     let cache = await client.query({
       query: SITE_META,
-      variables: {slug},
+      variables: { slug },
     });
     // console.log("slug", slug, "cache", cache);
 
     cache.data.siteMeta.redirects.forEach((r) => {
-      if (page.path === r['from']) {
-        return this.redirect(301, r['to'])
+      if (page.path === r["from"]) {
+        return this.redirect(301, r["to"]);
       }
-    })
+    });
 
-    return {meta: cache.data.siteMeta}
+    return { meta: cache.data.siteMeta };
   }
 </script>
 
 <script>
-  import {stores} from "@sapper/app";
+  import { stores } from "@sapper/app";
   import Navbar from "../components/Navbar.svelte";
   import Footer from "../components/Footer.svelte";
   // import {onMount} from "svelte";
@@ -37,9 +37,12 @@
   // const elevation = writable(false);
   // const showNav = writable(true);
 
-  const {preloading, page} = stores();
+  const { preloading, page } = stores();
   const path = $page.path;
 
+  function isModal() {
+    modal.isOpen();
+  }
   export let meta, segment;
 </script>
 
@@ -51,10 +54,7 @@
   }
 </style>
 
-<SvelteSeo
-  title="{meta.title}"
-  description="{meta.description}"
-/>
+<SvelteSeo title={meta.title} description={meta.description} />
 
 <!--{#if $preloading}-->
 <!--    <ProgressLinear app/>-->
@@ -67,11 +67,11 @@
 <!--<Icon scale="8" data={faThumbsUp}/>-->
 
 {#if segment === 'landing'}
-  <slot/>
+  <slot />
 {:else}
   <div class="body-wrapper">
-    <Navbar segment="{segment}"/>
-    <slot/>
-    <Footer/>
+    <Navbar {segment} />
+    <slot />
+    <Footer on:modal={isModal} />
   </div>
 {/if}

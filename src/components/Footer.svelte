@@ -1,7 +1,13 @@
 <script>
   import Address from "Address.svelte";
   import Modal from "Modal.svelte";
-  import Button from "./Button.svelte";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+  dispatch("modal", () => {
+    modal.isOpen();
+  });
+  export let modal;
 </script>
 
 <style lang="scss">
@@ -30,7 +36,11 @@
           <Address />
         </div>
         <div class="pt-4">
-          <button class="button is-primary">Заказать расчет</button>
+          <button
+            class="button is-primary"
+            on:click={() => {
+              modal.isOpen();
+            }}>Заказать расчет</button>
         </div>
       </div>
       <div class="column">
@@ -40,7 +50,7 @@
             <ul>
               <li><a href="/page/proektirovanie">Проектирование</a></li>
               <li><a href="/page/stroitelstvo">Строительство</a></li>
-              <li><a href="/page/energoaudit">Энергоаудит</a></li>
+              <!-- <li><a href="/page/energoaudit">Энергоаудит</a></li> -->
             </ul>
 
             <p class="pt-4"><span>Комплексные решения</span></p>
@@ -155,32 +165,5 @@
   </div>
 
   <!--modal blok -->
-  <Modal>
-    <div class="column modal-wrap is-6">
-      <div class="title is-flex is-size-5">Оставить заявку</div>
-      <form name="modal-form">
-        <div class="field">
-          <label for="uName" class="label">ВАШЕ ИМЯ</label>
-          <div class="control">
-            <input
-              id="uName"
-              class="input"
-              type="text"
-              placeholder="Ваше имя" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label" for="uPhone">ТЕЛЕФОН</label>
-          <div class="control">
-            <input
-              id="uPnone"
-              class="input"
-              type="phone"
-              placeholder="Телефон" />
-          </div>
-        </div>
-        <Button btnName="modalSend">Отправить</Button>
-      </form>
-    </div>
-  </Modal>
+  <Modal bind:this={modal} />
 </footer>

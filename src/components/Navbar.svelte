@@ -225,6 +225,34 @@
           </div>
         </div>
       </div>
+      <div
+        class="navbar-item has-dropdown is-hoverable"
+        on:mouseover={() => toggleDropdown(true)}
+        on:mouseleave={() => toggleDropdown(false)}>
+        <Link cls="navbar-link" title="Рассчитать стоимость">
+          Рассчитать стоимость
+        </Link>
+        <div
+          class="navbar-dropdown is-boxed is-hidden-mobile"
+          class:is-hidden={!showDropdown}>
+          <div class="container is-fluid columns">
+            <div class="column">
+              <Link
+                cls="navbar-item"
+                path="page"
+                title="Калькулятор расчета стоимости котельной">
+                Калькулятор расчета стоимости котельной
+              </Link>
+              <Link
+                cls="navbar-item"
+                path="page"
+                title="Калькулятор расчета стоимости газопровода">
+                Калькулятор расчета стоимости газопровода
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
       <Link cls="navbar-item" slug="news" title="Новости">Новости</Link>
       <div
         class="navbar-item has-dropdown is-hoverable"
