@@ -20,6 +20,7 @@
   import ProjectsCarousel from "../components/ProjectsCarousel.svelte";
   import PortfolioCounters from "../components/PortfolioCounters.svelte";
 
+  let modal;
   export let segment, testimonials;
 </script>
 
@@ -34,7 +35,11 @@
     </p>
     <br />
     <p class="subtitle">
-      <button class="button is-white">Получить консультацию</button>
+      <button
+        class="button is-white"
+        on:modal={() => {
+          modal.isOpen();
+        }}>Получить консультацию</button>
     </p>
   </div>
 </MobileHero>
@@ -46,7 +51,11 @@
     </p>
     <br />
     <p class="subtitle">
-      <button class="button is-primary">Получить консультацию</button>
+      <button
+        class="button is-primary"
+        on:modal={() => {
+          modal.isOpen();
+        }}>Получить консультацию</button>
     </p>
   </div>
   <!--  <div slot="footer">-->
