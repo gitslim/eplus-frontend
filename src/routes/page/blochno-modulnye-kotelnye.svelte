@@ -126,6 +126,34 @@
       }
     }
   }
+
+  .seo {
+    &__text {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    &__item {
+      list-style: none;
+      margin: 20px 0;
+      position: relative;
+      font-size: 16px;
+      line-height: 1.6;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 999rem;
+        background-color: #ff6600;
+      }
+    }
+  }
 </style>
 
 <SvelteSeo {title} />
@@ -310,13 +338,13 @@
         расчет и технико-экономическое обоснование строительства котельной,
         которые позволят:
       </p>
-      <div class="colums is-descktop">
+      <div class="columns is-descktop">
         <div class="seo__info column is-6">
-          <ul class="seo__list">
+          <ul class="seo__list mt-6">
             <li class="seo__item">
               определить необходимую мощность котельной;
             </li>
-            <li class="seo__item">
+            <li class="seo__item mb-3">
               определить есть ли преимущества блочно-модульной котельной над
               стационарной в конкретном случае;
             </li>
@@ -330,7 +358,7 @@
             </li>
             <li class="seo__item">определить срок окупаемости котельной.</li>
           </ul>
-          <p class="seo__text">
+          <p class="seo__text mt-6" style="line-height: 2.5;">
             Так как котлы разных производителей имеют разные габариты, то до
             проектирования и строительства немаловажно определить минимальные
             габариты котельной без потери надежности и качества.
