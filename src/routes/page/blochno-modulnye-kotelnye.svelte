@@ -103,7 +103,7 @@
       top: -130px;
       padding: 60px 30px;
       background-color: #fff;
-      box-shadow: 0 19px 46px 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 19px 46px 25px rgba(0, 0, 0, 0.15);
     }
   }
 
@@ -154,19 +154,102 @@
       }
     }
   }
+
+  .solution {
+    color: #fff;
+    background: url("/images/bmk/form-bg22.jpg") center no-repeat;
+    padding: 100px 0px;
+    background-size: cover;
+
+    &__text {
+      color: #fff;
+      font-size: 18px;
+    }
+
+    &__list {
+      margin: 0;
+      padding-left: 30px;
+      list-style: none;
+    }
+
+    &__item {
+      margin-bottom: 24px;
+      position: relative;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        background: url("/images/bmk/bmk_check_006.png") center no-repeat;
+        background-size: contain;
+        width: 23px;
+        height: 23px;
+        left: -30px;
+        top: 4px;
+      }
+    }
+  }
+
+  .logic {
+    &__item {
+      position: relative;
+
+      &:last-child::after {
+        display: none;
+      }
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 96px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 4px solid #f60;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 101px;
+        left: 52%;
+        width: 96%;
+        height: 4px;
+        border-bottom: 2px dashed #383838;
+        opacity: 0.5;
+      }
+    }
+
+    &__icon {
+      display: block;
+      height: 56px;
+      margin: 0 auto 75px;
+    }
+
+    &__text {
+      text-align: center;
+    }
+  }
 </style>
 
 <SvelteSeo {title} />
 
 <main class="main is-widescreen">
-  <section class="section columns caption">
+  <section class="section columns is-desktop caption">
     <div class="container is-widescreen">
       <HeaderLanding {...headerCaption} />
       <BtnZayavka btnText="Подобрать" radius />
     </div>
   </section>
   <section class="section desc">
-    <div class="container is-widescreen columns desc__wrap">
+    <div class="container is-widescreen columns is-desktop desc__wrap">
       <div class="column is-6 desc__img">
         <img src="/images/bmk/u-bmk-image_01.png" alt="bmk-img" />
       </div>
@@ -185,7 +268,7 @@
   </section>
   <section class="section info">
     <div
-      class="container is-widescreen columns"
+      class="container is-widescreen columns is-desktop"
       style="justify-content: center;">
       <div class="column is-5">
         <div
@@ -255,7 +338,7 @@
     </div>
   </section>
   <section class="section">
-    <div class="container columns block__inner">
+    <div class="container columns is-desktop block__inner">
       <div class="content column is-10 is-offset-1 block__inner_wrap">
         <TitleLanding titleText="Основные достоинства бмк" left green />
         <ul class="mb-5 dignity">
@@ -338,7 +421,7 @@
         расчет и технико-экономическое обоснование строительства котельной,
         которые позволят:
       </p>
-      <div class="columns is-descktop">
+      <div class="columns is-desktop">
         <div class="seo__info column is-6">
           <ul class="seo__list mt-6">
             <li class="seo__item">
@@ -367,6 +450,125 @@
         <div class="seo__img column is-6">
           <img src="/images/bmk/bmk_image_003.png" alt="bmk-img" />
         </div>
+      </div>
+    </div>
+  </section>
+  <section class="section solution">
+    <div class="container columns is-desktop">
+      <div class="column is-6">
+        <TitleLanding titleText="ООО «Энергия Плюс»" left white />
+        <p class="solution__text">
+          Предлагает комплексное решение по подключению БМК, выполняя функции
+          технического заказчика строительства. В этом случае Заказчик получает:
+        </p>
+      </div>
+      <div class="column is-6">
+        <ul class="solution__list">
+          <li class="solution__item">
+            Полное техническое и юридическое сопровождение строительства;
+          </li>
+          <li class="solution__item">
+            Проектную документацию, получившую положительное заключение
+            экспертизы;
+          </li>
+          <li class="solution__item">
+            Рабочую документацию, согласованную в установленном порядке;
+          </li>
+          <li class="solution__item">
+            Введенную в эксплуатацию блочно-модульную котельную.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="section logic">
+    <div class="container">
+      <TitleLanding titleText="Алгоритм работы" />
+      <div class="columns is-desktop">
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_01.png"
+            alt="bmk-icon" />
+          <p class="logic__text">
+            Звоните по телефону<br />+7 (495) 790-76-97 <br /> Или оставьте заявку
+            на сайте
+          </p>
+        </div>
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_02.png"
+            alt="bmk-icon" />
+          <p class="logic__text">Составляем техническое задание</p>
+        </div>
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_03.png"
+            alt="bmk-icon" />
+          <p class="logic__text">Согласование и комплектация оборудования</p>
+        </div>
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_04.png"
+            alt="bmk-icon" />
+          <p class="logic__text">
+            Расчет стоимости работ и заключение договора
+          </p>
+        </div>
+      </div>
+      <div class="columns is-desktop">
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_05.png"
+            alt="bmk-icon" />
+          <p class="logic__text">
+            Проектирование и производство: согласование схем, закупка и
+            комплектация
+          </p>
+        </div>
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_06.png"
+            alt="bmk-icon" />
+          <p class="logic__text">Доставка на объект и монтаж БМК</p>
+        </div>
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_07.png"
+            alt="bmk-icon" />
+          <p class="logic__text">
+            Ввод в эксплуатацию: ПНР и обучение персонала
+          </p>
+        </div>
+        <div class="column is-3 logic__item">
+          <img
+            class="logic__icon"
+            src="/images/bmk/bmk_icon_08.png"
+            alt="bmk-icon" />
+          <p class="logic__text">Сдача объекта</p>
+        </div>
+      </div>
+    </div>
+    <div class="column is-10 is-offset-1">
+      <div class="logic__wrap">
+        <p class="logic__info">
+          ООО «Энергия Плюс» является техническим партнером интернет-ресурса
+          bmkrussia.ru, на котором представлены все основные заводы-
+          изготовители блочно-модульных котельных. Это позволяет осуществлять
+          подбор котельных в максимально сжатые сроки и получать максимально
+          возможные дисконты на изготовление и поставку.
+        </p>
+        <p class="logic__info">
+          БМК позволит обеспечить производство энергией, необходимой для
+          постоянного прогресса. Оставьте заявку прямо сейчас и навсегда решите
+          вопрос с энергообеспечением своего объекта!
+        </p>
       </div>
     </div>
   </section>
