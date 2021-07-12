@@ -259,7 +259,7 @@
         </div>
 
         <div class="content-bottom hide" class:show={y >= 1270}>
-          <CallbackForm />
+          <CallbackForm white left btnText="Мы перезвоним вам !" />
         </div>
       </div>
     </div>
