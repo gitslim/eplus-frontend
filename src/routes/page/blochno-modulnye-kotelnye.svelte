@@ -4,7 +4,9 @@
 
 <script>
   import BtnZayavka from "../../components/BtnZayavka.svelte";
+  import CallbackForm from "../../components/CallbackForm.svelte";
   import HeaderLanding from "../../components/HeaderLanding.svelte";
+  import PartnersCarousel from "../../components/PartnersCarousel.svelte";
   import TitleLanding from "../../components/TitleLanding.svelte";
 
   let title = "Блочно-модульные котельные";
@@ -236,6 +238,20 @@
     &__text {
       text-align: center;
     }
+
+    &__wrap {
+      padding: 40px 30px;
+      box-shadow: 0 19px 46px 30px rgba(0, 0, 0, 0.15);
+      padding: 40px 80px;
+    }
+
+    &__info {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
   }
 </style>
 
@@ -413,7 +429,7 @@
       </div>
     </div>
   </section>
-  <section class="section">
+  <section class="section pt-0">
     <div class="container seo">
       <p class="seo__text">
         Для оптимизации затрат на строительство котельной перед началом
@@ -478,6 +494,14 @@
             Введенную в эксплуатацию блочно-модульную котельную.
           </li>
         </ul>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="columns partners" style="min-height: 200px;">
+      <div class="column">
+        <TitleLanding titleText="Наши партнеры" />
+        <PartnersCarousel />
       </div>
     </div>
   </section>
@@ -558,17 +582,26 @@
     <div class="column is-10 is-offset-1">
       <div class="logic__wrap">
         <p class="logic__info">
-          ООО «Энергия Плюс» является техническим партнером интернет-ресурса
-          bmkrussia.ru, на котором представлены все основные заводы-
-          изготовители блочно-модульных котельных. Это позволяет осуществлять
-          подбор котельных в максимально сжатые сроки и получать максимально
-          возможные дисконты на изготовление и поставку.
+          ООО «Энергия Плюс» является техническим партнером интернет-ресурса <a
+            class="logic__link"
+            href="http://bmkrussia.ru/">bmkrussia.ru</a>, на котором
+          представлены все основные заводы- изготовители блочно-модульных
+          котельных. Это позволяет осуществлять подбор котельных в максимально
+          сжатые сроки и получать максимально возможные дисконты на изготовление
+          и поставку.
         </p>
         <p class="logic__info">
           БМК позволит обеспечить производство энергией, необходимой для
           постоянного прогресса. Оставьте заявку прямо сейчас и навсегда решите
           вопрос с энергообеспечением своего объекта!
         </p>
+      </div>
+    </div>
+  </section>
+  <section class="section advice">
+    <div class="container">
+      <div class="column is-10 is-offset-1">
+        <CallbackForm left btnText="Отправить запрос" radius bWhite btnWhite />
       </div>
     </div>
   </section>
