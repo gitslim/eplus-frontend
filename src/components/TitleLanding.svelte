@@ -1,7 +1,8 @@
 <script>
   export let titleText = "",
-    white = false;
-
+    white = false,
+    left = false,
+    green = false;
 </script>
 
 <style lang="scss">
@@ -11,6 +12,7 @@
     text-transform: uppercase;
     font-size: 30px;
     text-align: center;
+    line-height: 1.8;
 
     &::before {
       content: "";
@@ -29,6 +31,21 @@
     color: #fff;
   }
 
+  .left {
+    text-align: left;
+
+    &::before {
+      left: 50px;
+    }
+  }
+
+  .green {
+    &::before {
+      background-color: #30c917;
+    }
+  }
 </style>
 
-<h2 class="title {white ? 'white-color' : ''}">{titleText}</h2>
+<h2 class="title {white ? 'white-color' : ''}" class:green class:left>
+  {titleText}
+</h2>
