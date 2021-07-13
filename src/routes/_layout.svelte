@@ -40,9 +40,6 @@
   const { preloading, page } = stores();
   const path = $page.path;
 
-  function isModal() {
-    modal.isOpen();
-  }
   export let meta, segment;
 </script>
 
@@ -72,6 +69,6 @@
   <div class="body-wrapper">
     <Navbar {segment} />
     <slot />
-    <Footer on:modal={isModal} />
+    <Footer />
   </div>
 {/if}

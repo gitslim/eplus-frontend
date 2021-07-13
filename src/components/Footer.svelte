@@ -1,13 +1,7 @@
 <script>
   import Address from "Address.svelte";
   import Modal from "Modal.svelte";
-  import { createEventDispatcher } from "svelte";
-
-  const dispatch = createEventDispatcher();
-  dispatch("modal", () => {
-    modal.isOpen();
-  });
-  export let modal;
+  import { showModal } from "./stores.js";
 </script>
 
 <style lang="scss">
@@ -38,9 +32,7 @@
         <div class="pt-4">
           <button
             class="button is-primary"
-            on:click={() => {
-              modal.isOpen();
-            }}>Заказать расчет</button>
+            on:click={() => showModal.set(true)}>Заказать расчет</button>
         </div>
       </div>
       <div class="column">
@@ -165,5 +157,5 @@
   </div>
 
   <!--modal blok -->
-  <Modal bind:this={modal} />
+  <Modal show={$showModal} />
 </footer>

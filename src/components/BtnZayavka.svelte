@@ -1,7 +1,14 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  import { showModal } from "../stores";
+
   export let btnText = "Заказать",
     radius = false,
     btnWhite;
+
+  function handlerClick() {
+    showModal.set(true);
+  }
 </script>
 
 <style lang="scss">
@@ -12,6 +19,7 @@
   .btn__zayavka {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     padding-top: 10px;
     text-decoration: none;
     margin-bottom: 30px;
@@ -37,6 +45,9 @@
   }
   .btn-white {
     color: #222;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 20px;
     border: 2px solid#fff;
     background: #fff;
@@ -48,7 +59,7 @@
     text-transform: uppercase;
     padding: 9px 24px 9px;
     position: relative;
-    display: inline-flex;
+
     z-index: 1;
     font-weight: 700;
 
@@ -61,7 +72,8 @@
 
 <div class="btn-wrap">
   <a
-    class={radius ? 'btn__zayavka btn__zayavka-radius' : 'btn__zayavka' || btnWhite ? 'btn__zayavka  btn-white' : 'btn__zayavka '}
+    on:click|preventDefault={handlerClick}
+    class="btn__zayavka {radius ? 'btn__zayavka-radius' : ''}{btnWhite ? 'btn-white' : ''}"
     data-dialog-type="modal"
     href="/#/">{btnText}</a>
 </div>

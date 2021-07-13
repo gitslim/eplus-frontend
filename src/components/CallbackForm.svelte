@@ -1,13 +1,12 @@
 <script>
   import BtnZayavka from "./BtnZayavka.svelte";
-  import Modal from "./Modal.svelte";
   import TitleLanding from "./TitleLanding.svelte";
-  $: white;
+  $: white = true;
   $: left;
   $: btnText;
   $: radius;
   $: bWhite;
-  $: btnWhite;
+  $: btnWhite = true;
   export let white, left, btnText, radius, bWhite, btnWhite;
   let modal;
 </script>
@@ -64,14 +63,5 @@
   </div>
   <div class="mt-4">
     <BtnZayavka {btnText} {radius} {btnWhite} />
-    <!-- <a
-      class="btn-white"
-      on:click|preventDefault={() => {
-        modal.isOpen();
-      }}
-      href="/#/">Мы перезвоним вам</a>
-  </div> -->
   </div>
 </div>
-
-<Modal bind:this={modal} />

@@ -1,12 +1,14 @@
 <script>
   import { createEventDispatcher, onDestroy } from "svelte";
   import fetch from "node-fetch";
+  import { showModal } from "./stores.js";
 
   const dispatch = createEventDispatcher();
-  const close = () => dispatch("close");
+  const close = () => dispatch("close", isClose());
+  //export const open = () => dispatch("open", isOpen());
 
-  let modal,
-    shown = false;
+  let modal;
+  export let show = false;
   $: uName = "";
   $: uPhone = "";
   let disabled = true;
@@ -17,7 +19,7 @@
 
   const handle_keydown = (e) => {
     if (e.key === "Escape") {
-      close();
+      showModal.set(false);
       return;
     }
 
@@ -45,13 +47,12 @@
       previously_focused.focus();
     });
   }
-
   export function isOpen() {
-    shown = true;
+    showModal.set(true);
   }
 
   export function isClose() {
-    shown = false;
+    showModal.set(false);
   }
   async function send() {
     //const uri = "https://energy-plus.bitrix24.ru/rest/24/1r1d4lsvi52ba17t/crm.lead.add.json";
@@ -63,7 +64,7 @@
     }
     if (response.ok) {
       //console.log(response);
-      shown = false;
+      show = false;
       alert("Ваша заявка принята");
     }
   }
@@ -119,8 +120,8 @@
 
 <svelte:window on:keydown={handle_keydown} />
 
-<div class="modal {shown ? 'is-active' : ''}">
-  <div class="modal-background" on:click={isClose} />
+<div class="modal {show ? 'is-active' : ''}">
+  <div class="modal-background" on:click={close} />
 
   <div class="modal-content">
     <div class="column modal-wrap is-6">
@@ -155,5 +156,5 @@
       </form>
     </div>
   </div>
-  <button class="modal-close is-large" aria-label="close" on:click={isClose} />
+  <button class="modal-close is-large" aria-label="close" on:click={close} />
 </div>

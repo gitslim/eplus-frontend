@@ -19,6 +19,7 @@
   import TestimonialsCarousel from "../components/TestimonialsCarousel.svelte";
   import ProjectsCarousel from "../components/ProjectsCarousel.svelte";
   import PortfolioCounters from "../components/PortfolioCounters.svelte";
+  import { showModal } from "./stores.js";
 
   let modal;
   export let segment, testimonials;
@@ -37,9 +38,7 @@
     <p class="subtitle">
       <button
         class="button is-white"
-        on:modal={() => {
-          modal.isOpen();
-        }}>Получить консультацию</button>
+        on:click={() => showModal.set(true)}>Получить консультацию</button>
     </p>
   </div>
 </MobileHero>
@@ -53,9 +52,7 @@
     <p class="subtitle">
       <button
         class="button is-primary"
-        on:modal={() => {
-          modal.isOpen();
-        }}>Получить консультацию</button>
+        on:click={() => showModal.set(true)}>Получить консультацию</button>
     </p>
   </div>
   <!--  <div slot="footer">-->
