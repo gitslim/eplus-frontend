@@ -14,6 +14,7 @@
   const headerCaption = {
     caption: title,
   };
+  export let segment;
 </script>
 
 <style lang="scss">
@@ -261,7 +262,9 @@
   <section class="section columns is-desktop caption">
     <div class="container is-widescreen">
       <HeaderLanding {...headerCaption} />
-      <BtnZayavka btnText="Подобрать" radius />
+      <div class="column is-3">
+        <BtnZayavka btnText="Подобрать" radius />
+      </div>
     </div>
   </section>
   <section class="section desc">
@@ -601,7 +604,13 @@
   <section class="section advice">
     <div class="container">
       <div class="column is-10 is-offset-1">
-        <CallbackForm left btnText="Отправить запрос" radius bWhite btnWhite />
+        <CallbackForm
+          left
+          btnText="Отправить запрос"
+          radius
+          white={false}
+          bWhite
+          btnWhite />
       </div>
     </div>
   </section>

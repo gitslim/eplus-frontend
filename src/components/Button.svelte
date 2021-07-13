@@ -1,4 +1,5 @@
 <script>
+  import { showModal } from "../stores";
   export let btnName = "",
     radius = false,
     isDisabled = false;
@@ -37,6 +38,11 @@
   }
 </style>
 
-<button class="btn button" class:radius name={btnName} disabled={isDisabled}>
+<button
+  class="btn button"
+  class:radius
+  name={btnName}
+  disabled={isDisabled}
+  on:click={() => showModal.set(true)}>
   <slot />
 </button>

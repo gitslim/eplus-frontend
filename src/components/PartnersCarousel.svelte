@@ -1,7 +1,5 @@
 <script>
   import Carousel from "@beyonk/svelte-carousel";
-  import { onMount } from "svelte";
-  import LazyImage from "svelte-lazy-image";
   import Icon from "fa-svelte";
   import {
     faChevronCircleLeft,
