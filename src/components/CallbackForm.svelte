@@ -1,7 +1,7 @@
 <script>
   import BtnZayavka from "./BtnZayavka.svelte";
   import TitleLanding from "./TitleLanding.svelte";
-  $: white = true;
+  $: white;
   $: left;
   $: btnText;
   $: radius;
@@ -17,35 +17,6 @@
     color: #fff;
     padding: 30px;
   }
-
-  // .title__bottom {
-  //   font-size: 16px;
-  //   font-weight: 700;
-  //   margin-bottom: 10px;
-  // }
-
-  // .btn-white {
-  //   color: #222;
-  //   margin-top: 20px;
-  //   border: 2px solid#fff;
-  //   background: #fff;
-  //   border-radius: 30px;
-  //   overflow: hidden;
-  //   transition: all 0.3s;
-  //   font-size: 12px;
-  //   letter-spacing: 1px;
-  //   text-transform: uppercase;
-  //   padding: 9px 24px 9px;
-  //   position: relative;
-  //   display: inline-block;
-  //   z-index: 1;
-  //   font-weight: 700;
-
-  //   &:hover {
-  //     color: #fff;
-  //     background-color: #f86923;
-  //   }
-  // }
 
   .bWhite {
     background: #fff;

@@ -6,13 +6,13 @@
     faChevronCircleRight,
   } from "@fortawesome/free-solid-svg-icons";
 
-  export let startIndex = 4;
+  // export let startIndex;
   let carousel;
 
-  const perPage = {
-    800: Math.min(4),
-    500: Math.min(2),
-  };
+  // const perPage = {
+  //   800: Math.min(4),
+  //   500: Math.min(2),
+  // };
 
   function enter() {
     carousel.pause();
@@ -31,9 +31,7 @@
   bind:this={carousel}
   on:mouseenter={enter}
   on:mouseleave={leave}
-  loop="true"
-  {startIndex}
-  {perPage}>
+  loop="true">
   <span class="control" slot="left-control">
     <Icon icon={faChevronCircleLeft} class="carousel-button" />
   </span>

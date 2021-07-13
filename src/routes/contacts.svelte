@@ -1,29 +1,28 @@
 <script context="module">
-  import SvelteSeo from 'svelte-seo'
+  import SvelteSeo from "svelte-seo";
 </script>
 
 <script>
-  import Address from '../components/Address.svelte'
-  import Modal from '../components/Modal.svelte'
-  import ContactForm from '../components/ContactForm.svelte'
+  import Address from "../components/Address.svelte";
+  import Modal from "../components/Modal.svelte";
+  import ContactForm from "../components/ContactForm.svelte";
+  import { showModal } from "../stores";
 
-  export let segment
-  let title = 'Контакты'
-  let showContactForm = false
+  export let segment;
+  let title = "Контакты";
+  let showContactForm = false;
 
   function handleContactFormCancel(event) {
-    showContactForm = false
-    alert(event)
+    showContactForm = false;
+    alert(event);
   }
 </script>
 
-<SvelteSeo
-  title="{title}"
-/>
+<SvelteSeo {title} />
 
-<Modal open="{showContactForm}" onClose="{()=>showContactForm = false}">
+<Modal open={showContactForm} onClose={() => (showContactForm = false)}>
   <div class="box">
-    <ContactForm on:cancel={handleContactFormCancel}/>
+    <ContactForm on:cancel={handleContactFormCancel} />
   </div>
 </Modal>
 
@@ -32,12 +31,13 @@
     <h1 class="title">{title}</h1>
     <div class="columns">
       <div class="column is-6">
-        <ContactForm/>
+        <ContactForm />
       </div>
       <div class="column is-6">
-        <Address/>
+        <Address />
         <div>
-          <button class="button" on:click="{()=>showContactForm = true}">Заказать звонок</button>
+          <button class="button" on:click={() => showModal.set(true)}>Заказать
+            звонок</button>
         </div>
       </div>
       <div class="column is-6">

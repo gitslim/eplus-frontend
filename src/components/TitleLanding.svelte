@@ -27,7 +27,7 @@
     }
   }
 
-  .white-color {
+  .white {
     color: #fff;
   }
 
@@ -46,6 +46,4 @@
   }
 </style>
 
-<h2 class="title {white ? 'white-color' : ''}" class:green class:left>
-  {titleText}
-</h2>
+<h2 class="title }" class:green class:left class:white>{titleText}</h2>

@@ -61,7 +61,7 @@
         </div>
       </section>
       <div class="content-bottom">
-        <CallbackForm />
+        <CallbackForm left white />
       </div>
     </div>
     <div class="block-sidebar">
