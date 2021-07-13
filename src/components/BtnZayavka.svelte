@@ -14,9 +14,11 @@
 <style lang="scss">
   .btn-wrap {
     display: flex;
+    max-width: 250px;
   }
 
   .btn__zayavka {
+    width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
