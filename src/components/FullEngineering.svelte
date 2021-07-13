@@ -9,6 +9,7 @@
   } from "@fortawesome/free-solid-svg-icons";
   import { faBattleNet } from "@fortawesome/free-brands-svg-icons";
   import LazyImage from "svelte-lazy-image";
+  import { showModal } from "../stores";
 </script>
 
 <div class="columns is-vcentered">
@@ -47,7 +48,12 @@
     </ul>
 
     <p class="has-text-centered pt-6">
-      <a class="button hero-buttons is-primary"> Заказать проект </a>
+      <a
+        class="button hero-buttons is-primary"
+        href="/#/"
+        on:click|preventDefault={() => showModal.set(true)}>
+        Заказать проект
+      </a>
     </p>
   </div>
 </div>

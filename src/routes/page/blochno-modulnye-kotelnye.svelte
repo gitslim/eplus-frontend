@@ -14,7 +14,6 @@
   const headerCaption = {
     caption: title,
   };
-  export let segment;
 </script>
 
 <style lang="scss">
@@ -64,7 +63,7 @@
     position: relative;
     width: 100%;
     max-width: 700px;
-    height: 300px;
+    height: 400px;
     border-radius: 15px;
     background-position: center center;
     background-size: cover;
@@ -289,7 +288,7 @@
     <div
       class="container is-widescreen columns is-desktop"
       style="justify-content: center;">
-      <div class="column is-5">
+      <div class="column is-6">
         <div
           class="bmk-video"
           style="background-image: url('https://img.youtube.com/vi/YDMFmwOd3h0/maxresdefault.jpg');">
@@ -321,7 +320,7 @@
           установки ТКУ (БКУ)».
         </p>
       </div>
-      <div class="column is-5">
+      <div class="column is-6">
         <div
           class="bmk-video"
           style="background-image: url('https://img.youtube.com/vi/PGMfjah3BmA/maxresdefault.jpg');">
@@ -504,7 +503,7 @@
     <div class="columns partners" style="min-height: 200px;">
       <div class="column">
         <TitleLanding titleText="Наши партнеры" />
-        <PartnersCarousel />
+        <!-- <PartnersCarousel /> -->
       </div>
     </div>
   </section>
@@ -603,14 +602,20 @@
   </section>
   <section class="section advice">
     <div class="container">
-      <div class="column is-10 is-offset-1">
-        <CallbackForm
-          left
-          btnText="Отправить запрос"
-          radius
-          white={false}
-          bWhite
-          btnWhite />
+      <div class="columns is-desktop is-flex is-align-items-center">
+        <div class="column is-6">
+          <CallbackForm
+            left
+            btnText="Отправить запрос"
+            radius
+            bWhite
+            btnWhite />
+        </div>
+        <div class="column is-6">
+          <img
+            src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"
+            alt="modulnaya-kotelnaya.png" />
+        </div>
       </div>
     </div>
   </section>

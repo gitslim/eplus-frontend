@@ -109,7 +109,7 @@
       <div class="column is-4">
         <aside class="aside__right">
           <SidebarRight />
-          <CallbackForm />
+          <CallbackForm white />
         </aside>
       </div>
     </div>
