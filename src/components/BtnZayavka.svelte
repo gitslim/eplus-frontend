@@ -14,7 +14,7 @@
 <style lang="scss">
   .btn-wrap {
     display: flex;
-    max-width: 250px;
+    max-width: 260px;
   }
 
   .btn__zayavka {
