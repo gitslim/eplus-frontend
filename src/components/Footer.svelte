@@ -32,7 +32,7 @@
         <div class="pt-4">
           <button
             class="button is-primary"
-            on:click={() => showModal.set(true)}>Заказать расчет</button>
+            on:click={() => showModal.set(true)}>Заказать проект</button>
         </div>
       </div>
       <div class="column">
