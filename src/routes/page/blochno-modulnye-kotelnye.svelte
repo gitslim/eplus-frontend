@@ -32,24 +32,39 @@
   }
 
   .desc {
-    padding-top: 60px;
+    padding: 150px 0 100px;
+    background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
 
     &__wrap {
       margin-bottom: 50px;
     }
 
     &__text {
-      font-size: 27px;
+      text-align: justify;
+      font-size: 22px;
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.8;
       color: #202020;
+    }
+
+    &__img {
+      position: absolute;
+      z-index: 1;
+      max-width: 100%;
+      top: 0;
+      left: -115px;
     }
   }
   .info {
-    background-color: #383838;
-    padding-bottom: 120px;
+    // padding-bottom: 120px;
+    margin-top: 95px;
+
+    &__content {
+      padding-top: 60px;
+    }
 
     &__text {
+      text-align: justify;
       color: #fff;
       font-size: 18px;
       font-weight: 300;
@@ -164,6 +179,7 @@
     background-size: cover;
 
     &__text {
+      text-align: justify;
       color: #fff;
       font-size: 18px;
     }
@@ -175,6 +191,7 @@
     }
 
     &__item {
+      text-align: justify;
       margin-bottom: 24px;
       position: relative;
       font-size: 18px;
@@ -234,12 +251,17 @@
       height: 56px;
       margin: 0 auto 75px;
     }
-
+    &__column {
+      position: relative;
+    }
     &__text {
       text-align: center;
     }
 
     &__wrap {
+      position: absolute;
+      top: 12px;
+      background-color: #fff;
       padding: 40px 30px;
       box-shadow: 0 19px 46px 30px rgba(0, 0, 0, 0.15);
       padding: 40px 80px;
@@ -251,6 +273,31 @@
       font-weight: 300;
       line-height: 1.6;
       margin-bottom: 10px;
+    }
+  }
+
+  .advice {
+    padding-top: 238px;
+    &__bg {
+      background: url("/images/bmk/pryamougolnik_11_kopiya_2.jpg") center
+        no-repeat;
+      background-size: cover;
+      padding: 0px 0 150px;
+      margin-top: -50px;
+    }
+
+    &__text {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    &__phone {
+      color: #202020;
+
+      &:hover {
+        color: #f86923;
+      }
     }
   }
 </style>
@@ -268,10 +315,13 @@
   </section>
   <section class="section desc">
     <div class="container is-widescreen columns is-desktop desc__wrap">
-      <div class="column is-6 desc__img">
-        <img src="/images/bmk/u-bmk-image_01.png" alt="bmk-img" />
+      <div class="column is-6">
+        <img
+          class="desc__img"
+          src="/images/bmk/u-bmk-image_01.png"
+          alt="bmk-img" />
       </div>
-      <div class="column is-6 desc__who">
+      <div class="column is-5 is-offset-1 desc__who">
         <TitleLanding titleText="Что такое БМК:" left />
         <p class="desc__text">
           БМК – это паровая, водогрейная или пароводогрейная котельная частичной
@@ -283,75 +333,76 @@
         </p>
       </div>
     </div>
-  </section>
-  <section class="section info">
-    <div
-      class="container is-widescreen columns is-desktop"
-      style="justify-content: center;">
-      <div class="column is-6">
-        <div
-          class="bmk-video"
-          style="background-image: url('https://img.youtube.com/vi/YDMFmwOd3h0/maxresdefault.jpg');">
-          <a
-            href="https://www.youtube.com/watch?v=YDMFmwOd3h0"
-            class="info__link"><img
-              src="/images/bmk/u-icon-play.png"
-              alt="icon-play"
-              class="info_img" /></a>
+
+    <div class="info">
+      <div
+        class="container is-widescreen columns is-desktop info__content"
+        style="justify-content: center;">
+        <div class="column is-6">
+          <div
+            class="bmk-video"
+            style="background-image: url('https://img.youtube.com/vi/YDMFmwOd3h0/maxresdefault.jpg');">
+            <a
+              href="https://www.youtube.com/watch?v=YDMFmwOd3h0"
+              class="info__link"><img
+                src="/images/bmk/u-icon-play.png"
+                alt="icon-play"
+                class="info_img" /></a>
+          </div>
+          <TitleLanding
+            titleText="Является ли бмк обьектом капитального строительства?"
+            white
+            left />
+          <p class="block info__text">
+            Не стоит забывать, что несмотря на то, что блочная котельная
+            доставляется транспортом, она является объектом капитального
+            строительства и требует получения разрешения на строительство после
+            прохождения экспертизы проекта. Без получения данных документов ввод
+            БМК в эксплуатацию невозможен.
+          </p>
+          <p class="block info__text">
+            Применяются блочно-модульные котельные для отопления, горячего
+            водоснабжения, производства пара для технологических нужд.
+            Обслуживать БМК может одно или нескольких зданий.
+          </p>
+          <p class="block info__text">
+            Блочно-модульные котельные также называют«транспортабельные
+            котельные установки ТКУ (БКУ)».
+          </p>
         </div>
-        <TitleLanding
-          titleText="Является ли бмк обьектом капитального строительства?"
-          white
-          left />
-        <p class="block info__text">
-          Не стоит забывать, что несмотря на то, что блочная котельная
-          доставляется транспортом, она является объектом капитального
-          строительства и требует получения разрешения на строительство после
-          прохождения экспертизы проекта. Без получения данных документов ввод
-          БМК в эксплуатацию невозможен.
-        </p>
-        <p class="block info__text">
-          Применяются блочно-модульные котельные для отопления, горячего
-          водоснабжения, производства пара для технологических нужд. Обслуживать
-          БМК может одно или нескольких зданий.
-        </p>
-        <p class="block info__text">
-          Блочно-модульные котельные также называют«транспортабельные котельные
-          установки ТКУ (БКУ)».
-        </p>
-      </div>
-      <div class="column is-6">
-        <div
-          class="bmk-video"
-          style="background-image: url('https://img.youtube.com/vi/PGMfjah3BmA/maxresdefault.jpg');">
-          <a
-            href="https://www.youtube.com/watch?v=PGMfjah3BmA"
-            class="info__link"><img
-              src="/images/bmk/u-icon-play.png"
-              alt="icon-play"
-              class="info_img" /></a>
+        <div class="column is-6">
+          <div
+            class="bmk-video"
+            style="background-image: url('https://img.youtube.com/vi/PGMfjah3BmA/maxresdefault.jpg');">
+            <a
+              href="https://www.youtube.com/watch?v=PGMfjah3BmA"
+              class="info__link"><img
+                src="/images/bmk/u-icon-play.png"
+                alt="icon-play"
+                class="info_img" /></a>
+          </div>
+          <TitleLanding
+            titleText="в каких случаях устанавливают бмк"
+            white
+            left />
+          <p class="block info__text">
+            Расположение объекта в удаленном или труднодоступном районе, где
+            нерационально возводить стационарную котельную в силу ряда факторов:
+            удаленность поставщиков строительных материалов, слабой развитости
+            инфраструктуры либо невозможности организации мест проживания
+            монтажников, отсутствие мест заправки баллонов кислородом и
+            пропаном, сложные погодные условия
+          </p>
+          <p class="block info__text">
+            Необходимость возведения котельной в крышном исполнении. Временное
+            теплоснабжение (как пример - строительство объектов в сжатые сроки).
+            В данном случае лучше всего подходит БМК на дизельном топливе
+          </p>
+          <p class="block info__text">
+            Невозможность строительства стационарной котельной непосредственно
+            на объекте заказчика (режимные предприятия и пр.)
+          </p>
         </div>
-        <TitleLanding
-          titleText="в каких случаях устанавливают бмк"
-          white
-          left />
-        <p class="block info__text">
-          Расположение объекта в удаленном или труднодоступном районе, где
-          нерационально возводить стационарную котельную в силу ряда факторов:
-          удаленность поставщиков строительных материалов, слабой развитости
-          инфраструктуры либо невозможности организации мест проживания
-          монтажников, отсутствие мест заправки баллонов кислородом и пропаном,
-          сложные погодные условия
-        </p>
-        <p class="block info__text">
-          Необходимость возведения котельной в крышном исполнении. Временное
-          теплоснабжение (как пример - строительство объектов в сжатые сроки). В
-          данном случае лучше всего подходит БМК на дизельном топливе
-        </p>
-        <p class="block info__text">
-          Невозможность строительства стационарной котельной непосредственно на
-          объекте заказчика (режимные предприятия и пр.)
-        </p>
       </div>
     </div>
   </section>
@@ -581,7 +632,7 @@
         </div>
       </div>
     </div>
-    <div class="column is-10 is-offset-1">
+    <div class="column logic__column is-10 is-offset-1 mt-6">
       <div class="logic__wrap">
         <p class="logic__info">
           ООО «Энергия Плюс» является техническим партнером интернет-ресурса <a
@@ -601,20 +652,28 @@
     </div>
   </section>
   <section class="section advice">
-    <div class="container">
-      <div class="columns is-desktop is-flex is-align-items-center">
-        <div class="column is-6">
-          <CallbackForm
-            left
-            btnText="Отправить запрос"
-            radius
-            bWhite
-            btnWhite />
-        </div>
-        <div class="column is-6">
-          <img
-            src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"
-            alt="modulnaya-kotelnaya.png" />
+    <div class="advice__bg">
+      <div class="container">
+        <div class="columns is-desktop is-flex is-align-items-center">
+          <div class="column is-7 py-6">
+            <img
+              src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"
+              alt="modulnaya-kotelnaya.png" />
+          </div>
+          <div class="column is-5">
+            <div class="advise__wrap ml-4">
+              <TitleLanding titleText="Нужна консультация" left />
+              <div class="advice__text">
+                Позвоните нам по телефону: <a
+                  href="tel:+74957907697"
+                  class="advice__phone">+7 (495) 790-76-97</a><br /> или воспользуйтесь
+                формой обратной связи
+              </div>
+              <div class="advice__btn column is-8 p-0 is-flex mt-6 is-size-5">
+                <BtnZayavka btnText="Отправить Запрос" radius />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

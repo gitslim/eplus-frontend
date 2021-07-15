@@ -14,7 +14,7 @@
 <style lang="scss">
   .btn-wrap {
     display: flex;
-    max-width: 260px;
+    width: 100%;
   }
 
   .btn__zayavka {
@@ -22,15 +22,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding-top: 10px;
+    //padding-top: 10px;
     text-decoration: none;
-    margin-bottom: 30px;
+    //margin-bottom: 30px;
     vertical-align: text-bottom;
     height: 51px;
     background-color: #f60;
     padding: 0 60px;
     color: #fefefe;
-    font-size: 16px;
+    //font-size: 16px;
     font-weight: 700;
     border: none;
     cursor: pointer;
@@ -50,13 +50,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    //margin-top: 20px;
     border: 2px solid#fff;
     background: #fff;
     border-radius: 30px;
     overflow: hidden;
     transition: all 0.3s;
-    font-size: 12px;
+    //font-size: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     padding: 9px 24px 9px;
