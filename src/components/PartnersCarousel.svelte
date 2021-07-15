@@ -5,14 +5,16 @@
     faChevronCircleLeft,
     faChevronCircleRight,
   } from "@fortawesome/free-solid-svg-icons";
+  import * as svelteImages from "svelte-images";
 
-  // export let startIndex;
+  export let items,
+    startIndex = 1;
   let carousel;
 
-  // const perPage = {
-  //   800: Math.min(4),
-  //   500: Math.min(2),
-  // };
+  const perPage = {
+    800: Math.min(items.length, 4),
+    500: Math.min(items.length, 2),
+  };
 
   function enter() {
     carousel.pause();
@@ -31,7 +33,9 @@
   bind:this={carousel}
   on:mouseenter={enter}
   on:mouseleave={leave}
-  loop="true">
+  loop="true"
+  {startIndex}
+  {perPage}>
   <span class="control" slot="left-control">
     <Icon icon={faChevronCircleLeft} class="carousel-button" />
   </span>
