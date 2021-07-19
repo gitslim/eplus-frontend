@@ -7,7 +7,7 @@
   import SidebarRight from "../components/SidebarRight.svelte";
 
   export let segment
-  let title = 'Полезное'
+  let title = 'Рассчитать стоимость котельной и газопровода'
 </script>
 
 <SvelteSeo {title}/>
@@ -59,23 +59,19 @@
       <section>
         <div class="widget">
           <h2 class="title">
-            <span><span>Полезное</span></span><span class="heading-line" />
+            <span><span>Калькуляторы расчета</span></span><span class="heading-line" />
           </h2>
         </div>
         <div class="builder-element-inside">
           <div class="builder-element-children-wrapper">
-            <h3><a href="/faq">Вопросы и ответы</a></h3>
-            <h3><a href="/kalkulyatory">Калькуляторы</a></h3>
             <h3>
-              <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет
+              <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет стоимости
                 газопровода</a>
             </h3>
             <h3>
-              <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">Расчет
+              <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">Расчет стоимости
                 котельной</a>
             </h3>
-            <h3><a href="/documents">Нормативные документы</a></h3>
-            <h3><a href="/articles">Статьи</a></h3>
           </div>
         </div>
       </section>
