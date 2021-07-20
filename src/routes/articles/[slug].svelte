@@ -17,9 +17,23 @@
 
 <script>
   import DynamicZone from "../../components/DynamicZone.svelte";
+  import CallbackForm from "../../components/CallbackForm.svelte";
+  import SidebarRight from "../../components/SidebarRight.svelte";
 
   export let article, segment;
 </script>
+
+<style lang="scss">
+  .aside__right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
 
 <SvelteSeo
   title="{article.title}"
@@ -30,7 +44,7 @@
     <h1 class="title">{article.title}</h1>
 
     <div class="columns">
-      <div class="column is-9">
+      <div class="column is-8">
 <!--        <div class="box">-->
 <!--          <figure class="image is-4by3">-->
 <!--            <img src="{article.image.url}" alt="{article.image.alternativeText}">-->
@@ -41,10 +55,11 @@
         </div>
       </div>
 
-      <div class="column">
-        <div class="box">
-          tags
-        </div>
+      <div class="column is-4">
+        <aside class="aside__right">
+          <SidebarRight />
+          <CallbackForm white />
+        </aside>
       </div>
     </div>
   </div>
