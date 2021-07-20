@@ -12,11 +12,11 @@ spec:
   tls:
     - hosts:
         # Change this to your own hostname
-        - new.xn--c1adkmgpem4hrai.xn--p1ai
+        - xn--c1adkmgpem4hrai.xn--p1ai
       secretName: new-energyplus-tls
   rules:
     # Change this to your own hostname
-    - host: new.xn--c1adkmgpem4hrai.xn--p1ai
+    - host: xn--c1adkmgpem4hrai.xn--p1ai
       http:
         paths:
           - path: /
