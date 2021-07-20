@@ -37,9 +37,9 @@
     carousel.resume();
   }
 
-  onMount(async () => {
-    console.log("photo ===> ", items);
-  });
+  // onMount(async () => {
+  //   console.log("photo ===> ", items);
+  // });
 </script>
 
 <style lang="scss">

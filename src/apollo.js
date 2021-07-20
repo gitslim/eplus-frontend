@@ -167,6 +167,20 @@ export const TESTIMONIALS = gql`
   }
 `;
 
+export const PARTNERS = gql`
+  query {
+    partners(sort: "id:asc") {
+      partner
+      date
+      image {
+        url
+        formats
+        alternativeText
+      }
+    }
+  }
+`;
+
 export const FAQS = gql`
   query {
     faqs {

@@ -1,10 +1,19 @@
 <script context="module">
   import SvelteSeo from "svelte-seo";
+
+  import { client, PARTNERS } from "../../apollo";
+
+  export async function preload(page, session) {
+    let cache = await client.query({
+      query: PARTNERS,
+      variables: {},
+    });
+    return { partners: cache.data.partners };
+  }
 </script>
 
 <script>
   import BtnZayavka from "../../components/BtnZayavka.svelte";
-  import CallbackForm from "../../components/CallbackForm.svelte";
   import HeaderLanding from "../../components/HeaderLanding.svelte";
   import PartnersCarousel from "../../components/PartnersCarousel.svelte";
   import TitleLanding from "../../components/TitleLanding.svelte";
@@ -14,6 +23,8 @@
   const headerCaption = {
     caption: title,
   };
+
+  export let partners;
 </script>
 
 <style lang="scss">
@@ -586,55 +597,14 @@
     </div>
   </section>
   <section class="section">
-    <div class="columns partners" style="min-height: 200px; height: 250px; ">
+    <div class="container columns partners">
       <div class="column">
         <TitleLanding titleText="Наши партнеры" />
-        <PartnersCarousel items={[1, 2, 3, 4, 5, 6, 7, 8]}>
-          <figure
-            class="block is-size-1 is-flex is-justify-content-space-around">
-            <!--<div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              1
-            </div>
-            <div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              2
-            </div>
-            <div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              3
-            </div>
-            <div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              4
-            </div>
-            <div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              5
-            </div>
-            <div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              6
-            </div>
-            <div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              7
-            </div>
-            <div
-              class="block__item mx-4"
-              style="width: 250px; background-color: grey; height: 250px;">
-              8
-            </div> -->
-          </figure>
-        </PartnersCarousel>
       </div>
+    </div>
+    <div class="corousel__wrap">
+      <PartnersCarousel items={partners} />
+      <!-- class="block is-size-1 is-flex is-justify-content-space-around" -->
     </div>
   </section>
   <section class="section logic">
