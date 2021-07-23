@@ -32,13 +32,13 @@
 <MobileHero>
   <div slot="head" class="video-head container has-text-centered py-4">
     <p class="title has-text-white">
-      Проектирование и строительство объектов энергетики
+      Проектирование и строительство объектов энергетики и систем газораспределения
     </p>
     <br />
     <p class="subtitle">
       <button
         class="button is-white"
-        on:click={() => showModal.set(true)}>Получить консультацию</button>
+        on:click={() => showModal.set(true)}>Заказать проект</button>
     </p>
   </div>
 </MobileHero>
@@ -46,13 +46,13 @@
 <VideoHero video="/video/hero-video.mp4">
   <div slot="head" class="video-head container has-text-centered py-4">
     <p class="title has-text-white">
-      Проектирование и строительство объектов энергетики
+      Проектирование и строительство объектов энергетики и систем газораспределения
     </p>
     <br />
     <p class="subtitle">
       <button
         class="button is-primary"
-        on:click={() => showModal.set(true)}>Получить консультацию</button>
+        on:click={() => showModal.set(true)}>Заказать проект</button>
     </p>
   </div>
   <!--  <div slot="footer">-->
