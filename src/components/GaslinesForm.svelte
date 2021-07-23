@@ -201,7 +201,7 @@
             textLable="Протяженность, м"
             id="gazLen"
             name="gazLen"
-            placeholder="Протяженность оринтеровочная"
+            placeholder="Протяженность ориентировочная"
             bind:val={props.gazLine} />
         </div>
       {/if}
@@ -211,7 +211,7 @@
             textLable="Мощность, МВт"
             id="gazPower"
             name="gazPower"
-            placeholder="Мощность оринтеровочная"
+            placeholder="Мощность ориентировочная"
             bind:val={props.gazPower} />
         </div>
       {/if}
