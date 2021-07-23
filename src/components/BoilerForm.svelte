@@ -172,7 +172,7 @@
         textLable="Мощность, МВт"
         id="gazPower"
         name="gazPower"
-        placeholder="Мощность оринтеровочная"
+        placeholder="Мощность ориентировочная"
         bind:val={props.gazPower} />
     </div>
 

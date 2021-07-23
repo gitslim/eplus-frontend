@@ -9,7 +9,7 @@
   import TitleLanding from "../../components/TitleLanding.svelte";
   import CalculationBlock from "../../components/CalculationBlock.svelte";
 
-  let title = "Внутреплощадочные и внутренние газопроводы";
+  let title = "Внутриплощадочные и внутренние газопроводы";
 
   const headerCaption = {
     caption: title,
