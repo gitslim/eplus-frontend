@@ -3,6 +3,11 @@
   export let btnName = "",
     radius = false,
     isDisabled = false;
+
+  function handlerClick() {
+    showModal.set(true);
+    window.ym(54841009,'reachGoal','lidformsiteyagtm');
+  }
 </script>
 
 <style lang="scss">
@@ -43,6 +48,6 @@
   class:radius
   name={btnName}
   disabled={isDisabled}
-  on:click={() => showModal.set(true)}>
+  on:click|preventDefault={handlerClick}>
   <slot />
 </button>
