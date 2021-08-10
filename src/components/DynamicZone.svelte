@@ -1,5 +1,5 @@
 <script>
-  import marked from "marked"
+  import marked from 'marked'
 
   export let content
 </script>
@@ -11,9 +11,11 @@
         {@html marked(block.content)}
       </div>
     {:else if block.__typename === 'ComponentDefaultImage'}
-      <div class="image">
-        <img src="{block.image.formats.small.url}" alt="{block.image.alternativeText}"/>
-      </div>
+      {#if block.image != null}
+        <div class="image">
+          <img src="{block.image.formats.small.url}" alt="{block.image.alternativeText}"/>
+        </div>
+      {/if}
     {/if}
   {/each}
 </div>
