@@ -4,6 +4,9 @@ import compression from 'compression';
 import * as sapper from '@sapper/server';
 import proxy from 'express-http-proxy';
 
+// logger
+const morgan = require('morgan');
+
 const {PORT, NODE_ENV} = process.env;
 const dev = NODE_ENV === 'development';
 
@@ -12,6 +15,7 @@ const proxyHost = dev ? 'http://localhost:1337' : 'https://api.xn--c1adkmgpem4hr
 const server = app();
 
 server
+  .use(morgan('combined'))
   .use("/uploads", proxy(
     proxyHost,
     {
