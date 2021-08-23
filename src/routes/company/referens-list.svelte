@@ -22,7 +22,7 @@
     <div class="columns">
       <div class="column is-8">
         <figure class="image is-4by5">
-          <iframe class="has-ratio" src="https://docs.google.com/gview?embedded=true&amp;url=http://xn--c1adkmgpem4hrai.xn--p1ai/sites/default/files/2019-09/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%81-%D0%BB%D0%B8%D1%81%D1%82%202015-2019%20%D0%9E%D0%AD.doc"></iframe>
+          <iframe class="has-ratio" src="https://docs.google.com/gview?embedded=true&amp;url=http://xn--c1adkmgpem4hrai.xn--p1ai/docs/Референс-лист.pdf"></iframe>
         </figure>
       </div>
 
