@@ -14,25 +14,25 @@
       image: '/images/projects/1.jpg',
       title: 'Линейные объекты',
       subtitle: 'новое строительство',
-      slug: '/'
+      slug: 'page/linejnye-obuekty-novoe-stroitelstvo'
     },
     {
       image: '/images/projects/2.jpg',
       title: 'Линейные объекты',
       subtitle: 'реконструкция',
-      slug: '/'
+      slug: 'page/linejnye-obuekty-rekonstrukciya'
     },
     {
       image: '/images/projects/3.jpg',
       title: 'Газопроводы',
       subtitle: 'в границах участка заказчика',
-      slug: '/'
+      slug: 'page/gazoprovody-v-granicah-uchastka-zakazchika'
     },
     {
       image: '/images/projects/4.jpg',
       title: 'Котельные',
       subtitle: '',
-      slug: '/'
+      slug: 'page/kotelnye'
     }
   ]
 
