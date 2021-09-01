@@ -1,26 +1,19 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo"
-  import {client, ARTICLE_BY_SLUG_QUERY} from "../../apollo";
+    import SvelteSeo from 'svelte-seo'
+    import {fetchEndpoint} from '$lib/utils'
 
-  export async function preload(page, session) {
-    const {slug} = page.params;
-
-    let cache = await client.query({
-      query: ARTICLE_BY_SLUG_QUERY,
-      variables: {slug},
-    });
-    if (cache.data.articles.length > 0) return {article: cache.data.articles[0]};
-
-    return this.error(404, "Страница не найдена");
-  }
+    export const load = async ({fetch, page}) => {
+        const {slug} = page.params
+        return await fetchEndpoint(fetch, '/ep/get-article-by-slug', {slug})
+    }
 </script>
 
 <script>
-  import DynamicZone from "../../components/DynamicZone.svelte";
-  import CallbackForm from "../../components/CallbackForm.svelte";
-  import SidebarRight from "../../components/SidebarRight.svelte";
+    import DynamicZone from '$lib/components/DynamicZone.svelte'
+    import CallbackForm from '$lib/components/CallbackForm.svelte'
+    import SidebarRight from '$lib/components/SidebarRight.svelte'
 
-  export let article, segment;
+    export let data
 </script>
 
 <style lang="scss">
@@ -36,31 +29,26 @@
 </style>
 
 <SvelteSeo
-  title="{article.title}"
+        title="{data.article.title}"
 />
 
 <section class="section">
-  <div class="container">
-    <h1 class="title">{article.title}</h1>
+    <div class="container">
+        <h1 class="title">{data.article.title}</h1>
 
-    <div class="columns">
-      <div class="column is-8">
-<!--        <div class="box">-->
-<!--          <figure class="image is-4by3">-->
-<!--            <img src="{article.image.url}" alt="{article.image.alternativeText}">-->
-<!--          </figure>-->
-<!--        </div>-->
-        <div class="box">
-          <DynamicZone content="{article.content}"/>
+        <div class="columns">
+            <div class="column is-8">
+                <div class="box">
+                    <DynamicZone content="{data.article.content}"/>
+                </div>
+            </div>
+
+            <div class="column is-4">
+                <aside class="aside__right">
+                    <SidebarRight/>
+                    <CallbackForm white/>
+                </aside>
+            </div>
         </div>
-      </div>
-
-      <div class="column is-4">
-        <aside class="aside__right">
-          <SidebarRight />
-          <CallbackForm white />
-        </aside>
-      </div>
     </div>
-  </div>
 </section>

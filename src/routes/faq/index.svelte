@@ -1,27 +1,19 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo";
-  import { client, FAQS } from "../../apollo";
+  import SvelteSeo from 'svelte-seo'
+  import {fetchEndpoint} from '$lib/utils'
 
-  export async function preload(page, session) {
-    let cache = await client.query({
-      query: FAQS,
-      variables: {},
-    });
-
-    return { faqs: cache.data.faqs };
-
-    //return this.error(404, "Страница не найдена");
+  export const load = async ({fetch}) => {
+      return await fetchEndpoint(fetch, '/ep/list-faqs', {})
   }
-  //cache.data.faqs
 </script>
 
 <script>
-  import CallbackForm from "../../components/CallbackForm.svelte";
-  import SidebarRight from "../../components/SidebarRight.svelte";
+    import CallbackForm from '$lib/components/CallbackForm.svelte'
+    import SidebarRight from '$lib/components/SidebarRight.svelte'
 
-  let title = "Часто задаваемые вопросы";
+    let title = 'Часто задаваемые вопросы'
 
-  export let faqs;
+    export let data
 </script>
 
 <style lang="scss">
@@ -36,35 +28,35 @@
   }
 </style>
 
-<SvelteSeo {title} />
+<SvelteSeo {title}/>
 
 <div class="container .is-widescreen mt-5">
-  <main class="main columns is-desktop">
-    <section class="section column is-8">
-      <div class="widget">
-        <h2 class="title">
-          <span>{title}</span>
-          <span class="heading-line" />
-        </h2>
-      </div>
-
-      <div class="is-centered">
-        <ul class="faq">
-          {#each faqs as faq}
-            <div class="box">
-              <li class="faq__item">
-                <a href="/faq/{faq.slug}" class="faq__link">{faq.title}</a>
-              </li>
+    <main class="main columns is-desktop">
+        <section class="section column is-8">
+            <div class="widget">
+                <h2 class="title">
+                    <span>{title}</span>
+                    <span class="heading-line"/>
+                </h2>
             </div>
-          {/each}
-        </ul>
-      </div>
-    </section>
-    <div class="column is-4">
-      <aside class="aside__right">
-        <SidebarRight />
-        <CallbackForm white />
-      </aside>
-    </div>
-  </main>
+
+            <div class="is-centered">
+                <ul class="faq">
+                    {#each data.faqs as faq}
+                        <div class="box">
+                            <li class="faq__item">
+                                <a href="/faq/{faq.slug}" class="faq__link">{faq.title}</a>
+                            </li>
+                        </div>
+                    {/each}
+                </ul>
+            </div>
+        </section>
+        <div class="column is-4">
+            <aside class="aside__right">
+                <SidebarRight/>
+                <CallbackForm white/>
+            </aside>
+        </div>
+    </main>
 </div>

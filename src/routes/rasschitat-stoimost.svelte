@@ -1,29 +1,22 @@
 <script context="module">
-  import SvelteSeo from 'svelte-seo'
+    import SvelteSeo from 'svelte-seo'
 </script>
 
 <script>
-  import CallbackForm from "../components/CallbackForm.svelte";
-  import SidebarRight from "../components/SidebarRight.svelte";
+    import CallbackForm from '$lib/components/CallbackForm.svelte'
+    import SidebarRight from '$lib/components/SidebarRight.svelte'
 
-  export let segment
-  let title = 'Рассчитать стоимость котельной и газопровода'
+    let title = 'Рассчитать стоимость котельной и газопровода'
 </script>
 
 <SvelteSeo {title}/>
 
 <style lang="scss">
-  // .content__wrap {
-  //   display: flex;
-  // }
-
   .content-block {
-    // width: 65%;
     margin-right: 10px;
   }
 
   .block-sidebar {
-    // width: 370px;
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -54,33 +47,34 @@
 </style>
 
 <main class="container .is-widescreen">
-  <div class="columns is-desktop content__wrap">
-    <div class="content-block column is-8">
-      <section>
-        <div class="widget">
-          <h2 class="title">
-            <span><span>Калькуляторы расчета</span></span><span class="heading-line" />
-          </h2>
+    <div class="columns is-desktop content__wrap">
+        <div class="content-block column is-8">
+            <section>
+                <div class="widget">
+                    <h2 class="title">
+                        <span><span>Калькуляторы расчета</span></span>
+                        <span class="heading-line"></span>
+                    </h2>
+                </div>
+                <div class="builder-element-inside">
+                    <div class="builder-element-children-wrapper">
+                        <h3>
+                            <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет стоимости
+                                газопровода</a>
+                        </h3>
+                        <h3>
+                            <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">Расчет стоимости
+                                котельной</a>
+                        </h3>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div class="builder-element-inside">
-          <div class="builder-element-children-wrapper">
-            <h3>
-              <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет стоимости
-                газопровода</a>
-            </h3>
-            <h3>
-              <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">Расчет стоимости
-                котельной</a>
-            </h3>
-          </div>
+        <div class="column is-4 mt-5">
+            <aside class="aside__right">
+                <SidebarRight/>
+                <CallbackForm white/>
+            </aside>
         </div>
-      </section>
     </div>
-    <div class="column is-4 mt-5">
-      <aside class="aside__right">
-        <SidebarRight />
-        <CallbackForm white />
-      </aside>
-    </div>
-  </div>
 </main>
