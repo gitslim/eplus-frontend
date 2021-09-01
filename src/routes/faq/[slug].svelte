@@ -1,43 +1,37 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo";
-  import { client, FAQ_BY_ID } from "../../apollo";
+    import SvelteSeo from 'svelte-seo'
+    import {fetchEndpoint} from '$lib/utils'
 
-  export async function preload(page, session) {
-    const { slug } = page.params;
-    let cache = await client.query({
-      query: FAQ_BY_ID,
-      variables: { slug },
-    });
-    if (cache.data.faqs.length > 0) return { faq: cache.data.faqs[0] };
-
-    return this.error(404, "Страница не найдена");
-  }
+    export const load = async ({fetch, page}) => {
+        const {slug} = page.params
+        return await fetchEndpoint(fetch, '/ep/get-faq-by-slug', {slug})
+    }
 </script>
 
 <script>
-  import DynamicZone from "../../components/DynamicZone.svelte";
+    import DynamicZone from '$lib/components/DynamicZone.svelte'
 
-  export let faq, segment;
+    export let data
 </script>
 
 <style>
-  .message-header {
-    background-color: #f86923;
-  }
+    .message-header {
+        background-color: #f86923;
+    }
 </style>
 
-<SvelteSeo title={faq.title} />
+<SvelteSeo title={data.faq.title}/>
 <main class="main">
-  <section class="section">
-    <div class="container">
-      <div class="message mt-5 mb-5">
-        <div class="message-header">
-          <p>{faq.title}</p>
+    <section class="section">
+        <div class="container">
+            <div class="message mt-5 mb-5">
+                <div class="message-header">
+                    <p>{data.faq.title}</p>
+                </div>
+                <div class="box">
+                    <DynamicZone content={data.faq.content}/>
+                </div>
+            </div>
         </div>
-        <div class="box">
-          <DynamicZone content={faq.content} />
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </main>

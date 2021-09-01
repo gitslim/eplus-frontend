@@ -1,9 +1,9 @@
 .DS_Store
+/.idea
 node_modules
+/build
+/.svelte-kit
+/package
 yarn-error.log
-/cypress/screenshots/
-/__sapper__/
-mmmm.code-workspace
-static/global.css
-/untracked/
+/untracked
 

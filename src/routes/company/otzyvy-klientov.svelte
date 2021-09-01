@@ -1,22 +1,17 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo";
+    import SvelteSeo from 'svelte-seo'
+    import {fetchEndpoint} from '$lib/utils'
 
-  import { client, TESTIMONIALS } from "../../apollo";
-
-  export async function preload(page, session) {
-    let cache = await client.query({
-      query: TESTIMONIALS,
-      variables: {},
-    });
-    return { testimonials: cache.data.testimonials };
-  }
+    export const load = async ({fetch}) => {
+        return await fetchEndpoint(fetch, '/ep/list-testimonials', {})
+    }
 </script>
 
 <script>
-  import TestimonialsCarousel from "../../components/TestimonialsCarousel.svelte";
+    import TestimonialsCarousel from '$lib/components/TestimonialsCarousel.svelte'
 
-  let title = "Отзывы клиентов";
-  export let segment, testimonials;
+    let title = 'Отзывы клиентов'
+    export let data
 </script>
 
 <style lang="scss">
@@ -25,15 +20,15 @@
   }
 </style>
 
-<SvelteSeo {title} />
+<SvelteSeo {title}/>
 
 <main class="container is-max-desktop">
-  <section class="section">
-    <div class="widget">
-      <h2 class="title"><span>{title} </span><span class="heading-line" /></h2>
-    </div>
-  </section>
-  <section class="section carusel-wrap">
-    <TestimonialsCarousel items={testimonials} />
-  </section>
+    <section class="section">
+        <div class="widget">
+            <h2 class="title"><span>{title} </span><span class="heading-line"/></h2>
+        </div>
+    </section>
+    <section class="section carusel-wrap">
+        <TestimonialsCarousel items={data.testimonials}/>
+    </section>
 </main>
