@@ -1,57 +1,57 @@
 <script context="module">
-  import SvelteSeo from "svelte-seo";
+    import SvelteSeo from 'svelte-seo'
 </script>
 
 <script>
-  import BtnZayavka from "../../components/BtnZayavka.svelte";
-  import HeaderLanding from "../../components/HeaderLanding.svelte";
-  import InfoBlock from "../../components/InfoBlock.svelte";
-  import TitleLanding from "../../components/TitleLanding.svelte";
-  import CalculationBlock from "../../components/CalculationBlock.svelte";
+    import BtnZayavka from '$lib/components/BtnZayavka.svelte'
+    import HeaderLanding from '$lib/components/HeaderLanding.svelte'
+    import InfoBlock from '$lib/components/InfoBlock.svelte'
+    import TitleLanding from '$lib/components/TitleLanding.svelte'
+    import CalculationBlock from '$lib/components/CalculationBlock.svelte'
 
-  let title = "Внутриплощадочные и внутренние газопроводы";
+    let title = 'Внутриплощадочные и внутренние газопроводы'
 
-  const headerCaption = {
-    caption: title,
-  };
+    const headerCaption = {
+        caption: title,
+    }
 
-  const info = {
-    text:
-      "Исходя из новых Правил подключения, все обязанности и ответственность по подключению в пределах границ участка ложатся на заказчика-застройщика, а не на газораспределительную организацию.",
-    subText:
-      "С утверждением Правил подключения (технологического присоединения) объектов капитального строительства к газораспределительным сетям (Постановления РФ от 30.12.13 № 1314) следует особо отметить, что мероприятия по подключению в пределах границ земельного участка осуществляются заявителем (заказчиком-застройщиком), а мероприятия по подключению до границы земельного участка осуществляются исполнителем (газораспределительной организацией).",
-  };
+    const info = {
+        text:
+            'Исходя из новых Правил подключения, все обязанности и ответственность по подключению в пределах границ участка ложатся на заказчика-застройщика, а не на газораспределительную организацию.',
+        subText:
+            'С утверждением Правил подключения (технологического присоединения) объектов капитального строительства к газораспределительным сетям (Постановления РФ от 30.12.13 № 1314) следует особо отметить, что мероприятия по подключению в пределах границ земельного участка осуществляются заявителем (заказчиком-застройщиком), а мероприятия по подключению до границы земельного участка осуществляются исполнителем (газораспределительной организацией).',
+    }
 
-  const functionsCard = [
-    {
-      id: 1,
-      text:
-        "Внутриплощадочный газопровод - участок распределительного газопровода (ввод), находящийся внутри производственной территории предприятия, обеспечивающий подачу газа к потребителю».",
-      alt: "image-card",
-      src: "/images/gazoprovodi/connecting-event__icon1.png",
-    },
-    {
-      id: 2,
-      text:
-        "Внутренний газопровод - газопровод, проложенный внутри здания от вводного (внутриплощадочного) газопровода до места установки газоиспользующего оборудования..",
-      alt: "image-card",
-      src: "images/gazoprovodi/connecting-event__icon2.png",
-    },
-    {
-      id: 3,
-      text:
-        "ПРГ (пункт редуцирования газа) - технологическое устройство сетей газораспределения и газопотребления, предназначенное для снижения давления газа и поддержания его в заданных пределах независимо от расхода газа.",
-      alt: "image-card",
-      src: "images/gazoprovodi/connecting-event__icon3.png",
-    },
-    {
-      id: 4,
-      text:
-        "Узел учета газа - функционально объединенная совокупность средств измерительной техники, которая преобразует выходной сигнал средства измерений объема и расхода газа при рабочих условиях, измеряет все или некоторые необходимые параметры потока и среды и вычисляет объем и расход газа, приведенные к стандартным условиям.",
-      alt: "image-card",
-      src: "/images/gazoprovodi/connecting-event__icon4.png",
-    },
-  ];
+    const functionsCard = [
+        {
+            id: 1,
+            text:
+                'Внутриплощадочный газопровод - участок распределительного газопровода (ввод), находящийся внутри производственной территории предприятия, обеспечивающий подачу газа к потребителю».',
+            alt: 'image-card',
+            src: '/images/gazoprovodi/connecting-event__icon1.png',
+        },
+        {
+            id: 2,
+            text:
+                'Внутренний газопровод - газопровод, проложенный внутри здания от вводного (внутриплощадочного) газопровода до места установки газоиспользующего оборудования..',
+            alt: 'image-card',
+            src: 'images/gazoprovodi/connecting-event__icon2.png',
+        },
+        {
+            id: 3,
+            text:
+                'ПРГ (пункт редуцирования газа) - технологическое устройство сетей газораспределения и газопотребления, предназначенное для снижения давления газа и поддержания его в заданных пределах независимо от расхода газа.',
+            alt: 'image-card',
+            src: 'images/gazoprovodi/connecting-event__icon3.png',
+        },
+        {
+            id: 4,
+            text:
+                'Узел учета газа - функционально объединенная совокупность средств измерительной техники, которая преобразует выходной сигнал средства измерений объема и расхода газа при рабочих условиях, измеряет все или некоторые необходимые параметры потока и среды и вычисляет объем и расход газа, приведенные к стандартным условиям.',
+            alt: 'image-card',
+            src: '/images/gazoprovodi/connecting-event__icon4.png',
+        },
+    ]
 </script>
 
 <style lang="scss">
@@ -81,12 +81,14 @@
     &__title {
       padding: 0 15px;
     }
+
     &__targets {
       display: flex;
 
       flex-wrap: wrap;
       justify-content: space-around;
     }
+
     &__target {
       display: flex;
       width: 45%;
@@ -103,6 +105,7 @@
         height: 200px;
         min-height: 255px;
         min-width: 160px;
+
         &img {
           border: 0;
           vertical-align: top;
@@ -134,6 +137,7 @@
     &__help {
       text-align: center;
     }
+
     &__icon {
       padding-top: 10px;
       margin-bottom: 20px;
@@ -178,11 +182,13 @@
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
       }
+
       &-img {
         width: 56px;
         height: 56px;
         margin-bottom: 75px;
       }
+
       &-text {
         text-align: center;
         font-size: 16px;
@@ -202,84 +208,84 @@
   }
 </style>
 
-<SvelteSeo {title} />
+<SvelteSeo {title}/>
 
 <main class="main container-fluid">
-  <section class="section caption">
-    <div class="container is-max-widescreen">
-      <HeaderLanding {...headerCaption} />
-      <BtnZayavka btnText="Заказать" radius="true" />
-    </div>
-  </section>
-
-  <div class="container is-max-widescreen">
-    <div class="main__info-block">
-      <InfoBlock {...info} />
-    </div>
-  </div>
-
-  <section class="section functions">
-    <div class="container is-max-widescreen">
-      <div class="functions__title">
-        <TitleLanding
-          titleText="Что включают в себя мероприятия по подключению в пределах границ земельного участка для заявителя?" />
-      </div>
-
-      <p class="functions__desc">
-        Мероприятия подразумевают проектирование и строительство заявителем
-        внутриплощадочных газопроводов, средств антикоррозионной защиты,
-        газорегуляторных пунктов (ПРГ), узлов учета, внутренних газопроводов,
-        газорегуляторных устройств (ГРУ), систем автоматики безопасности и
-        регулирования процесса сжигания газа.
-      </p>
-
-      <div class="functions__targets columns is-desktop">
-        {#each functionsCard as item}
-          <div class="functions__target">
-            <div class="functions__target-img">
-              <img src={item.src} alt={item.alt} />
-            </div>
-            <div class="functions__target-info">
-              <p>{item.text}</p>
-            </div>
-          </div>
-        {/each}
-      </div>
-
-      <div class="functions__help">
-        <p class="functions__desc">
-          Наряду с оперативным выполнением работ, мы окажем всестороннюю
-          экспертную поддержку:
-        </p>
-        <div class="functions__icon columns">
-          <div class="functions__step column-gap is-2">
-            <img
-              src="/images/gazoprovodi/events-help__icon1.png"
-              alt="help-icon"
-              class="functions__step-img" />
-            <p class="functions__step-text">Техническое сопровождение</p>
-          </div>
-          <div class="functions__step column-gap is-2">
-            <img
-              src="/images/gazoprovodi/events-help__icon2.png"
-              alt="help-icon"
-              class="functions__step-img" />
-            <p class="functions__step-text">Юридическое сопровождение</p>
-          </div>
-          <div class="functions__step column-gap is-2">
-            <img
-              src="/images/gazoprovodi/events-help__icon3.png"
-              alt="help-icon"
-              class="functions__step-img" />
-            <p class="functions__step-text">Авторский надзор</p>
-          </div>
+    <section class="section caption">
+        <div class="container is-max-widescreen">
+            <HeaderLanding {...headerCaption}/>
+            <BtnZayavka btnText="Заказать" radius="true"/>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="section calculation">
+    </section>
+
     <div class="container is-max-widescreen">
-      <CalculationBlock />
+        <div class="main__info-block">
+            <InfoBlock {...info}/>
+        </div>
     </div>
-  </section>
+
+    <section class="section functions">
+        <div class="container is-max-widescreen">
+            <div class="functions__title">
+                <TitleLanding
+                        titleText="Что включают в себя мероприятия по подключению в пределах границ земельного участка для заявителя?"/>
+            </div>
+
+            <p class="functions__desc">
+                Мероприятия подразумевают проектирование и строительство заявителем
+                внутриплощадочных газопроводов, средств антикоррозионной защиты,
+                газорегуляторных пунктов (ПРГ), узлов учета, внутренних газопроводов,
+                газорегуляторных устройств (ГРУ), систем автоматики безопасности и
+                регулирования процесса сжигания газа.
+            </p>
+
+            <div class="functions__targets columns is-desktop">
+                {#each functionsCard as item}
+                    <div class="functions__target">
+                        <div class="functions__target-img">
+                            <img src={item.src} alt={item.alt}/>
+                        </div>
+                        <div class="functions__target-info">
+                            <p>{item.text}</p>
+                        </div>
+                    </div>
+                {/each}
+            </div>
+
+            <div class="functions__help">
+                <p class="functions__desc">
+                    Наряду с оперативным выполнением работ, мы окажем всестороннюю
+                    экспертную поддержку:
+                </p>
+                <div class="functions__icon columns">
+                    <div class="functions__step column-gap is-2">
+                        <img
+                                alt="help-icon"
+                                class="functions__step-img"
+                                src="/images/gazoprovodi/events-help__icon1.png"/>
+                        <p class="functions__step-text">Техническое сопровождение</p>
+                    </div>
+                    <div class="functions__step column-gap is-2">
+                        <img
+                                alt="help-icon"
+                                class="functions__step-img"
+                                src="/images/gazoprovodi/events-help__icon2.png"/>
+                        <p class="functions__step-text">Юридическое сопровождение</p>
+                    </div>
+                    <div class="functions__step column-gap is-2">
+                        <img
+                                alt="help-icon"
+                                class="functions__step-img"
+                                src="/images/gazoprovodi/events-help__icon3.png"/>
+                        <p class="functions__step-text">Авторский надзор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section calculation">
+        <div class="container is-max-widescreen">
+            <CalculationBlock/>
+        </div>
+    </section>
 </main>

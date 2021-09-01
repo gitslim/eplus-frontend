@@ -1,13 +1,12 @@
 <script context="module">
-  import SvelteSeo from 'svelte-seo'
+    import SvelteSeo from 'svelte-seo'
 </script>
 
 <script>
-  import CallbackForm from "../components/CallbackForm.svelte";
-  import SidebarRight from "../components/SidebarRight.svelte";
+    import CallbackForm from '$lib/components/CallbackForm.svelte'
+    import SidebarRight from '$lib/components/SidebarRight.svelte'
 
-  export let segment
-  let title = 'Полезное'
+    let title = 'Полезное'
 </script>
 
 <SvelteSeo {title}/>
@@ -54,37 +53,37 @@
 </style>
 
 <main class="container .is-widescreen">
-  <div class="columns is-desktop content__wrap">
-    <div class="content-block column is-8">
-      <section>
-        <div class="widget">
-          <h2 class="title">
-            <span><span>Полезное</span></span><span class="heading-line" />
-          </h2>
+    <div class="columns is-desktop content__wrap">
+        <div class="content-block column is-8">
+            <section>
+                <div class="widget">
+                    <h2 class="title">
+                        <span><span>Полезное</span></span><span class="heading-line"/>
+                    </h2>
+                </div>
+                <div class="builder-element-inside">
+                    <div class="builder-element-children-wrapper">
+                        <h3><a href="/faq">Вопросы и ответы</a></h3>
+                        <h3><a href="/kalkulyatory">Калькуляторы</a></h3>
+                        <h3>
+                            <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет
+                                газопровода</a>
+                        </h3>
+                        <h3>
+                            <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">Расчет
+                                котельной</a>
+                        </h3>
+                        <h3><a href="/documents">Нормативные документы</a></h3>
+                        <h3><a href="/articles">Статьи</a></h3>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div class="builder-element-inside">
-          <div class="builder-element-children-wrapper">
-            <h3><a href="/faq">Вопросы и ответы</a></h3>
-            <h3><a href="/kalkulyatory">Калькуляторы</a></h3>
-            <h3>
-              <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет
-                газопровода</a>
-            </h3>
-            <h3>
-              <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">Расчет
-                котельной</a>
-            </h3>
-            <h3><a href="/documents">Нормативные документы</a></h3>
-            <h3><a href="/articles">Статьи</a></h3>
-          </div>
+        <div class="column is-4 mt-5">
+            <aside class="aside__right">
+                <SidebarRight/>
+                <CallbackForm white/>
+            </aside>
         </div>
-      </section>
     </div>
-    <div class="column is-4 mt-5">
-      <aside class="aside__right">
-        <SidebarRight />
-        <CallbackForm white />
-      </aside>
-    </div>
-  </div>
 </main>
