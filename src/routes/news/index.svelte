@@ -5,7 +5,7 @@
     import {fetchEndpoint} from '$lib/utils'
 
     export const load = async ({fetch, page}) => {
-        return await fetchEndpoint(fetch, '/ep/list-news-articles', {})
+        return await fetchEndpoint(fetch, '/ep/list-news-articles.json', {})
     }
 </script>
 

@@ -1,5 +1,5 @@
-import {client} from '$lib/apollo'
-import {gql} from '@apollo/client/core'
+import {client, gql} from '$lib/apollo'
+// import {gql} from '@apollo/client/core'
 
 
 export const post = async request => {
@@ -8,9 +8,22 @@ export const post = async request => {
     try {
         const query = gql`
   query($slug: String!) {
-    faqs(where: { slug: $slug }) {
+    articles(where: { slug: $slug }) {
       slug
       title
+      image {
+        url
+        alternativeText
+      }
+      sidebar {
+        __typename
+        ... on ComponentDefaultImage {
+          image {
+            formats
+            alternativeText
+          }
+        }
+      }
       content {
         __typename
         ... on ComponentDefaultParagraph {
@@ -26,10 +39,10 @@ export const post = async request => {
             fetchPolicy: 'network-only'
         })
 
-        if (result.data.faqs.length > 0) {
+        if (result.data.articles.length > 0) {
             return {
                 status: 200,
-                body: {faq: result.data.faqs[0]}
+                body: {article: result.data.articles[0]}
             }
         }
 

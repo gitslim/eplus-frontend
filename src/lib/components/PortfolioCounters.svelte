@@ -27,7 +27,7 @@
                     </div>
                     <h4 class="title">Лет</h4>
                     <h5 class="subtitle">на рынке</h5>
-                    <progress class="progress is-info" max="100" role="progressbar" value="75"></progress>
+                    <progress aria-label="on-market" class="progress is-info" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>
             <div class="column is-6-tablet is-3-desktop">
@@ -44,7 +44,7 @@
                     </div>
                     <h4 class="title">Организаций</h4>
                     <h5 class="subtitle">заказчиков</h5>
-                    <progress class="progress is-danger" max="100" role="progressbar" value="75"></progress>
+                    <progress aria-label="organizations" class="progress is-danger" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>
             <div class="column is-6-tablet is-3-desktop">
@@ -61,7 +61,7 @@
                     </div>
                     <h4 class="title">Проектов</h4>
                     <h5 class="subtitle">выполнено</h5>
-                    <progress class="progress is-success" max="100" role="progressbar" value="75"></progress>
+                    <progress aria-label="projects" class="progress is-success" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>
             <div class="column is-6-tablet is-3-desktop">
@@ -78,7 +78,7 @@
                     </div>
                     <h4 class="title">Километров</h4>
                     <h5 class="subtitle">запроектировано</h5>
-                    <progress class="progress is-info" max="100" role="progressbar" value="75"></progress>
+                    <progress aria-label="kilometers" class="progress is-info" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
     import {fetchEndpoint} from '$lib/utils'
 
     export const load = async ({fetch}) => {
-        return await fetchEndpoint(fetch, '/ep/list-testimonials', {})
+        return await fetchEndpoint(fetch, '/ep/list-testimonials.json', {})
     }
 </script>
 

@@ -1,5 +1,5 @@
-import {client} from '$lib/apollo'
-import {gql} from '@apollo/client/core'
+import {client, gql} from '$lib/apollo'
+// import {gql} from '@apollo/client/core'
 
 
 export const post = async request => {
@@ -7,28 +7,28 @@ export const post = async request => {
     try {
         const query = gql`
   query {
-    newsArticles(sort: "date:desc") {
-      slug
-      title
+    partners(sort: "id:asc") {
+      partner
       date
       image {
         url
         formats
         alternativeText
       }
-      summary
     }
   }
 `
+
+
+
         const result = await client.query({
             query,
-            variables: {},
             fetchPolicy: 'network-only'
         })
 
         return {
             status: 200,
-            body: {newsArticles: result.data.newsArticles}
+            body: {partners: result.data.partners}
         }
 
     } catch (err) {

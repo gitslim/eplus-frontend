@@ -18,11 +18,11 @@
         window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
     }
 
-    // onMount(async () => {
+    onMount(async () => {
         if (browser)
             window.document.addEventListener("DOMContentLoaded", function (){my(window.jQuery)})
         // my(jQuery)
-    // })
+    })
 
     function my($) {
         "use strict";
@@ -760,7 +760,7 @@
                     <div class="banner-content">
                         <h5 class="title-text mb-50 titlefor justify-text">В необходимых ситуациях специалисты «Энергия
                             Плюс» готовы выполнить проект и обеспечить изготовление и поставку блочно-модульных
-                            котельных <a href="https://xn--c1adkmgpem4hrai.xn--p1ai/page/stroitelno-montazhnye-raboty">(БМК)
+                            котельных <a href="/page/stroitelno-montazhnye-raboty">(БМК)
                                 мощностью от 0,3-8 МВт</a></h5>
                     </div>
                     <div class="butbl">
@@ -792,7 +792,7 @@
                         <div class="content-wrap">
                             <h4 class="item-title mb-50">
                                 ООО «Энергия Плюс» осуществляет комплекс <a
-                                    href="https://new.xn--c1adkmgpem4hrai.xn--p1ai/page/stroitelno-montazhnye-raboty">строительно-монтажных
+                                    href="/page/stroitelno-montazhnye-raboty">строительно-монтажных
                                 работ</a> по разработанным проектам в соответствии с требованиями СНиП.
                             </h4>
                             <div class="butbl" style="text-align: center;">
@@ -951,9 +951,9 @@
             <div class="section-title size-increase shad">
                 <h5 class="title-text mb-15">
                     ТАКЖЕ «ЭНЕРГИЯ ПЛЮС» ОСУЩЕСТВЛЯЕТ<br> <a
-                        href="https://xn--c1adkmgpem4hrai.xn--p1ai/page/funkcii-generalnogo-proektirovshika">ФУНКЦИИ
+                        href="/page/funkcii-generalnogo-proektirovshika">ФУНКЦИИ
                     ГЕНЕРАЛЬНОГО ПРОЕКТИРОВЩИКА</a> И<br> <a
-                        href="https://new.xn--c1adkmgpem4hrai.xn--p1ai/page/funkcii-tehnicheskogo-zakazchika">ФУНКЦИИ
+                        href="/page/funkcii-tehnicheskogo-zakazchika">ФУНКЦИИ
                     ТЕХНИЧЕСКОГО ЗАКАЗЧИКА</a>
                 </h5>
             </div>

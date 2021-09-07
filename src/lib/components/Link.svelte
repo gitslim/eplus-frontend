@@ -7,6 +7,6 @@
     const url = path ? `/${path}/${slug}` : `/${slug}`
 </script>
 
-<a class="{cls}" href="{url}" rel=prefetch>
+<a sveltekit:prefetch class="{cls}" href="{url}">
     <slot/>
 </a>

@@ -4,7 +4,7 @@
 
     export const load = async ({fetch, page}) => {
         const {slug} = page.params
-        return await fetchEndpoint(fetch, '/ep/get-article-by-slug', {slug})
+        return await fetchEndpoint(fetch, '/ep/get-article-by-slug.json', {slug})
     }
 </script>
 
@@ -32,13 +32,13 @@
         title="{data.article.title}"
 />
 
-<section class="section">
-    <div class="container">
-        <h1 class="title">{data.article.title}</h1>
+<main class="container pt-4">
+    <section class="section">
 
         <div class="columns">
             <div class="column is-8">
                 <div class="box">
+                    <h1 class="title">{data.article.title}</h1>
                     <DynamicZone content="{data.article.content}"/>
                 </div>
             </div>
@@ -49,6 +49,7 @@
                     <CallbackForm white/>
                 </aside>
             </div>
+
         </div>
-    </div>
-</section>
+    </section>
+</main>

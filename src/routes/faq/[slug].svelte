@@ -4,7 +4,7 @@
 
     export const load = async ({fetch, page}) => {
         const {slug} = page.params
-        return await fetchEndpoint(fetch, '/ep/get-faq-by-slug', {slug})
+        return await fetchEndpoint(fetch, '/ep/get-faq-by-slug.json', {slug})
     }
 </script>
 
