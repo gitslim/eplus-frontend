@@ -1,13 +1,12 @@
 import {dev} from '$app/env'
-import {ApolloClient, gql} from '@apollo/client/core'
+import website from '$lib/config/website';
+import {ApolloClient} from '@apollo/client/core'
 import {HttpLink} from '@apollo/client/link/http'
 import {InMemoryCache} from '@apollo/client/cache'
 
 
-const uri = dev
-    ? 'http://localhost:1337/graphql'
-    : 'https://api.xn--c1adkmgpem4hrai.xn--p1ai/graphql'
-
+const {apiUrl} = website
+const uri = apiUrl + '/graphql'
 
 class Apollo {
     constructor() {
@@ -33,3 +32,4 @@ class Apollo {
 }
 
 export const client = (new Apollo()).client
+export {gql} from '@apollo/client/core'

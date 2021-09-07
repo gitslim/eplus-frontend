@@ -1,25 +1,8 @@
-@charset "utf-8";
+@charset "UTF-8";
+@use 'sass:math';
 
-// restore default behaviour
-$body-overflow-y: auto;
-
-$main-brand-color: #f86923;
-//$widescreen-enabled: false;
-$primary: $main-brand-color;
-$link: $main-brand-color;
-
-// Import only what you need from Bulma
-@import "../node_modules/bulma/sass/utilities/_all";
-@import "../node_modules/bulma/sass/base/_all";
-@import "../node_modules/bulma/sass/elements/_all";
-@import "../node_modules/bulma/sass/form/_all";
-@import "../node_modules/bulma/sass/components/_all";
-@import "../node_modules/bulma/sass/grid/_all";
-@import "../node_modules/bulma/sass/helpers/_all";
-@import "../node_modules/bulma/sass/layout/_all";
-
-@import "../node_modules/bulma-extensions/bulma-divider/dist/css/bulma-divider";
-@import "../node_modules/bulma-extensions/bulma-pricingtable/dist/css/bulma-pricingtable";
+@import './variables.scss';
+@import './bulma.scss';
 
 * {
   box-sizing: border-box;

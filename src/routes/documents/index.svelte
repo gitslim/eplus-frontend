@@ -5,7 +5,7 @@
   import {fetchEndpoint} from '$lib/utils'
 
   export const load = async ({fetch, page}) => {
-      return await fetchEndpoint(fetch, '/ep/list-documents', {})
+      return await fetchEndpoint(fetch, '/ep/list-documents.json', {})
   }
 </script>
 
@@ -25,9 +25,11 @@
 
 <SvelteSeo {title}/>
 
-<section class="section">
-    <div class="container">
-        <h1 class="title">{title}</h1>
+<main class="container pt-4">
+    <section class="section">
+        <div class="box">
+            <h1 class="title">{title}</h1>
+        </div>
 
         <div class="columns">
             <div class="column is-9">
@@ -78,5 +80,5 @@
                 </aside>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>

@@ -214,7 +214,7 @@
 
                 <div class="widget hide" class:show={y >= 742 && y <= 1590}>
                     <h2 class="title">
-                        <span><span><a href="/obsluzivanie">Обслуживание</a></span> </span><span class="heading-line">&nbsp;</span>
+                        <span><span><a href={"#"}>Обслуживание</a></span> </span><span class="heading-line">&nbsp;</span>
                     </h2>
                 </div>
 
@@ -230,7 +230,7 @@
                     </p>
 
                     <h3>
-                        <a href="/page/tehniceskoe-servisnoe-obsluzivanie">Сервисное
+                        <a href={"#"}>Сервисное
                             обслуживание</a>
                     </h3>
 
@@ -253,7 +253,7 @@
                     <h3><a href="/energeticeskii-pasport">Энергетический паспорт</a></h3>
 
                     <h3>
-                        <a href="/page/energeticeskoe-obsledovanie">Энергетическое
+                        <a href={"#"}>Энергетическое
                             обследование</a>
                     </h3>
                     <hr class="hr-line"/>

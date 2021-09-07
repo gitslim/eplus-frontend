@@ -3,6 +3,9 @@
 </script>
 
 <script>
+    import website from '$lib/config/website';
+    const {siteUrl} = website
+
     let title = 'Референс-лист'
 </script>
 
@@ -18,7 +21,7 @@
                 <figure class="image is-4by5">
                     <iframe title="Референт-лист"
                             class="has-ratio"
-                            src="https://docs.google.com/gview?embedded=true&amp;url=http://xn--c1adkmgpem4hrai.xn--p1ai/docs/Референс-лист.pdf"></iframe>
+                            src="https://docs.google.com/gview?embedded=true&amp;url={siteUrl}/docs/Референс-лист.pdf"></iframe>
                 </figure>
             </div>
 

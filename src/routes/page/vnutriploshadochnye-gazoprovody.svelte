@@ -35,14 +35,14 @@
             text:
                 'Внутренний газопровод - газопровод, проложенный внутри здания от вводного (внутриплощадочного) газопровода до места установки газоиспользующего оборудования..',
             alt: 'image-card',
-            src: 'images/gazoprovodi/connecting-event__icon2.png',
+            src: '/images/gazoprovodi/connecting-event__icon2.png',
         },
         {
             id: 3,
             text:
                 'ПРГ (пункт редуцирования газа) - технологическое устройство сетей газораспределения и газопотребления, предназначенное для снижения давления газа и поддержания его в заданных пределах независимо от расхода газа.',
             alt: 'image-card',
-            src: 'images/gazoprovodi/connecting-event__icon3.png',
+            src: '/images/gazoprovodi/connecting-event__icon3.png',
         },
         {
             id: 4,

@@ -2,7 +2,7 @@
     import {fetchEndpoint} from '$lib/utils'
 
     export const load = async ({fetch}) => {
-        return await fetchEndpoint(fetch, '/ep/list-testimonials', {})
+        return await fetchEndpoint(fetch, '/ep/list-testimonials.json', {})
     }
 </script>
 
@@ -15,13 +15,15 @@
     import ProjectsCarousel from '$lib/components/ProjectsCarousel.svelte'
     import PortfolioCounters from '$lib/components/PortfolioCounters.svelte'
     import {showModal} from '$lib/stores.js'
+    import SvelteSeo from 'svelte-seo'
+    import website from '$lib/config/website'
 
     export let data
+
+    const {siteTitle} = website
 </script>
 
-<style>
-
-</style>
+<SvelteSeo title="{siteTitle}"/>
 
 <MobileHero>
     <div class="video-head container has-text-centered py-4" slot="head">

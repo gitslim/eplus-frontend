@@ -19,8 +19,7 @@
 		"bulma-extensions": "^6.2.7",
 		"cssnano": "^5.0.8",
 		"fa-svelte": "^3.1.0",
-		"jquery": "^3.6.0",
-		"node-sass": "^6.0.1",
+		"object-hash": "^2.2.0",
 		"postcss": "^8.3.6",
 		"postcss-load-config": "^3.1.0",
 		"sass": "^1.38.2",
@@ -36,8 +35,8 @@
 	},
 	"dependencies": {
 		"@apollo/client": "^3.4.10",
-		"magnific-popup": "^1.1.0",
+		"graphql": "^15.5.3",
 		"marked": "^3.0.2",
-		"owl.carousel": "^2.3.4"
+		"ymaps": "^0.2.1"
 	}
 }

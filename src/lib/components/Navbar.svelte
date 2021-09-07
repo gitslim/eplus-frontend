@@ -290,7 +290,7 @@
                                     title="Референс-лист">
                                 Референс-лист
                             </Link>
-                            <a
+                            <a rel="external"
                                     class="navbar-item"
                                     href="/presentation/Энергия%20Плюс.pdf"
                                     target="_blank">Презентация</a>
@@ -304,7 +304,9 @@
             <Link cls="navbar-item" slug="contacts">Контакты</Link>
         </div>
         <div class="navbar-end">
-            <a class="navbar-item" href="tel:+74957907697">
+            <a rel="external"
+               class="navbar-item"
+               href="tel:+74957907697">
                 <Icon icon={faPhone}/>
                 <span class="callibri_phone">+7 (495) 790-76-97</span>
                 <br/>

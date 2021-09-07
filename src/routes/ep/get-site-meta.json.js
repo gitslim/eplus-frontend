@@ -1,5 +1,5 @@
-import {client} from '$lib/apollo'
-import {gql} from '@apollo/client/core'
+import {client, gql} from '$lib/apollo'
+// import {gql} from '@apollo/client/core'
 
 
 export const post = async request => {
@@ -7,13 +7,13 @@ export const post = async request => {
     try {
         const query = gql`
   query {
-    faqs {
-      slug
+    siteMeta {
       title
-      content {
-        __typename
-        ... on ComponentDefaultParagraph {
-          content
+      description
+      redirects {
+        ... on ComponentDefaultRedirect {
+          from
+          to
         }
       }
     }
@@ -27,7 +27,7 @@ export const post = async request => {
 
         return {
             status: 200,
-            body: {faqs: result.data.faqs}
+            body: {siteMeta: result.data.siteMeta}
         }
 
     } catch (err) {

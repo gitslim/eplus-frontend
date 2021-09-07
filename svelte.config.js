@@ -1,10 +1,7 @@
 import preprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-node'
+// import adapter from '@sveltejs/adapter-static';
 
-// import { join } from 'path';
-// import { readFileSync } from 'fs';
-// import { cwd } from 'process';
-// const pkg = JSON.parse(readFileSync(join(cwd(), 'package.json')));
 import {readFileSync} from 'fs'
 
 const pkg = JSON.parse(readFileSync(new URL('package.json', import.meta.url), 'utf8'))
@@ -22,6 +19,7 @@ const config = {
         // You can create optimized builds for different platforms by
         // specifying a different adapter
         adapter: adapter(),
+        // router: false, // use with adapter-static
 
         // hydrate the <div id="svelte"> element in src/app.html
         target: '#svelte',
@@ -56,7 +54,10 @@ const config = {
     },
 
     preprocess: preprocess({
-        'postcss': true
+        'postcss': true,
+        scss: {
+            prependData: "@import 'src/lib/styles/variables.scss';",
+        }
     }),
 }
 

@@ -6,4 +6,4 @@ node_modules
 /package
 yarn-error.log
 /untracked
-
+.env
