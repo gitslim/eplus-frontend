@@ -1,5 +1,4 @@
-import {dev} from '$app/env'
-import website from '$lib/config/website';
+import website from '$lib/config/website'
 import {ApolloClient} from '@apollo/client/core'
 import {HttpLink} from '@apollo/client/link/http'
 import {InMemoryCache} from '@apollo/client/cache'

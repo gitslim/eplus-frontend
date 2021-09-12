@@ -8,6 +8,7 @@ const website = {
     domain: domain,
     siteUrl: `https://${domain}`,
     apiUrl: import.meta.env.VITE_API_URL || `https://api.${domain}`,
+    gtmId: 'GTM-N7DB4C5'
 }
 
 export {website as default}
