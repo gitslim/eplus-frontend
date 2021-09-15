@@ -3,7 +3,7 @@
 
     import Button from './Button.svelte'
     import InputForm from './InputForm.svelte'
-    import {calculation} from '$lib/utils'
+    import {bitrixLead, calculation} from '$lib/utils'
 
     $: amount = 0
     let valid = false
@@ -35,13 +35,19 @@
         valid = true
     } else valid = false
 
-    function submitHandler() {
+    async function submitHandler() {
         props.project = projectOnSiteGas || projectInternalGas ? true : false
 
         props.install = installOnSiteGas || installInternalGas ? true : false
 
         //console.log(props);
         amount = calculation(props)
+        await bitrixLead({
+            type: 'lead.calcGaz',
+            title: 'Калькулятор газопровода',
+            name: props.name,
+            phone: props.PhoneOrEmail
+        })
     }
 </script>
 
@@ -229,7 +235,8 @@
                 </div>
             </div>
             <div class="column is-3 is-flex pb-5" style="align-items: flex-end;">
-                <Button btnName="gazlineForm" isDisabled={!valid}>Расчитать</Button>
+<!--                <Button btnName="gazlineForm" isDisabled={!valid}>Расчитать</Button>-->
+                <button type="submit" class="button is-primary is-rounded" disabled={!valid}>Рассчитать</button>
             </div>
         </div>
     </div>

@@ -14,13 +14,13 @@ const fetchEndpoint = async function (fetchFn, endpoint, params) {
             props: {
                 data: await res.json()
             }
-        };
+        }
     }
 
     return {
         status: res.status,
         error: new Error(endpoint)
-    };
+    }
 }
 
 
@@ -81,4 +81,25 @@ const calculation = function (data) {
     return amount
 }
 
-export {fetchEndpoint, formatDate, chooseImageUrl, twitter, calculation}
+const gtmEvent = (data) => {
+    if (window !== undefined) {
+        const dataLayer = window.dataLayer || []
+        dataLayer.push(data)
+    }
+}
+
+const bitrixLead = async ({type, title, name, phone}) => {
+    gtmEvent({
+        'event': type,
+        'title': title,
+        'name': name,
+        'phone': phone
+    })
+    const leadUri = 'https://energy-plus.bitrix24.ru/rest/24/0fxxzk5en5mconq5/crm.lead.add.json'
+    const uriGet = `${leadUri}?FIELDS[TITLE]=${title}&FIELDS[NAME]=${name}&FIELDS[PHONE][0][VALUE]=${phone}`
+    let response = await fetch(uriGet)
+    console.debug('bitrixLead response', response)
+    return response
+}
+
+export {fetchEndpoint, formatDate, chooseImageUrl, twitter, calculation, bitrixLead, gtmEvent}

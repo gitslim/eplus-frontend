@@ -4,6 +4,7 @@
     import {faCheck, faExclamationTriangle, faPhone, faUser} from '@fortawesome/free-solid-svg-icons'
     import {createForm} from 'svelte-forms-lib'
     import * as yup from 'yup'
+    import {bitrixLead} from '$lib/utils'
 
     const dispatch = createEventDispatcher()
 
@@ -28,11 +29,12 @@
             phone: yup.string().required('Обязательное поле')
         }),
         onSubmit: async values => {
-            // alert(JSON.stringify(values))
-            const uriGet = `https://energy-plus.bitrix24.ru/rest/24/0fxxzk5en5mconq5/crm.lead.add.json?FIELDS[TITLE]=Обращение с сайта&FIELDS[NAME]=${values.name}&FIELDS[PHONE][0][VALUE]=${values.phone}`
-
-            let response = await fetch(uriGet)
-            // console.debug(response)
+            let response = await bitrixLead({
+                type: 'lead.contactForm',
+                title: 'Обращение с сайта',
+                name: values.name,
+                phone: values.phone
+            })
             if (response.ok) {
                 dispatch('success', {
                     values,

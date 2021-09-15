@@ -7,6 +7,7 @@
     import CalculationBlock from '$lib/components/CalculationBlock.svelte'
     import { onMount } from 'svelte'
     import { browser } from '$app/env'
+    import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     // import jQuery from 'jquery'
     // import owlCarousel from 'owl.carousel'
     // import magnificPopup from 'magnific-popup'
@@ -15,7 +16,7 @@
 
     function handlerClick() {
         showModal.set(true)
-        window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
+        // window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
     }
 
     onMount(async () => {
@@ -510,7 +511,8 @@
                         <h3 class="item-title titlefor">
                             Проектирование водогрейных и паровых котельных
                         </h3>
-                        <a class="btn" href="#" on:click|preventDefault={handlerClick}>Заказать проект</a>
+<!--                        <a class="btn" href="#" on:click|preventDefault={handlerClick}>Заказать проект</a>-->
+                        <BtnZayavka radius btnText="Заказать проект"/>
                     </div>
                     <div class="absolute-social-wrap">
                         <div class="social-links-text ul-li clearfix">
@@ -548,8 +550,9 @@
                             проектирование до получения положительного заключения государственной либо негосударственной
                             экспертизы, а также всех необходимых согласований для строительства любого типа котельной.
                         </p>
-                        <a class="btn btn-border border-white" href="#" on:click|preventDefault={handlerClick}>Заказать
-                            проект</a>
+<!--                        <a class="btn btn-border border-white" href="#" on:click|preventDefault={handlerClick}>Заказать-->
+<!--                            проект</a>-->
+                        <BtnZayavka radius btnText="Заказать проект"/>
                     </div>
                 </div>
             </div>
@@ -635,7 +638,7 @@
 
     <section class="about-section bg-light-gray sec-ptb-100 clearfix">
         <div class="btn-wrap text-center clearfix">
-            <a class="btn" href="/docs/Опросный лист котельная.xls">Получить опросный лист</a>
+            <a target="_blank" class="btn" href="/docs/Опросный лист котельная.xls">Получить опросный лист</a>
         </div>
     </section>
 
@@ -763,9 +766,14 @@
                             котельных <a href="/page/stroitelno-montazhnye-raboty">(БМК)
                                 мощностью от 0,3-8 МВт</a></h5>
                     </div>
-                    <div class="butbl">
-                        <a class="btn" href="/docs/Опросный лист БМК.xlsx">Скачать опросный лист</a>
-                        <a class="btn" href="#" on:click|preventDefault={handlerClick}>Оставить заявку</a>
+                    <div class="butbl row">
+                        <div class="col-md-6">
+                        <a target="_blank" class="btn" href="/docs/Опросный лист БМК.xlsx">Скачать опросный лист</a>
+<!--                        <a class="btn" href="#" on:click|preventDefault={handlerClick}>Оставить заявку</a>-->
+                        </div>
+                        <div class="col-md-6">
+                        <BtnZayavka radius btnText="Оставить заявку"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -796,7 +804,8 @@
                                 работ</a> по разработанным проектам в соответствии с требованиями СНиП.
                             </h4>
                             <div class="butbl" style="text-align: center;">
-                                <a class="btn" href="#" on:click|preventDefault={handlerClick}>Оставить заявку</a>
+<!--                                <a class="btn" href="#" on:click|preventDefault={handlerClick}>Оставить заявку</a>-->
+                                <BtnZayavka radius btnText="Оставить заявку"/>
                             </div>
                         </div>
                     </div>
