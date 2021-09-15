@@ -4,6 +4,7 @@
     import {faBattleNet} from '@fortawesome/free-brands-svg-icons'
     import LazyImage from 'svelte-lazy-image'
     import {showModal} from '$lib/stores'
+    import BtnZayavka from '$lib/components/BtnZayavka.svelte'
 </script>
 
 
@@ -43,12 +44,7 @@
         </ul>
 
         <p class="has-text-centered pt-6">
-            <a
-                    class="button hero-buttons is-primary"
-                    href="/#/"
-                    on:click|preventDefault={() => showModal.set(true)}>
-                Заказать проект
-            </a>
+            <BtnZayavka btnText="Заказать проект"/>
         </p>
     </div>
 </div>

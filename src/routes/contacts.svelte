@@ -4,11 +4,12 @@
 
 <script>
     import Address from '$lib/components/Address.svelte'
-    import Modal from '$lib/components/Modal.svelte'
+    // import Modal from '$lib/components/Modal.svelte'
     import ContactForm from '$lib/components/ContactForm.svelte'
     import {showModal} from '$lib/stores'
     import YandexMap from '$lib/counters/YandexMap.svelte'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
+    import Modal from '$lib/components/Modal.svelte'
 
     let title = 'Контакты'
     let showContactForm = false
@@ -21,11 +22,11 @@
 
 <SvelteSeo {title}/>
 
-<Modal onClose={() => (showContactForm = false)} open={showContactForm}>
-    <div class="box">
-        <ContactForm on:cancel={handleContactFormCancel}/>
-    </div>
-</Modal>
+<!--<Modal onClose={() => (showContactForm = false)} open={showContactForm}>-->
+<!--    <div class="box">-->
+<!--        <ContactForm on:cancel={handleContactFormCancel}/>-->
+<!--    </div>-->
+<!--</Modal>-->
 
 <main class="container pt-4">
     <section class="section">
@@ -39,6 +40,7 @@
                     <!--                    </button>-->
                     <div class="pt-6">
                         <BtnZayavka btnText="Заказать звонок"></BtnZayavka>
+<!--                        <ContactForm></ContactForm>-->
                     </div>
                 </div>
                 <div class="column is-6 is-offset-2">

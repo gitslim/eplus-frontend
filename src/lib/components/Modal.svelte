@@ -1,162 +1,134 @@
+<script context="module">
+    // for passing focus on to the next Modal in the queue.
+    // A module context level object is shared among all its component instances. [Read More Here](https://svelte.dev/tutorial/sharing-code)
+    const modalList = []
+</script>
 <script>
-    import {createEventDispatcher, onDestroy} from 'svelte'
-    import {showModal} from '$lib/stores.js'
+    import {modalStore} from '$lib/stores'
 
-    const dispatch = createEventDispatcher()
-    const close = () => dispatch('close', isClose())
+    const store = modalStore(false)
+    const {isOpen, open, close} = store
 
-    let modal
-    export let show = false
-
-    $: uName = ''
-    $: uPhone = ''
-    let disabled = true
-
-    $: if (uName && uPhone) {
-        disabled = false
-    } else disabled = true
-
-    const handle_keydown = (e) => {
+    function keydown(e) {
+        e.stopPropagation()
         if (e.key === 'Escape') {
-            showModal.set(false)
-            return
-        }
-
-        if (e.key === 'Tab') {
-            // trap focus
-            const nodes = modal.querySelectorAll('*')
-            const tabbable = Array.from(nodes).filter((n) => n.tabIndex >= 0)
-
-            let index = tabbable.indexOf(document.activeElement)
-            if (index === -1 && e.shiftKey) index = 0
-
-            index += tabbable.length + (e.shiftKey ? -1 : 1)
-            index %= tabbable.length
-
-            tabbable[index].focus()
-            e.preventDefault()
+            close()
         }
     }
 
-    const previously_focused =
-        typeof document !== 'undefined' && document.activeElement
+    function transitionend(e) {
+        const node = e.target
+        node.focus()
+    }
 
-    if (previously_focused) {
-        onDestroy(() => {
-            previously_focused.focus()
+    function modalAction(node) {
+        const returnFn = []
+        // for accessibility
+        if (document.body.style.overflow !== 'hidden') {
+            const original = document.body.style.overflow
+            document.body.style.overflow = 'hidden'
+            returnFn.push(() => {
+                document.body.style.overflow = original
+            })
+        }
+        node.addEventListener('keydown', keydown)
+        node.addEventListener('transitionend', transitionend)
+        node.focus()
+        modalList.push(node)
+        returnFn.push(() => {
+            node.removeEventListener('keydown', keydown)
+            node.removeEventListener('transitionend', transitionend)
+            modalList.pop()
+            // Optional chaining to guard against empty array.
+            modalList[modalList.length - 1]?.focus()
         })
-    }
-
-    export function isOpen() {
-        showModal.set(true)
-    }
-
-    export function isClose() {
-        showModal.set(false)
-    }
-
-    async function send() {
-        //const uri = "https://energy-plus.bitrix24.ru/rest/24/1r1d4lsvi52ba17t/crm.lead.add.json";
-        const uriGet = `https://energy-plus.bitrix24.ru/rest/24/sdffnlbl90oxjik5/crm.lead.add.json?FIELDS[TITLE]=Обращение с сайта&FIELDS[NAME]=${uName}&FIELDS[PHONE][0][VALUE]=${uPhone}`
-
-        /*let response = await fetch(uriGet);
-        if (response.error) {
-          alert(response.error);
+        return {
+            destroy: () => returnFn.forEach((fn) => fn()),
         }
-        if (response.ok) {
-          //console.log(response);
-          show = false;
-          alert("Ваша заявка принята");
-        }*/
     }
 </script>
+<style>
+    /*div.modal {*/
+    /*    position: fixed;*/
+    /*    top: 0;*/
+    /*    left: 0;*/
+    /*    width: 100%;*/
+    /*    height: 100vh;*/
 
-<style lang="scss">
-  .title {
-    color: #fff;
-    background-color: gray;
-    justify-content: center;
-    padding: 10px;
-  }
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*    align-items: center;*/
+    /*    opacity: 1;*/
+    /*}*/
 
-  .modal-wrap {
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 0;
-    overflow: hidden;
-  }
+    /*div.modal:not(:focus-within) {*/
+    /*    transition: opacity 0.1ms;*/
+    /*    opacity: 0.99;*/
+    /*}*/
 
-  form {
-    padding: 10px;
-  }
+    /*div.backdrop {*/
+    /*    background-color: rgba(0, 0, 0, 0.4);*/
+    /*    position: absolute;*/
+    /*    width: 100%;*/
+    /*    height: 100%;*/
+    /*}*/
 
-  .btn {
-    width: 100%;
-    height: 3rem;
-    color: #fff;
-    font-size: 1.3rem;
-    margin-top: 20px;
-    border: 2px solid #f86923;
-    background: #f86923;
-    // border-radius: 30px;
-    overflow: hidden;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 9px 24px 9px;
-    position: relative;
-    display: inline-block;
-    font-weight: 700;
+    /*div.content-wrapper {*/
+    /*    z-index: 10;*/
+    /*    max-width: 70vw;*/
+    /*    border-radius: 0.3rem;*/
+    /*    background-color: white;*/
+    /*    overflow: hidden;*/
+    /*    padding: 1rem;*/
+    /*}*/
 
-    &:hover {
-      background: #fff;
-      color: black;
-    }
-  }
+    /*!*   @media (max-width: 767px) {*/
+    /*    div.content-wrapper {*/
+    /*      max-width: 100vw;*/
+    /*    }*/
+    /*  } *!*/
+    /*div.content {*/
+    /*    max-height: 50vh;*/
+    /*    overflow: auto;*/
+    /*}*/
+
+    /*h1 {*/
+    /*    opacity: 0.5;*/
+    /*}*/
 </style>
 
-<svelte:window on:keydown={handle_keydown}/>
+<slot name="trigger" {open}>
+    <!-- fallback trigger to open the modal -->
+    <!--    <button on:click={open}>Open</button>-->
+</slot>
 
-<div class="modal {show ? 'is-active' : ''}">
-    <div class="modal-background" on:click={close}/>
+{#if $isOpen}
+    <!-- tabindex is required, because it tells the browser that this div element is focusable and hence triggers the keydown event -->
+    <div class="modal is-active" use:modalAction tabindex="0">
+<!--        <div class="backdrop" on:click={close}></div>-->
+        <div class="modal-background" on:click={close}></div>
+        <button aria-label="close" class="modal-close is-large" on:click={close}></button>
+        <slot name="content" {store}/>
 
-    <div class="modal-content">
-        <div class="column modal-wrap is-6">
-            <div class="title is-flex is-size-4">Оставить заявку</div>
-            <form name="modal-form">
-                <div class="field">
-                    <label class="label" for="uName">ВАШЕ ИМЯ</label>
-                    <div class="control">
-                        <input
-                                bind:value={uName}
-                                class="input"
-                                id="uName"
-                                placeholder="Ваше имя"
-                                type="text"/>
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label" for="uPhone">ТЕЛЕФОН</label>
-                    <div class="control">
-                        <input
-                                bind:value={uPhone}
-                                class="input"
-                                id="uPhone"
-                                placeholder="Телефон"
-                                type="phone"/>
-                    </div>
-                </div>
-                <button
-                        class="button btn"
-                        {disabled}
-                        on:click|preventDefault={send}>Отправить
-                </button>
-            </form>
-        </div>
+<!--        <div class="content-wrapper">-->
+<!--            <slot name="header" {store}>-->
+<!--                &lt;!&ndash; fallback &ndash;&gt;-->
+<!--                &lt;!&ndash;                <div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <h1>Your Modal Heading Goes Here...</h1>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+<!--            </slot>-->
+
+<!--            <div class="content">-->
+<!--                <slot name="content" {store}/>-->
+<!--            </div>-->
+
+<!--            <slot name="footer" {store}>-->
+<!--                &lt;!&ndash; fallback &ndash;&gt;-->
+<!--                &lt;!&ndash;                <div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <h1>Your Modal Footer Goes Here...</h1>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <button on:click={close}>Close</button>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+<!--            </slot>-->
+<!--        </div>-->
     </div>
-    <button aria-label="close" class="modal-close is-large" on:click={close}/>
-</div>
+{/if}
