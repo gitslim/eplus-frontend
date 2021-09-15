@@ -1,7 +1,7 @@
 <script>
     import Address from '$lib/components/Address.svelte'
-    import Modal from '$lib/components/Modal.svelte'
-    import {showModal} from '$lib/stores.js'
+    // import Modal from '$lib/components/Modal.svelte'
+    import BtnZayavka from '$lib/components/BtnZayavka.svelte'
 </script>
 
 
@@ -22,11 +22,10 @@
                 <div class="pt-6">
                     <Address/>
                 </div>
-                <div class="pt-4">
-                    <button
-                            class="button is-primary"
-                            on:click={() => showModal.set(true)}>Заказать проект
-                    </button>
+                <div class="pt-4 columns">
+                    <div class="column is-6">
+                        <BtnZayavka btnText="Заказать проект"></BtnZayavka>
+                    </div>
                 </div>
             </div>
             <div class="column">
@@ -94,5 +93,5 @@
         </div>
     </div>
 
-    <Modal show={$showModal}/>
+    <!--    <Modal show={$showModal}/>-->
 </footer>

@@ -1,13 +1,16 @@
 <script>
-    import {showModal} from '$lib/stores'
+    import Modal from '$lib/components/Modal.svelte'
+    import ContactForm from '$lib/components/ContactForm.svelte'
 
     export let btnText = 'Заказать',
         radius = false,
         btnWhite
 
-    function handlerClick() {
-        showModal.set(true)
-        window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
+    let isFormSubmitted
+
+    function handleSuccessSubmit(event) {
+        // window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
+        isFormSubmitted = true
     }
 </script>
 
@@ -73,10 +76,31 @@
   }
 </style>
 
-<div class="btn-wrap">
-    <a
-            class="btn__zayavka {radius ? 'btn__zayavka-radius' : ''}{btnWhite ? 'btn-white' : ''}"
-            data-dialog-type="modal"
-            href="/#/"
-            on:click|preventDefault={handlerClick}>{btnText}</a>
-</div>
+<!--<div class="btn-wrap">-->
+<!--    <a-->
+<!--            class="btn__zayavka {radius ? 'btn__zayavka-radius' : ''}{btnWhite ? 'btn-white' : ''}"-->
+<!--            data-dialog-type="modal"-->
+<!--            href="/#/"-->
+<!--            on:click|preventDefault={handlerClick}>{btnText}</a>-->
+<!--</div>-->
+
+<Modal>
+    <div class="btn-wrap" slot="trigger" let:open>
+        <a class="btn__zayavka {radius ? 'btn__zayavka-radius' : ''}{btnWhite ? 'btn-white' : ''}"
+           on:click={()=>{open()}}>{btnText}</a>
+    </div>
+    <div slot="content" class="modal-content" let:store={{close}}>
+        <div class="box">
+            {#if isFormSubmitted}
+                <div class="notification is-light is-success">
+                    <button class="delete" on:click={close}></button>
+                    Ваша заявка принята. Мы свяжемся с вами в ближайшее время.
+                </div>
+            {:else}
+                <h1 class="title align-content-center">Оставить заявку</h1>
+                <ContactForm on:success={handleSuccessSubmit}/>
+            {/if}
+        </div>
+    </div>
+</Modal>
+

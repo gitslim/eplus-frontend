@@ -17,6 +17,10 @@
     import {showModal} from '$lib/stores.js'
     import SvelteSeo from 'svelte-seo'
     import website from '$lib/config/website'
+    import BtnZayavka from '$lib/components/BtnZayavka.svelte'
+    import Icon from 'fa-svelte'
+    import {faPhone} from '@fortawesome/free-solid-svg-icons'
+    import Link from '$lib/components/Link.svelte'
 
     export let data
 
@@ -27,16 +31,22 @@
 
 <MobileHero>
     <div class="video-head container has-text-centered py-4" slot="head">
-        <p class="title has-text-white">
+        <p class="subtitle has-text-white">
             Проектирование и строительство объектов энергетики и систем газораспределения
         </p>
-        <br/>
-        <p class="subtitle">
-            <button
-                    class="button is-white"
-                    on:click={() => showModal.set(true)}>Заказать проект
-            </button>
-        </p>
+        <div class="columns pt-4">
+            <div class="column is-8-mobile is-offset-2-mobile">
+                <a class="button is-rounded" href="tel:+74957907697">
+                    <Icon icon="{faPhone}"/>
+                    <span class="is-white callibri_phone">+7 (495) 790-76-97</span>
+                </a>
+            </div>
+
+            <div class="column is-10-mobile is-offset-1-mobile">
+                <BtnZayavka btnWhite="{true}" btnText="Заказать проект"/>
+<!--                <Link cls="button is-rounded is-focused" slug="uslugi" title="Перечень выполняемых работ">Перечень выполняемых работ</Link>-->
+            </div>
+        </div>
     </div>
 </MobileHero>
 
@@ -45,13 +55,12 @@
         <p class="title has-text-white">
             Проектирование и строительство объектов энергетики и систем газораспределения
         </p>
-        <br/>
-        <p class="subtitle">
-            <button
-                    class="button is-primary"
-                    on:click={() => showModal.set(true)}>Заказать проект
-            </button>
-        </p>
+        <div class="columns">
+            <div class="column is-4 is-offset-4">
+<!--                <BtnZayavka btnText="Заказать проект"/>-->
+                <Link cls="button is-focused" slug="uslugi" title="Перечень выполняемых работ">Перечень выполняемых работ</Link>
+            </div>
+        </div>
     </div>
 </VideoHero>
 
