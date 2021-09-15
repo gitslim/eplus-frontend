@@ -1,7 +1,7 @@
 <script>
     import Button from './Button.svelte'
     import InputForm from './InputForm.svelte'
-    import {calculation} from '$lib/utils'
+    import {bitrixLead, calculation} from '$lib/utils'
 
     $: amount = 0
 
@@ -27,8 +27,14 @@
         valid = true
     } else valid = false
 
-    function submitHandler() {
+    async function submitHandler() {
         amount = calculation(props)
+        await bitrixLead({
+            type: 'lead.calcBoiler',
+            title: 'Калькулятор котельной',
+            name: props.name,
+            phone: props.PhoneOrEmail
+        })
     }
 </script>
 
@@ -248,7 +254,8 @@
         </div>
         <div class="column is-3 is-flex pb-4" style="align-items: flex-end;">
             <div class="btn-wrap">
-                <Button btnName="boilerForm" isDisabled={!valid}>Расчитать</Button>
+<!--                <Button btnName="boilerForm" isDisabled={!valid}>Расчитать</Button>-->
+                <button type="submit" class="button is-primary is-rounded" disabled={!valid}>Рассчитать</button>
             </div>
         </div>
 

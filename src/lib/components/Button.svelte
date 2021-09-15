@@ -7,7 +7,7 @@
 
     function handlerClick() {
         showModal.set(true)
-        window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
+        // window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
     }
 </script>
 
