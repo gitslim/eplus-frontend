@@ -155,7 +155,7 @@
                         <div class="column">
                             <Link
                                     cls="navbar-item navbar-title"
-                                    slug="kalkulyatory"
+                                    slug="rasschitat-stoimost"
                                     title="Экспресс расчет">
                                 Экспресс расчет
                             </Link>
@@ -212,7 +212,6 @@
                             <Link cls="navbar-item" slug="faq" title="Вопросы и ответы">
                                 Вопросы и ответы
                             </Link>
-                            <Link cls="navbar-item" title="Калькуляторы">Калькуляторы</Link>
                             <Link
                                     cls="navbar-item"
                                     slug="documents"
@@ -269,31 +268,31 @@
                         class:is-hidden={!showDropdown}>
                     <div class="container is-fluid columns">
                         <div class="column">
-                            <Link
-                                    cls="navbar-item"
-                                    path="company"
-                                    slug="history"
-                                    title="История">
-                                История
-                            </Link>
-                            <Link
-                                    cls="navbar-item"
-                                    path="company"
-                                    slug="dopuski-sro"
-                                    title="Допуски СРО и аттестаты">
-                                Допуски СРО и аттестаты
-                            </Link>
-                            <Link
-                                    cls="navbar-item"
-                                    path="company"
-                                    slug="referens-list"
-                                    title="Референс-лист">
-                                Референс-лист
-                            </Link>
-                            <a rel="external"
-                                    class="navbar-item"
-                                    href="/presentation/Энергия%20Плюс.pdf"
-                                    target="_blank">Презентация</a>
+<!--                            <Link-->
+<!--                                    cls="navbar-item"-->
+<!--                                    path="company"-->
+<!--                                    slug="history"-->
+<!--                                    title="История">-->
+<!--                                История-->
+<!--                            </Link>-->
+<!--                            <Link-->
+<!--                                    cls="navbar-item"-->
+<!--                                    path="company"-->
+<!--                                    slug="dopuski-sro"-->
+<!--                                    title="Допуски СРО и аттестаты">-->
+<!--                                Допуски СРО и аттестаты-->
+<!--                            </Link>-->
+<!--                            <Link-->
+<!--                                    cls="navbar-item"-->
+<!--                                    path="company"-->
+<!--                                    slug="referens-list"-->
+<!--                                    title="Референс-лист">-->
+<!--                                Референс-лист-->
+<!--                            </Link>-->
+<!--                            <a rel="external"-->
+<!--                                    class="navbar-item"-->
+<!--                                    href="/presentation/Энергия%20Плюс.pdf"-->
+<!--                                    target="_blank">Презентация</a>-->
                             <Link cls="navbar-item" path="company" title="Отзывы клиентов">
                                 Отзывы клиентов
                             </Link>

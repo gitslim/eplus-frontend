@@ -13,17 +13,38 @@ export const post = async request => {
       title
       sidebar {
         __typename
+        ... on ComponentDefaultParagraph {
+          class
+          content
+        }
         ... on ComponentDefaultImage {
+          class
           image {
             formats
             alternativeText
           }
         }
+        ... on ComponentDefaultYoutube {
+          class
+          videoId
+        }
       }
       content {
         __typename
         ... on ComponentDefaultParagraph {
+          class
           content
+        }
+        ... on ComponentDefaultImage {
+          class
+          image {
+            formats
+            alternativeText
+          }
+        }
+        ... on ComponentDefaultYoutube {
+          class
+          videoId
         }
       }
     }

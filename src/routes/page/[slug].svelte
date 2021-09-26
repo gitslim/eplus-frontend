@@ -21,7 +21,7 @@
     <section class="section">
         <div class="columns">
 
-            <div class="column" class:is-9={data.page.sidebar.length > 0}>
+            <div class="column" class:is-8={data.page.sidebar.length > 0}>
                 <div class="box">
                     <h1 class="title">{data.page.title}</h1>
                     <DynamicZone content="{data.page.content}"/>
@@ -29,10 +29,10 @@
             </div>
 
             {#if data.page.sidebar.length > 0}
-                <div class="column">
-                    <div class="box">
+                <div class="column is-4">
+<!--                    <div class="box">-->
                         <DynamicZone content="{data.page.sidebar}"/>
-                    </div>
+<!--                    </div>-->
                 </div>
             {/if}
         </div>

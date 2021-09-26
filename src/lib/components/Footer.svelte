@@ -54,14 +54,14 @@
                         <p><span>О компании</span></p>
                         <ul>
                             <li><a href="/company/history">История</a></li>
-                            <li><a href="/company/referens-list">Проекты</a></li>
+                            <li><a href="/page/referens-list">Проекты</a></li>
                             <li><a href="/company/dopuski-sro">Допуски СРО</a></li>
                             <li><a href="/company/otzyvy-klientov">Отзывы клиентов</a></li>
                         </ul>
 
                         <p class="pt-4"><span>Полезное</span></p>
                         <ul>
-                            <li><a href="/kalkulyatory">Калькуляторы</a></li>
+                            <li><a href="/rasschitat-stoimost">Калькуляторы</a></li>
                             <li><a href="/documents">Документы</a></li>
                             <li><a href="/articles">Статьи</a></li>
                             <li><a href="/faq">FAQ</a></li>
