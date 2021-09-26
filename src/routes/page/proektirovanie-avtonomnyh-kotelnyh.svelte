@@ -886,7 +886,7 @@
         </div>
 
         <div class="btn-wrap text-center clearfix">
-            <a class="btn" href="/company/referens-list">Наши проекты</a>
+            <a class="btn" href="/page/referens-list">Наши проекты</a>
         </div>
 
     </section>

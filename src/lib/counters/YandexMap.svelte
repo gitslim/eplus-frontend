@@ -63,6 +63,7 @@
 
 {#if loaded === false}
     <h1>Загрузка карты...</h1>
+    <progress class="progress is-small is-primary"></progress>
 {/if}
 
 <div class="map" bind:this={container}></div>

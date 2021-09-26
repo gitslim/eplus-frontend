@@ -29,7 +29,7 @@
                         </Link>
                     </li>
                     <li class="column is-4">
-                        <Link cls="button is-fullwidth" path="company" slug="referens-list" title="Референс-лист">
+                        <Link cls="button is-fullwidth" path="page" slug="referens-list" title="Референс-лист">
                             Референс-лист
                         </Link>
                     </li>

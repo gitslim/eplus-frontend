@@ -64,7 +64,7 @@
                 <div class="builder-element-inside">
                     <div class="builder-element-children-wrapper">
                         <h3><a href="/faq">Вопросы и ответы</a></h3>
-                        <h3><a href="/kalkulyatory">Калькуляторы</a></h3>
+                        <h3><a href="/rasschitat-stoimost">Калькуляторы</a></h3>
                         <h3>
                             <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет
                                 газопровода</a>

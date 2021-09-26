@@ -9,13 +9,7 @@ export const post = async request => {
   query {
     faqs {
       slug
-      title
-      content {
-        __typename
-        ... on ComponentDefaultParagraph {
-          content
-        }
-      }
+      title      
     }
   }
 `

@@ -19,7 +19,19 @@ export const post = async request => {
       content {
         __typename
         ... on ComponentDefaultParagraph {
+          class
           content
+        }
+        ... on ComponentDefaultImage {
+          class
+          image {
+            formats
+            alternativeText
+          }
+        }
+        ... on ComponentDefaultYoutube {
+          class
+          videoId
         }
       }
     }

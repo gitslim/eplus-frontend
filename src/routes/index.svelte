@@ -32,7 +32,7 @@
 <MobileHero>
     <div class="video-head container has-text-centered py-4" slot="head">
         <p class="subtitle has-text-white">
-            Проектирование и строительство объектов энергетики и систем газораспределения
+            Проектирование, строительство систем газоснабжения и объектов энергетики
         </p>
         <div class="columns pt-4">
             <div class="column is-8-mobile is-offset-2-mobile">
@@ -53,7 +53,7 @@
 <VideoHero video="/video/hero-video.mp4">
     <div class="video-head container has-text-centered py-4" slot="head">
         <p class="title has-text-white">
-            Проектирование и строительство объектов энергетики и систем газораспределения
+            Проектирование, строительство систем газоснабжения и объектов энергетики
         </p>
         <div class="columns">
             <div class="column is-4 is-offset-4">
@@ -85,7 +85,7 @@
                 <ServiceCard
                         image="/images/Теплоэнергетика.jpg"
                         path="page"
-                        slug="teplovye-punkty"
+                        slug="proektirovanie-avtonomnyh-kotelnyh"
                         title="Теплоэнергетика"/>
             </div>
         </div>
