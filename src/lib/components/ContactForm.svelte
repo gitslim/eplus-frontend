@@ -1,12 +1,15 @@
 <script>
     import {createEventDispatcher} from 'svelte'
     import Icon from 'fa-svelte'
-    import {faCheck, faExclamationTriangle, faPhone, faUser} from '@fortawesome/free-solid-svg-icons'
+    import {faExclamationTriangle, faPhone, faUser} from '@fortawesome/free-solid-svg-icons'
     import {createForm} from 'svelte-forms-lib'
     import * as yup from 'yup'
-    import {bitrixLead} from '$lib/utils'
 
     const dispatch = createEventDispatcher()
+
+    export let btnText = 'Отправить'
+    export let inverted = false
+    export let lead = {}
 
     const {
         form,
@@ -29,20 +32,23 @@
             phone: yup.string().required('Обязательное поле')
         }),
         onSubmit: async values => {
-            let response = await bitrixLead({
-                type: 'lead.contactForm',
-                title: 'Обращение с сайта',
+            let data = {
+                type: lead.type || 'lead.contactForm',
+                title: lead.title || 'Форма контактов',
+                data: lead.data || '',
                 name: values.name,
                 phone: values.phone
-            })
-            if (response.ok) {
-                dispatch('success', {
-                    values,
-                    response
-                })
-            } else {
-                alert('Ошибка отправки формы. Попробуйте еще раз!')
             }
+            console.log('lead data', data)
+            // let response = await bitrixLead(data)
+            // if (response.ok) {
+            //     dispatch('success', {
+            //         values,
+            //         response
+            //     })
+            // } else {
+            //     alert('Ошибка отправки формы. Попробуйте еще раз!')
+            // }
         }
     })
 
@@ -50,12 +56,13 @@
 
 <form on:submit={handleSubmit}>
     <div class="field">
-        <label class="label" for="name">Ваше имя</label>
+        <!--        <label class="label" for="name">Ваше имя</label>-->
         <div class="control has-icons-left has-icons-right">
             <input class="input"
                    class:is-danger={$errors.name}
                    id="name"
                    name="name"
+                   placeholder="Ваше имя"
                    on:change={handleChange}
                    on:blur={handleChange}
                    on:keyup={handleChange}
@@ -63,24 +70,23 @@
             <span class="icon is-small is-left">
           <Icon icon="{faUser}"/>
         </span>
-            <div class="icon is-small is-right">
+            <div class="icon is-small is-right" class:has-text-danger={$errors.name}>
                 {#if $errors.name}
                     <Icon icon="{faExclamationTriangle}"/>
-                {:else}
-                    <Icon icon="{faCheck}"/>
                 {/if}
             </div>
         </div>
         {#if $errors.name}
-            <p class="help is-danger">{$errors.name}</p>
+            <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.name}</p>
         {/if}
     </div>
 
     <div class="field">
-        <label class="label" for="phone">Телефон</label>
+        <!--        <label class="label" for="phone">Телефон</label>-->
         <div class="control has-icons-left has-icons-right">
             <input id="phone"
                    name="phone"
+                   placeholder="Телефон"
                    on:change={handleChange}
                    on:blur={handleChange}
                    on:keyup={handleChange}
@@ -90,21 +96,22 @@
             <span class="icon is-small is-left">
         <Icon icon="{faPhone}"/>
     </span>
-            <span class="icon is-small is-right">
+            <span class="icon is-small is-right" class:has-text-danger={$errors.phone}>
         {#if $errors.phone}
               <Icon icon="{faExclamationTriangle}"/>
           {/if}
     </span>
         </div>
         {#if $errors.phone}
-            <p class="help is-danger">{$errors.phone}</p>
+            <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.phone}</p>
         {/if}
     </div>
 
     <div class="field is-grouped">
         <div class="control">
-            <button class="button is-link" disabled="{!$isValid}" type="submit" class:is-loading={$isSubmitting}>
-                Отправить
+            <button class="button is-link" class:is-inverted={inverted} disabled="{!$isValid}" type="submit"
+                    class:is-loading={$isSubmitting}>
+                {btnText}
             </button>
         </div>
         <!--    <div class="control">-->
