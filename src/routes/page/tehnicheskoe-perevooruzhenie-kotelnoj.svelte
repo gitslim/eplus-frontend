@@ -9,6 +9,7 @@
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import InfoBlock from '$lib/components/InfoBlock.svelte'
     import CalculationBlock from '$lib/components/CalculationBlock.svelte'
+    import QuizArea from '$lib/components/quiz/QuizArea.svelte'
 
     let title = 'Техническое переворужение котельной'
 
@@ -263,7 +264,8 @@
     </section>
     <section class="section calculation">
         <div class="container is-max-widescreen">
-            <CalculationBlock/>
+<!--            <CalculationBlock/>-->
+            <QuizArea/>
         </div>
     </section>
 </main>

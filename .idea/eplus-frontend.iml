@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/.svelte-kit" />
       <excludeFolder url="file://$MODULE_DIR$/untracked" />
+      <excludeFolder url="file://$MODULE_DIR$/static/land1" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
