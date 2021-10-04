@@ -1,3 +1,7 @@
+import website from '$lib/config/website'
+
+const {bitrixHookUrl} = website
+
 const fetchEndpoint = async function (fetchFn, endpoint, params) {
 
     const res = await fetchFn(endpoint, {
@@ -95,7 +99,7 @@ const bitrixLead = async ({type, title, name, phone}) => {
         'name': name,
         'phone': phone
     })
-    const leadUri = 'https://energy-plus.bitrix24.ru/rest/24/0fxxzk5en5mconq5/crm.lead.add.json'
+    const leadUri = `${bitrixHookUrl}crm.lead.add.json`
     const uriGet = `${leadUri}?FIELDS[TITLE]=${title}&FIELDS[NAME]=${name}&FIELDS[PHONE][0][VALUE]=${phone}`
     let response = await fetch(uriGet)
     console.debug('bitrixLead response', response)
