@@ -296,6 +296,9 @@
                             <Link cls="navbar-item" path="company" title="Отзывы клиентов">
                                 Отзывы клиентов
                             </Link>
+                            <Link cls="navbar-item" path="page" slug="referens-list" title="Референс-лист">
+                            Референс-лист
+                            </Link>
                         </div>
                     </div>
                 </div>
