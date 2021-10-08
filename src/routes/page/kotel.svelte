@@ -1,66 +1,37 @@
-<svelte:head>
-    <link href="/land1/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="/land1/assets/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
-    <link href="/land1/assets/css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
-    <link href="/land1/assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
-    <link href="/land1/assets/css/style.css" rel="stylesheet" type="text/css">
-    <link href="/land1/assets/css/main.2532584882.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-    <script src="/land1/assets/js/jquery-1.10.1.min.js"></script>
-    <script src="/land1/assets/js/bootstrap.min.js"></script>
-    <script src="/land1/assets/js/owl.carousel.min.js"></script>
-    <script src="/land1/assets/js/magnific-popup.min.js"></script>
-    <!--    <script async defer src="/land1/assets/js/script.js"></script>-->
-</svelte:head>
-
 <script context="module">
     import SvelteSeo from 'svelte-seo'
 </script>
 
 <script>
-    import {showModal} from '$lib/stores'
     import CalculationBlock from '$lib/components/CalculationBlock.svelte'
     import {onMount} from 'svelte'
     import {browser} from '$app/env'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
+    import ContactFormButton from '$lib/components/ContactFormButton.svelte'
+    import Icon from 'fa-svelte'
+    import {faPhone} from '@fortawesome/free-solid-svg-icons'
 
     let title = 'Проектирование автономных котельных'
-    let scriptContainer
-
-    function createScript() {
-        // setTimeout(() => {
-            const child = document.createElement('script')
-            child.src = '/land1/assets/js/script.js'
-            scriptContainer.appendChild(child)
-        // }, 1000)
-    }
 
     onMount(async () => {
-    // if (browser) {
-        // document.addEventListener("DOMContentLoaded", function () {
-        // console.log('jQuery', window.jQuery)
-        // my(window.jQuery)
-        // })
-        if (document.readyState !== 'loading') {
-            console.log('document is already ready, just execute code here')
-            console.log('jQuery', window.jQuery)
-            createScript()
-        } else {
-            document.addEventListener('DOMContentLoaded', function () {
-                console.log('document was not ready, place code here')
-                console.log('jQuery', window.jQuery)
-                createScript()
-            })
-        }
-        // }
-
     })
 </script>
 
 <style lang="scss">
+  .hero {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background: darkgray;
+    background-image: url(/land1/assets/img/bg/bg_2.jpg);
+    background-image: url(/land1/assets/img/bg/bg_2.jpg),
+    linear-gradient(0deg, grey, transparent),
+    linear-gradient(45deg, grey, transparent),
+    linear-gradient(80deg, grey, transparent),
+    linear-gradient(100deg, grey, transparent);
+  }
+
   .calculation {
     background-image: url("/images/tehnicheskoePerevooruzhenie/form-bg.jpg");
     text-align: center;
@@ -68,79 +39,49 @@
     padding: 100px 0 70px;
     background-size: cover;
   }
-
-  :global(.modal-content) {
-    background-color: transparent !important;
-  }
-
-  :global(body) {
-    font-size: 16px !important;
-    padding-top: 0 !important;
-    line-height: 1.6 !important;
-  }
 </style>
 
 <SvelteSeo {title}/>
 
-<div bind:this={scriptContainer}/>
-
 <div id="thetop"></div>
 
 <main>
-    <section class="slider-section agency-default-carousel text-white clearfix"
-             data-background="/land1/assets/img/bg/bg_2.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-7">
-                    <div class="banner-content">
-                        <h3 class="item-title titlefor">
-                            Проектирование водогрейных и паровых котельных
-                        </h3>
-                        <!--                        <a class="btn" href="#" on:click|preventDefault={handlerClick}>Заказать проект</a>-->
-                        <BtnZayavka radius btnText="Заказать проект"/>
-                    </div>
-                    <div class="absolute-social-wrap">
-                        <div class="social-links-text ul-li clearfix">
-                            <ul class="clearfix">
-                                <li><a href="tel:0074957907697">
-                                    <svg fill="none" fit="" focusable="false"
-                                         height="100%" preserveAspectRatio="xMidYMid meet" stroke="currentColor"
-                                         viewBox="0 0 24 24"
-                                         width="100%" xmlns="http:/www.w3.org/2000/svg">
-                                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                              stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-width="2"></path>
-                                    </svg>
-                                    +7 (495) 790-76-97</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5">
-                </div>
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <h1 class="has-text-white has-text-weight-light title is-size-2">Проектирование водогрейных и паровых
+                котельных</h1>
+            <ContactFormButton class="button is-radiusless is-primary is-large">
+                <div slot="button">Заказать проект</div>
+            </ContactFormButton>
+            <div class="subtitle py-6">
+                <a rel="external"
+                   class="has-text-white"
+                   href="tel:+74957907697">
+                    <Icon icon={faPhone}/>
+                    <span class="callibri_phone">+7 (495) 790-76-97</span>
+                    <br/>
+                </a>
             </div>
         </div>
     </section>
 
     <section class="banner-section agency-creative-banner d-flex align-items-center clearfix">
         <div class="container">
-            <div class="row justify-content-lg-start align-items-center justify-content-lg-between">
-                <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="columns">
+                <div class="column is-6">
                     <img alt="" src="/land1/assets/img/u-bmk-image_01.png">
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="banner-content">
-                        <h2 class="title-text mb-30 titlefor">Проектирование промышленных газовых котельных</h2>
-                        <p class="mb-60 justify-text">
-                            Наша компания выполняет полный комплекс проектно-изыскательских работ и разрабатывает
-                            проектную документацию в полном соответствии с ПП РФ №87, начиная с подготовки Задания на
-                            проектирование до получения положительного заключения государственной либо негосударственной
-                            экспертизы, а также всех необходимых согласований для строительства любого типа котельной.
-                        </p>
-                        <!--                        <a class="btn btn-border border-white" href="#" on:click|preventDefault={handlerClick}>Заказать-->
-                        <!--                            проект</a>-->
-                        <BtnZayavka radius btnText="Заказать проект"/>
-                    </div>
+                <div class="column is-6">
+                    <h2 class="">Проектирование промышленных газовых котельных</h2>
+                    <p class="">
+                        Наша компания выполняет полный комплекс проектно-изыскательских работ и разрабатывает
+                        проектную документацию в полном соответствии с ПП РФ №87, начиная с подготовки Задания на
+                        проектирование до получения положительного заключения государственной либо негосударственной
+                        экспертизы, а также всех необходимых согласований для строительства любого типа котельной.
+                    </p>
+                    <ContactFormButton class="button is-radiusless is-primary is-large">
+                        <div slot="button">Заказать проект</div>
+                    </ContactFormButton>
                 </div>
             </div>
         </div>
