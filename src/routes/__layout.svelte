@@ -7,7 +7,7 @@
     import GTM from '$lib/counters/GTM.svelte'
     import website from '$lib/config/website'
 
-    const {gtmId} = website
+    const {disableAnalytics, gtmId} = website
 </script>
 
 <style global lang="scss">
@@ -16,12 +16,12 @@
   }
 </style>
 
+{#if !disableAnalytics}
 <GTM {gtmId}/>
+{/if}
 
 <div class="body-wrapper">
     <Navbar/>
     <slot/>
     <Footer/>
-    <!--    <YandexMetrika></YandexMetrika>-->
-    <!--    <Bitrix24Chat></Bitrix24Chat>-->
 </div>
