@@ -4,6 +4,7 @@
     import {faExclamationTriangle, faPhone, faUser} from '@fortawesome/free-solid-svg-icons'
     import {createForm} from 'svelte-forms-lib'
     import * as yup from 'yup'
+    import {bitrixLead} from '$lib/utils'
 
     const dispatch = createEventDispatcher()
 
@@ -39,16 +40,16 @@
                 name: values.name,
                 phone: values.phone
             }
-            console.log('lead data', data)
-            // let response = await bitrixLead(data)
-            // if (response.ok) {
-            //     dispatch('success', {
-            //         values,
-            //         response
-            //     })
-            // } else {
-            //     alert('Ошибка отправки формы. Попробуйте еще раз!')
-            // }
+            console.debug('lead data', data)
+            let response = await bitrixLead(data)
+            if (response.ok) {
+                dispatch('success', {
+                    values,
+                    response
+                })
+            } else {
+                alert('Ошибка отправки формы. Попробуйте еще раз!')
+            }
         }
     })
 
