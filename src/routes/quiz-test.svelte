@@ -13,7 +13,7 @@
         </button>
     </div>
     <div slot="content" class="modal-content" let:store={{close}}>
-        <QuizArea title="он-Лайн калькулятор расчёта стоимости ТТР" quizId={0} inverted={false}/>
+        <QuizArea title="он-Лайн калькулятор расчёта стоимости ТТР" quizId={0}/>
     </div>
 </Modal>
 

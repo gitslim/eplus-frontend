@@ -12,7 +12,7 @@
 
     function handleClick(_) {
         dispatch('complete', {
-            title: value,
+            val: value,
             next: item.next
         })
     }
