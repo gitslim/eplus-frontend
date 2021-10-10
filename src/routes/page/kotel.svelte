@@ -27,8 +27,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
-    background: darkgray;
-    background-image: url(/land1/assets/img/bg/bg_2.jpg);
     background-image: url(/land1/assets/img/bg/bg_2.jpg),
     linear-gradient(0deg, grey, transparent),
     linear-gradient(45deg, grey, transparent),
