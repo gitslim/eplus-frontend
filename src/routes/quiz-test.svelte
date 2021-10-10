@@ -1,3 +1,7 @@
+<svelte:head>
+    <meta name="robots" content="noindex">
+</svelte:head>
+
 <script>
     import QuizArea from '$lib/components/quiz/QuizArea.svelte'
     import Modal from '$lib/components/Modal.svelte'

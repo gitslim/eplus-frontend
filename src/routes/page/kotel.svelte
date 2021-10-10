@@ -1,3 +1,7 @@
+<svelte:head>
+    <meta name="robots" content="noindex">
+</svelte:head>
+
 <script context="module">
     import SvelteSeo from 'svelte-seo'
 </script>
