@@ -7,6 +7,7 @@
     import TitleLanding from '$lib/components/TitleLanding.svelte'
     import PurposeCard from '$lib/components/PurposeCard.svelte'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
+    import QuizArea from '$lib/components/quiz/QuizArea.svelte'
 
     let title = 'Теплотехнический расчёт'
 
@@ -229,6 +230,9 @@
             <HeaderLanding {...headerCaption}/>
         </div>
     </section>
+    <section class="">
+        <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={0}/>
+    </section>
     <section class="section">
         <div class="container is-widescreen functions">
             <TitleLanding titleText="Назначение"/>
@@ -346,7 +350,7 @@
             </div>
         </div>
     </section>
-    <section class="section order">
+    <section class="section order pb-6">
         <div class="container is-max-widescreen">
             <div class="order__row">
                 <div class="order__wrap">

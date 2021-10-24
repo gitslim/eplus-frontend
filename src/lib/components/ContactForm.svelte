@@ -36,11 +36,11 @@
             let data = {
                 type: lead.type || 'lead.contactForm',
                 title: lead.title || 'Форма контактов',
-                data: lead.data || '',
+                comments: lead.comments || '',
                 name: values.name,
                 phone: values.phone
             }
-            console.debug('lead data', data)
+            // console.debug('lead data', data)
             let response = await bitrixLead(data)
             if (response.ok) {
                 dispatch('success', {

@@ -7,6 +7,7 @@
 
     let currentItemId = 0
     let answers = {}
+    let log = []
 
     let items = {
         0: {
@@ -27,13 +28,13 @@
                     {title: 'промышленное', val: 3, next: 2}]
             },
             2: {
-                title: 'Площадь здания',
+                title: 'Площадь здания, кв.м.',
                 widget: 'input',
                 mask: '00000',
                 next: 3
             },
             3: {
-                title: 'Высота здания',
+                title: 'Высота здания, м.',
                 widget: 'input',
                 mask: '000',
                 next: 4
@@ -75,11 +76,16 @@
                 next: 7
             },
             7: {
-                title: 'Резуьтат расчета',
-                widget: 'result',
-                answer: 5,
-                text: 'Примерная стоимость:',
+                title: 'Спасибо за обращение!',
+                widget: 'thank-you',
+                text: 'В ближайшее время мы сообщим вам результат расчета',
             },
+            // 7: {
+            //     title: 'Результат расчета',
+            //     widget: 'result',
+            //     answer: 5,
+            //     text: 'Примерная стоимость:',
+            // },
         }
     }
 
@@ -90,17 +96,19 @@
         console.debug(answer)
         answers[currentItemId] = answer.val
         console.debug('answers', answers)
+        log.push(answer.log)
         currentItemId = answer.next
     }
 
     function handleFinish(_) {
         currentItemId = 0
         answers = {}
+        log = []
     }
 </script>
 
 
-<section class="hero is-primary is-halfheight">
+<section class="hero is-white is-halfheight">
     <div class="hero-body is-justify-content-center">
         <div class="has-text-centered">
             <div class="title has-text-weight-light">
@@ -111,7 +119,7 @@
             </p>
             <div class="hero-foot">
                 <div class="has-text-left">
-                    <QuizItem quizTitle={title} {item} {answers} on:answer={handleAnswer} on:finish={handleFinish}/>
+                    <QuizItem quizTitle={title} {item} {answers} {log} on:answer={handleAnswer} on:finish={handleFinish}/>
                 </div>
             </div>
         </div>

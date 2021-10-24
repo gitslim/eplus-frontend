@@ -16,7 +16,8 @@
             } finally {
                 dispatch('complete', {
                     val: val,
-                    next: item.next
+                    next: item.next,
+                    log: item.title + ': ' + val
                 })
             }
         }, item.delay || 100)
