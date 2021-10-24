@@ -712,22 +712,20 @@
 
     <section class="section pt-6 pb-6 mb-6" style="background-color:#f2f2f2">
         <div class="container">
-            <div class="columns">
+            <div class="columns is-align-items-stretch">
                 <div class="column is-6">
                     <div class="box">
                         <img alt="" src="/images/kotel/projects/01.jpg">
                     </div>
                 </div>
-                <div class="column is-6">
-                    <div class="box box2" style="height: 100%;">
-                        <div class="box2__item">
-                            <h4 class="mb-6 has-text-centered is-size-5 has-text-weight-medium">
+                <div class="column is-6 is-flex">
+                    <div class="box">
+                            <h4 class="pt-6 mb-6 has-text-centered is-size-5 has-text-weight-medium">
                                 ООО «Энергия Плюс» осуществляет комплекс <a
                                     href="/page/stroitelno-montazhnye-raboty">строительно-монтажных
                                 работ</a> по разработанным проектам в соответствии с требованиями СНиП.
                             </h4>
                             <BtnZayavka radius btnText="Оставить заявку"/>
-                        </div>    
                     </div>
                 </div>
             </div>

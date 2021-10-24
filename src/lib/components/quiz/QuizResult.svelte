@@ -34,13 +34,13 @@
 <div class="subtitle has-text-centered has-text-dark">
     <span>Закажите точный расчет по телефону</span>
     <a rel="external"
-       class="has-text-centered has-text-white"
+       class="has-text-centered has-text-primary"
        href="tel:+74957907697">
         <span class="callibri_phone">+7 (495) 790-76-97</span>
     </a>
 </div>
 <div class="field has-text-centered">
     <div class="control">
-        <a class="button is-inverted" on:click={handleClick}>Начать сначала</a>
+        <a class="button is-primary" on:click={handleClick}>Начать сначала</a>
     </div>
 </div>
