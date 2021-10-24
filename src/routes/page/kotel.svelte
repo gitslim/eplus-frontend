@@ -470,7 +470,7 @@
             <div class="columns">
                 <div class="column is-7">
                     <h1 class="has-text-white has-text-weight-normal title titlefor">Проектирование водогрейных и паровых котельных</h1>
-                    <ContactFormButton class="button is-primary is-medium is-fullwidth is-raunded button-raunded">
+                    <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
                         <div slot="button">Заказать проект</div>
                     </ContactFormButton>
                     <div class="subtitle py-6">
@@ -1099,7 +1099,7 @@
     // --------------------------------------------------
 
 
-    <!--ФИКСИМ КОМПОНЕНТЫ-->
+    // ФИКСИМ КОМПОНЕНТЫ
     // -------------------------------------
     // Прокрутка для Lightbox если изображение высокое - start
         function pipuF() {
