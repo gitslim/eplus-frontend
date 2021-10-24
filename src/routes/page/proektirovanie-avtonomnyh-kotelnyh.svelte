@@ -1,13 +1,5 @@
-<svelte:head>
-    <meta name="robots" content="noindex">
-
-</svelte:head>
-
 <script context="module">
     import SvelteSeo from 'svelte-seo'
-    // import 'land1/assets/js/owl.carousel.min.js'
-
-
 </script>
 
 <script>
