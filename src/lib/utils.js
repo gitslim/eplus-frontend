@@ -92,15 +92,16 @@ const gtmEvent = (data) => {
     }
 }
 
-const bitrixLead = async ({type, title, name, phone}) => {
+const bitrixLead = async ({type, title, name, phone, comments}) => {
     gtmEvent({
         'event': type,
         'title': title,
         'name': name,
-        'phone': phone
+        'phone': phone,
+        'comments': comments
     })
     const leadUri = `${bitrixHookUrl}crm.lead.add.json`
-    const uriGet = `${leadUri}?FIELDS[TITLE]=${title}&FIELDS[NAME]=${name}&FIELDS[PHONE][0][VALUE]=${phone}`
+    const uriGet = `${leadUri}?FIELDS[TITLE]=${title}&FIELDS[NAME]=${name}&FIELDS[PHONE][0][VALUE]=${phone}&FIELDS[COMMENTS]=${comments}`
     let response = await fetch(uriGet)
     console.debug('bitrixLead response', response)
     return response

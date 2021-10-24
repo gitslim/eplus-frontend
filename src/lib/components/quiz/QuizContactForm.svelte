@@ -4,12 +4,16 @@
 
     const dispatch = createEventDispatcher()
 
-    export let quizTitle
+    export let quizTitle = ''
     export let item
+    export let log
+
+    let lead
 
     $: lead = {
         type: 'lead.Quiz',
         title: quizTitle,
+        comments: log.join(' | ')
     }
 
     function handleSuccess() {
@@ -21,4 +25,4 @@
 </script>
 
 
-<ContactForm inverted {lead} on:success={(event)=>handleSuccess(event.detail)}/>
+<ContactForm {lead} on:success={(event)=>handleSuccess(event.detail)}/>
