@@ -264,8 +264,8 @@
     </section>
     <section class="section calculation">
         <div class="container is-max-widescreen">
-<!--            <CalculationBlock/>-->
-            <QuizArea/>
+            <CalculationBlock/>
+<!--            <QuizArea/>-->
         </div>
     </section>
 </main>

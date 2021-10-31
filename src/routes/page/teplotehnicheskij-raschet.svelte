@@ -8,6 +8,7 @@
     import PurposeCard from '$lib/components/PurposeCard.svelte'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import QuizArea from '$lib/components/quiz/QuizArea.svelte'
+    import Modal from '$lib/components/Modal.svelte'
 
     let title = 'Теплотехнический расчёт'
 
@@ -48,21 +49,61 @@
 </script>
 
 <style lang="scss">
-  .caption {
-    display: block;
-    padding-top: 180px !important;
-    padding-bottom: 130px;
-    background: url("/images/teplotehnicheskijRaschet/mainBanner.jpg") no-repeat center;
-    background-size: cover;
-    overflow: hidden;
-    color: #fff;
-    width: 100vw;
+  .section {
+    margin: 50px 20px;
   }
 
-  .section {
-    text-align: center;
-    padding-top: 115px;
+  .hero1{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-image: url(/images/teplotehnicheskijRaschet/mainBanner.jpg),
+    linear-gradient(0deg, grey, transparent),
+    linear-gradient(45deg, grey, transparent),
+    linear-gradient(80deg, grey, transparent),
+    linear-gradient(100deg, grey, transparent);
   }
+
+  .hero1 .hero-body {
+    margin-top: 50px;
+  }
+
+  .titlefor:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    top: -30px;
+    left: 0;
+    background-color: #f60;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  //.caption {
+  //  display: block;
+  //  padding-top: 180px !important;
+  //  padding-bottom: 130px;
+  //  background: url("/images/teplotehnicheskijRaschet/mainBanner.jpg") no-repeat center;
+  //  background-size: cover;
+  //  overflow: hidden;
+  //  color: #fff;
+  //  width: 100vw;
+  //}
+
+  //.section {
+  //  text-align: center;
+  //  padding-top: 115px;
+  //}
 
   .functions {
     display: flex;
@@ -224,33 +265,52 @@
 
 <SvelteSeo {title}/>
 
-<main class="container-fluid">
-    <section class="section caption">
-        <div class="container is-max-widescreen">
-            <HeaderLanding {...headerCaption}/>
+<main>
+    <section class="hero is-medium hero1">
+        <div class="hero-body">
+            <div class="columns">
+                <div class="column is-7">
+                    <h1 class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h1>
+                    <h2 class="subtitle">Максимальный часовой расчет газа</h2>
+                    <div class="has-text-left pt-4">
+                        <h2 class="subtitle has-text-white">
+                            Узнайте стоимость ТТР онлайн за 2 минуты
+                        </h2>
+                        <Modal>
+                            <div class="has-text-left" slot="trigger" let:open>
+                                <button class="button is-primary is-large" on:click={()=>{open()}}>
+                                    Рассчитать
+                                </button>
+                            </div>
+                            <div slot="content" class="modal-content" let:store={{close}}>
+                                <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={0}/>
+                            </div>
+                        </Modal>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="">
-        <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={0}/>
-    </section>
+
+
     <section class="section">
         <div class="container is-widescreen functions">
             <TitleLanding titleText="Назначение"/>
-            <p class="functions__desc">
+            <p class="functions__desc has-text-centered">
                 Расчет потребности в тепле и топливе (ТТР) требуется для объектов, на
                 которых предполагается использование природного газа в качестве топлива
                 и/или на технологические нужды, а также в случаях реконструкции или
                 технического перевооружения действующих объектов, при которых
                 производится замена газоиспользующего оборудования.
             </p>
-            <h3 class="functions__title">Цель расчета:</h3>
-            <div class="functions__card">
+            <h3 class="functions__title has-text-centered">Цель расчета:</h3>
+            <div class="functions__card has-text-centered columns">
                 {#each functionsCard as item}
                     <PurposeCard text={item.text} alt={item.alt} src={item.src}/>
                 {/each}
             </div>
         </div>
-        <p class="functions__desc">
+        <p class="functions__desc has-text-centered">
             ТТР является основанием для обращения в газоснабжающую организацию (АО
             «Мосгаз», АО «Мособлгаз», ПАО «Газпром») при технологическом присоединении
             к газовым сетям или реконструкции существующих сетей газопотребления.
@@ -258,7 +318,7 @@
     </section>
     <section class="section steps">
         <div class="steps__icon">
-            <div class="container is-max-widescreen">
+            <div class="container is-max-widescreen has-text-centered">
                 <TitleLanding titleText="Этапы работы"/>
                 <div class="steps__all">
                     <div class="steps__elem">
@@ -306,13 +366,13 @@
             </div>
         </div>
     </section>
-    <section class="section documentation">
+    <section class="section documentation pt-2">
         <TitleLanding titleText="Нормативная документация" white/>
-        <p class="documentation__desc">
+        <p class="documentation__desc has-text-centered">
             Расчет потребности в тепле и топливе выполняется по определенной методике
             и в соответствии с требованиями нормативной документациb:
         </p>
-        <div class="container">
+        <div class="container has-text-centered">
             <div class="documentation__wrap">
                 <div class="documentation__item">
                     <p class="documentation__num">1</p>
@@ -350,7 +410,7 @@
             </div>
         </div>
     </section>
-    <section class="section order pb-6">
+    <section class="section order py-6">
         <div class="container is-max-widescreen">
             <div class="order__row">
                 <div class="order__wrap">
