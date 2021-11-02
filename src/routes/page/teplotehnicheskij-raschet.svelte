@@ -278,7 +278,7 @@
                         </h2>
                         <Modal>
                             <div class="has-text-left" slot="trigger" let:open>
-                                <button class="button is-primary is-large" on:click={()=>{open()}}>
+                                <button class="button is-primary is-large is-rounded" on:click={()=>{open()}}>
                                     Рассчитать
                                 </button>
                             </div>
