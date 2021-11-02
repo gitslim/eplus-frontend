@@ -14,6 +14,7 @@
     import {faPhone,
             faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Carousel from '$lib/components/Carousel.svelte'
+    import BackToTop from '$lib/components/BackToTop.svelte'
 
 
         let carousel;
@@ -273,39 +274,6 @@
     .person-comment p:first-child{
         padding-top: 20px;
     }
-
-    /* back to top - start
-================================================== */
-    #backtotop {
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        z-index: 999;
-        bottom: 40px;
-        position: fixed;
-        border-radius: 100%;
-        background-color: #262626;
-    }
-
-    #backtotop #scroll {
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        display: block;
-        text-align: center;
-        position: relative;
-    }
-    #backtotop #scroll svg {
-        width: 24px;
-        height: 24px;
-        display: inline-block;
-        stroke: #fff;
-        margin: auto;
-        margin-top: 7px;
-    }
-
-        /* back to top - end
-    ================================================== */
 
     /*.fix-button .btn__zayavka {*/
     /*    padding: 0px;*/
@@ -1049,44 +1017,5 @@
         </div>
     </section>
 
-
-
-
-
-    <div id="backtotop">
-        <a  id="scroll">
-            <svg fill="none" fit="" focusable="false" height="100%" preserveAspectRatio="xMidYMid meet"
-                 stroke="currentColor" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-            </svg>
-        </a>
-    </div>
-
-
-    <script>
-    // back to top - start
-    // --------------------------------------------------
-        window.onscroll = function() {
-            var scrollElem = document.getElementById("backtotop");
-            if (window.pageYOffset > 1400) {
-                scrollElem.style.opacity = "1";
-            } else {
-                scrollElem.style.opacity = "0";
-            }
-        }
-
-        document.getElementById("backtotop").onclick = function() {
-            var scrollToTop = window.setInterval(function() {
-                var pos = window.pageYOffset;
-                if ( pos > 0 ) {
-                    window.scrollTo( 0, pos - 70 ); // шаг за раз
-                } else {
-                    window.clearInterval( scrollToTop );
-                }
-            }, 16); // скорость прокрутки
-        };
-    // back to top - end
-    // --------------------------------------------------
-    </script>
-
+    <BackToTop/>
 </main>
