@@ -82,7 +82,6 @@
     .vramku-column {
         padding: 2%;
         background-color: #c2c2c2;
-        display: flex;
     }
 
     .column {
@@ -260,8 +259,8 @@
                             <h2 class="title titlefor">
                                 Магистральные газопроводы (МГ)
                             </h2>
-                            <p class="is-size-5">Магистральные газопроводы (МГ) и ответвления от них (газопроводы-отводы)
-                                номинальным диаметром до 1400мм включительно, с избыточным давлением среды свыше 1,2 до 10 МПа 
+                            <p class="is-size-5 has-text-weight-medium">Магистральные газопроводы (МГ) и ответвления от них (газопроводы-отводы)
+                                номинальным диаметром <b>до 1400мм</b> включительно, с избыточным давлением среды <b>свыше 1,2 до 10 МПа</b> 
                                 включительно (при одиночной прокладке и прокладке в технических коридорах) для транспортирования 
                                 природного газа.</p>
                         </span>
@@ -284,8 +283,8 @@
                             <h2 class="title titlefor">
                                 Газораспреде&shy;литель&shy;ная станция (ГРС)
                             </h2>
-                            <p class="is-size-5">Газораспределительная станция (ГРС)  служит для понижения давления газа
-                                из магистрального газопровода до уровня, необходимого для безопасного 
+                            <p class="is-size-5 has-text-weight-medium">Газораспределительная станция (ГРС)  <b>служит для понижения давления газа
+                                из магистрального газопровода</b> до уровня, необходимого для безопасного 
                                 потребления, т.е. до давления1,2 МПа и ниже.</p>
                         </span>
                     </div>
@@ -306,7 +305,7 @@
                 </h3>
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
-                        <a  href="referens-list" class="ssilka">
+                        <a  href="stroitelsvo-gazoprovoda" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -316,7 +315,7 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium p-color" >Строительство магистрального газопровода (МГ) или газопровода-отвода
+                                            <p  class="has-text-weight-medium p-color" ><b><u>Строительство магистрального газопровода (МГ)</u></b> или газопровода-отвода
                                                 к газораспре&shy;делительной станции (ГРС) с возможностью дальнейшего
                                                 подключения потребителей различного назначения.</p>
                                         </span>
@@ -326,7 +325,7 @@
                         </a>
                     </div>
                     <div class="tile is-parent">
-                        <a  href="referens-list" class="ssilka">
+                        <a  href="gazoprovod-zaschita" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -336,7 +335,7 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium" href="page/referens-list">Устройство защитных мероприятий на действующих магистральных
+                                            <p  class="has-text-weight-medium" href="page/referens-list"><b><u>Устройство защитных мероприятий</u></b> на действующих магистральных
                                                 газопроводах (установка защитных футляров (кожухов)).</p>
                                         </span>
                                     </div>
@@ -348,7 +347,7 @@
 
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
-                        <a  href="referens-list" class="ssilka">
+                        <a  href="gazoprovod-pereustroistvo" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -358,8 +357,8 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium" href="#">Переустройство (вынос) участков магистральных
-                                                газопроводов в связи со строительством новых объектов
+                                            <p  class="has-text-weight-medium" href="#"><b><u>Переустройство (вынос) участков магистральных
+                                                газопроводов</u></b> в связи со строительством новых объектов
                                                 в зоне минимально-допустимых расстояний.</p>
                                         </span>
                                     </div>
@@ -368,7 +367,7 @@
                         </a>
                     </div>
                     <div class="tile is-parent">
-                        <a  href="referens-list" class="ssilka">
+                        <a  href="gazoprovod-rekonstrukciya" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -378,8 +377,8 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium" href="#">Реконструкция, модернизация или техническое
-                                                перевооружение ГРС, крановых узлов, участков магистральных
+                                            <p  class="has-text-weight-medium" href="#"><b><u>Реконструкция, модернизация или техническое
+                                                перевооружение ГРС</u></b>, крановых узлов, участков магистральных
                                                 газопроводов в связи с истечением нормативного
                                                 срока эксплуатации.</p>
                                         </span>
