@@ -315,7 +315,7 @@
                 <h3 class="is-uppercase titlefor has-text-centered">
                     Пример разреза установки разрезного футляра на действующий газопровод-отвод:
                 </h3>
-                <div style="max-width: 956px; margin:0 auto;" onclick="pipuF()">
+                <div style="max-width: 956px; margin:0 auto;">
                     <Lightbox   noScroll="false"
                                     modalClasses = 'pipu'>
                         <img class="is-block img-center" src="\images\gazoprovodi\gazoprovod-futlyar.png" >
@@ -339,20 +339,5 @@
             </div>
         </div>
     </section>
-
-    <script>
-        // ФИКСИМ КОМПОНЕНТЫ
-        // -------------------------------------
-        // Прокрутка для Lightbox если изображение высокое - start
-        function pipuF() {
-                let pipuOn = document.getElementsByClassName('svelte-lightbox-body');
-                for(var i = 0; i < pipuOn.length; i++) {
-                    pipuOn[i].style.overflow = 'auto';
-                }
-            }
-        // Прокрутка для Lightbox если изображение высокое - end
-        // -------------------------------------
-    </script>
-
 </main>
 

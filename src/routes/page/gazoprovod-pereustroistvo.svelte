@@ -374,19 +374,5 @@
         </div>
     </section>
 
-    <script>
-        // ФИКСИМ КОМПОНЕНТЫ
-        // -------------------------------------
-        // Прокрутка для Lightbox если изображение высокое - start
-        function pipuF() {
-                let pipuOn = document.getElementsByClassName('svelte-lightbox-body');
-                for(var i = 0; i < pipuOn.length; i++) {
-                    pipuOn[i].style.overflow = 'auto';
-                }
-            }
-        // Прокрутка для Lightbox если изображение высокое - end
-        // -------------------------------------
-    </script>
-
 </main>
 

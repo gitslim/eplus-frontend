@@ -749,7 +749,7 @@
                             <Icon icon={faChevronLeft}/>
                 </span>
 
-                <div class="slide-content proect-carousel-item" onclick="pipuF()">
+                <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = 'pipu'>
                         <figure class="image">
@@ -762,7 +762,7 @@
                         </figure>
                     </Lightbox>
                 </div>
-                <div class="slide-content proect-carousel-item" onclick="pipuF()">
+                <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = 'pipu'>
                         <figure class="image">
@@ -775,7 +775,7 @@
                         </figure>
                     </Lightbox>
                 </div>
-                <div class="slide-content proect-carousel-item" onclick="pipuF()">
+                <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = 'pipu'>
                         <figure class="image">
@@ -788,7 +788,7 @@
                         </figure>
                     </Lightbox>
                 </div>
-                <div class="slide-content proect-carousel-item" onclick="pipuF()">
+                <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = 'pipu'>
                         <figure class="image">
@@ -801,7 +801,7 @@
                         </figure>
                     </Lightbox>
                 </div>
-                <div class="slide-content proect-carousel-item" onclick="pipuF()">
+                <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = 'pipu'>
                         <figure class="image">
@@ -814,7 +814,7 @@
                         </figure>
                     </Lightbox>
                 </div>
-                <div class="slide-content proect-carousel-item" onclick="pipuF()">
+                <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = 'pipu'>
                         <figure class="image">
@@ -1087,20 +1087,6 @@
         };
     // back to top - end
     // --------------------------------------------------
-
-
-    // ФИКСИМ КОМПОНЕНТЫ
-    // -------------------------------------
-    // Прокрутка для Lightbox если изображение высокое - start
-        function pipuF() {
-            let pipuOn = document.getElementsByClassName('svelte-lightbox-body');
-            for(var i = 0; i < pipuOn.length; i++) {
-                pipuOn[i].style.overflow = 'auto';
-            }
-        }
-    // Прокрутка для Lightbox если изображение высокое - start
-    // -------------------------------------
-
     </script>
 
 </main>
