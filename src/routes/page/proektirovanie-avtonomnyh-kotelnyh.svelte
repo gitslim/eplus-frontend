@@ -14,7 +14,6 @@
     import {faPhone,
             faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Carousel from '$lib/components/Carousel.svelte'
-    import BackToTop from '$lib/components/BackToTop.svelte'
 
 
         let carousel;
@@ -719,7 +718,7 @@
 
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
-                                modalClasses = 'pipu'>
+                                modalClasses = "pipu">
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/02.jpg'}
@@ -732,7 +731,7 @@
                 </div>
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
-                                modalClasses = 'pipu'>
+                                modalClasses = "pipu">
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/03.jpg'}
@@ -745,7 +744,7 @@
                 </div>
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
-                                modalClasses = 'pipu'>
+                                modalClasses = "pipu">
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/04.jpg'}
@@ -758,7 +757,7 @@
                 </div>
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
-                                modalClasses = 'pipu'>
+                                modalClasses = "pipu">
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/05.jpg'}
@@ -771,7 +770,7 @@
                 </div>
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
-                                modalClasses = 'pipu'>
+                                modalClasses = "pipu">
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/06.jpg'}
@@ -784,7 +783,7 @@
                 </div>
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
-                                modalClasses = 'pipu'>
+                                modalClasses = "pipu">
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/07.jpg'}
@@ -1017,5 +1016,4 @@
         </div>
     </section>
 
-    <BackToTop/>
 </main>

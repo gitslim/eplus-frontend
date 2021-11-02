@@ -1,66 +1,46 @@
 <script>
-    import {onMount} from 'svelte'
+    import Icon from 'fa-svelte'
+    import {faChevronUp} from '@fortawesome/free-solid-svg-icons'
 
-    let element
+    export let showOnPx = 800
+    let hidden = true
 
-    onMount(() => {
-        window.onscroll = function () {
-            if (window.pageYOffset > 1400) {
-                element.style.opacity = '1'
-            } else {
-                element.style.opacity = '0'
-            }
+    function goTop() {
+        document.body.scrollIntoView()
+    }
+
+    function scrollContainer() {
+        return document.documentElement || document.body
+    }
+
+    function handleOnScroll() {
+        if (!scrollContainer()) {
+            return
         }
 
-        element.onclick = function () {
-            const scrollToTop = window.setInterval(function () {
-                const pos = window.pageYOffset
-                if (pos > 0) {
-                    window.scrollTo(0, pos - 70) // шаг за раз
-                } else {
-                    window.clearInterval(scrollToTop)
-                }
-            }, 16) // скорость прокрутки
-        }
-    })
-
+        hidden = scrollContainer().scrollTop <= showOnPx
+    }
 </script>
 
-<style lang="scss">
-  .top {
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    z-index: 999;
-    bottom: 40px;
-    position: fixed;
-    border-radius: 100%;
-    background-color: #262626;
-
-    .scroll {
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      display: block;
-      text-align: center;
-      position: relative;
-
-      svg {
-        width: 24px;
-        height: 24px;
-        display: inline-block;
-        stroke: #fff;
-        margin: 7px auto auto;
-      }
+<style>
+    .back-to-top {
+        position: fixed;
+        z-index: 99;
+        right: 0;
+        bottom: 0;
     }
-  }
+
+    .back-to-top.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
 </style>
 
-<div class="top" bind:this={element}>
-    <a class="scroll">
-        <svg fill="none" fit="" focusable="false" height="100%" preserveAspectRatio="xMidYMid meet"
-             stroke="currentColor" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-        </svg>
-    </a>
-</div>
+<svelte:window on:scroll="{handleOnScroll}"/>
+
+<button class="back-to-top button is-ghost is-radiusless has-text-dark" on:click="{goTop}" class:hidden>
+    <span class="icon">
+        <Icon icon={faChevronUp}/>
+    </span>
+    <span>Наверх</span>
+</button>

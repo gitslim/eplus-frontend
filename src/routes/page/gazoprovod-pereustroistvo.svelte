@@ -314,7 +314,7 @@
                 <div class="columns is-vcentered vramku-columns-left">
                     <div class="column vramku-column hiden1">
                         <Lightbox   noScroll="false"
-                                    modalClasses = 'pipu'>
+                                    modalClasses = "pipu">
                             <img class="is-block img-center" src="\images\gazoprovodi\pereustroistvo.png" alt="Газораспределительная станция"/>
                         </Lightbox>
                     </div>
@@ -329,7 +329,7 @@
                     </div>
                     <div class="column vramku-column hiden2">
                         <Lightbox   noScroll="false"
-                                    modalClasses = 'pipu'>
+                                    modalClasses = "pipu">
                              <img class="is-block img-center" src="\images\gazoprovodi\pereustroistvo.png" alt="Газораспределительная станция"/>
                         </Lightbox>                    </div>
 

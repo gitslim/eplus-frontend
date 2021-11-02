@@ -317,7 +317,7 @@
                 </h3>
                 <div style="max-width: 956px; margin:0 auto;">
                     <Lightbox   noScroll="false"
-                                    modalClasses = 'pipu'>
+                                    modalClasses = "pipu">
                         <img class="is-block img-center" src="\images\gazoprovodi\gazoprovod-futlyar.png" >
                     </Lightbox>
                 </div>

@@ -6,6 +6,7 @@
     import Footer from '$lib/components/Footer.svelte'
     import GTM from '$lib/counters/GTM.svelte'
     import website from '$lib/config/website'
+    import BackToTop from '$lib/components/BackToTop.svelte'
 
     const {disableAnalytics, gtmId} = website
 </script>
@@ -24,4 +25,5 @@
     <Navbar/>
     <slot/>
     <Footer/>
+    <BackToTop/>
 </div>
