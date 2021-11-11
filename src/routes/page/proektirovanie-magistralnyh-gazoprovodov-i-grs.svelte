@@ -4,7 +4,6 @@
 
 
 <script>
-    import CalculationBlock from '$lib/components/CalculationBlock.svelte'
     import {onMount} from 'svelte'
     import {browser} from '$app/env'
     import LazyImage from 'svelte-lazy-image'
@@ -266,25 +265,35 @@
         opacity: 0;
         width: 100%;
         display: block;
-        color: white;
+        // color: white;
+        color:#ffffff;
+        text-shadow: 2px 0 2px #f95d10, 
+                     0 2px 2px #f95d10, 
+                     -2px 0 2px #f95d10, 
+                     0 -2px 2px #f95d10;       
         line-height: 1.4;
         transform: translateY(8px);
         transition: all 0.3s ease-in-out;
-    }
-
-    .image .item-content-2 .item-title {
         font-size: 21px;
         font-weight: 600;
         margin-bottom: 10px;
     }
 
+    // .image .item-content-2 .item-title {
+    //     font-size: 21px;
+    //     font-weight: 600;
+    //     margin-bottom: 10px;
+    // }
+
     .image:hover .item-content-2 .item-title {
         opacity: 1;
         transform: translateY(0px);
-    }
-    .image:hover .item-content-2 .item-title {
         transition-delay: 0.3s;
     }
+
+    // .image:hover .item-content-2 .item-title {
+    //     transition-delay: 0.3s;
+    // }
 
     // .proect-carousel-item {
     //     padding: 0 10px;
@@ -613,6 +622,12 @@
         </div>
     </section>
 
+    <style>
+        .proect-carousel-item {
+            max-heigt: 200px;
+        }
+    </style>
+
     <section class="section py-6 project">
         <div class="container text-center">
 
@@ -630,83 +645,103 @@
                 </span>
 
                 <div class="slide-content proect-carousel-item">
+                    <figure class="image"> 
+                        <span class="item-content-2">
+                            <strong class="item-title">Проект 1</strong>
+                        </span>
                     <Lightbox   noScroll="false"
-                                modalClasses = "pipu">
-                        <figure class="image">
-                            <LazyImage
-                                    src={'/images/kotel/projects/02.jpg'}
-                                    alt={'Проект 2'}/>
-                            <span class="item-content-2">
-                                <strong class="item-title">Проект 2</strong>
-                            </span>
-                        </figure>
+                                modalClasses = "pipu"
+                                thumbnail>
+                        <img slot="thumbnail" src="/images/gazoprovodi/project-1t.png" alt="Thumbnail">
+                        <img slot="image" src="/images/gazoprovodi/project-1.png" alt="Lightbox image">
                     </Lightbox>
+                </figure>
                 </div>
+
                 <div class="slide-content proect-carousel-item">
+                    <figure class="image"> 
+                        <span class="item-content-2">
+                            <strong class="item-title">Проект 2</strong>
+                        </span>
                     <Lightbox   noScroll="false"
-                                modalClasses = "pipu">
-                        <figure class="image">
-                            <LazyImage
-                                    src={'/images/kotel/projects/03.jpg'}
-                                    alt={'Проект 3'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 3</strong>
-                </span>
-                        </figure>
+                                modalClasses = "pipu"
+                                thumbnail>
+                        <img slot="thumbnail" src="/images/gazoprovodi/project-2t.png" alt="Thumbnail">
+                        <img slot="image" src="/images/gazoprovodi/project-2.png" alt="Lightbox image">
                     </Lightbox>
+                </figure>
                 </div>
+
                 <div class="slide-content proect-carousel-item">
+                    <figure class="image"> 
+                        <span class="item-content-2">
+                            <strong class="item-title">Проект 3</strong>
+                        </span>
                     <Lightbox   noScroll="false"
-                                modalClasses = "pipu">
-                        <figure class="image">
-                            <LazyImage
-                                    src={'/images/kotel/projects/04.jpg'}
-                                    alt={'Проект 4'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 4</strong>
-                </span>
-                        </figure>
+                                modalClasses = "pipu"
+                                thumbnail>
+                        <img slot="thumbnail" src="/images/gazoprovodi/project-3t.png" alt="Thumbnail">
+                        <img slot="image" src="/images/gazoprovodi/project-3.png" alt="Lightbox image">
                     </Lightbox>
+                </figure>
                 </div>
+
                 <div class="slide-content proect-carousel-item">
+                    <figure class="image"> 
+                        <span class="item-content-2">
+                            <strong class="item-title">Проект 4</strong>
+                        </span>
                     <Lightbox   noScroll="false"
-                                modalClasses = "pipu">
-                        <figure class="image">
-                            <LazyImage
-                                    src={'/images/kotel/projects/05.jpg'}
-                                    alt={'Проект 5'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 5</strong>
-                </span>
-                        </figure>
+                                modalClasses = "pipu"
+                                thumbnail>
+                        <img slot="thumbnail" src="/images/gazoprovodi/project-4t.png" alt="Thumbnail">
+                        <img slot="image" src="/images/gazoprovodi/project-4.png" alt="Lightbox image">
                     </Lightbox>
+                </figure>
                 </div>
+
                 <div class="slide-content proect-carousel-item">
+                    <figure class="image"> 
+                        <span class="item-content-2">
+                            <strong class="item-title">Общий вид на АГРС</strong>
+                        </span>
                     <Lightbox   noScroll="false"
-                                modalClasses = "pipu">
-                        <figure class="image">
-                            <LazyImage
-                                    src={'/images/kotel/projects/06.jpg'}
-                                    alt={'Проект 6'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 6</strong>
-                </span>
-                        </figure>
+                                modalClasses = "pipu"
+                                thumbnail>
+                        <img slot="thumbnail" src="/images/gazoprovodi/project-5t.png" alt="Thumbnail">
+                        <img slot="image" src="/images/gazoprovodi/project-5.jpg" alt="Lightbox image">
                     </Lightbox>
+                </figure>
                 </div>
+
                 <div class="slide-content proect-carousel-item">
+                    <figure class="image"> 
+                        <span class="item-content-2">
+                            <strong class="item-title">Оборудование</strong>
+                        </span>
                     <Lightbox   noScroll="false"
-                                modalClasses = "pipu">
-                        <figure class="image">
-                            <LazyImage
-                                    src={'/images/kotel/projects/07.jpg'}
-                                    alt={'Проект 7'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 7</strong>
-                </span>
-                        </figure>
+                                modalClasses = "pipu"
+                                thumbnail>
+                        <img slot="thumbnail" src="/images/gazoprovodi/project-6t.png" alt="Thumbnail">
+                        <img slot="image" src="/images/gazoprovodi/project-6.jpg" alt="Lightbox image">
                     </Lightbox>
+                </figure>
                 </div>
+
+                <div class="slide-content proect-carousel-item">
+                    <figure class="image"> 
+                        <span class="item-content-2">
+                            <strong class="item-title">Стартовый котлован под прокол</strong>
+                        </span>
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu"
+                                thumbnail>
+                        <img slot="thumbnail" src="/images/gazoprovodi/project-7t.png" alt="Thumbnail">
+                        <img slot="image" src="/images/gazoprovodi/project-7.jpg" alt="Lightbox image">
+                    </Lightbox>
+                </figure>
+                </div>
+
                 <span class="control" slot="right-control">
                             <Icon icon={faChevronRight}/>
                 </span>
