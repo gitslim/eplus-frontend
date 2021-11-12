@@ -268,7 +268,7 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">Переустройство (вынос) участков магистральных газопроводов</h1>
+                    <h1 class="has-text-white has-text-weight-medium title titlefor">Переустройство (вынос) участков газопроводов</h1>
                     <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">в связи со строительством новых объектов в зоне минимально-допустимых расстояний</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
                         <div slot="button">Заказать проект</div>
