@@ -2,6 +2,12 @@ import website from '$lib/config/website'
 
 const {bitrixHookUrl} = website
 
+const intersection = function (arr1, arr2) {
+    const set = new Set(arr2);
+    const intersection = new Set(arr1.filter(elem => set.has(elem)));
+    return Array.from(intersection);
+}
+
 const fetchEndpoint = async function (fetchFn, endpoint, params) {
 
     const res = await fetchFn(endpoint, {
@@ -107,4 +113,4 @@ const bitrixLead = async ({type, title, name, phone, comments}) => {
     return response
 }
 
-export {fetchEndpoint, formatDate, chooseImageUrl, twitter, calculation, bitrixLead, gtmEvent}
+export {intersection, fetchEndpoint, formatDate, chooseImageUrl, twitter, calculation, bitrixLead, gtmEvent}
