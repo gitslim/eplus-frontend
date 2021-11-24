@@ -3,7 +3,7 @@
     import ymaps from 'ymaps'
 
     let container
-    let center = [55.8, 37.8]
+    let center = [55.758134, 37.772855]
     let loaded = false
 
     onMount(async () => {
@@ -13,7 +13,7 @@
             .then(maps => {
                 let map = new maps.Map(container, {
                         center: center,
-                        zoom: 11
+                        zoom: 17
                     },
                     {
                         searchControlProvider: 'yandex#search'
@@ -57,6 +57,8 @@
 <style>
     .map {
         width: 100%;
+        height: 100%;
+        max-height: 470px;
         min-height: 300px;
     }
 </style>
