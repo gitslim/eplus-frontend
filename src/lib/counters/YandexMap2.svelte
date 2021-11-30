@@ -105,6 +105,62 @@
                         preset: 'islands#greenDotIconWithCaption'
                     }))
 
+                    // ------
+                    .add(new maps.Placemark([55.962551, 37.386607], {
+                        balloonContent: 'Переустройство магистральных и распределительных газопроводов.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([55.815977, 37.247659], {
+                        balloonContent: 'Газоснабжение многофункционального жилого комплекса.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([55.676625, 37.452301], {
+                        balloonContent: 'Переустройство газовых сетей.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([53.729539, 40.998812], {
+                        balloonContent: 'Переустройство магистрального газопровода при пересечении с проектируемой автомобильной дорогой.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([55.399112, 37.253789], {
+                        balloonContent: 'Вынос и переустройство нефтепроводов, продуктопроводов, магистральных газопроводов.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([55.49444, 38.407188], {
+                        balloonContent: 'Вынос и переустройство нефтепроводов, продуктопроводов, магистральных газопроводов.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([45.247884, 39.198051], {
+                        balloonContent: 'Переустройство магистральных газопроводов при реконструкции автомобильной дороги.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([55.480806, 38.370324], {
+                        balloonContent: 'Переустройство магистральных трубопроводов и распределительных газопроводов.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([55.915247, 38.005308], {
+                        balloonContent: 'Переустройство газовых сетей.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+
                     // Объекты теплоэнергетики
 
                     .add(new maps.Placemark([56.729392, 37.548170], {
@@ -133,6 +189,62 @@
 
                     .add(new maps.Placemark([53.734351, 41.009403], {
                         balloonContent: 'Техническое перевооружение котельной административного комплекса.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    // -----
+
+                    .add(new maps.Placemark([55.270997, 36.830614], {
+                        balloonContent: 'ГРС производительностью 3200м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([56.466107, 43.870241], {
+                        balloonContent: 'ГРС производительностью 130250 м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([56.324981, 46.539545], {
+                        balloonContent: 'ГРС производительностью 25000 м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([56.104173, 47.716034], {
+                        balloonContent: 'ГРС производительностью 16500 м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([55.969803, 37.515374], {
+                        balloonContent: 'ГРС производительностью 7400 м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([53.736495, 41.014589], {
+                        balloonContent: 'ГРС производительностью 11200 м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([61.472761, 64.050242], {
+                        balloonContent: 'ГРС производительностью 50000 м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([56.006313, 47.590841], {
+                        balloonContent: 'ГРС производительностью 19400 м3/час.',
+                    }, {
+                        preset: 'islands#greenDotIconWithCaption'
+                    }))
+
+                    .add(new maps.Placemark([56.127435, 47.300912], {
+                        balloonContent: 'ГРС производительностью 404000 м3/час.',
                     }, {
                         preset: 'islands#greenDotIconWithCaption'
                     }))
