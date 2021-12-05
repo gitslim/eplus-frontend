@@ -1,4 +1,22 @@
 <script>
+    import { get_current_component } from 'svelte/internal'
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, target, detail) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                const event = new CustomEvent(type, { detail });
+                event.stopPropagation()
+                target.dispatchEvent(event);
+                callbacks.slice().forEach((fn) => {
+                    fn.call(component, event);
+                });
+            }
+        };
+    }
+
+    const dispatch = createEventDispatcher()
+
     /** Binding for whether the switch to "on" or not
      * @svelte-prop {Any} [checked=false]
      * */
@@ -40,13 +58,14 @@
         }
     }
 
-    function onChange({ target }) {
-        const { value, checked } = target;
+    function onChange(event) {
+        const { value, checked } = event.target;
         if (checked) {
             group = [...group, value]
         } else {
             group = group.filter((item) => item !== value);
         }
+        dispatch('change', this, value)
     }
 </script>
 
@@ -133,8 +152,7 @@
            checked={group.includes(value)}
            on:change={onChange}
            bind:this={input}
-           on:input
-           on:click />
+    />
 
     <div class="check {newBackground}"></div>
 
