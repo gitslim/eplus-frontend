@@ -19,7 +19,10 @@
         </button>
     </div>
     <div slot="content" class="modal-content" let:store={{close}}>
+        <div class="box">
+            <h2 class="title has-text-centered">ВНУТРИПЛОЩАДНЫЕ И ВНУТРЕННИЕ ГАЗОПРОВОДЫ</h2>
         <CalcGazline/>
+        </div>
     </div>
 </Modal>
 
