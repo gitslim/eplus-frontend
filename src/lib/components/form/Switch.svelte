@@ -154,7 +154,7 @@
            bind:this={input}
     />
 
-    <div class="check {newBackground}"></div>
+    <div class="check has-background-primary"></div>
 
     <span class="control-label">
     <slot/>
