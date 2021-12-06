@@ -3,7 +3,6 @@
 </script>
 
 <script>
-    import CalculationBlock from '$lib/components/CalculationBlock.svelte'
     import {onMount} from 'svelte'
     import LazyImage from 'svelte-lazy-image'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
@@ -14,6 +13,7 @@
     import {faPhone,
             faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Carousel from '$lib/components/Carousel.svelte'
+    import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
 
 
         let carousel;
@@ -1010,9 +1010,15 @@
     </section>
 
 
-    <section class="section calculation">
+<!--    <section class="section calculation">-->
+<!--        <div class="container is-max-widescreen">-->
+<!--            <CalculationBlock/>-->
+<!--        </div>-->
+<!--    </section>-->
+    <section class="section">
+        <div class="title has-text-centered has-text-weight-bold">РАСЧЕТ СТОИМОСТИ</div>
         <div class="container is-max-widescreen">
-            <CalculationBlock/>
+            <CalcTabs/>
         </div>
     </section>
 

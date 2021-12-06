@@ -4,7 +4,6 @@
 
 
 <script>
-    import CalculationBlock from '$lib/components/CalculationBlock.svelte'
     import {onMount} from 'svelte'
     import {browser} from '$app/env'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'

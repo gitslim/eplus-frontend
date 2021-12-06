@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import CalcBoiler from '$lib/components/CalcBoiler.svelte'
+    import CalcKotel from '$lib/components/calc/CalcKotel.svelte'
 
     let title = 'Калькулятор расчета стоимости котельной'
 </script>
@@ -30,7 +30,7 @@
         </div>
         <div class="columns">
             <div class="column is-offset-1 is-8">
-                <CalcBoiler/>
+                <CalcKotel/>
             </div>
         </div>
     </div>

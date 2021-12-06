@@ -3,7 +3,8 @@
 </script>
 
 <script>
-    import CalcGazline from '$lib/components/CalcGazline.svelte'
+
+    import CalcGaz from '$lib/components/calc/CalcGaz.svelte'
 
     let title = 'Калькулятор расчета стоимости газопровода'
 </script>
@@ -25,7 +26,7 @@
         </div>
         <div class="columns">
             <div class="column is-offset-1 is-8">
-                <CalcGazline/>
+                <CalcGaz/>
             </div>
         </div>
     </div>
