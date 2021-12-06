@@ -4,25 +4,28 @@
 
 <script>
     import Modal from '$lib/components/Modal.svelte'
-    import CalcGazline from '$lib/components/calc/CalcGazline.svelte'
+    import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
 </script>
 
-<section class="section pt-6">
-    <CalcGazline/>
-</section>
+<!--<div class="is-divider" data-content="Модальное окно"></div>-->
 
 <Modal>
     <div class="py-6 has-text-centered" slot="trigger" let:open>
         <button class="button is-primary is-large is-radiusless"
                 on:click={()=>{open()}}>
-            Калькулятор газопровода
+            Расчет стоимости
         </button>
     </div>
     <div slot="content" class="modal-content" let:store={{close}}>
         <div class="box">
-            <h2 class="title has-text-centered">ВНУТРИПЛОЩАДНЫЕ И ВНУТРЕННИЕ ГАЗОПРОВОДЫ</h2>
-        <CalcGazline/>
+            <h2 class="title has-text-centered">Калькуляторы расчета стоимости</h2>
+            <CalcTabs/>
         </div>
     </div>
 </Modal>
 
+<!--<div class="is-divider" data-content="Инлайн"></div>-->
+
+<section class="section pt-6">
+    <CalcTabs/>
+</section>

@@ -149,7 +149,7 @@
     <input type="checkbox"
            {name}
            {value}
-           checked={group.includes(value)}
+           checked={value}
            on:change={onChange}
            bind:this={input}
     />

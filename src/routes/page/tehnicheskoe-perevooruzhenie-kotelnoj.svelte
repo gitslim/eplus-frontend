@@ -8,8 +8,7 @@
     import PurposeCard from '$lib/components/PurposeCard.svelte'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import InfoBlock from '$lib/components/InfoBlock.svelte'
-    import CalculationBlock from '$lib/components/CalculationBlock.svelte'
-    import QuizArea from '$lib/components/quiz/QuizArea.svelte'
+    import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
 
     let title = 'Техническое переворужение котельной'
 
@@ -262,10 +261,15 @@
             </div>
         </div>
     </section>
-    <section class="section calculation">
+<!--    <section class="section calculation">-->
+<!--        <div class="container is-max-widescreen">-->
+<!--            <CalculationBlock/>-->
+<!--        </div>-->
+<!--    </section>-->
+    <section class="section">
+        <div class="title has-text-centered has-text-weight-bold">РАСЧЕТ СТОИМОСТИ</div>
         <div class="container is-max-widescreen">
-            <CalculationBlock/>
-<!--            <QuizArea/>-->
+            <CalcTabs/>
         </div>
     </section>
 </main>

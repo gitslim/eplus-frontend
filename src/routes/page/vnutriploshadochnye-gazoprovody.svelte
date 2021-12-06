@@ -7,7 +7,7 @@
     import HeaderLanding from '$lib/components/HeaderLanding.svelte'
     import InfoBlock from '$lib/components/InfoBlock.svelte'
     import TitleLanding from '$lib/components/TitleLanding.svelte'
-    import CalculationBlock from '$lib/components/CalculationBlock.svelte'
+    import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
 
     let title = 'Внутриплощадочные и внутренние газопроводы'
 
@@ -283,9 +283,15 @@
             </div>
         </div>
     </section>
-    <section class="section calculation">
+<!--    <section class="section calculation">-->
+<!--        <div class="container is-max-widescreen">-->
+<!--            <CalculationBlock/>-->
+<!--        </div>-->
+<!--    </section>-->
+    <section class="section pt-6">
+        <div class="title has-text-centered has-text-weight-bold">РАСЧЕТ СТОИМОСТИ</div>
         <div class="container is-max-widescreen">
-            <CalculationBlock/>
+            <CalcTabs/>
         </div>
     </section>
 </main>
