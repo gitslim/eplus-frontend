@@ -17,7 +17,7 @@
     import LazyImage from 'svelte-lazy-image'
     import {Lightbox} from 'svelte-lightbox'
 
- let title = 'Проектирование магистральных газопроводов и ГРС'
+ let title = 'Газоснабжение'
 
     onMount(async () => {
 
@@ -115,7 +115,7 @@
     }
 
     h1 {
-        font-size: 40px;
+        font-size: 60px;
     }
 
     h2 {
@@ -126,6 +126,7 @@
     .titleb {
         line-height: initial;
         padding-bottom: 30px;
+        font-size: 20px;
     }
 
     .button-ssilka {
@@ -135,8 +136,13 @@
         border-radius: 50px;
         line-height: 1.3em;
         padding: 10px 20px;
-        font-size: 20px;
+        font-size: 15px;
+        font-weight: 700;
         width: 280px;
+
+        &:hover {
+            color: #3e3e3e;
+        }
     }
 
     .button-ssilka:hover {
@@ -227,7 +233,7 @@
    }
 
    .box2 {
-    box-shadow:  0 0 8px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     margin: 20px;
     border-top: 2px solid rgba(248, 105, 35, 0.5);
@@ -510,7 +516,7 @@
         }
 
         h1 {
-            font-size: 29px;
+            font-size: 35px;
         }
 
         h2 {
@@ -585,7 +591,7 @@
                         Газоснабжение
                     </h1>
                     <h2 class="has-text-white has-text-centered has-text-weight-medium is-uppercase titleb">
-                        ПРОМЫШЛЕННЫХ и ГРАЖДАНСКИХ ОБЪЕКТОВ <br/>ПОД КЛЮЧ по РФ
+                        ПРОМЫШЛЕННЫХ и ГРАЖДАНСКИХ ОБЪЕКТОВ <br/>ПОД КЛЮЧ
                     </h2>
                     <div align="center">
 
@@ -697,7 +703,7 @@
                                     <img src="/images/interGazoprovod/objekt1.jpg" alt="Энергетические"/>
                                         <div style="position:relative">
                                             <div class="line-image">
-                                                <p class="has-text-weight-medium">ЭНЕРГЕТИЧЕСКИЕ </p>
+                                                <p class="has-text-weight-medium">ЖИЛЫЕ </p>
                                             </div>
                                         </div>
                                 </figure>
@@ -834,7 +840,7 @@
                     </div>
                 </div>
                 <p class="hero2__text2 has-text-white has-text-centered has-text-weight-medium">
-                    По каждому из видов объектов нашей Компанией наработан <span style="color: rgb(195, 83, 28);">значительный опыт</span> проведения 
+                    По каждому из видов объектов нашей Компанией наработан <span style="color: rgb(255, 138, 80);">значительный опыт</span> проведения 
                     работ по газификации. Наш опыт и знания помогают нам подобрать индивидуальный и наиболее 
                     оптимальный путь газификации с целью снижения затрат Заказчика и сокращения сроков 
                     проведения работ.
