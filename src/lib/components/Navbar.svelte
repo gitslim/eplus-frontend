@@ -77,8 +77,8 @@
                                     cls="navbar-item"
                                     path="page"
                                     slug="vnutriploshadochnye-i-vnutrennie-gazoprovody"
-                                    title="Внутриплощадочные газопроводы">
-                                Внутриплощадочные газопроводы
+                                    title="Газоснабжение">
+                                Газоснабжение
                             </Link>
                             <Link
                                     cls="navbar-item"
