@@ -110,8 +110,7 @@
                     </p>
 
                     <h3>
-                        <a href="/page/vnutriploshadochnye-gazoprovody">Внутриплощадочные
-                            газопроводы</a>
+                        <a href="/page/vnutriploshadochnye-i-vnutrennie-gazoprovody">Газоснабжение</a>
                     </h3>
 
                     <p>
