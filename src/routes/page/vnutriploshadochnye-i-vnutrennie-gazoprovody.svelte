@@ -602,7 +602,7 @@
                                 </button>
                             </div>
                             <div slot="content" class="modal-content" let:store={{close}}>
-                                <QuizArea title="Онлайн расчет стоимости газоснабжения объекта" quizId={0}/>
+                                <QuizArea title="Онлайн расчет стоимости газоснабжения объекта" quizId={1}/>
                             </div>
                         </Modal>
                     </div>

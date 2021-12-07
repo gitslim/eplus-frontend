@@ -79,13 +79,73 @@
                 title: 'Спасибо за обращение!',
                 widget: 'thank-you',
                 text: 'В ближайшее время мы сообщим вам результат расчета',
+            }
+        },
+        1: {
+            0: {
+                title: 'Укажите наименование объекта',
+                widget: 'input',
+                mask: /^\w+$/,
+                placeholder: 'Наименование объекта',
+                next: 1,
             },
-            // 7: {
-            //     title: 'Результат расчета',
-            //     widget: 'result',
-            //     answer: 5,
-            //     text: 'Примерная стоимость:',
-            // },
+            1: {
+                title: 'Укажите регион расположения объекта',
+                widget: 'input',
+                mask: /^\w+$/,
+                placeholder: 'Регион объекта',
+                next: 2,
+            },
+            2: {
+                title: 'Укажите объект газоснабжения',
+                widget: 'radio',
+                options: [
+                    {title: 'котельная', val: 0, next: 3},
+                    {title: 'технологическое оборудование', val: 1, next: 3}
+                ]
+            },
+            3: {
+                title: 'Есть ли технические условия на газ?',
+                widget: 'radio',
+                options: [
+                    {title: 'да', val: 0, next: 4},
+                    {title: 'нет', val: 1, next: 5}
+                ]
+            },
+            4: {
+                title: 'Укажите объем планируемого потребления газа',
+                widget: 'input',
+                mask: '000000',
+                placeholder: 'Объем потребления газа (куб.м)',
+                next: 5,
+            },
+            5: {
+                title: 'Укажите ориентировочную протяженность газопровода',
+                widget: 'input',
+                mask: '00000',
+                placeholder: 'Протяженность газопровода (м)',
+                next: 6,
+            },
+            6: {
+                title: 'Пожалуйста подождите...',
+                widget: 'calc',
+                next: 7,
+                delay: 5000,
+                fn: (answers) => {
+                    console.debug('fn', answers)
+                    return 0
+                }
+            },
+            7: {
+                title: 'В течение нескольких минут расчёт будет готов. Для получения результатов укажите Ваши контактные данные',
+                widget: 'contact-form',
+                next: 8
+            },
+            8: {
+                title: 'Спасибо за обращение!',
+                widget: 'thank-you',
+                text: 'В ближайшее время мы сообщим вам результат расчета',
+            }
         }
     }
 
@@ -119,7 +179,8 @@
             </p>
             <div class="hero-foot">
                 <div class="has-text-left">
-                    <QuizItem quizTitle={title} {item} {answers} {log} on:answer={handleAnswer} on:finish={handleFinish}/>
+                    <QuizItem quizTitle={title} {item} {answers} {log} on:answer={handleAnswer}
+                              on:finish={handleFinish}/>
                 </div>
             </div>
         </div>
