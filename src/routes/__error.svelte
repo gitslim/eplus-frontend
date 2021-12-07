@@ -6,7 +6,7 @@
             props: {
                 title: status === 404 ? 'Страница не найдена!' : 'Ошибка сервера!',
                 status: status,
-                stack: error.stack
+                // stack: error.stack
             }
         }
     }
