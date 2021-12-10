@@ -83,7 +83,8 @@
             if (response.ok) {
                 console.debug('bitrix response', response)
             } else {
-                console.error('Ошибка отправки формы. Попробуйте еще раз!')
+                alert('Ошибка отправки формы. Попробуйте еще раз!')
+                reset()
             }
         }
     })
