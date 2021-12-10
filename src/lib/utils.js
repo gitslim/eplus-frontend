@@ -1,11 +1,7 @@
-import website from '$lib/config/website'
-
-const {bitrixHookUrl} = website
-
 const intersection = function (arr1, arr2) {
-    const set = new Set(arr2);
-    const intersection = new Set(arr1.filter(elem => set.has(elem)));
-    return Array.from(intersection);
+    const set = new Set(arr2)
+    const intersection = new Set(arr1.filter(elem => set.has(elem)))
+    return Array.from(intersection)
 }
 
 const fetchEndpoint = async function (fetchFn, endpoint, params) {
@@ -80,11 +76,15 @@ const bitrixLead = async ({type, title, name, phone, comments}) => {
         'phone': phone,
         'comments': comments
     })
-    const leadUri = `${bitrixHookUrl}crm.lead.add.json`
-    const uriGet = `${leadUri}?FIELDS[TITLE]=${title}&FIELDS[NAME]=${name}&FIELDS[PHONE][0][VALUE]=${phone}&FIELDS[COMMENTS]=${comments}`
-    let response = await fetch(uriGet)
-    console.debug('bitrixLead response', response)
-    return response
+
+    return await fetch('/ep/lead.json', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({title, name, phone, comments})
+    })
 }
 
 export {intersection, fetchEndpoint, formatDate, chooseImageUrl, twitter, bitrixLead, gtmEvent}

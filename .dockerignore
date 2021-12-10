@@ -5,5 +5,4 @@
 !/postcss.config.cjs
 !/src
 !/static
-!/.env
 !/jsconfig.json
