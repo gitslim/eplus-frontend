@@ -362,8 +362,12 @@
         display: none;
     }
 
+    .logic__icon.svelte-rgyqg6 {
+        height: 56px;
+    }
+
     .logic__item.svelte-rgyqg6 {
-        position: relative
+        position: relative;
     }
 
     .logic__item.svelte-rgyqg6:last-child::after {
@@ -586,17 +590,17 @@
     <section class="hero is-medium hero1">
         <div class="hero-body">
             <div class="columns">
-                <div class="column is-7 udal text-center">
-                    <h1 class="has-text-white has-text-centered has-text-weight-medium title titlefor">
+                <div class="column is-7 udal ">
+                    <h1 class="has-text-white has-text-weight-medium title titlefor">
                         Газоснабжение
                     </h1>
-                    <h2 class="has-text-white has-text-centered has-text-weight-medium is-uppercase titleb">
-                        ПРОМЫШЛЕННЫХ и ГРАЖДАНСКИХ ОБЪЕКТОВ <br/>ПОД КЛЮЧ
+                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">
+                        ПРОМЫШЛЕННЫХ и ГРАЖДАНСКИХ ОБЪЕКТОВ
                     </h2>
-                    <div align="center">
+                    <div align="">
 
                         <Modal>
-                            <div class="has-text-centered" slot="trigger" let:open >
+                            <div class="" slot="trigger" let:open >
                                 <button class="button-ssilka" on:click={()=>{open()}}>
                                     Онлайн расчет стоимости газоснабжения объекта
                                 </button>
@@ -606,7 +610,7 @@
                             </div>
                         </Modal>
                     </div>
-                    <div class="subtitle has-text-centered py-6">
+                    <div class="subtitle py-6">
                         <a rel="external"
                            class="has-text-white"
                            href="tel:+74957907697">
@@ -627,8 +631,10 @@
             </h2>
             <span>
                 <p class="px-7 has-text-centered has-text-weight-bold">
-                    Если перед Вами встала задача подключения газа в строящийся или уже существующий объект Компания энергия плюс организует 
-                    весь процесс газоснабжения под ключ и возьмет на себя функции технического Заказчика или Генерального проектировщика.
+                    Вопрос подключения к сетям газоснабжения существующего либо проектируемого объекта потребует привлечения к решению задачи специалистов, 
+                    имеющих профессиональные знания и опыт в области промышленной безопасности, поскольку речь идет о строительстве и эксплуатации опасного 
+                    производственного объекта. В реализации таких проектов задействованы инженеры всех строительных специальностей, а их работа контролируется 
+                    службами технического и строительного надзоров, в том числе Ростехнадзором РФ.
                 </p>
             </span>
             <div class="columns is-vcentered pt-5">
@@ -639,13 +645,16 @@
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
                     <span>
+                        <p class="pb-2">
+                            Процедура газоснабжения, как правило, включает в себя комплекс мероприятий, выполняемых газоснабжающей организацией, а также 
+                            мероприятиями, выполняемых Заявителем. Согласно Правил подключения (технологического присоединения) объектов капитального 
+                            строительства к газораспределительным сетям (Постановления РФ от 13.09.21 №1547)  мероприятия по подключению в пределах границ 
+                            земельного участка осуществляются Заявителем (Заказчиком-застройщиком).
+                        </p>
                         <p>
-                            Процесс <b>газоснабжения</b> подразумевает собой комплекс мероприятий по подключению Заявителя к газораспределительным сетям, 
-                            а также строительство <b>внутренних и внутриплощадочных газопроводов</b>. Согласно Правил подключения (технологического присоединения) 
-                            объектов капитального строительства к газораспределительным сетям (Постановления РФ от 13.09.21 № 1547)  мероприятия 
-                            по подключению в пределах границ земельного участка осуществляются заявителем (заказчиком-застройщиком). Компания «Энергия плюс» 
-                            оказывает полный комплекс работ по получению исходно- разрешительной документации, проектированию, монтажу, наладке и сдаче 
-                            в эксплуатацию систем газоснабжения.
+                            Компания <b>«Энергия Плюс» выполняет полный комплекс мероприятий по проектированию и строительству систем наружного и внутреннего 
+                            газоснабжения Вашего предприятия</b>, начиная с расчета годового потребления газового топлива до ввода объекта в промышленную 
+                            эксплуатацию.
                         </p>
                     </span>
                 </div>
@@ -659,12 +668,13 @@
                 <div class="column has-text-justified has-text-weight-semibold">
                     <span>
                         <p>
-                            Помимо решения главных технических, технологических и конструктивных 
-                            <b><span style="color: rgb(195, 83, 28);">задач по проектированию и строительству</span></b> не менее важную 
-                            роль в процессе газоснабжения объекта имеет процесс согласования проектной документации с заинтересованными организациям, 
-                            среди которых ГРО («Газпром», «Мосгаз», «Мосооблгаз»), Фонды (Лесхоз, речной фонд, фонд культурного и исторического наследия 
-                            и прочие), сетевые компании (Росавтодор, Россети, МОЭК и МОЭСК и прочие), региональные и федеральные органы власти. Компания 
-                            Энергия Плюс успешно проходит согласования на всех уровнях.
+                            В некоторых случаях по соглашению с газоснабжающей организацией ООО «Энергия Плюс» выступает в роли 
+                            <b><span style="color: rgb(195, 83, 28);">единого Исполнителя на проектирование и строительство, как внутриплощадочного, 
+                            так и внеплощадочного газопровода</span></b>. В этих случаях помимо 
+                            технологических и конструктивных  решений наша организация оформляет всю необходимую исходно-разрешительную и землеустроительную 
+                            документацию, выполняет инженерные изыскания, разрабатывает проектную и рабочую документацию на весь газопровод, как на линейный 
+                            объект, а также осуществляет процесс согласования проектной документации с заинтересованными организациям, региональными 
+                            и федеральными органами власти, включая получение положительного заключения государственной/негосударственной экспертизы.
                         </p>
                     </span>
                 </div>
@@ -684,7 +694,7 @@
                 <h2 class="title titlefor has-text-centered has-text-white">
                     Объекты которые мы газифицируем
                 </h2>
-                <div class="hero2__text">
+                <!-- <div class="hero2__text">
                     <p class="has-text-justified has-text-weight-medium">
                         Процесс <b>газоснабжения</b> подразумевает собой комплекс мероприятий по подключению Заявителя 
                         к газораспределительным сетям, а также строительство <b>внутренних и внутриплощадочных 
@@ -695,7 +705,7 @@
                         оказывает <b>полный комплекс работ</b> по получению исходно-разрешительной документации, 
                         проектированию, монтажу, наладке и сдаче в эксплуатацию систем газоснабжения.
                     </p>
-                </div>                
+                </div>                 -->
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
                             <div class="tile is-child is-vertical box">
@@ -703,7 +713,7 @@
                                     <img src="/images/interGazoprovod/objekt1.jpg" alt="Энергетические"/>
                                         <div style="position:relative">
                                             <div class="line-image">
-                                                <p class="has-text-weight-medium">ЖИЛЫЕ </p>
+                                                <p class="has-text-weight-medium">ГРАЖДАНСКИЕ </p>
                                             </div>
                                         </div>
                                 </figure>
@@ -773,7 +783,7 @@
                                                 </div>
                                                 <div class="pl-3">
                                                     <p>
-                                                        Энергетические (котельные, ЦТП, ИТП, энергоцентры)
+                                                        Энергетические (котельные, энергоцентры)
                                                     </p>
                                                 </div>
                                             </li>
@@ -840,10 +850,9 @@
                     </div>
                 </div>
                 <p class="hero2__text2 has-text-white has-text-centered has-text-weight-medium">
-                    По каждому из видов объектов нашей Компанией наработан <span style="color: rgb(255, 138, 80);">значительный опыт</span> проведения 
-                    работ по газификации. Наш опыт и знания помогают нам подобрать индивидуальный и наиболее 
-                    оптимальный путь газификации с целью снижения затрат Заказчика и сокращения сроков 
-                    проведения работ.
+                    По каждому типу объектов <b><span style="color: rgb(255, 138, 80);">нами накоплен опыт реализации проектов по принципу «под ключ»</span></b>, 
+                    а многочисленные благодарственные письма 
+                    наших Заказчиков свидетельствуют о профессиональном отношении к делу и своевременному предоставлению результата работ.
                 </p>
             </div>
         </div>
@@ -870,7 +879,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        ТТР
+                                        Расчет потребления газа
                                     </p>
                                 </div>
                             </li>
@@ -880,7 +889,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        ТУ
+                                        Получение технических условий
                                     </p>
                                 </div>
                             </li>
@@ -890,7 +899,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Изыскания
+                                        Инженерные изыскания
                                     </p>
                                 </div>
                             </li>
@@ -900,7 +909,17 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        ТЭО
+                                        Технико-экономическое обоснование инвестиций
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img class="icon2" alt="" src="/images/form-checkbox.png">
+                                </div>
+                                <div class="pl-3">
+                                    <p>
+                                        Разработка землеустроительной документации
                                     </p>
                                 </div>
                             </li>
@@ -918,7 +937,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Разработка стадии "П"
+                                        Разработка Проектной и Рабочей документации
                                     </p>
                                 </div>
                             </li>
@@ -928,7 +947,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Разработка стадии "Р"
+                                        Согласовании ПД и РД
                                     </p>
                                 </div>
                             </li>
@@ -938,17 +957,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Согласовании ПД
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <img class="icon2" alt="" src="/images/form-checkbox.png">
-                                </div>
-                                <div class="pl-3">
-                                    <p>
-                                        Прохождение экспертизы ПД
+                                        Получение заключения государственной экспертизы
                                     </p>
                                 </div>
                             </li>
@@ -1009,9 +1018,8 @@
                 <div class="column">
                     <span class="is-size-5 has-text-centered is-uppercase has-text-weight-bold">
                         <p class="pr-2">
-                            ООО «Энергия Плюс» осуществляет <span style="color: rgb(195, 83, 28);">комплекс проектно – изыскательских работ</span> 
-                            и <span style="color: rgb(195, 83, 28);">строительно – монтажных работ по газоснабжению</span> капитальных объектов 
-                            по всей территории РФ.
+                            ООО «Энергия Плюс» предоставляет <span style="color: rgb(195, 83, 28);">полный комплекс работ по газоснабжению объектов капитального 
+                            строительства</span> по всей территории РФ.
                         </p>
                     </span>
 
@@ -1035,14 +1043,14 @@
             <div class="columns is-desktop ">
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_01.png">
-                    <p class="logic__text svelte-rgyqg6">Оставляете заявку / заполняете опросный лист</p>
+                    <p class="logic__text svelte-rgyqg6">Оставляете заявку</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_04.png">
-                    <p class="logic__text svelte-rgyqg6">Получаете на рассмотрение технико-коммерческое предложение
+                    <p class="logic__text svelte-rgyqg6">Получаете технико-коммерческое предложение
                         (ТКП)</p>
                 </div>
                 <div class="hiden3">
@@ -1050,7 +1058,7 @@
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_02.png">
-                    <p class="logic__text svelte-rgyqg6">Утверждаем задание на проектирование</p>
+                    <p class="logic__text svelte-rgyqg6">Утверждаем Задание на проектирование</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
@@ -1070,7 +1078,7 @@
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_06.png">
-                    <p class="logic__text svelte-rgyqg6">Утверждаем принципиальные технические решения</p>
+                    <p class="logic__text svelte-rgyqg6">Утверждаете принципиальные технические решения</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
@@ -1091,48 +1099,48 @@
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_05.png">
-                    <p class="logic__text svelte-rgyqg6">Выдаём проект в производство работ</p>
+                    <p class="logic__text svelte-rgyqg6">Оформляем разрешение на строительство</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
-                <div class="column logic__item svelte-rgyqg6">
-                    <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_09.png">
-                    <p class="logic__text svelte-rgyqg6">Заключаем договор на СМР</p>
+                <div class="column logic__item svelte-rgyqg6 rgyqg7">
+                    <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_10.png">
+                    <p class="logic__text svelte-rgyqg6">Закупаем материалы и оборудование</p>
                 </div>
             </div>
 
-            <div class="line_item" style="width: 77%;"></div>
+            <div class="line_item" style="width: 67%;"></div>
 
             <div class="hiden3 pb-2">
                 <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
             </div>
 
             <div class="columns is-desktop">
-                <div class="column logic__item svelte-rgyqg6 rgyqg7">
+                <!-- <div class="column logic__item svelte-rgyqg6 rgyqg7">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_10.png">
-                    <p class="logic__text svelte-rgyqg6">Комплектуем объекта материалами и оборудованием</p>
-                </div>
+                    <p class="logic__text svelte-rgyqg6">Закупаем материалы и оборудование</p>
+                </div> -->
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_11.png">
-                    <p class="logic__text svelte-rgyqg6">Выполнение комплекса СМР</p>
+                    <p class="logic__text svelte-rgyqg6">Выполняем строительно-монтажные работы</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_12.png">
-                    <p class="logic__text svelte-rgyqg6">Оформление исполнительной, сдача надзорным органам</p>
+                    <p class="logic__text svelte-rgyqg6">Выполняем пуско-наладочные работы</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_13.png">
-                    <p class="logic__text svelte-rgyqg6">ПНР и ввод в эксплуатацию</p>
+                    <p class="logic__text svelte-rgyqg6">Оформляем исполнительную документацию и сдаем объект в промышленную эксплуатацию</p>
                 </div>
             </div>
         </div>
