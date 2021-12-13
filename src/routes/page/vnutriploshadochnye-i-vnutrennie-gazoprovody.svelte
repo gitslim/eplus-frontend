@@ -629,14 +629,30 @@
             <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
                 ПОДКЛЮЧЕНИЕ ОБЪЕКТА К ГАЗОВЫМ СЕТЯМ
             </h2>
-            <span>
-                <p class="px-7 has-text-centered has-text-weight-bold">
-                    Вопрос подключения к сетям газоснабжения существующего либо проектируемого объекта потребует привлечения к решению задачи специалистов, 
-                    имеющих профессиональные знания и опыт в области промышленной безопасности, поскольку речь идет о строительстве и эксплуатации опасного 
-                    производственного объекта. В реализации таких проектов задействованы инженеры всех строительных специальностей, а их работа контролируется 
-                    службами технического и строительного надзоров, в том числе Ростехнадзором РФ.
-                </p>
-            </span>
+            <div class="columns is-vcentered pt-5">
+                <div class="column is-4 hiden1">
+                    <div class="image-box" style="height: 250px;">
+                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="Промышленные" style="max-width:450px;"/>
+                    </div>
+                </div>
+                <div class="column has-text-justified has-text-weight-semibold">
+                    <span>
+                        <p>
+                            Вопрос <b><span style="color: rgb(195, 83, 28);">подключения к сетям газоснабжения</span></b> существующего либо проектируемого объекта 
+                            <b><span style="color: rgb(195, 83, 28);">потребует привлечения к решению задачи специалистов, 
+                            имеющих профессиональные знания и опыт в области промышленной безопасности</span></b>, поскольку речь идет о строительстве и эксплуатации опасного 
+                            производственного объекта. В реализации таких проектов <b><span style="color: rgb(195, 83, 28);">задействованы инженеры всех строительных 
+                            специальностей</span></b>, а их работа контролируется 
+                            службами технического и строительного надзоров, в том числе Ростехнадзором РФ.
+                        </p>
+                    </span>
+                </div>
+                <div class="column is-4 hiden2">
+                    <div class="image-box" style="height: 250px;">
+                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="Промышленные" style="max-width:450px;"/>
+                    </div>
+                </div>
+            </div>
             <div class="columns is-vcentered pt-5">
                 <div class="column is-4">
                     <div class="image-box" style="height: 250px;">
@@ -652,8 +668,8 @@
                             земельного участка осуществляются Заявителем (Заказчиком-застройщиком).
                         </p>
                         <p>
-                            Компания <b>«Энергия Плюс» выполняет полный комплекс мероприятий по проектированию и строительству систем наружного и внутреннего 
-                            газоснабжения Вашего предприятия</b>, начиная с расчета годового потребления газового топлива до ввода объекта в промышленную 
+                            Компания <b><span style="color: rgb(195, 83, 28);">«Энергия Плюс» выполняет полный комплекс мероприятий по проектированию и строительству систем наружного и внутреннего 
+                            газоснабжения Вашего предприятия</span></b>, начиная с расчета годового потребления газового топлива до ввода объекта в промышленную 
                             эксплуатацию.
                         </p>
                     </span>
@@ -1117,13 +1133,6 @@
             </div>
 
             <div class="columns is-desktop">
-                <!-- <div class="column logic__item svelte-rgyqg6 rgyqg7">
-                    <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_10.png">
-                    <p class="logic__text svelte-rgyqg6">Закупаем материалы и оборудование</p>
-                </div> -->
-                <div class="hiden3">
-                    <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
-                </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_11.png">
                     <p class="logic__text svelte-rgyqg6">Выполняем строительно-монтажные работы</p>
