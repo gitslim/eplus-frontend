@@ -77,8 +77,8 @@
                                     cls="navbar-item"
                                     path="page"
                                     slug="vnutriploshadochnye-i-vnutrennie-gazoprovody"
-                                    title="Газоснабжение">
-                                Газоснабжение кап. строительства
+                                    title="Газоснабжение объектов кап. строительства">
+                                Газоснабжение объектов кап. строительства
                             </Link>
                             <Link
                                     cls="navbar-item"
