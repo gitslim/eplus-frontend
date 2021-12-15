@@ -422,6 +422,10 @@
         margin: 50px 0px;
     }
 
+    .image {
+        position: relative;
+    }
+
     .image .item-content-2 {
         top: 50%;
         left: 0px;
@@ -447,6 +451,19 @@
         font-size: 21px;
         font-weight: 600;
         margin-bottom: 10px;
+    }
+
+    .shtora {
+        opacity: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+    }
+
+    .image:hover .shtora {
+        opacity: 1;
+        transition: 0.8s;
     }
 
     .image:hover .item-content-2 .item-title {
@@ -963,7 +980,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Согласовании ПД и РД
+                                        Согласование ПД и РД
                                     </p>
                                 </div>
                             </li>
@@ -1175,6 +1192,7 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
+                            <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/02.jpg'}
                                     alt={'Проект 2'}/>
@@ -1188,6 +1206,7 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
+                            <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/03.jpg'}
                                     alt={'Проект 3'}/>
@@ -1201,6 +1220,7 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
+                            <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/04.jpg'}
                                     alt={'Проект 4'}/>
@@ -1214,6 +1234,7 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
+                            <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/05.jpg'}
                                     alt={'Проект 5'}/>
@@ -1227,6 +1248,7 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
+                            <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/06.jpg'}
                                     alt={'Проект 6'}/>
@@ -1240,6 +1262,7 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
+                            <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/07.jpg'}
                                     alt={'Проект 7'}/>
