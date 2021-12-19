@@ -801,7 +801,7 @@
             </Carousel>
         </div>
         <div align="center" class="pt-4">
-            <a class="button is-primary is-medium is-raunded" href="/page/referens-list">Наши проекты</a>
+            <a class="button is-primary is-medium is-raunded" href="/page/referens-list/#object_teplo">Наши проекты</a>
         </div>
     </section>
 
