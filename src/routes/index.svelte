@@ -11,18 +11,20 @@
     import FullEngineering from '$lib/components/FullEngineering.svelte'
     import MobileHero from '$lib/components/MobileHero.svelte'
     import ServiceCard from '$lib/components/ServiceCard.svelte'
-    import TestimonialsCarousel from '$lib/components/TestimonialsCarousel.svelte'
     import ProjectsCarousel from '$lib/components/ProjectsCarousel.svelte'
     import PortfolioCounters from '$lib/components/PortfolioCounters.svelte'
-    import {showModal} from '$lib/stores.js'
     import SvelteSeo from 'svelte-seo'
     import website from '$lib/config/website'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import Icon from 'fa-svelte'
     import {faPhone} from '@fortawesome/free-solid-svg-icons'
     import Link from '$lib/components/Link.svelte'
+    import TestimonialsGallery from '$lib/components/TestimonialsGallery.svelte'
 
     export let data
+
+    const testimonials = data.testimonials.filter((o)=>{return ['ИНСТРОЙПРОЕКТ', 'ИНТЕР РАО ИНЖИНИРИНГ', 'СОЮЗДОРПРОЕКТ'].includes(o.customer)})
+    console.log(testimonials)
 
     const {siteTitle} = website
 </script>
@@ -97,6 +99,11 @@
         <div class="is-divider" data-content="Цифры"/>
         <PortfolioCounters/>
         <div class="is-divider" data-content="Отзывы клиентов"/>
-        <TestimonialsCarousel items={data.testimonials}/>
+        <TestimonialsGallery items={testimonials}/>
+        <div class="has-text-centered py-4">
+            <Link cls="button is-primary is-radiusless is-medium" path="company" slug="otzyvy-klientov">
+                Все отзывы ...
+            </Link>
+        </div>
     </div>
 </section>

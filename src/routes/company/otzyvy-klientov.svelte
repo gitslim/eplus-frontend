@@ -8,7 +8,7 @@
 </script>
 
 <script>
-    import TestimonialsCarousel from '$lib/components/TestimonialsCarousel.svelte'
+    import TestimonialsGallery from '$lib/components/TestimonialsGallery.svelte'
 
     let title = 'Отзывы клиентов'
     export let data
@@ -22,13 +22,13 @@
 
 <SvelteSeo {title}/>
 
-<main class="container is-max-desktop">
+<main class="container">
     <section class="section">
         <div class="widget">
             <h2 class="title"><span>{title} </span><span class="heading-line"/></h2>
         </div>
     </section>
     <section class="section carusel-wrap">
-        <TestimonialsCarousel items={data.testimonials}/>
+        <TestimonialsGallery items={data.testimonials}/>
     </section>
 </main>
