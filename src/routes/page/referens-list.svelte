@@ -194,7 +194,7 @@
                       </tbody>
                   </table>
 
-                     <h2 id="объекты-теплоэнергетики-2015-2021г">Объекты теплоэнергетики (2015-2021г.)</h2>
+                     <h2 id="object teplo">Объекты теплоэнергетики (2015-2021г.)</h2>
                         <table class="table is-bordered is-striped">
                           <thead>
                             <tr>
