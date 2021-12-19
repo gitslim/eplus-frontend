@@ -38,6 +38,10 @@
   text-align: center;
 }
 
+#object_teplo {
+ padding-top: 50px;
+}
+
 
 </style>
 
@@ -193,8 +197,7 @@
                         </tr>
                       </tbody>
                   </table>
-
-                     <h2 id="object teplo">Объекты теплоэнергетики (2015-2021г.)</h2>
+                  <h2 id="object_teplo">Объекты теплоэнергетики (2015-2021г.)</h2>
                         <table class="table is-bordered is-striped">
                           <thead>
                             <tr>
