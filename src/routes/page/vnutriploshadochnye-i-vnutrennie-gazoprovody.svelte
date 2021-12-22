@@ -1176,7 +1176,7 @@
         <div class="container text-center">
 
             <div class="title titlefor has-text-centered ">
-                <h2 class="">Выполенные объекты</h2>
+                <h2 class="">Выполненные объекты</h2>
             </div>
 
             <Carousel perPage={{1000:4, 800:3, 500:2, 400:1}}
