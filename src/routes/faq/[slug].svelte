@@ -10,6 +10,7 @@
 
 <script>
     import DynamicZone from '$lib/components/DynamicZone.svelte'
+    import ContactFormButton from '$lib/components/ContactFormButton.svelte'
 
     export let data
 </script>
@@ -30,7 +31,22 @@
                 </div>
                 <div class="box">
                     <DynamicZone content={data.faq.content}/>
+
+                    {#if data.faq.title=="Что понимается под охранной зоной газопровода?"}
+                        <div class="pt-4 knopka" 
+                            style =    "text-align:center;">
+                            <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
+                                <div    slot="button"
+                                        style = "font-size: 18px;
+                                                font-weight: 600;
+                                                line-height: 1.2em;"
+                                >Получить подробную <br> консультацию специалиста</div>
+                            </ContactFormButton>
+                        </div>
+                    {/if}
+
                 </div>
+                
             </div>
         </div>
     </section>
