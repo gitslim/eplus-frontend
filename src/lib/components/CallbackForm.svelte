@@ -8,6 +8,7 @@
     $: radius
     $: bWhite
     $: btnWhite = true
+    export let titleText='Нужна консультация?'
     export let white, left, btnText, radius, bWhite, btnWhite
     let modal
 </script>
@@ -26,8 +27,7 @@
 </style>
 
 <div class="contact-link" class:bWhite>
-    <!-- <div class="title__bottom">Нужна консультация ?</div> -->
-    <TitleLanding {left} titleText="Нужна консультация ?" {white}/>
+    <TitleLanding {left} {titleText} {white}/>
     <div class="desc">
         Позвоните нам по телефону:<br/>
         <b class="roistat-phone" style="font-size:15px;">+7 (495) 790-76-97</b><br/>
