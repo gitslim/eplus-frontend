@@ -25,7 +25,7 @@
 
 ### Development
 #### Install dependencies:
-- `npm install`
+- `npm ci`
 
 #### Run in development mode with HMR:
 - Start backend in another terminal: [https://github.com/gitslim/eplus-backend](https://github.com/gitslim/eplus-backend)
