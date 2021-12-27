@@ -2,6 +2,7 @@
     import Link from './Link.svelte'
     import Icon from 'fa-svelte'
     import {faPhone} from '@fortawesome/free-solid-svg-icons'
+    import SearchInput from '$lib/components/search/SearchInput.svelte'
 
     let menuOpen = false
     let showDropdown = false
@@ -221,6 +222,9 @@
                             <Link cls="navbar-item" slug="articles" title="Статьи">
                                 Статьи
                             </Link>
+                            <Link cls="navbar-item" slug="search">
+                                Поиск...
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -304,6 +308,10 @@
                 </div>
             </div>
             <Link cls="navbar-item" slug="contacts">Контакты</Link>
+            <div class="navbar-item is-hidden-mobile">
+                <SearchInput placeholder="Поиск..." fontSize={14} type={3} width="14em"/>
+            </div>
+            <Link cls="navbar-item is-hidden-desktop" slug="search">Поиск...</Link>
         </div>
         <div class="navbar-end">
             <a rel="external"
