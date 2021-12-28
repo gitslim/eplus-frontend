@@ -2,6 +2,7 @@
     import Address from '$lib/components/Address.svelte'
     // import Modal from '$lib/components/Modal.svelte'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
+    import YandexQualityIcon from '$lib/counters/YandexQualityIcon.svelte'
 </script>
 
 
@@ -75,6 +76,9 @@
                             <li><b>Сбт:</b> выходной</li>
                             <li><b>Вск:</b> выходной</li>
                         </ul>
+                        <div class="pt-4">
+                            <YandexQualityIcon/>
+                        </div>
                     </div>
                 </div>
             </div>
