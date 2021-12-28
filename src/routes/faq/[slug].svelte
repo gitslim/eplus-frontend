@@ -16,38 +16,29 @@
 </script>
 
 <style>
-    .message-header {
-        background-color: #f86923;
-    }
+    /*.message-header {*/
+    /*    background-color: #f86923;*/
+    /*}*/
 </style>
 
 <SvelteSeo title={data.faq.title}/>
-<main class="main">
-    <section class="section">
-        <div class="container">
-            <div class="message mt-5 mb-5">
-                <div class="message-header">
-                    <p>{data.faq.title}</p>
-                </div>
-                <div class="box">
-                    <DynamicZone content={data.faq.content}/>
 
-                    {#if data.faq.title=="Что понимается под охранной зоной газопровода?"}
-                        <div class="pt-4 knopka" 
-                            style =    "text-align:center;">
-                            <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                                <div    slot="button"
-                                        style = "font-size: 18px;
+<article>
+    <h1 class="title has-text-centered">{data.faq.title}</h1>
+    <DynamicZone content={data.faq.content}/>
+
+    {#if data.faq.title == "Что понимается под охранной зоной газопровода?"}
+        <div class="pt-4 knopka"
+             style="text-align:center;">
+            <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
+                <div slot="button"
+                     style="font-size: 18px;
                                                 font-weight: 600;
                                                 line-height: 1.2em;"
-                                >Получить подробную <br> консультацию специалиста</div>
-                            </ContactFormButton>
-                        </div>
-                    {/if}
-
+                >Получить подробную <br> консультацию специалиста
                 </div>
-                
-            </div>
+            </ContactFormButton>
         </div>
-    </section>
-</main>
+    {/if}
+
+</article>
