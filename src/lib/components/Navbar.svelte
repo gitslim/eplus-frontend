@@ -307,7 +307,7 @@
                 </div>
             </div>
             <Link cls="navbar-item" slug="contacts">Контакты</Link>
-            <Link cls="navbar-item is-hidden-mobile" slug="search">
+            <Link cls="navbar-item is-hidden-mobile has-text-primary" slug="search">
                 <Icon icon="{faSearch}"/>
             </Link>
             <!--            <div class="navbar-item is-hidden-mobile">-->
