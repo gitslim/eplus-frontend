@@ -1,8 +1,7 @@
 <script>
     import Link from './Link.svelte'
     import Icon from 'fa-svelte'
-    import {faPhone} from '@fortawesome/free-solid-svg-icons'
-    import SearchInput from '$lib/components/search/SearchInput.svelte'
+    import {faPhone, faSearch} from '@fortawesome/free-solid-svg-icons'
 
     let menuOpen = false
     let showDropdown = false
@@ -272,45 +271,48 @@
                         class:is-hidden={!showDropdown}>
                     <div class="container is-fluid columns">
                         <div class="column">
-<!--                            <Link-->
-<!--                                    cls="navbar-item"-->
-<!--                                    path="company"-->
-<!--                                    slug="history"-->
-<!--                                    title="История">-->
-<!--                                История-->
-<!--                            </Link>-->
-<!--                            <Link-->
-<!--                                    cls="navbar-item"-->
-<!--                                    path="company"-->
-<!--                                    slug="dopuski-sro"-->
-<!--                                    title="Допуски СРО и аттестаты">-->
-<!--                                Допуски СРО и аттестаты-->
-<!--                            </Link>-->
-<!--                            <Link-->
-<!--                                    cls="navbar-item"-->
-<!--                                    path="company"-->
-<!--                                    slug="referens-list"-->
-<!--                                    title="Референс-лист">-->
-<!--                                Референс-лист-->
-<!--                            </Link>-->
-<!--                            <a rel="external"-->
-<!--                                    class="navbar-item"-->
-<!--                                    href="/presentation/Энергия%20Плюс.pdf"-->
-<!--                                    target="_blank">Презентация</a>-->
+                            <!--                            <Link-->
+                            <!--                                    cls="navbar-item"-->
+                            <!--                                    path="company"-->
+                            <!--                                    slug="history"-->
+                            <!--                                    title="История">-->
+                            <!--                                История-->
+                            <!--                            </Link>-->
+                            <!--                            <Link-->
+                            <!--                                    cls="navbar-item"-->
+                            <!--                                    path="company"-->
+                            <!--                                    slug="dopuski-sro"-->
+                            <!--                                    title="Допуски СРО и аттестаты">-->
+                            <!--                                Допуски СРО и аттестаты-->
+                            <!--                            </Link>-->
+                            <!--                            <Link-->
+                            <!--                                    cls="navbar-item"-->
+                            <!--                                    path="company"-->
+                            <!--                                    slug="referens-list"-->
+                            <!--                                    title="Референс-лист">-->
+                            <!--                                Референс-лист-->
+                            <!--                            </Link>-->
+                            <!--                            <a rel="external"-->
+                            <!--                                    class="navbar-item"-->
+                            <!--                                    href="/presentation/Энергия%20Плюс.pdf"-->
+                            <!--                                    target="_blank">Презентация</a>-->
                             <Link cls="navbar-item" path="company" title="Отзывы клиентов">
                                 Отзывы клиентов
                             </Link>
                             <Link cls="navbar-item" path="page" slug="referens-list" title="Референс-лист">
-                            Референс-лист
+                                Референс-лист
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
             <Link cls="navbar-item" slug="contacts">Контакты</Link>
-            <div class="navbar-item is-hidden-mobile">
-                <SearchInput placeholder="Поиск..." fontSize={14} type={3} width="14em"/>
-            </div>
+            <Link cls="navbar-item is-hidden-mobile" slug="search">
+                <Icon icon="{faSearch}"/>
+            </Link>
+            <!--            <div class="navbar-item is-hidden-mobile">-->
+            <!--                <SearchInput placeholder="Поиск..." fontSize={14} type={3} width="14em"/>-->
+            <!--            </div>-->
             <Link cls="navbar-item is-hidden-desktop" slug="search">Поиск...</Link>
         </div>
         <div class="navbar-end">
