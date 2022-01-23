@@ -15,7 +15,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={item.image.url}
-                                    alt={item.image.alternativeText}
+                                    alt='Отзыв "{item.customer}" о компании "Энергия Плюс"'
                                     placeholder="/loader.gif"/>
                         </figure>
                     </Lightbox>

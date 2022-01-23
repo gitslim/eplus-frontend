@@ -7,9 +7,10 @@ export const post = async request => {
     try {
         const query = gql`
   query {
-    testimonials(sort: "date:desc") {
+    testimonials(sort: "order:desc") {
       customer
       date
+      order
       image {
         url
         formats

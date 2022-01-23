@@ -23,8 +23,14 @@
 
     export let data
 
-    const testimonials = data.testimonials.filter((o)=>{return ['ИНСТРОЙПРОЕКТ', 'ИНТЕР РАО ИНЖИНИРИНГ', 'СОЮЗДОРПРОЕКТ'].includes(o.customer)})
-    console.log(testimonials)
+    const testimonialsOrder = ['ИНСТРОЙПРОЕКТ', 'ИНТЕР РАО ИНЖИНИРИНГ', 'АО "САЛЮТ"']
+    const testimonials = data.testimonials.sort((a, b) => {
+        let ia = testimonialsOrder.indexOf(a.customer)
+        let ib = testimonialsOrder.indexOf(b.customer)
+        ia = (ia === -1) ? 1000 : ia
+        ib = (ib === -1) ? 1000 : ib
+        return ia - ib
+    }).slice(0, 3)
 
     const {siteTitle} = website
 </script>
@@ -46,7 +52,7 @@
 
             <div class="column is-10-mobile is-offset-1-mobile">
                 <BtnZayavka btnWhite="{true}" btnText="Заказать проект"/>
-<!--                <Link cls="button is-rounded is-focused" slug="uslugi" title="Перечень выполняемых работ">Перечень выполняемых работ</Link>-->
+                <!--                <Link cls="button is-rounded is-focused" slug="uslugi" title="Перечень выполняемых работ">Перечень выполняемых работ</Link>-->
             </div>
         </div>
     </div>
@@ -59,8 +65,10 @@
         </p>
         <div class="columns">
             <div class="column is-4 is-offset-4">
-<!--                <BtnZayavka btnText="Заказать проект"/>-->
-                <Link cls="button is-focused" slug="uslugi" title="Перечень выполняемых работ">Перечень выполняемых работ</Link>
+                <!--                <BtnZayavka btnText="Заказать проект"/>-->
+                <Link cls="button is-focused" slug="uslugi" title="Перечень выполняемых работ">Перечень выполняемых
+                    работ
+                </Link>
             </div>
         </div>
     </div>
