@@ -1194,10 +1194,10 @@
                         <figure class="image">
                             <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/kotel/projects/02.jpg'}
-                                    alt={'Проект 2'}/>
+                                    src={'/images/interGazoprovod/projects/01.jpg'}
+                                    alt={'Проект 1'}/>
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 2</strong>
+                                <strong class="item-title">Проект 1</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -1208,7 +1208,21 @@
                         <figure class="image">
                             <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/kotel/projects/03.jpg'}
+                                    src={'/images/interGazoprovod/projects/02.jpg'}
+                                    alt={'Проект 2'}/>
+                <span class="item-content-2">
+					<strong class="item-title">Проект 2</strong>
+                </span>
+                        </figure>
+                    </Lightbox>
+                </div>
+                <div class="slide-content proect-carousel-item">
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu">
+                        <figure class="image">
+                            <div class="shtora"></div>
+                            <LazyImage
+                                    src={'/images/kotel/projects/04.jpg'}
                                     alt={'Проект 3'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 3</strong>
@@ -1222,7 +1236,7 @@
                         <figure class="image">
                             <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/kotel/projects/04.jpg'}
+                                    src={'/images/interGazoprovod/projects/04.jpg'}
                                     alt={'Проект 4'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 4</strong>
@@ -1236,7 +1250,7 @@
                         <figure class="image">
                             <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/kotel/projects/05.jpg'}
+                                    src={'/images/interGazoprovod/projects/05.jpg'}
                                     alt={'Проект 5'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 5</strong>
@@ -1250,7 +1264,7 @@
                         <figure class="image">
                             <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/kotel/projects/06.jpg'}
+                                    src={'/images/kotel/projects/07.jpg'}
                                     alt={'Проект 6'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 6</strong>
@@ -1262,13 +1276,9 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
-                            <div class="shtora"></div>
-                            <LazyImage
-                                    src={'/images/kotel/projects/07.jpg'}
-                                    alt={'Проект 7'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 7</strong>
-                </span>
+                            <video class="pt-5" controls width="1300">
+                                <source src="/images/interGazoprovod/projects/1.mp4" type="video/mp4"/>
+                            </video>                           
                         </figure>
                     </Lightbox>
                 </div>
