@@ -4,7 +4,7 @@ metadata:
   name: energyplus-frontend
 build:
   artifacts:
-  - image: energyplus-frontend
+  - image: slim777/eplus-frontend
     context: .
   tagPolicy:
     gitCommit: {}

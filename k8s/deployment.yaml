@@ -29,7 +29,7 @@ spec:
                 secretKeyRef:
                   name: energyplus
                   key: VITE_BITRIX_HOOK_URL
-          image: energyplus-frontend
+          image: slim777/eplus-frontend
           imagePullPolicy: Always
           name: energyplus-frontend
           resources:
@@ -41,8 +41,8 @@ spec:
               memory: 256Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-      imagePullSecrets:
-        - name: global-secret
+#      imagePullSecrets:
+#        - name: global-secret
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
