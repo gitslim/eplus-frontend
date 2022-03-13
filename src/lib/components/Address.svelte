@@ -17,6 +17,12 @@
         </a>
     </li>
     <li>
+        <a href="tel:+74959612697">
+            <Icon icon="{faPhone}"/>
+            <span class="callibri_phone">+7 (495) 961-26-97</span>
+        </a>
+    </li>
+    <li>
         <a href="mailto:info@energy-plus.biz">
             <Icon icon="{faEnvelope}"/>
             info@energy-plus.biz
