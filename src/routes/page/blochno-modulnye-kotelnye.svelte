@@ -12,6 +12,9 @@
     import HeaderLanding from '$lib/components/HeaderLanding.svelte'
     import PartnersCarousel from '$lib/components/PartnersCarousel.svelte'
     import TitleLanding from '$lib/components/TitleLanding.svelte'
+    import Carousel from '$lib/components/Carousel.svelte'
+    import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+    import Icon from 'fa-svelte'
 
     let title = 'Блочно-модульные котельные'
 
@@ -412,7 +415,7 @@
                     </div>
                     <TitleLanding
                             left
-                            titleText="в каких случаях устанавливают бмк"
+                            titleText="в каких случаях устанавливают бмк?"
                             white/>
                     <p class="block info__text">
                         Расположение объекта в удаленном или труднодоступном районе, где
@@ -598,15 +601,53 @@
             </div>
         </div>
     </section>
+<!--    <section class="section">-->
+<!--        <div class="container columns partners">-->
+<!--            <div class="column">-->
+<!--                <TitleLanding titleText="Наши партнеры"/>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="corousel__wrap">-->
+<!--            <PartnersCarousel items={data.partners}/>-->
+<!--            &lt;!&ndash; class="block is-size-1 is-flex is-justify-content-space-around" &ndash;&gt;-->
+<!--        </div>-->
+<!--    </section>-->
     <section class="section">
-        <div class="container columns partners">
-            <div class="column">
+        <div class="container">
+            <div class="content text-center">
+<!--                <h2 class="title titlefor has-text-centered">-->
+<!--                    Наши партнёры-->
+<!--                </h2>-->
                 <TitleLanding titleText="Наши партнеры"/>
+                <Carousel  perPage={{800:4, 500:3, 400:2}}
+                           dots={false}
+                           autoplay={8000}
+                           duration={3000}>
+                        <span class="control" slot="left-control">
+                            <Icon icon={faChevronLeft}/>
+                        </span>
+
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/01.jpg">
+                    </div>
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/02.jpg">
+                    </div>
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/03.jpg">
+                    </div>
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/04.jpg">
+                    </div>
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/05.jpg">
+                    </div>
+
+                    <span class="control" slot="right-control">
+                            <Icon icon={faChevronRight}/>
+                        </span>
+                </Carousel>
             </div>
-        </div>
-        <div class="corousel__wrap">
-            <PartnersCarousel items={data.partners}/>
-            <!-- class="block is-size-1 is-flex is-justify-content-space-around" -->
         </div>
     </section>
     <section class="section logic">
