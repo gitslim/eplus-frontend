@@ -16,16 +16,6 @@
 
     onMount(async () => {
 
-        let buttonraunded = document.getElementsByClassName('button-raunded');
-        for(var i = 0; i < buttonraunded.length; i++) {
-            buttonraunded[i].style.borderRadius = '30px';
-            buttonraunded[i].style.lineHeight = '1em';
-        }
-        buttonraunded[1].style.height = '100px';
-        buttonraunded[1].style.borderRadius = '50px';
-        buttonraunded[1].style.minWidth = '50px';
-        buttonraunded[1].style.whiteSpace = 'normal';
-
         let right = document.getElementsByClassName('right');
         for(var i = 0; i < right.length; i++) {
             right[i].style.right = '0.8vw';
@@ -65,7 +55,6 @@
         linear-gradient(45deg, grey, transparent),
         linear-gradient(80deg, grey, transparent),
         linear-gradient(100deg, grey, transparent);
-
         .hero-body {
             margin-top: 50px;
         }
@@ -134,10 +123,50 @@
         }
     }
 
+    .button3 {
+        display: flex;
+        :first-child{
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            padding-bottom: calc(0.5em - 1px);
+            padding-left: 1em;
+            padding-right: 1em;
+            padding-top: calc(0.5em - 1px);
+            text-align: center;
+            border-radius: 30px;
+            max-width: 300px;
+            background: #f86923;
+            color: #fff;
+            font-size: 1.5rem;
+            transition: 0.5s;
+            border: 1px solid #f86923;
+
+            &:hover {
+               background: #fff;
+                color: #f86923;
+            }
+            &:active {
+                transform: translateY(3px);
+            }
+        }
+        @media (max-width: 450px) {
+            justify-content: center;
+        }
+        &.btn2 {
+            :first-child{
+                line-height: 1.3;
+                padding: 20px 10px;
+                max-width: 400px;
+                }
+            }
+    }
+
     /**************************/
     /*Стиль текста карусели НАШИ ПРОЕКТЫ - start*/
     .project {
         background: #ededed;
+        margin: auto 0;
     }
 
     .image {
@@ -151,59 +180,6 @@
     .slide-content {
         padding: 0 10px;
     }
-
-    .image .item-content-2 {
-        top: 50%;
-        left: 0px;
-        right: 0px;
-        z-index: 2;
-        padding: 0px 30px;
-        text-align: center;
-        position: absolute;
-        transform: translateY(-50%);
-    }
-
-    .image .item-content-2 .item-title {
-        opacity: 0;
-        width: 100%;
-        display: block;
-        color: white;
-        line-height: 1.4;
-        transform: translateY(8px);
-        transition: all 0.3s ease-in-out;
-    }
-
-    .image .item-content-2 .item-title {
-        font-size: 21px;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-
-    .shtora {
-        opacity: 0;
-        position: absolute;
-        background: rgba(0, 0, 0, 0.7);
-        width: 100%;
-        height: 100%;
-    }
-
-    .image:hover .shtora {
-        opacity: 1;
-        transition: 0.8s;
-    }
-
-    .image:hover .item-content-2 .item-title {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-    .image:hover .item-content-2 .item-title {
-        transition-delay: 0.3s;
-    }
-
-    // .proect-carousel-item {
-    //     padding: 0 10px;
-    // }
-
     /*Стиль текста карусели НАШИ ПРОЕКТЫ - end*/
     /*******************************/
 
@@ -215,6 +191,7 @@
         .spisok1_img {
             border: 15px solid #cbcbcb;
             height: 100%;
+            object-fit: cover;
         }
     }
 
@@ -233,8 +210,7 @@
             align-items: center;
             text-align: center;
             box-shadow: 7px 7px 20px 5px #cbcbcb;
-            border-left: 20px solid #f86923;
-            
+            border-left: 20px solid #f86923;           
             h3{
                 padding: 20px;
                 line-height: 1.4em;
@@ -247,20 +223,33 @@
             font-weight: 500;
             margin: 30px 30px 20px 30px;
         }
+        &__intext {
+            color:#f60;
+            font-weight: 600;
+            text-decoration: underline;
+        }
         &__footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: #ffebcd;
             padding: 25px 0;
+            h2 {
+                text-align: center;
+                padding: 10px 0;
+                line-height: 1.5em;
+                font-weight: 700;
+            }
             .vstavka {
                 padding: 0 20px;
-                max-width: 700px;
+                // max-width: 700px;
                 text-align: center;
                 font-size: 20px;
                 font-weight: 700;
                 line-height: 1.4em;
                 text-transform: uppercase;
             }
-        }
-        
+        }        
     }
 
     .grafik {
@@ -301,6 +290,9 @@
         &__history {
             font-size: 11px;
         }
+        &__img {
+            min-width: 260px;
+        }
         &__history2 {
             font-size: 8px;
             top: 15px;
@@ -321,7 +313,6 @@
             font-weight: 700;
             line-height: 1em;
             color:#f60;
-
         }
     }
 
@@ -339,8 +330,14 @@
         margin: 50px 0;
         padding-top: 70px;
         padding-bottom: 35px;
+        overflow: hidden;
         .columns {
             text-align: center;
+            .column {
+                @media (max-width: 530px) {
+                    pading: 12px 0;
+                }
+            }
         }
         &__image {
             width: 150px;
@@ -349,8 +346,70 @@
             border-radius: 50%;            
         }
         &__text {
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
         }
+        &__text2 {
+            font-weight: 500;
+            color: #646464;
+        }
+    }
+
+    .acreditac{
+        &__columns {
+            max-width: 80%;
+            margin: 0 auto;
+            .column {
+                padding: 2rem;
+                border: 30px solid transparent;
+                border-image-source: url('/images/smr/ramka2.png');
+                border-image-slice: 20% 25%;
+                border-image-width: 6;
+                border-image-repeat: round;
+                @media (max-width: 530px) {
+                    border-image-width: 4;
+                }
+                >h3 {
+                    font-size: 25px;
+                    line-height: 1.5em;
+                    color: #f60;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding-bottom: 20px;
+                }
+            }
+            .column:first-child {
+                margin-right: 20px;
+                @media (max-width: 769px) {
+                    margin: 20px 0;
+                }
+            }
+            @media (max-width: 1220px) {
+                max-width: 100%;
+            }
+            @media (max-width: 769px) {
+                max-width: 80%;
+            }
+            @media (max-width: 530px) {
+                max-width: 100%;
+            }
+        }
+        &__image {
+            text-align: center;
+            margin-bottom: 10px;
+            >img{
+                width: 70%;
+            }
+        }
+        &__icon {
+            padding-top: 3px;
+        }
+        &__li {
+            margin-bottom: 10px;
+        }
+        @media (max-width: 769px) {
+                margin-bottom: 60px;;
+            }
     }
 
     .consult {
@@ -382,8 +441,7 @@
             transform: rotate(45deg);
             width: 70px;
             min-width: 70px;
-            height: 70px;
-            
+            height: 70px;            
             img {
                 display: flex;
                 width: 50px;
@@ -393,7 +451,6 @@
             &.c1 {
                 border-color: #929292;
             }
-
         }
         &__text {
             padding-left: 30px;
@@ -401,9 +458,10 @@
             :nth-child(1) {
                 color: #f60;
                 font-size: 1.5em;
-                line-height: 1.5em;
+                line-height: 1.4em;
                 font-weight: 700;
                 text-transform: uppercase;
+                padding-bottom: 5px;
             }
 
             :nth-child(2) {
@@ -419,7 +477,7 @@
 <SvelteSeo {title}/>
 
 <main>
-    <section class="hero is-small hero1">
+    <section class="hero hero1">
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
@@ -427,16 +485,17 @@
                     <h2 class="block has-text-white has-text-weight-medium has-text-justified titleb">ООО «Энергия Плюс» выполняет полный комплекс строительства систем газо- 
                         и теплоснабжения для объектов ЖКХ, промышленного и социально-культурного назначения, в т.ч. внутренние и наружные газопроводы, котельные, 
                         мини-ТЭС, ЦТП, Индивидуальные тепловые пункты. </h2>
-                    <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                        <div slot="button">Заказать услугу СМР</div>
-                    </ContactFormButton>
+                    <div class="button3">
+                        <ContactFormButton>
+                            <div slot="button">Заказать услугу СМР</div>
+                        </ContactFormButton>
+                    </div>
                     <div class="subtitle py-6">
                         <a rel="external"
                            class="has-text-white"
                            href="tel:+74957907697">
                             <Icon icon={faPhone}/>
                                 <span class="callibri_phone">+7 (495) 790-76-97</span>
-                                <br/>
                         </a>
                     </div>
                 </div>
@@ -447,14 +506,12 @@
     <section class="section">
         <div class="container pt-3 text-center spisok1">
             <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-                Строительно-монтажные работы (СМР) включают в себя:
+                КОМПЛЕКС СТРОИТЕЛЬНО-МОНТАЖНЫХ РАБОТ (СМР) ВКЛЮЧАЕТ В СЕБЯ:
             </h2>
             <div class="content">
-                <div class="columns is-vcentered">
-                    <div class="column is-half">
-                
-                        <ul class="has-text-weight-medium">
-                       
+                <div class="columns is-align-items-stretch">
+                    <div class="column is-half">                
+                        <ul class="has-text-weight-medium">                       
                             <li>
                                 <div>
                                     <img class="spisok1__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
@@ -519,43 +576,32 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="column is-half">
                         <img class="spisok1_img" alt="" src="/images/smr/foto-smr1.jpg">
-                    </div>
-                   
+                    </div>                   
                 </div>
-            </div>
-                
+            </div>                
         </div>
     </section>
 
     <section class="section py-6 project">
         <div class="container text-center">
-
             <div class="title titlefor has-text-centered">
                 <h2 class="has-text-weight-bold mb-2">Реализованные проекты</h2>
             </div>
-
             <Carousel perPage={{1000:4, 800:3, 500:2, 400:1}}
                       dots={false}
-                      loop={false}>
-                        
+                      loop={false}>                       
                 <span class="control" slot="left-control">
                             <Icon icon={faChevronLeft}/>
                 </span>
-
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
-                            <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/interGazoprovod/projects/01.jpg'}
-                                    alt={'Проект 1'}/>
-                            <span class="item-content-2">
-                                <strong class="item-title">Проект 1</strong>
-                            </span>
+                                    src={'/images/smr/projects/03.jpg'}
+                                    alt={'Проект 1'}/>                          
                         </figure>
                     </Lightbox>
                 </div>
@@ -563,13 +609,9 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
-                            <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/interGazoprovod/projects/02.jpg'}
+                                    src={'/images/smr/projects/04.jpg'}
                                     alt={'Проект 2'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 2</strong>
-                </span>
                         </figure>
                     </Lightbox>
                 </div>
@@ -577,13 +619,9 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
-                            <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/kotel/projects/04.jpg'}
+                                    src={'/images/smr/projects/05.jpg'}
                                     alt={'Проект 3'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 3</strong>
-                </span>
                         </figure>
                     </Lightbox>
                 </div>
@@ -591,48 +629,25 @@
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
-                            <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/interGazoprovod/projects/04.jpg'}
+                                    src={'/images/smr/projects/06.jpg'}
                                     alt={'Проект 4'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 4</strong>
-                </span>
                         </figure>
                     </Lightbox>
-                </div>
+                </div>              
                 <div class="slide-content proect-carousel-item">
                     <Lightbox   noScroll="false"
                                 modalClasses = "pipu">
                         <figure class="image">
-                            <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/interGazoprovod/projects/05.jpg'}
-                                    alt={'Проект 5'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 5</strong>
-                </span>
-                        </figure>
-                    </Lightbox>
-                </div>
-                <div class="slide-content proect-carousel-item">
-                    <Lightbox   noScroll="false"
-                                modalClasses = "pipu">
-                        <figure class="image">
-                            <div class="shtora"></div>
-                            <LazyImage
-                                    src={'/images/kotel/projects/07.jpg'}
+                                    src={'/images/smr/projects/07.jpg'}
                                     alt={'Проект 6'}/>
-                <span class="item-content-2">
-					<strong class="item-title">Проект 6</strong>
-                </span>
                         </figure>
                     </Lightbox>
                 </div>
                 <span class="control" slot="right-control">
                             <Icon icon={faChevronRight}/>
                 </span>
-
             </Carousel>
         </div>
     </section>
@@ -647,15 +662,17 @@
                     <h3>Стоимость СМР для котельной - <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">здесь.</a></h3>
                 </div>
             </div>
-            <p class="lister__text">Комплексный подход к строительству позволяет экономить до 20% от общей стоимости затрат за счет экономии на имеющихся у ООО Энергия Плюс 
-                партнерских программах с производителями и поставщиками оборудования, а также позволяет сократить сроки ввода в эксплуатацию за счет 
-                отлаженных алгоритмов взаимодействия с надзорными государственными органами.
+            <p class="lister__text">Комплексный подход позволяет экономить до 38% от стоимости возможных затрат за счет экономии на наших 
+                <span class="lister__intext"> партнерских программах </span>
+                с производителями и поставщиками оборудования, а также за счет отлаженных алгоритмов взаимодействия с надзорными государственными органами, 
+                что позволяет сократить сроки ввода в эксплуатацию.
             </p>
-            <div class="is-flex is-justify-content-center lister__footer">
-                <p class="vstavka">Еще большей оптимизации стоимости и сроков реализации  ООО «Энергия Плюс» позволяет получить, выполняя 
-                    <a href="/page/funkcii-generalnogo-proektirovshika">функции генерального проектировщика</a>  и 
-                    <a href="/page/funkcii-tehnicheskogo-zakazchika">функции технического заказчика</a>
+            <div class="lister__footer">
+                <h2 >КАК ОПТИМИЗИРОВАТЬ СТОИМОСТЬ СТРОИТЕЛЬСТВА?</h2> 
+                <p class="vstavka">Поручить <a href="/page/funkcii-generalnogo-proektirovshika">функции генерального проектировщика</a> / генерального подрядчика / 
+                    <a href="/page/funkcii-tehnicheskogo-zakazchika">технического заказчика</a>
                 </p>
+                <h2>ООО «ЭНЕРГИЯ ПЛЮС» </h2>
             </div>
         </div>
     </section>
@@ -663,9 +680,9 @@
     <section class="section grafik">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mb-2">Экономика проекта в сравнении</h2>
+                <h2 class="has-text-weight-bold mb-2">РАСЧЕТ ЭКОНОМИИ В ЦИФРАХ</h2>
             </div>
-            <div class="columns ">
+            <div class="columns is-vcentered">
                 <div class="column is-flex blockGrafik">
                     <p class="blockGrafik__head">Стоимость реализации проекта</p>
                     <div class="columns is-vcentered">
@@ -707,15 +724,18 @@
                         </div>
                         <div class="column">
                             <div>
-                                <img class="" alt="график СМР" src="/images/smr/grafikSMR.png">
-                                    <p class="column blockGrafik__history2">Энергия Плюс &nbsp; &nbsp; &nbsp; Конкуренты</p>
+                                <img class="blockGrafik__img" alt="график СМР" src="/images/smr/grafikSMR.svg">
+                                <!-- <p class="column blockGrafik__history2">Стоимость <br>с «Энергией Плюс» &nbsp; &nbsp; &nbsp; Среднерыночная стоимость</p> -->
+                                <!-- <div>
+                                    <p class="column blockGrafik__history2">Стоимость<br>с «Энергией<br>Плюс»</p>
+                                    <p class="column blockGrafik__history2">Среднерыночная<br>стоимость</p>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div>
                         <p class="blockGrafik__footer"> Итоговая экономия:</p>
                         <p class="blockGrafik__footerNumber">38%</p>
-                        <p class="blockGrafik__footer">стоимости договора</p>
                     </div>                
                 </div>
                 <div class="column textGrafik">
@@ -742,7 +762,6 @@
                         <p><b>ЭКОНОМИЯ:</b> 5% за счет отсутствия неучтенных издержек, которые выявляются в процессе выполнения работ</p>
                     </div>       
                 </div>
-
             </div>
         </div>
     </section>
@@ -750,10 +769,12 @@
     <section class="section ">
         <div class="container">
             <div class="container consult">
-            <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                <div slot="button">Остались вопросы? <br>Получите консультацию специалиста </div>
-            </ContactFormButton>
-        </div>
+                <div class="button3 btn2">
+                    <ContactFormButton class="">
+                        <div slot="button">Остались вопросы? <br>Получите консультацию специалиста </div>
+                    </ContactFormButton>
+                </div>
+            </div>
         </div>
     </section> 
 
@@ -764,25 +785,169 @@
             </div>
             <div class="columns is-multiline is-centered">
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/icon-men.png">
-                    <p class="command__text">Яблоков</p>
+                    <img class="command__image" src="/images/smr/men-icon1.png">
+                    <p class="command__text">Харитонов Николай</p>
+                    <p class="command__text2">Технический директор</p>
                 </div>
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/icon-men.png">
-                    <p class="command__text">Харитонов</p>
+                    <img class="command__image" src="/images/smr/men-icon3.png">
+                    <p class="command__text">Тарас Зайков</p>
+                    <p class="command__text2">Производитель работ</p>
                 </div>
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/icon-men.png">
-                    <p class="command__text">Зайков</p>
+                    <img class="command__image" src="/images/smr/men-icon4.png">
+                    <p class="command__text">Дмитрий Бачинин</p>
+                    <p class="command__text2">Начальник участка КИП</p>
                 </div>
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/icon-men.png">
-                    <p class="command__text">ГИП по котельным?</p>
+                    <img class="command__image" src="/images/smr/men-icon2.png">
+                    <p class="command__text">Евгений Петров</p>
+                    <p class="command__text2">Ведущий инженер</p>
                 </div>
             </div>
         </div>
     </section> 
-    
+
+    <section class="section acreditac">
+        <div class="container text-center">
+            <div class="title titlefor has-text-centered">
+                <h2 class="has-text-weight-bold mb-2">Наши акредитации</h2>
+            </div>
+            <div class="columns acreditac__columns">
+                <div class="column">
+                    <h3>Проектно-изыскательские работы</h3>
+                    <div class="acreditac__image">
+                        <img alt="" src="/images/smr/acreditac1.png">
+                    </div>
+                    <ul class="has-text-weight-medium">                      
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    СРО «СПЕЦПРОЕКТ&shy;ОБЪЕДИНЕНИЕ»
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    А.1
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    Б.7.3
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    Б.2.8
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    Б.8.6
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    Нормативно-технические и правовые акты для специалиста, занятого проектированием внутренних газопроводов и 
+                                    газ. оборудования многоквартирных домов и жилых домов
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    Предквалификация ПАО «ГАЗПРОМ» по направлению деятельности "Проектирование объектов"
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Строительно-монтажные работы</h3>
+                    <div class="acreditac__image">
+                        <img alt="" src="/images/smr/acreditac2.png">
+                    </div>
+                    <div class="acreditac__image">
+                        <img alt="" src="/images/smr/acreditac3.png">
+                    </div>
+                    <ul class="has-text-weight-medium">                      
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    СРО АС "СТРОЙ-АЛЬЯНС"
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    А.1
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    Б.7.3
+                                </p>
+                            </div>
+                        </li>
+                        <li class="acreditac__li">
+                            <div>
+                                <img class="acreditac__icon" alt="" src="/images/kotel/icons/bmk_check_006.png">
+                            </div>
+                            <div class="pl-3">
+                                <p>
+                                    Б.8.6
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+        </div>
+    </section>            
+   
     <section class="section plus">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
@@ -800,16 +965,15 @@
                 </div>
                 <div class="plus__block">
                     <div class="plus__image c1">
-                        <!-- <img class="" src="/images/smr/plus2.png"> -->
                     </div>
                     <div class="plus__text">
                         <p>«Ничего лишнего»</p>
-                        <p>Гарантия выполнения ПИР в объеме необходимом для строительства без навязанных и неучтенных работ</p>
+                        <p>Гарантия выполнения СМР строго по технологии</p>
                     </div>
                 </div>
                 <div class="plus__block">
                     <div class="plus__image c1">
-                        <img class="" src="/images/smr/plus4.png">
+                        <img class="" src="/images/smr/plus6.png">
                     </div>
                     <div class="plus__text">
                         <p>«Цена-качество»</p>
@@ -821,8 +985,8 @@
                         <img class="" src="/images/smr/plus2.png">
                     </div>
                     <div class="plus__text">
-                        <p>«100% Гарантия»</p>
-                        <p>Гарантия получения положительного заключения Мосгосэкспертиза, Мособлэкспертиза, Главгосэкспертиз и пр.</p>
+                        <p>«100% гарантия»</p>
+                        <p>Сдачи объекта в промышленную эксплуатацию</p>
                     </div>
                 </div>
                 <div class="plus__block">
@@ -830,8 +994,8 @@
                         <img class="" src="/images/smr/plus1.png">
                     </div>
                     <div class="plus__text">
-                        <p>«Снимаем головную боль»</p>
-                        <p>Решение технических и юридических вопросов с газоснабжающей организацией</p>
+                        <p>«Снимаем головню боль»</p>
+                        <p>Решение всех технических и юридических вопросов с надзорными органами</p>
                     </div>
                 </div>
                 <div class="plus__block">
@@ -840,7 +1004,7 @@
                     </div>
                     <div class="plus__text">
                         <p>«Работаем как часы»</p>
-                        <p>Экономия до 20% от стоимости строительства за счет выверенных действий на каждом этапе подготовительных работ</p>
+                        <p>Сдача объекта точно в срок и бюджет</p>
                     </div>
                 </div>
             </div>                       
@@ -850,10 +1014,12 @@
     <section class="section ">
         <div class="container">
             <div class="container consult">
-            <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                <div slot="button">Заказать услугу «СМР»</div>
-            </ContactFormButton>
-        </div>
+                <div class="button3">
+                    <ContactFormButton class="">
+                        <div slot="button">Заказать услугу «СМР»</div>
+                    </ContactFormButton>
+                </div>
+            </div>
         </div>
     </section> 
     
