@@ -479,7 +479,7 @@
                         <p class="text-white has-text-justified">
                             Автономная газовая котельная – здание или помещение, в котором расположен комплекс
                             устройств для выработки пара или горячей воды, используемых для энергоснабжения
-                            объекта. Кроме того, в современных котельных существует <a href="#">опция
+                            объекта. Кроме того, в современных котельных существует <a href="/articles/kombinirovannoe-proizvodstvo-teplovoj-elektricheskoj-i-holodilnoj-energii-kogeneraciya-i-trigeneraciya-dlya-promyshlennogo-obuekta">опция
                             использования технологии когенерации</a> (единовременной генерации тепловой и
                             электрической энергии).</p>
                         <h4 class="item-title text-white is-uppercase is-size-4 mt-6 mb-5 ">Мы предлагаем услуги по проектированию следующих видов
