@@ -85,14 +85,14 @@
             0: {
                 title: 'Укажите наименование объекта',
                 widget: 'input',
-                mask: /^\w+$/,
+                mask: /.*/,
                 placeholder: 'Наименование объекта',
                 next: 1,
             },
             1: {
                 title: 'Укажите регион расположения объекта',
                 widget: 'input',
-                mask: /^\w+$/,
+                mask: /.*/,
                 placeholder: 'Регион объекта',
                 next: 2,
             },
