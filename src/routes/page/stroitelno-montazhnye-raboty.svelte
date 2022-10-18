@@ -45,7 +45,8 @@
         }
     }
 
-    .hero1{
+    .hero {
+        &.hero1{
         background-position: 90% 0;
         background-repeat: no-repeat;
         background-size: cover;
@@ -55,8 +56,64 @@
         linear-gradient(45deg, grey, transparent),
         linear-gradient(80deg, grey, transparent),
         linear-gradient(100deg, grey, transparent);
-        .hero-body {
-            margin-top: 50px;
+            .hero-body {
+                margin-top: 50px;
+            }
+        }       
+        &__text {
+            h2{
+                max-width: 854px;
+                @media (max-width: 1588px) {
+                    max-width: 643px;
+                }
+                @media (max-width: 1237px) {
+                    max-width: 455px;
+                }
+                @media (max-width: 768px) {
+                    max-width: 100%;
+                }
+            }
+            @media (max-width: 768px) {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+        &__spisok{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: relative;
+        top: -65px;
+        @media (max-width: 768px) {
+            margin: 0 auto;
+            top: 0px;
+            align-items: flex-start;
+        }
+            >div{
+                display: flex;
+                @media (max-width: 768px) {
+                    flex-direction: row-reverse;
+                }
+            }
+            p{
+                color: #fff;
+                font-size: 1.5em;
+                font-weight: 600;
+                text-transform: uppercase;
+                text-shadow: 3px 3px 4px #000;
+            }
+            img{
+                width: 35px;
+                height: 35px;
+                top: 4px;
+                position: relative;
+                margin-left: 10px;
+                -webkit-filter: drop-shadow( 2px 2px 1px #000 );
+                filter: drop-shadow( 2px 2px 1px #000 );
+                @media (max-width: 768px) {
+                        margin-right: 10px;
+                }
+            }
         }
     }
 
@@ -481,24 +538,46 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">Строительно-монтажные работы</h1>
+                    <h1 class="has-text-white has-text-weight-medium title titlefor">Строительно-монтажные работы</h1>                   
+                </div>
+            </div>
+            <div class="columns hero__text">
+                <div class="column is-7">
                     <h2 class="block has-text-white has-text-weight-medium has-text-justified titleb">ООО «Энергия Плюс» выполняет полный комплекс строительства систем газо- 
                         и теплоснабжения для объектов ЖКХ, промышленного и социально-культурного назначения, в т.ч. внутренние и наружные газопроводы, котельные, 
                         мини-ТЭС, ЦТП, Индивидуальные тепловые пункты. </h2>
-                    <div class="button3">
-                        <ContactFormButton>
-                            <div slot="button">Заказать услугу СМР</div>
-                        </ContactFormButton>
+                </div>
+                <div class="column is-5 hero__spisok">
+                    <div>
+                        <p>Котельные</p>
+                        <img class="img_right" alt="" src="/images/smr/i_kotel.svg">
                     </div>
-                    <div class="subtitle py-6">
-                        <a rel="external"
-                           class="has-text-white"
-                           href="tel:+74957907697">
-                            <Icon icon={faPhone}/>
-                                <span class="callibri_phone">+7 (495) 790-76-97</span>
-                        </a>
+                    <div>
+                        <p>Энергоцентры</p>
+                        <img class="img_right" alt="" src="/images/smr/i_energy.svg">
+                    </div>
+                    <div>
+                        <p>ИТЦ/ЦТП</p>
+                        <img class="img_right" alt="" src="/images/smr/i_teplo.svg">
+                    </div>
+                    <div>
+                        <p>Газопроводы</p>
+                        <img class="img_right" alt="" src="/images/smr/i_gas.svg">
                     </div>
                 </div>
+            </div>
+            <div class="button3">
+                <ContactFormButton>
+                    <div slot="button">Заказать услугу СМР</div>
+                </ContactFormButton>
+            </div>
+            <div class="subtitle py-6">
+                <a rel="external"
+                   class="has-text-white"
+                   href="tel:+74957907697">
+                    <Icon icon={faPhone}/>
+                        <span class="callibri_phone">+7 (495) 790-76-97</span>
+                </a>
             </div>
         </div>
     </section>
@@ -656,10 +735,10 @@
         <div class="container lister">            
             <div class="columns is-gapless is-centered lister__columns">
                 <div class="column is-4 lister__column">
-                    <h3>Рассчитать стоимость строительства газопровода можно <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">здесь.</a></h3>
+                    <h3>Калькулятор<br>расчета стоимости<br>строительства<br><a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">газопровода</a></h3>
                 </div>
                 <div class="column is-4 lister__column">
-                    <h3>Стоимость СМР для котельной - <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">здесь.</a></h3>
+                    <h3>Калькулятор<br>расчета стоимости<br>строительства<br><a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">котельной</a></h3>
                 </div>
             </div>
             <p class="lister__text">Комплексный подход позволяет экономить до 38% от стоимости возможных затрат за счет экономии на наших 
