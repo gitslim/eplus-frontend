@@ -51,6 +51,15 @@
                         негосударственной экспертизы.
                     </p>
                 </article>
+
+                <article class="tile is-child box">
+                    <h3 class="subtitle"><span>Авторский надзор</span></h3>
+                    <p>
+                        Полный комплекс услуг по авторскому сопровождению проектов, которое
+                        помогает контролировать все самые мельчайшие детали и этапы
+                        воплощения проекта в целом и его дальнейшего функционирования.
+                    </p>
+                </article>
             </div>
 
             <div class="tile is-parent is-vertical is-4">
@@ -175,53 +184,7 @@
                         технический надзор в процессе строительства объекта.
                     </p>
                 </article>
-            </div>
-        </div>
 
-        <div class="tile is-ancestor pt-6">
-            <div class="tile is-parent is-vertical is-6">
-                <div class="tile is-child">
-                    <h2 class="title has-text-centered">
-                        <span class="has-text-grey">Обслуживание</span>
-                    </h2>
-                </div>
-                <article class="tile is-child box">
-                    <h3 class="subtitle"><span>Авторский надзор</span></h3>
-                    <p>
-                        Полный комплекс услуг по авторскому сопровождению проектов, которое
-                        помогает контролировать все самые мельчайшие детали и этапы
-                        воплощения проекта в целом и его дальнейшего функционирования.
-                    </p>
-                </article>
-
-                <article class="tile is-child box">
-                    <h3 class="subtitle">
-                        <span>Сервисное обслуживание</span>
-                    </h3>
-                    <p>
-                        Техническое обслуживание – это комплекс мероприятий, обеспечивающих
-                        долговечную, эффективную и безотказную работу теплоэнергетического
-                        оборудования.
-                    </p>
-                </article>
-            </div>
-
-            <div class="tile is-parent is-vertical is-6">
-                <div class="tile is-child">
-<!--                    <h2 class="title has-text-centered">-->
-<!--                        <a class="has-text-grey" href="/page/stroitelstvo">Энергоаудит</a>-->
-<!--                    </h2>-->
-                </div>
-<!--                <article class="tile is-child box">-->
-<!--                    <h3 class="subtitle">-->
-<!--                        <a href="/energeticeskii-pasport">Энергетический паспорт</a>-->
-<!--                    </h3>-->
-<!--                </article>-->
-<!--                <article class="tile is-child box">-->
-<!--                    <h3 class="subtitle">-->
-<!--                        <a href={"#"}>Энергетическое обследование</a>-->
-<!--                    </h3>-->
-<!--                </article>-->
                 <div class="tile is-child ">
                     <CallbackForm titleText="Нужна консультация?" btnText="Мы перезвоним вам !" white/>
                 </div>
