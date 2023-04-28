@@ -54,6 +54,8 @@
   }
 
   .hero1{
+    min-height: 650px;
+    position: relative;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -67,6 +69,68 @@
 
   .hero1 .hero-body {
     margin-top: 50px;
+  }
+
+  .hero-table {
+    margin: 0 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    padding: 2rem 1rem;
+    background-color: #facf18;
+    background-image: url('/images/teplotehnicheskijRaschet/fon_block_calc.jpg');
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    border: 1rem solid #000;
+		border-image: repeating-linear-gradient(130deg, transparent, transparent 2px, #000 3px, #000 15px, transparent 16px, transparent 30px) 20/1rem;
+    animation-delay: 1s;
+    animation: 1.3s ease-out 3s blockup;
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 25px;
+      line-height: 1.3em;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0px #fff, -1px -1px #fff, -1px 1px #fff, 1px -1px #fff;
+
+    }
+
+    .button {
+      color:#fff;
+      background-color: #000;
+      max-height: 50px;
+      border: 2px solid #4e4b4b;
+      box-shadow: 2px 4px 5px #979797;
+
+      &:hover {
+        color: #000;
+        background-color: #fff;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      position: inherit;
+    }
+
+    @keyframes blockup {
+        0% {
+          right: 50px;
+        }
+        25% {
+          right: 60px;
+        }
+        50% {
+          right: 40px;
+        }
+        100% {
+          right: 50px;
+        }
+
+    }
   }
 
   .titlefor:before {
@@ -272,22 +336,21 @@
                 <div class="column is-7">
                     <h1 class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h1>
                     <h2 class="subtitle">Максимальный часовой расчет газа</h2>
-                    <div class="has-text-left pt-4">
-                        <h2 class="subtitle has-text-white">
-                            Узнайте стоимость ТТР онлайн за 2 минуты
-                        </h2>
-                        <Modal>
-                            <div class="has-text-left" slot="trigger" let:open>
-                                <button class="button is-primary is-large is-rounded" on:click={()=>{open()}}>
-                                    Рассчитать
-                                </button>
-                            </div>
-                            <div slot="content" class="modal-content" let:store={{close}}>
-                                <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={0}/>
-                            </div>
-                        </Modal>
-                    </div>
                 </div>
+            </div>
+            <div class="hero-table">
+              <h3>Онлайн калькулятор тепло-технического расчета</h3>
+              <Modal>
+                <div class="has-text-left" slot="trigger" let:open>
+                    <button class="button is-large " on:click={()=>{open()}}>
+                        Рассчитать
+                    </button>
+                </div>
+                <div slot="content" class="modal-content" let:store={{close}}>
+                    <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={0}/>
+                </div>
+            </Modal>
+
             </div>
         </div>
     </section>
