@@ -65,10 +65,10 @@
     linear-gradient(45deg, grey, transparent),
     linear-gradient(80deg, grey, transparent),
     linear-gradient(100deg, grey, transparent);
-  }
-
-  .hero1 .hero-body {
-    margin-top: 50px;
+    
+    @media screen and (max-width: 900px) {
+      min-height: auto;
+    }
   }
 
   .hero-table {
@@ -76,7 +76,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
+    justify-content: center;
+    max-width: 344px;
+    max-height: 216px;
     padding: 2rem 1rem;
     background-color: #facf18;
     background-image: url('/images/teplotehnicheskijRaschet/fon_block_calc.jpg');
@@ -90,12 +92,17 @@
 
     h3 {
       margin-bottom: 10px;
-      font-size: 25px;
+      font-size: 23px;
       line-height: 1.3em;
       font-weight: 700;
       text-align: center;
       text-transform: uppercase;
       text-shadow: 1px 1px 0px #fff, -1px -1px #fff, -1px 1px #fff, 1px -1px #fff;
+
+      @media screen and (max-width: 400px) {
+        font-size: 20px;
+        line-height: 1.1em;
+      }
 
     }
 
