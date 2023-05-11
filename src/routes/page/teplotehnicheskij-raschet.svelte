@@ -342,7 +342,7 @@
             <div class="columns">
                 <div class="column is-7">
                     <h1 class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h1>
-                    <h2 class="subtitle">Максимальный часовой расчет газа</h2>
+                    <h2 class="subtitle">Максимальный часовой расход газа</h2>
                 </div>
             </div>
             <div class="hero-table">
