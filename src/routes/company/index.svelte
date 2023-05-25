@@ -73,11 +73,6 @@
                     право выполнения работ на опасных производственных объектах
                 </div>
 
-                <LazyImage
-                    alt="История компании"
-                    src="/images/company/history.jpg"
-                />
-
                 <h3 class="title has-text-centered pt-6">Презентации</h3>
                 <div class="tile is-ancestor mb-3">
                     <div class="tile is-6 p-3">
