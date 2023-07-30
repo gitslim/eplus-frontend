@@ -346,7 +346,7 @@
                 </div>
             </div>
             <div class="hero-table">
-              <h3>Онлайн калькулятор тепло-технического расчета</h3>
+              <h3>Онлайн калькулятор теплотехнического расчета</h3>
               <Modal>
                 <div class="has-text-left" slot="trigger" let:open>
                     <button class="button is-large " on:click={()=>{open()}}>
