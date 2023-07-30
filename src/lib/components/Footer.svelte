@@ -85,7 +85,7 @@
         </div>
         <div class="bottom text-small columns">
             <div class="column">
-                <span>2003–2020 © ООО «Энергия Плюс»</span>
+                <span>2003–2023 © ООО «Энергия Плюс»</span>
                 <p>Инжиниринговая компания</p>
             </div>
             <!-- <div class="column is-narrow">
