@@ -4,11 +4,11 @@ metadata:
   name: energyplus-frontend
   namespace: energyplus
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.class: "traefik"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     cert-manager.io/acme-challenge-type: http01
-#    ingress.kubernetes.io/ssl-redirect: "true"0
+    # Working http->https redirect. Need to apply traefik-redirect-middleware.yaml first.
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
 spec:
   tls:
     - hosts:
