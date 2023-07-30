@@ -83,7 +83,7 @@
     background-color: #facf18;
     background-image: url('/images/teplotehnicheskijRaschet/fon_block_calc.jpg');
     position: absolute;
-    right: 50px;
+    left: 60px;
     bottom: 50px;
     border: 1rem solid #000;
 		border-image: repeating-linear-gradient(130deg, transparent, transparent 2px, #000 3px, #000 15px, transparent 16px, transparent 30px) 20/1rem;
