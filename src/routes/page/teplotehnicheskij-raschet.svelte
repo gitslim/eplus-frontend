@@ -503,7 +503,7 @@
     </section>
 
     {#if browser}
-        <script src="https://cdn-ru.bitrix24.ru/b9447275/crm/site_button/loader_6_4lvqj1.js"></script>
+<!--        <script src="https://cdn-ru.bitrix24.ru/b9447275/crm/site_button/loader_6_4lvqj1.js"></script>-->
     {/if}
 
 </main>
