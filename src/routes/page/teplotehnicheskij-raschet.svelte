@@ -9,6 +9,8 @@
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import QuizArea from '$lib/components/quiz/QuizArea.svelte'
     import Modal from '$lib/components/Modal.svelte'
+    import {onMount} from 'svelte'
+    import { browser } from '$app/env';
 
     let title = 'Теплотехнический расчёт'
 
@@ -46,7 +48,11 @@
         },
     ]
 
+    onMount(async () => {
+
+    })
 </script>
+
 
 <style lang="scss">
   .section {
@@ -495,4 +501,9 @@
             </div>
         </div>
     </section>
+
+    {#if browser}
+        <script src="https://cdn-ru.bitrix24.ru/b9447275/crm/site_button/loader_6_4lvqj1.js"></script>
+    {/if}
+
 </main>
