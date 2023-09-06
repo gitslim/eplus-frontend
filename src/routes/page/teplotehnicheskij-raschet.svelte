@@ -131,16 +131,16 @@
 
     @keyframes blockup {
         0% {
-          right: 50px;
+          left: 60px;
         }
         25% {
-          right: 60px;
+          left: 80px;
         }
         50% {
-          right: 40px;
+          left: 40px;
         }
         100% {
-          right: 50px;
+          left: 60px;
         }
 
     }
