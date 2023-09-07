@@ -7,6 +7,7 @@
     import GTM from '$lib/counters/GTM.svelte'
     import website from '$lib/config/website'
     import BackToTop from '$lib/components/BackToTop.svelte'
+    import RoistatCounter from '$lib/counters/RoistatCounter.svelte'
 
     const {disableAnalytics, gtmId} = website
 </script>
@@ -26,4 +27,5 @@
     <slot/>
     <Footer/>
     <BackToTop/>
+    <RoistatCounter/>
 </div>
