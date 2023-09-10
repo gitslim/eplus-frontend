@@ -146,6 +146,69 @@
                 widget: 'thank-you',
                 text: 'В ближайшее время мы сообщим вам результат расчета',
             }
+        },
+        2: {           
+            0: {
+                title: 'Укажите количество зданий для теплотехнического расчета',
+                widget: 'input',
+                mask: '00',
+                placeholder: 'Количество зданий',
+                next: 1,
+            },
+            1: {
+                title: 'Укажите назначение зданий',
+                widget: 'radio',
+                options: [
+                    {title: 'офисное', val: 0, next: 2},
+                    {title: 'складское', val: 1, next: 2},
+                    {title: 'жилое', val: 2, next: 2},
+                    {title: 'промышленное', val: 3, next: 2}]
+            },
+            2: {
+                title: 'Укажите общую площадь здания',
+                widget: 'input',
+                mask: '00000',
+                next: 3
+            },
+            3: {
+                title: 'Укажите высоту здания',
+                widget: 'input',
+                mask: '000',
+                next: 4
+            },
+            4: {
+                title: 'Укажите количество точек потребления горячей воды',
+                widget: 'input',
+                mask: '000',
+                next: 5
+            },
+            5: {
+                title: 'Пожалуйста подождите...',
+                widget: 'calc',
+                next: 6,
+                delay: 3000,
+                fn: (answers) => {
+                    console.debug('fn', answers)
+                    return 0
+                }
+                },
+            6: {
+                title: 'Ориентировочная цена',
+                widget: 'result2',
+                next: 7,
+                text: '15 000 ₽',               
+            },
+            7: {
+                title: 'Мы расчитаем более точно и вышлем вам',
+                widget: 'email-form',
+                next: 8
+            },
+            8: {
+                title: 'Спасибо за обращение!',
+                widget: 'thank-you',
+                text: 'В ближайшее время мы сообщим вам результат расчета',
+            }
+
         }
     }
 
