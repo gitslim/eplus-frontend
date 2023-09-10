@@ -84,7 +84,7 @@
                     <YandexMap></YandexMap>
                 </div>
                 <div class="column">
-                    <Address/>
+<!--                    <Address/>-->
                     <!--                    <button class="button" on:click={() => showModal.set(true)}>Заказать-->
                     <!--                        звонок-->
                     <!--                    </button>-->

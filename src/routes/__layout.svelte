@@ -17,12 +17,12 @@
         alert('route changed')
     }
 
-    afterUpdate(() => {
-        window.document.dispatchEvent(new Event('DOMContentLoaded', {
-            bubbles: true,
-            cancelable: true
-        }))
-    })
+    // afterUpdate(() => {
+    //     window.document.dispatchEvent(new Event('DOMContentLoaded', {
+    //         bubbles: true,
+    //         cancelable: true
+    //     }))
+    // })
 </script>
 
 <svelte:head>
