@@ -360,7 +360,7 @@
                     </button>
                 </div>
                 <div slot="content" class="modal-content" let:store={{close}}>
-                    <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={0}/>
+                    <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={2}/>
                 </div>
             </Modal>
 

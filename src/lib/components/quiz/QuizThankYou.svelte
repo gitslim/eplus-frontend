@@ -18,6 +18,7 @@
 
 <div class="subtitle has-text-centered has-text-dark">
     <span>Уточнить детали можно по телефону</span>
+    <br/>
     <a rel="external"
        class="has-text-centered has-text-primary"
        href="tel:+74957907697">
