@@ -35,7 +35,9 @@
                 type: lead.type || 'lead.contactForm',
                 title: lead.title || 'Форма контактов',
                 comments: lead.comments || '',
-                email: values.email
+                email: values.email,
+                name:'Заказчик из формы',
+                phone: ''
             }
             // console.debug('lead data', data)
             let response = await bitrixLead(data)
