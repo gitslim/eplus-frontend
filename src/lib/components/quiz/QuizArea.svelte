@@ -194,16 +194,10 @@
                 },
             6: {
                 title: 'Ориентировочная цена',
-                widget: 'result2',
-                next: 7,
-                text: '15 000 ₽',               
+                widget: 'email-form',
+                next: 7
             },
             7: {
-                title: 'Мы расчитаем более точно и вышлем вам',
-                widget: 'email-form',
-                next: 8
-            },
-            8: {
                 title: 'Спасибо за обращение!',
                 widget: 'thank-you',
                 text: 'В ближайшее время мы сообщим вам результат расчета',
