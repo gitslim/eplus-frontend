@@ -11,6 +11,8 @@
     import Modal from '$lib/components/Modal.svelte'
     import {onMount} from 'svelte'
     import { browser } from '$app/env';
+    import Icon from 'fa-svelte'
+    import {faDownload} from '@fortawesome/free-solid-svg-icons'
 
     let title = 'Теплотехнический расчёт'
 
@@ -47,6 +49,11 @@
             src: '/images/teplotehnicheskijRaschet/target__img3.png',
         },
     ]
+    
+    let isActiveForm = false
+    function activeForm() {
+      isActiveForm = !isActiveForm
+    }
 
     onMount(async () => {
 
@@ -268,6 +275,74 @@
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
+    position: relative;
+
+    &__button {
+      position: absolute;
+      top: -25px;
+      left: 60px;
+      width: 230px;
+      height: 70px;
+      background: #f60;
+      display: flex;
+      align-items: center;
+      font-size: 1.2em;
+      font-weight: 600;
+      line-height: 1.3em;
+      justify-content: center;
+      text-align: center;
+      border-radius: 10px;
+      z-index: 3;
+      transition: 1.1s;
+      box-shadow: 4px 5px 7px rgba(0, 0, 0, 0.7);
+      &:hover {
+        cursor: pointer;
+        box-shadow: 4px 5px 7px rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    &__icon {
+      position: relative;
+      right: 13px;
+      animation: 1.3s ease-out 3s infinite download;
+      
+      @keyframes download {
+        0% {
+          top: 0px;
+        }
+        25% {
+          top: 5px;
+        }
+        50% {
+          top: 7px;
+        }
+        100% {
+          top: 0px;
+        }
+      }
+    }
+
+    &__form {
+      width: 320px;
+      position: absolute;
+      top: -90px;
+      left: 30px;
+      z-index: 5;
+      visibility: hidden;
+      border-top: 1px solid #f86923;
+      border-left: 1px solid #f86923;
+      border-radius: 10px;
+      box-shadow: 3px 2px 1px #f86923;
+      &.isActive {
+        visibility: visible;
+      }
+      button {
+        position: absolute;
+        z-index: 20;
+        right: 4px;
+        top: 2px;
+      }
+    }
 
     &__desc {
       max-width: 790px;
@@ -443,6 +518,14 @@
         </div>
     </section>
     <section class="section documentation pt-2">
+      <div class="documentation__button" on:click={activeForm}>
+        <p>Скачать методику выполнения ТТР<p>
+        <span class="documentation__icon"><Icon icon="{faDownload}"/></span>       
+      </div>
+      <div class="documentation__form" class:isActive={isActiveForm}>
+        <button class="delete" on:click={activeForm}></button>
+      <script data-b24-form="inline/20/7g4prs" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b9447275/crm/form/loader_20.js');</script>
+      </div>
         <TitleLanding titleText="Нормативная документация" white/>
         <p class="documentation__desc has-text-centered">
             Расчет потребности в тепле и топливе выполняется по определенной методике
