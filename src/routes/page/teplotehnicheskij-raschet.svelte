@@ -85,7 +85,7 @@
   }
 
   .hero-table {
-    margin: 0 0 0 auto;
+    // margin: 0 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -201,6 +201,11 @@
       font-size: 18px;
       font-weight: 300;
       line-height: 30px;
+      @media screen and (max-width: 600px) {
+        &.first-desc{
+          margin-top: -45px;
+        }
+      }
     }
 
     &__title {
@@ -212,12 +217,20 @@
     &__card {
       display: flex;
       justify-content: space-around;
+      @media screen and (max-width: 600px) {
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
     }
   }
 
   .steps {
     position: relative;
     padding: 100px 0;
+    @media screen and (max-width: 600px) {
+      padding: 0px;
+      margin-top: 70px;
+    }
 
     &__icon::before {
       content: "";
@@ -229,22 +242,66 @@
       height: 4px;
       border-bottom: 2px dashed #383838;
       opacity: 0.5;
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
     }
 
     &__all {
       display: flex;
       justify-content: space-around;
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     &__elem {
       width: 15%;
       padding-left: 15px;
       padding-right: 15px;
+      position: relative;
+      @media screen and (max-width: 600px) {
+        width: auto;
+        &:not(:first-child){
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #f60;
+          }
+          &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40vw;
+            height: 4px;
+            border-bottom: 2px dashed #383838;
+            opacity: 0.5;
+          }
+        }
+        
+      }
     }
 
     &__img {
       height: 56px;
       margin-bottom: 75px;
+      position: relative;
+      @media screen and (max-width: 600px) {
+        margin-bottom: 12px;
+      }
     }
 
     &__info {
@@ -252,6 +309,9 @@
       font-weight: 700;
       line-height: 24px;
       position: relative;
+      @media screen and (max-width: 600px) {
+        margin-bottom: 75px;
+      }
 
       &::before {
         content: "";
@@ -266,16 +326,21 @@
         border-radius: 50%;
         background: #fff;
         border: 4px solid #f60;
+        @media screen and (max-width: 600px) {
+          display: none;
+        }
       }
     }
   }
 
   .documentation {
     background-image: url("/images/teplotehnicheskijRaschet/documentationBg.jpg");
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
     position: relative;
+    padding-top: 70px;
 
     &__button {
       position: absolute;
@@ -298,6 +363,11 @@
       &:hover {
         cursor: pointer;
         box-shadow: 4px 5px 7px rgba(255, 255, 255, 0.7);
+      }
+      @media screen and (max-width: 600px) {
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
 
@@ -333,6 +403,10 @@
       border-left: 1px solid #f86923;
       border-radius: 10px;
       box-shadow: 3px 2px 1px #f86923;
+      @media screen and (max-width: 600px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
       &.isActive {
         visibility: visible;
       }
@@ -347,14 +421,22 @@
     &__desc {
       max-width: 790px;
       margin: 0 auto 50px;
+      padding: 10px;
       font-size: 18px;
       font-weight: 300;
       line-height: 30px;
+      @media screen and (max-width: 600px) {
+        margin-bottom: 10px;
+      }
     }
 
     &__wrap {
       display: flex;
       justify-content: space-around;
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+        padding-bottom: 25px;
+      }
     }
 
     &__item {
@@ -363,6 +445,10 @@
       padding-left: 15px;
       padding-right: 15px;
       margin-bottom: 50px;
+      @media screen and (max-width: 600px) {
+        width: auto;
+        margin-bottom: 10px;
+      }
     }
 
     &__num {
@@ -384,6 +470,9 @@
       font-size: 16px;
       font-weight: 300;
       line-height: 24px;
+      @media screen and (max-width: 600px) {
+        min-height: auto;
+      }
     }
   }
 
@@ -392,14 +481,37 @@
     background-color: rgba(66, 56, 102, 0.651);
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+    @media screen and (max-width: 600px) {
+      background-size: cover;
+      &::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        opacity: 0.5;
+        top: 0;
+      }
+    }
 
     &__row {
       display: flex;
       justify-content: flex-end;
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     &__wrap {
       width: 50%;
+      margin-top: 45px;
+      @media screen and (max-width: 600px) {
+        line-height: 2.1em;
+        width: 90%;
+        z-index: 2;
+      }
     }
 
     &__desc {
@@ -410,6 +522,10 @@
       font-size: 18px;
       font-weight: 300;
       line-height: 30px;
+      @media screen and (max-width: 600px) {
+        font-weight: 500;
+        line-height: 1.5em;
+      }
     }
   }
 
@@ -447,7 +563,7 @@
     <section class="section">
         <div class="container is-widescreen functions">
             <TitleLanding titleText="Назначение"/>
-            <p class="functions__desc has-text-centered">
+            <p class="functions__desc first-desc has-text-centered">
                 Расчет потребности в тепле и топливе (ТТР) требуется для объектов, на
                 которых предполагается использование природного газа в качестве топлива
                 и/или на технологические нужды, а также в случаях реконструкции или
@@ -517,7 +633,7 @@
             </div>
         </div>
     </section>
-    <section class="section documentation pt-2">
+    <section class="section documentation">
       <div class="documentation__button" on:click={activeForm}>
         <p>Скачать методику выполнения ТТР<p>
         <span class="documentation__icon"><Icon icon="{faDownload}"/></span>       
