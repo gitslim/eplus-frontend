@@ -190,5 +190,29 @@
                 </div>
             </div>
         </div>
+
+        <h2 class="title has-text-centered pt-6">
+            <a class="has-text-grey" href="/page/rasschitat-stoimost">Экспресс расчет</a>
+        </h2>
+
+        <div class="tile is-ancestor">
+            <div class="tile is-parent is-vertical is-4">
+                <article class="tile is-child box">
+                    <h3 class="subtitle">
+                        <a href="/page/teplotehnicheskij-raschet">Теплотехнический расчет</a></h3>
+                    <p>
+                        Расчет потребности в тепле и топливе (ТТР) требуется для объектов, на которых предполагается 
+                        использование природного газа в качестве топлива и/или на технологические нужды, а также в 
+                        случаях реконструкции или технического перевооружения действующих объектов, при которых производится 
+                        замена газоиспользующего оборудования.
+                    </p>
+                </article>
+            </div>
+
+            
+        </div>
+
+
+
     </div>
 </section>
