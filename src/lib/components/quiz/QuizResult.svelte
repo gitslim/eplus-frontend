@@ -34,9 +34,9 @@
 <div class="subtitle has-text-centered has-text-dark">
     <span>Закажите точный расчет по телефону</span>
     <a rel="external"
-       class="has-text-centered has-text-primary"
+       class="has-text-centered has-text-primary zphone"
        href="tel:+74957907697">
-        <span class="callibri_phone">+7 (495) 790-76-97</span>
+        <span class="callibri_phone zphone">+7 (495) 790-76-97</span>
     </a>
 </div>
 <div class="field has-text-centered">

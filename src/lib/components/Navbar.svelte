@@ -317,10 +317,10 @@
         </div>
         <div class="navbar-end">
             <a rel="external"
-               class="navbar-item"
+               class="navbar-item zphone"
                href="tel:+74957907697">
                 <Icon icon={faPhone}/>
-                <span class="callibri_phone">+7 (495) 790-76-97</span>
+                <span class="callibri_phone zphone">+7 (495) 790-76-97</span>
                 <br/>
             </a>
         </div>

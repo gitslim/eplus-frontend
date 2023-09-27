@@ -44,9 +44,9 @@
         </p>
         <div class="columns pt-4">
             <div class="column is-8-mobile is-offset-2-mobile">
-                <a class="button is-rounded" href="tel:+74957907697">
+                <a class="button is-rounded zphone" href="tel:+74957907697">
                     <Icon icon="{faPhone}"/>
-                    <span class="is-white callibri_phone">+7 (495) 790-76-97</span>
+                    <span class="is-white callibri_phone zphone">+7 (495) 790-76-97</span>
                 </a>
             </div>
 
