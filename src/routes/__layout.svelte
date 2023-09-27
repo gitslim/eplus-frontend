@@ -27,6 +27,8 @@
 
 <svelte:head>
     <link rel="canonical" href="{website.siteUrl}{$page.path}">
+    <script>(function(w, c){(w[c]=w[c]||[]).push(function(){new zTracker({"id":"1c4048a82bb80f894465cde6d1dda49618015","metrics":{"metrika":"54841009"}});});})(window, "zTrackerCallbacks");</script>
+    <script async src="https://my.novofon.com/js/ct_phone.min.js"></script>
 </svelte:head>
 <style global lang="scss">
   .body-wrapper {

@@ -757,7 +757,7 @@
                             <TitleLanding left titleText="Нужна консультация"/>
                             <div class="advice__text">
                                 Позвоните нам по телефону: <a
-                                    class="advice__phone"
+                                    class="advice__phone zphone"
                                     href="tel:+74957907697">+7 (495) 790-76-97</a><br/> или воспользуйтесь
                                 формой обратной связи
                             </div>
