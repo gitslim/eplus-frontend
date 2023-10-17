@@ -82,6 +82,12 @@
     @media screen and (max-width: 900px) {
       min-height: auto;
     }
+    .subtitle{
+      color: #c1ad60;
+    }
+    h3{
+      margin-bottom: 24px;
+    }
   }
 
   .hero-table {
@@ -95,9 +101,9 @@
     padding: 2rem 1rem;
     background-color: #facf18;
     background-image: url('/images/teplotehnicheskijRaschet/fon_block_calc.jpg');
-    position: absolute;
-    left: 60px;
-    bottom: 50px;
+    position: relative;
+    // left: 60px;
+    // bottom: 50px;
     border: 1rem solid #000;
 		border-image: repeating-linear-gradient(130deg, transparent, transparent 2px, #000 3px, #000 15px, transparent 16px, transparent 30px) 20/1rem;
     animation-delay: 1s;
@@ -133,21 +139,21 @@
     }
 
     @media screen and (max-width: 900px) {
-      position: inherit;
+      // position: inherit;
     }
 
     @keyframes blockup {
         0% {
-          left: 60px;
+          left: 0px;
         }
         25% {
-          left: 80px;
+          left: 20px;
         }
         50% {
-          left: 40px;
+          left: -20px;
         }
         100% {
-          left: 60px;
+          left: 0px;
         }
 
     }
@@ -539,7 +545,10 @@
             <div class="columns">
                 <div class="column is-7">
                     <h1 class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h1>
-                    <h2 class="subtitle">Максимальный часовой расход газа</h2>
+                    <div>
+                      <h2 class="subtitle">Максимальный часовой расход газа (МЧРГ/м<sup>3</sup>)</h2>
+                      <h3 class="subtitle">Для получения ТУ ПАО «Газпром», АО «Мосгаз», АО «Мособлгаз»</h3>
+                    </div>
                 </div>
             </div>
             <div class="hero-table">
