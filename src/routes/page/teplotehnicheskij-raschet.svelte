@@ -546,7 +546,7 @@
                 <div class="column is-7">
                     <h1 class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h1>
                     <div>
-                      <h2 class="subtitle">Максимальный часовой расход газа (МЧРГ/м<sup>3</sup>)</h2>
+                      <h2 class="subtitle">Максимальный часовой расход газа-МЧРГ (м<sup>3</sup>/ч)</h2>
                       <h3 class="subtitle">Для получения ТУ ПАО «Газпром», АО «Мосгаз», АО «Мособлгаз»</h3>
                     </div>
                 </div>
