@@ -29,6 +29,9 @@
     <link rel="canonical" href="{website.siteUrl}{$page.path}">
     <script>(function(w, c){(w[c]=w[c]||[]).push(function(){new zTracker({"id":"1c4048a82bb80f894465cde6d1dda49618015","metrics":{"metrika":"54841009"}});});})(window, "zTrackerCallbacks");</script>
     <script async src="https://my.novofon.com/js/ct_phone.min.js"></script>
+    {#if $page.path == '/page/proektirovanie-gazoraspredelitelnyh-sistem-i-grp'}
+        <!-- Marquiz script start --> <script> (function(w, d, s, o){ var j = d.createElement(s); j.async = true; j.src = '//script.marquiz.ru/v2.js';j.onload = function() { if (document.readyState !== 'loading') Marquiz.init(o); else document.addEventListener("DOMContentLoaded", function() { Marquiz.init(o); }); }; d.head.insertBefore(j, d.head.firstElementChild); })(window, document, 'script', { host: '//quiz.marquiz.ru', region: 'eu', id: '6549ee6efb5f880025a1c38e', autoOpen: false, autoOpenFreq: 'always', openOnExit: true, disableOnMobile: false } ); </script> <!-- Marquiz script end -->
+    {/if}
 </svelte:head>
 <style global lang="scss">
   .body-wrapper {
