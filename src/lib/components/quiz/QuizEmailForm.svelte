@@ -24,11 +24,12 @@
     }
 </script>
 
-<div class="subtitle has-text-centered is-size-2 has-text-weight-medium">
+<!-- <div class="subtitle has-text-centered is-size-2 has-text-weight-medium">
     15 000 ₽
 </div>
-<hr style="background-color: #f86923;"/>
+<hr style="background-color: #f86923;"/> -->
 <div class="subtitle has-text-centered has-text-dark ">
-    <span>Чтобы узнать точную цену, оставьте свои контактные данные</span>
+    <!-- <span>Чтобы узнать точную цену, оставьте свои контактные данные</span> -->
+    <span>Пожалуйста, укажите адрес электронной почты куда выслать расчет</span>
 </div>
 <EmailForm {lead} on:success={(event)=>handleSuccess(event.detail)}/>
