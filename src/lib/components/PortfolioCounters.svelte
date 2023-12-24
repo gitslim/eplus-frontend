@@ -22,7 +22,7 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-info">19</h3>
+                            <h3 class="title is-1 has-text-info">20</h3>
                         </div>
                     </div>
                     <h4 class="title">Лет</h4>
@@ -39,7 +39,7 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-danger">205</h3>
+                            <h3 class="title is-1 has-text-danger">215</h3>
                         </div>
                     </div>
                     <h4 class="title">Организаций</h4>
@@ -56,7 +56,7 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-success">420</h3>
+                            <h3 class="title is-1 has-text-success">450</h3>
                         </div>
                     </div>
                     <h4 class="title">Проектов</h4>
@@ -73,7 +73,7 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-info">680</h3>
+                            <h3 class="title is-1 has-text-info">730</h3>
                         </div>
                     </div>
                     <h4 class="title">Километров</h4>
