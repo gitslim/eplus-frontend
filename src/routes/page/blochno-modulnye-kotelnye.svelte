@@ -58,7 +58,7 @@
     }
 
     &__img {
-      position: absolute;
+      //position: absolute;
       z-index: 1;
       max-width: 100%;
       top: 0;
@@ -291,10 +291,10 @@
     }
 
     &__wrap {
-      position: absolute;
+      //position: absolute;
       top: 12px;
       background-color: #fff;
-      padding: 40px 30px;
+      //padding: 40px 30px;
       box-shadow: 0 19px 46px 30px rgba(0, 0, 0, 0.15);
       padding: 40px 80px;
     }
@@ -336,17 +336,21 @@
 
 <SvelteSeo {title}/>
 
-<main class="main is-widescreen">
-    <section class="section columns is-desktop caption">
-        <div class="container is-widescreen">
-            <HeaderLanding {...headerCaption}/>
-            <div class="column is-3">
-                <BtnZayavka btnText="Подобрать" radius/>
-            </div>
+<main>
+    <section class="section hero caption">
+        <div class="hero-body">
+            <HeaderLanding {...headerCaption}>
+                <div class="columns">
+                    <div class="column is-half">
+                        <BtnZayavka btnText="Подобрать" radius/>
+                    </div>
+                </div>
+            </HeaderLanding>
         </div>
     </section>
-    <section class="section desc">
-        <div class="container is-widescreen is-desktop desc__wrap">
+
+    <section class="section desc px-4">
+        <div class="container is-widescreen desc__wrap">
             <div class="columns">
                 <div class="column is-6">
                     <img
@@ -369,7 +373,7 @@
 
             <div class="info">
                 <div
-                        class="container is-widescreen columns is-desktop info__content"
+                        class="container is-widescreen columns info__content"
                         style="justify-content: center;">
                     <div class="column is-6">
                         <div
@@ -440,11 +444,12 @@
             </div>
         </div>
     </section>
+
     <section class="section">
         <div class="container block__inner">
             <div class="columns">
                 <div class="content column block__inner_wrap">
-                    <div class="container is-desktop columns">
+                    <div class="container columns">
                         <div
                                 class="left-side column is-6 px-6 is-flex is-flex-direction-column
               is-justify-content-space-between">
@@ -537,7 +542,8 @@
             </div>
         </div>
     </section>
-    <section class="section pt-0">
+
+    <section class="section pt-0 px-4">
         <div class="container seo">
             <p class="seo__text">
                 Для оптимизации затрат на строительство котельной перед началом
@@ -545,7 +551,7 @@
                 расчет и технико-экономическое обоснование строительства котельной,
                 которые позволят:
             </p>
-            <div class="columns is-desktop">
+            <div class="columns ">
                 <div class="seo__info column is-6">
                     <ul class="seo__list mt-6">
                         <li class="seo__item">
@@ -577,8 +583,9 @@
             </div>
         </div>
     </section>
-    <section class="section solution">
-        <div class="container is-desktop">
+
+    <section class="section solution px-4">
+        <div class="container ">
             <div class="columns">
                 <div class="column is-6">
                     <TitleLanding left titleText="ООО «Энергия Плюс»" white/>
@@ -607,18 +614,8 @@
             </div>
         </div>
     </section>
-    <!--    <section class="section">-->
-    <!--        <div class="container columns partners">-->
-    <!--            <div class="column">-->
-    <!--                <TitleLanding titleText="Наши партнеры"/>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--        <div class="corousel__wrap">-->
-    <!--            <PartnersCarousel items={data.partners}/>-->
-    <!--            &lt;!&ndash; class="block is-size-1 is-flex is-justify-content-space-around" &ndash;&gt;-->
-    <!--        </div>-->
-    <!--    </section>-->
-    <section class="section">
+
+    <section class="section px-4">
         <div class="container">
             <div class="content text-center">
                 <!--                <h2 class="title titlefor has-text-centered">-->
@@ -656,10 +653,11 @@
             </div>
         </div>
     </section>
-    <section class="section logic">
+
+    <section class="section logic px-4">
         <div class="container">
             <TitleLanding titleText="Алгоритм работы"/>
-            <div class="columns is-desktop">
+            <div class="columns ">
                 <div class="column is-3 logic__item">
                     <img
                             alt="bmk-icon"
@@ -694,7 +692,7 @@
                     </p>
                 </div>
             </div>
-            <div class="columns is-desktop">
+            <div class="columns ">
                 <div class="column is-3 logic__item">
                     <img
                             alt="bmk-icon"
@@ -729,47 +727,50 @@
                     <p class="logic__text">Сдача объекта</p>
                 </div>
             </div>
-        </div>
-        <div class="column logic__column is-10 is-offset-1 mt-6">
-            <div class="logic__wrap">
-                <p class="logic__info">
-                    ООО «Энергия Плюс» является техническим партнером интернет-ресурса <a
-                        class="logic__link"
-                        href="http://bmkrussia.ru/"
-                        target="_blank">bmkrussia.ru</a>, на котором представлены все
-                    основные заводы- изготовители блочно-модульных котельных. Это
-                    позволяет осуществлять подбор котельных в максимально сжатые сроки и
-                    получать максимально возможные дисконты на изготовление и поставку.
-                </p>
-                <p class="logic__info">
-                    БМК позволит обеспечить производство энергией, необходимой для
-                    постоянного прогресса. Оставьте заявку прямо сейчас и навсегда решите
-                    вопрос с энергообеспечением своего объекта!
-                </p>
+            <div class="columns">
+                <div class="column logic__column is-10 is-offset-1 mt-6">
+                    <div class="logic__wrap">
+                        <p class="logic__info">
+                            ООО «Энергия Плюс» является техническим партнером интернет-ресурса <a
+                                class="logic__link"
+                                href="http://bmkrussia.ru/"
+                                target="_blank">bmkrussia.ru</a>, на котором представлены все
+                            основные заводы- изготовители блочно-модульных котельных. Это
+                            позволяет осуществлять подбор котельных в максимально сжатые сроки и
+                            получать максимально возможные дисконты на изготовление и поставку.
+                        </p>
+                        <p class="logic__info">
+                            БМК позволит обеспечить производство энергией, необходимой для
+                            постоянного прогресса. Оставьте заявку прямо сейчас и навсегда решите
+                            вопрос с энергообеспечением своего объекта!
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
     <section class="section advice">
         <div class="advice__bg">
-            <div class="container">
-                <div class="columns is-desktop is-flex is-align-items-center">
+            <div class="container px-4">
+                <div class="columns is-align-items-center">
                     <div class="column is-7 py-6">
-                        <img
-                                alt="modulnaya-kotelnaya.png"
-                                src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/>
+                        <figure class="image">
+                            <img
+                                    alt="modulnaya-kotelnaya.png"
+                                    src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/>
+                        </figure>
                     </div>
                     <div class="column is-5">
-                        <div class="advise__wrap ml-4">
-                            <TitleLanding left titleText="Нужна консультация"/>
-                            <div class="advice__text">
-                                Позвоните нам по телефону: <a
-                                    class="advice__phone zphone"
-                                    href="tel:+74957907697">+7 (495) 790-76-97</a><br/> или воспользуйтесь
-                                формой обратной связи
-                            </div>
-                            <div class="advice__btn column is-8 p-0 is-flex mt-6 is-size-5">
-                                <BtnZayavka btnText="Отправить Запрос" radius/>
-                            </div>
+                        <TitleLanding left titleText="Нужна консультация"/>
+                        <div class="">
+                            Позвоните нам по телефону: <a
+                                class="zphone"
+                                href="tel:+74957907697">+7 (495) 790-76-97</a><br/> или воспользуйтесь
+                            формой обратной связи
+                        </div>
+                        <div class="advice__btn column is-8 p-0 is-flex mt-6 is-size-5">
+                            <BtnZayavka btnText="Отправить Запрос" radius/>
                         </div>
                     </div>
                 </div>
