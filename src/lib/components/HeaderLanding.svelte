@@ -64,4 +64,5 @@
     {#if subtitle}
         <p class="container__text">{subtitle}</p>
     {/if}
+    <slot/>
 </div>
