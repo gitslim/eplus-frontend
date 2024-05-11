@@ -103,7 +103,7 @@
                             <Link
                                     cls="navbar-item"
                                     path="page"
-                                    slug="teplovye-punkty"
+                                    slug="individualnye-i-centralnye-teplovye-punkty"
                                     title="Тепловые пункты">
                                 Тепловые пункты
                             </Link>
