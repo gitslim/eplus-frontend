@@ -103,7 +103,7 @@
                 </article>
 
                 <article class="tile is-child box">
-                    <h3 class="subtitle"><a href="/page/teplovye-punkty">Тепловые пункты</a></h3>
+                    <h3 class="subtitle"><a href="/page/individualnye-i-centralnye-teplovye-punkty">Тепловые пункты</a></h3>
                     <p>
                         Рабочая документация разрабатывается, в объеме, необходимом для выполнения строительно-монтажных
                         работ и в соответствии с требованиями ГОСТ 21.1101-2013, стандартов ЕСКД, СПДС.
