@@ -226,11 +226,11 @@
 </script>
 
 <svelte:head>
-    <meta name="description" content="ИНДИВИДУАЛЬНЫЕ И ЦЕНТРАЛЬНЫЕ ТЕПЛОВЫЕ ПУНКТЫ (ИТП И ЦТП). Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК», Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК», Поставка оборудования и комплектация материалами, Монтажные работы, Пуско-наладочные работы, Сдача объекта в ПАО «МОЭК», Ростехнадзор.">
+    <meta name="description" content="Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК», Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК», Поставка оборудования и комплектация материалами, Монтажные работы, Пуско-наладочные работы, Сдача объекта в ПАО «МОЭК», Ростехнадзор.">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:type" content="article">
     <meta property="og:title" content={title}>
-    <meta property="og:description" content="ИНДИВИДУАЛЬНЫЕ И ЦЕНТРАЛЬНЫЕ ТЕПЛОВЫЕ ПУНКТЫ (ИТП И ЦТП). Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК», Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК», Поставка оборудования и комплектация материалами, Монтажные работы, Пуско-наладочные работы, Сдача объекта в ПАО «МОЭК», Ростехнадзор.">
+    <meta property="og:description" content="Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК», Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК», Поставка оборудования и комплектация материалами, Монтажные работы, Пуско-наладочные работы, Сдача объекта в ПАО «МОЭК», Ростехнадзор.">
     <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/page/individualnye-i-centralnye-teplovye-punkty">
     <meta property="og:site_name" content="ООО Энергия Плюс">
     <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/itc_ctp/teplovoy_punkt-og.png">
@@ -239,6 +239,7 @@
     <meta property="og:image:height" content="533">
     <meta property="og:image:alt" content="Тепловой пункт">
     <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <style lang="scss">
