@@ -1105,7 +1105,7 @@
                 </div>
                 <div class="button3 is-justify-content-center">
                     <ContactFormButton class="">
-                        <div slot="button">Заказать ИПТ / ИТЦ</div>
+                        <div slot="button">Заказать ИТП/ЦТП</div>
                     </ContactFormButton>
                 </div>
             </div>                
