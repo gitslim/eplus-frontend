@@ -33,6 +33,10 @@
             left[i].style.cursor = 'pointer';
         }
     })
+
+    function onContactButtonClick() {
+        window.ym(54841009,'reachGoal','Click SMR button');
+    }
 </script>
 
 
@@ -566,8 +570,8 @@
                     </div>
                 </div>
             </div>
-            <div class="button3">
-                <ContactFormButton>
+            <div class="button3" >
+                <ContactFormButton onClick={onContactButtonClick}>
                     <div slot="button">Заказать услугу СМР</div>
                 </ContactFormButton>
             </div>
@@ -849,7 +853,7 @@
         <div class="container">
             <div class="container consult">
                 <div class="button3 btn2">
-                    <ContactFormButton class="">
+                    <ContactFormButton onClick={onContactButtonClick} class="">
                         <div slot="button">Остались вопросы? <br>Получите консультацию специалиста </div>
                     </ContactFormButton>
                 </div>
@@ -1094,7 +1098,7 @@
         <div class="container">
             <div class="container consult">
                 <div class="button3">
-                    <ContactFormButton class="">
+                    <ContactFormButton onClick={onContactButtonClick} class="">
                         <div slot="button">Заказать услугу «СМР»</div>
                     </ContactFormButton>
                 </div>
