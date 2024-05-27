@@ -3,6 +3,7 @@
     import ContactForm from '$lib/components/ContactForm.svelte'
 
     let isFormSubmitted
+    export let onClick;
 
     function handleSuccessSubmit(event) {
         isFormSubmitted = true
@@ -13,7 +14,7 @@
 <Modal>
     <div slot="trigger" let:open>
         <a class={$$props.class}
-           on:click={()=>{open()}}>
+           on:click={()=>{open(); onClick();}}>
             <slot name="button"/>
         </a>
     </div>
