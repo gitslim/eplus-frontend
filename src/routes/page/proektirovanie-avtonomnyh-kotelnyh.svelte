@@ -650,13 +650,10 @@
     </section>
 
 
-    <section class="section fix-section">
+    <section class="section fix-section py-6">
         <div class="container">
             <div class="columns is-vcentered">
-                <div class="column is-6">
-                    <img alt="" src="/images/kotel/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png">
-                </div>
-                <div class="column is-6">
+                <div class="column is-6 is-offset-3">
                     <div class="banner-content">
                         <h4 class="is-uppercase has-text-justified titlefor mb-6">В необходимых ситуациях специалисты «Энергия
                             Плюс» готовы выполнить проект и обеспечить изготовление и поставку блочно-модульных
