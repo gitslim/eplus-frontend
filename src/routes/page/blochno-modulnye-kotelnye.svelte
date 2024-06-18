@@ -376,17 +376,7 @@
                         class="container is-widescreen columns info__content"
                         style="justify-content: center;">
                     <div class="column is-6">
-                        <div
-                                class="bmk-video"
-                                style="background-image: url('https://img.youtube.com/vi/YDMFmwOd3h0/maxresdefault.jpg');">
-                            <a
-                                    class="info__link"
-                                    href="https://www.youtube.com/watch?v=YDMFmwOd3h0"><img
-                                    alt="icon-play"
-                                    class="info_img"
-                                    src="/images/bmk/u-icon-play.png"/></a>
-                        </div>
-                        <TitleLanding
+                       <TitleLanding
                                 left
                                 titleText="Является ли бмк обьектом капитального строительства?"
                                 white/>
@@ -408,17 +398,7 @@
                         </p>
                     </div>
                     <div class="column is-6">
-                        <div
-                                class="bmk-video"
-                                style="background-image: url('https://img.youtube.com/vi/PGMfjah3BmA/maxresdefault.jpg');">
-                            <a
-                                    class="info__link"
-                                    href="https://www.youtube.com/watch?v=PGMfjah3BmA"><img
-                                    alt="icon-play"
-                                    class="info_img"
-                                    src="/images/bmk/u-icon-play.png"/></a>
-                        </div>
-                        <TitleLanding
+                       <TitleLanding
                                 left
                                 titleText="в каких случаях устанавливают бмк?"
                                 white/>
