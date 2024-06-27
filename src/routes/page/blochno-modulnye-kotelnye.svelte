@@ -43,8 +43,8 @@
 
   .desc {
     padding: 150px 0 100px;
-    background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
-
+    //background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
+    background: darkgray;
     &__wrap {
       margin-bottom: 50px;
     }
