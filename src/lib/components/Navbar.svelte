@@ -174,8 +174,8 @@
                     on:mouseleave={() => toggleDropdown(false)}
                     on:mouseover={() => toggleDropdown(true)}
                     on:focus={() => toggleDropdown(true)}>
-                <Link cls="navbar-link" title="Комплексные решения">
-                    Комплексные решения
+                <Link cls="navbar-link" title="Специальные предложения">
+                    Специальные предложения
                 </Link>
                 <div
                         class="navbar-dropdown is-boxed is-hidden-mobile"
@@ -193,6 +193,13 @@
                                     path="page"
                                     title="Внутриплощадочные газопроводы">
                                 Внутриплощадочные газопроводы
+                            </Link>
+                            <Link
+                                    cls="navbar-item"
+                                    path="page"
+                                    slug="konteynernaya-kotelnaya-800kW"
+                                    title="Контейнерная котельная 800 кВт в наличии">
+                                Контейнерная котельная 800 кВт в наличии
                             </Link>
                         </div>
                     </div>
