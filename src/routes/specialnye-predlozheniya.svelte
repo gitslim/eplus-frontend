@@ -6,7 +6,7 @@
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
 
-    let title = 'Комплексные решения'
+    let title = 'Специальные предложения'
 </script>
 
 <style lang="scss">
@@ -16,15 +16,27 @@
 
   .content__wrap {
     display: flex;
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   ul {
     list-style: disc;
+    li{
+      padding-bottom: 10px;
+    }
   }
 
   .content-block {
     width: 65%;
     margin-right: 10px;
+    @media screen and (max-width: 570px) {
+      width: 100%;
+      padding: 15px;
+      margin-right: 0px;
+    }
   }
 
   .content-bottom {
@@ -36,6 +48,9 @@
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
+    @media screen and (max-width: 570px) {
+      width: 90%;
+    }
   }
 </style>
 
@@ -60,6 +75,9 @@
                             <a href="/page/vnutriploshadochnye-gazoprovody">Внутриплощадочные
                                 и внутренние газопроводы</a>
                         </li>
+                        <li>
+                          <a href="/page/konteynernaya-kotelnaya-800kW"> Контейнерная котельная 800 кВт в наличии </a>
+                      </li>
                     </ul>
                 </div>
             </section>
