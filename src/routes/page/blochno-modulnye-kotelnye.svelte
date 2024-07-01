@@ -34,11 +34,19 @@
     display: block;
     padding-top: 180px !important;
     padding-bottom: 130px;
-    background: url("/images/bmk/banner-kotelnaya.jpg") no-repeat center;
+    // background: url("/images/bmk/bmk_background2.jpg") no-repeat center;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-image: url(/images/bmk/bmk_background2.jpg),
+        linear-gradient(45deg, grey, transparent),
+        linear-gradient(90deg, grey, transparent);
     background-size: cover;
     overflow: hidden;
     color: #fff;
     width: 100vw;
+    @media (max-width: 768px) {
+        background-position: 73% 0;
+    }
   }
 
   .desc {
@@ -118,6 +126,16 @@
       content: "";
       display: block;
       border-left: 2px dashed #3838387a;
+      @media (max-width: 768px) {
+                    margin-bottom: 60px;
+                    border-left: none;
+                    border-top: 2px dashed #3838387a;
+                    transform: none;
+                    position: relative;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                }
     }
   }
 
@@ -273,6 +291,10 @@
         height: 4px;
         border-bottom: 2px dashed #383838;
         opacity: 0.5;
+        @media (max-width: 768px) {
+            left: 20%;
+            width: 60%;
+        }
       }
     }
 
