@@ -340,6 +340,13 @@
       margin-top: -50px;
     }
 
+    &__img {
+        img{
+            margin: 0 auto;
+            width: 90%;
+        }
+    }
+
     &__text {
       font-size: 18px;
       line-height: 1.6;
@@ -757,10 +764,11 @@
             <div class="container px-4">
                 <div class="columns is-align-items-center">
                     <div class="column is-7 py-6">
-                        <figure class="image">
+                        <figure class="image advice__img">
                             <img
-                                    alt="modulnaya-kotelnaya.png"
-                                    src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/>
+                                    alt="modulnaya-kotelnaya"
+                                    src="/images/bmk/kotelnay2.png"/>
+                                    <!-- src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/> -->
                         </figure>
                     </div>
                     <div class="column is-5">
