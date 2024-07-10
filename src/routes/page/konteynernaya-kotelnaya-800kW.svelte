@@ -336,6 +336,7 @@
                 display: flex;
                 align-items: center;
                 margin: 0 40px;
+                max-width: 920px;
                 @media (max-width: 900px) {
                     flex-wrap: wrap;
                     flex-direction: column-reverse;
@@ -357,13 +358,14 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    @media (max-width: 1400px) {
-                        flex-direction: column;
-                    }
+                    flex-direction: column;
+                    // @media (max-width: 1400px) {
+                    //     flex-direction: column;
+                    // }
                     @media (max-width: 900px) {
                         flex-direction: row;
                     }
-                    @media (max-width: 660px) {
+                    @media (max-width: 720px) {
                         flex-direction: column;
                     }
                 }
@@ -371,20 +373,21 @@
                     flex: 1 1 50%;
                     margin: 0 30px;
                     img{
-                        @media (max-width: 870px) {
-                            max-height: 200px;
-                        }
+                        width: 1000px;
+                        // @media (max-width: 870px) {
+                        //     max-height: 200px;
+                        // }
                     }
                 }
                 &__c {
-                    p:first-child{
-                        color: black;
-                        font-size: 2rem;
-                        line-height: 1em;
-                    }
+                    // p:first-child{
+                    //     color: black;
+                    //     font-size: 1.7rem;
+                    //     line-height: 0.6em;
+                    // }
                     p{
                         text-align: center;
-                        font-size: 3rem;
+                        font-size: 2.5rem;
                         font-weight: 600;
                         color: #ff6600;
                         white-space: nowrap;
@@ -586,10 +589,10 @@
                         </div>
                         <div class="tItem__column2">
                             <div class="tItem__i">
-                                <img class="" alt="" src="/images/bmk/kotelnay.png">
+                                <img class="" alt="" src="/images/bmk/kotelnay2.png">
                             </div>
                             <div class="tItem__c">
-                                <p>Цена</p>
+                                <!-- <p>Цена</p> -->
                                 <p>14 900 000 &#8381</p>
                             </div>
                         </div>
