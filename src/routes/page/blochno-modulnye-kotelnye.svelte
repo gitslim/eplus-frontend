@@ -371,7 +371,7 @@
             <HeaderLanding {...headerCaption}>
                 <div class="columns">
                     <div class="column is-half">
-                        <BtnZayavka btnText="Подобрать" radius/>
+                        <BtnZayavka btnText="Заказать" radius/>
                     </div>
                 </div>
             </HeaderLanding>
