@@ -486,6 +486,44 @@
             </div>
         </div>
     </section>
+    <section class="section px-4">
+      <div class="container">
+        <div class="content text-center">
+          <!--                <h2 class="title titlefor has-text-centered">-->
+          <!--                    Наши партнёры-->
+          <!--                </h2>-->
+          <TitleLanding titleText="Виды котельных"/>
+          <Carousel perPage={{800:4, 500:3, 400:2}}
+                    dots={false}
+                    autoplay={8000}
+                    duration={3000}>
+                          <span class="control" slot="left-control">
+                              <Icon icon={faChevronLeft}/>
+                          </span>
+
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+
+            <span class="control" slot="right-control">
+                              <Icon icon={faChevronRight}/>
+                          </span>
+          </Carousel>
+        </div>
+      </div>
+    </section>
 
     <section class="section desc px-4">
         <div class="container is-widescreen desc__wrap">
