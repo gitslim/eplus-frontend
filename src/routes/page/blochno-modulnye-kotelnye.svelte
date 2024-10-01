@@ -16,7 +16,7 @@
     import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Icon from 'fa-svelte'
 
-    let title = 'Блочно-модульные котельные'
+    let title = 'Изготовление блочно-модульных котельных'
 
     const headerCaption = {
         caption: title,
