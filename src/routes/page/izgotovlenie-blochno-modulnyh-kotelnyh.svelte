@@ -363,35 +363,54 @@
     }
   }
 
-  .table-types-kotelny {
+  .container-types-kotelny {
     padding-top: 30px;
+
     .content {
+      color: white;
+      padding: 40px 0 0 0;
+
+      h2 {
         color: white;
-        padding: 40px 0 0 0;
 
-        h2{
-          color: white;
-
-          &::before {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 150px;
-            height: 10px;
-            background-color: #f60;
-            top: 30px;
-          }
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 150px;
+          height: 10px;
+          background-color: #f60;
+          top: 30px;
         }
+      }
 
-        table {
-          th {
-            color: white;
-            background: #f86923;
+      .table-types-kotelny {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px 0;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 300;
 
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          border-bottom: 1px solid white;
+
+          > div {
+            width: 220px;
+            padding: 25px;
+
+            &:first-child{
+              font-weight: bold;
+              background: #f86923;
+            }
           }
         }
       }
-  }
+    }
+   }
 </style>
 
 <SvelteSeo {title}/>
@@ -407,63 +426,61 @@
                 </div>
             </HeaderLanding>
         </div>
-        <div class="container table-types-kotelny">
+        <div class="container container-types-kotelny">
             <div class="columns">
-                <div class="column is-8">
-                    <div class="box content ">
+                <div class="column ">
+                    <div class="content">
                         <h2>ВИДЫ КОТЕЛЬНЫХ</h2>
-                        <table class=" ">
-                            <tbody>
-                            <tr>
-                                <th>Теплоноситель</th>
-                                <td>
-                                    <p>водогрейные</p>
-                                </td>
-                                <td>
-                                    <p>паровые</p>
-                                </td>
-                                <td>
-                                    <p>пароводогрейные</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Размещение</th>
-                                <td>
-                                    <p>крышные</p>
-                                </td>
-                                <td>
-                                    <p>пристроенные</p>
-                                </td>
-                                <td>
-                                    <p>отдельностоящие</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Исполнение</th>
-                                <td>
-                                    <p>контейнеры</p>
-                                </td>
-                                <td>
-                                    <p>модульные</p>
-                                </td>
-                                <td>
-                                    <p>быстровозводимые</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Топливо</th>
-                                <td>
-                                    <p>природный газ</p>
-                                </td>
-                                <td>
-                                    <p>сжиженный газ</p>
-                                </td>
-                                <td>
-                                    <p>дизельное топливо</p>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-types-kotelny ">
+                          <div class="row">
+                              <div><p>Теплоноситель</p></div>
+                              <div>
+                                  <p>водогрейные</p>
+                              </div>
+                              <div>
+                                  <p>паровые</p>
+                              </div>
+                              <div>
+                                  <p>пароводогрейные</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div>Размещение</div>
+                              <div>
+                                  <p>крышные</p>
+                              </div>
+                              <div>
+                                  <p>пристроенные</p>
+                              </div>
+                              <div>
+                                  <p>отдельностоящие</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div>Исполнение</div>
+                              <div>
+                                  <p>контейнеры</p>
+                              </div>
+                              <div>
+                                  <p>модульные</p>
+                              </div>
+                              <div>
+                                  <p>быстровозводимые</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div>Топливо</div>
+                              <div>
+                                  <p>природный газ</p>
+                              </div>
+                              <div>
+                                  <p>сжиженный газ</p>
+                              </div>
+                              <div>
+                                  <p>дизельное топливо</p>
+                              </div>
+                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
