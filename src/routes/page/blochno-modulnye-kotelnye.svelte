@@ -1,6 +1,6 @@
 <script context="module">
-    import SvelteSeo from 'svelte-seo'
     import {fetchEndpoint} from '$lib/utils'
+    import SvelteSeo from 'svelte-seo'
 
     export const load = async ({fetch}) => {
         return await fetchEndpoint(fetch, '/ep/list-partners.json', {})
@@ -38,14 +38,14 @@
     background-position: center;
     background-blend-mode: multiply;
     background-image: url(/images/bmk/bmk_background2.jpg),
-        linear-gradient(45deg, grey, transparent),
-        linear-gradient(90deg, grey, transparent);
+    linear-gradient(45deg, grey, transparent),
+    linear-gradient(90deg, grey, transparent);
     background-size: cover;
     overflow: hidden;
     color: #fff;
     width: 100vw;
     @media (max-width: 768px) {
-        background-position: 73% 0;
+      background-position: 73% 0;
     }
   }
 
@@ -53,6 +53,7 @@
     padding: 150px 0 100px;
     //background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
     background: darkgray;
+
     &__wrap {
       margin-bottom: 50px;
     }
@@ -127,15 +128,15 @@
       display: block;
       border-left: 2px dashed #3838387a;
       @media (max-width: 768px) {
-                    margin-bottom: 60px;
-                    border-left: none;
-                    border-top: 2px dashed #3838387a;
-                    transform: none;
-                    position: relative;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                }
+        margin-bottom: 60px;
+        border-left: none;
+        border-top: 2px dashed #3838387a;
+        transform: none;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      }
     }
   }
 
@@ -292,8 +293,8 @@
         border-bottom: 2px dashed #383838;
         opacity: 0.5;
         @media (max-width: 768px) {
-            left: 20%;
-            width: 60%;
+          left: 20%;
+          width: 60%;
         }
       }
     }
@@ -341,10 +342,10 @@
     }
 
     &__img {
-        img{
-            margin: 0 auto;
-            width: 90%;
-        }
+      img {
+        margin: 0 auto;
+        width: 90%;
+      }
     }
 
     &__text {
@@ -361,13 +362,43 @@
       }
     }
   }
+
+  .table-types-kotelny {
+    padding-top: 30px;
+    .content {
+        color: white;
+        padding: 40px 0 0 0;
+
+        h2{
+          color: white;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 150px;
+            height: 10px;
+            background-color: #f60;
+            top: 30px;
+          }
+        }
+
+        table {
+          th {
+            color: white;
+            background: #f86923;
+
+          }
+        }
+      }
+  }
 </style>
 
 <SvelteSeo {title}/>
 
 <main>
     <section class="section hero caption">
-        <div class="hero-body">
+        <div class="column hero-body">
             <HeaderLanding {...headerCaption}>
                 <div class="columns">
                     <div class="column is-half">
@@ -375,6 +406,67 @@
                     </div>
                 </div>
             </HeaderLanding>
+        </div>
+        <div class="container table-types-kotelny">
+            <div class="columns">
+                <div class="column is-8">
+                    <div class="box content ">
+                        <h2>ВИДЫ КОТЕЛЬНЫХ</h2>
+                        <table class=" ">
+                            <tbody>
+                            <tr>
+                                <th>Теплоноситель</th>
+                                <td>
+                                    <p>водогрейные</p>
+                                </td>
+                                <td>
+                                    <p>паровые</p>
+                                </td>
+                                <td>
+                                    <p>пароводогрейные</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Размещение</th>
+                                <td>
+                                    <p>крышные</p>
+                                </td>
+                                <td>
+                                    <p>пристроенные</p>
+                                </td>
+                                <td>
+                                    <p>отдельностоящие</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Исполнение</th>
+                                <td>
+                                    <p>контейнеры</p>
+                                </td>
+                                <td>
+                                    <p>модульные</p>
+                                </td>
+                                <td>
+                                    <p>быстровозводимые</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Топливо</th>
+                                <td>
+                                    <p>природный газ</p>
+                                </td>
+                                <td>
+                                    <p>сжиженный газ</p>
+                                </td>
+                                <td>
+                                    <p>дизельное топливо</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -405,7 +497,7 @@
                         class="container is-widescreen columns info__content"
                         style="justify-content: center;">
                     <div class="column is-6">
-                       <TitleLanding
+                        <TitleLanding
                                 left
                                 titleText="Является ли бмк обьектом капитального строительства?"
                                 white/>
@@ -427,7 +519,7 @@
                         </p>
                     </div>
                     <div class="column is-6">
-                       <TitleLanding
+                        <TitleLanding
                                 left
                                 titleText="в каких случаях устанавливают бмк?"
                                 white/>
@@ -768,7 +860,7 @@
                             <img
                                     alt="modulnaya-kotelnaya"
                                     src="/images/bmk/kotelnay2.png"/>
-                                    <!-- src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/> -->
+                            <!-- src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/> -->
                         </figure>
                     </div>
                     <div class="column is-5">
