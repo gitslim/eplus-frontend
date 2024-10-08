@@ -1,6 +1,6 @@
 <script context="module">
-    import SvelteSeo from 'svelte-seo'
     import {fetchEndpoint} from '$lib/utils'
+    import SvelteSeo from 'svelte-seo'
 
     export const load = async ({fetch}) => {
         return await fetchEndpoint(fetch, '/ep/list-partners.json', {})
@@ -16,7 +16,7 @@
     import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Icon from 'fa-svelte'
 
-    let title = 'Блочно-модульные котельные'
+    let title = 'Изготовление блочно-модульных котельных'
 
     const headerCaption = {
         caption: title,
@@ -38,14 +38,14 @@
     background-position: center;
     background-blend-mode: multiply;
     background-image: url(/images/bmk/bmk_background2.jpg),
-        linear-gradient(45deg, grey, transparent),
-        linear-gradient(90deg, grey, transparent);
+    linear-gradient(45deg, grey, transparent),
+    linear-gradient(90deg, grey, transparent);
     background-size: cover;
     overflow: hidden;
     color: #fff;
     width: 100vw;
     @media (max-width: 768px) {
-        background-position: 73% 0;
+      background-position: 73% 0;
     }
   }
 
@@ -53,6 +53,7 @@
     padding: 150px 0 100px;
     //background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
     background: darkgray;
+
     &__wrap {
       margin-bottom: 50px;
     }
@@ -127,15 +128,15 @@
       display: block;
       border-left: 2px dashed #3838387a;
       @media (max-width: 768px) {
-                    margin-bottom: 60px;
-                    border-left: none;
-                    border-top: 2px dashed #3838387a;
-                    transform: none;
-                    position: relative;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                }
+        margin-bottom: 60px;
+        border-left: none;
+        border-top: 2px dashed #3838387a;
+        transform: none;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      }
     }
   }
 
@@ -292,8 +293,8 @@
         border-bottom: 2px dashed #383838;
         opacity: 0.5;
         @media (max-width: 768px) {
-            left: 20%;
-            width: 60%;
+          left: 20%;
+          width: 60%;
         }
       }
     }
@@ -341,10 +342,10 @@
     }
 
     &__img {
-        img{
-            margin: 0 auto;
-            width: 90%;
-        }
+      img {
+        margin: 0 auto;
+        width: 90%;
+      }
     }
 
     &__text {
@@ -361,51 +362,177 @@
       }
     }
   }
+
+  .container-types-kotelny {
+    padding-top: 30px;
+
+    .content {
+      color: white;
+      padding: 40px 0 0 0;
+
+      h2 {
+        color: white;
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 150px;
+          height: 10px;
+          background-color: #f60;
+          top: 30px;
+        }
+      }
+
+      .table-types-kotelny {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px 0;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 300;
+
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          border-bottom: 1px solid white;
+
+          > div {
+            width: 220px;
+            padding: 25px;
+
+            &:first-child{
+              font-weight: bold;
+              background: #f86923;
+            }
+          }
+        }
+      }
+    }
+   }
 </style>
 
 <SvelteSeo {title}/>
 
 <main>
     <section class="section hero caption">
-        <div class="hero-body">
+        <div class="column hero-body">
             <HeaderLanding {...headerCaption}>
                 <div class="columns">
                     <div class="column is-half">
-                        <BtnZayavka btnText="Подобрать" radius/>
+                        <BtnZayavka btnText="Заказать" radius/>
                     </div>
                 </div>
             </HeaderLanding>
         </div>
+        <div class="container container-types-kotelny">
+            <div class="columns">
+                <div class="column ">
+                    <div class="content">
+                        <h2>ВИДЫ КОТЕЛЬНЫХ</h2>
+                        <div class="table-types-kotelny ">
+                          <div class="row">
+                              <div><p>Теплоноситель</p></div>
+                              <div>
+                                  <p>водогрейные</p>
+                              </div>
+                              <div>
+                                  <p>паровые</p>
+                              </div>
+                              <div>
+                                  <p>пароводогрейные</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div>Размещение</div>
+                              <div>
+                                  <p>крышные</p>
+                              </div>
+                              <div>
+                                  <p>пристроенные</p>
+                              </div>
+                              <div>
+                                  <p>отдельностоящие</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div>Исполнение</div>
+                              <div>
+                                  <p>контейнеры</p>
+                              </div>
+                              <div>
+                                  <p>модульные</p>
+                              </div>
+                              <div>
+                                  <p>быстровозводимые</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div>Топливо</div>
+                              <div>
+                                  <p>природный газ</p>
+                              </div>
+                              <div>
+                                  <p>сжиженный газ</p>
+                              </div>
+                              <div>
+                                  <p>дизельное топливо</p>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section px-4">
+      <div class="container">
+        <div class="content text-center">
+          <!--                <h2 class="title titlefor has-text-centered">-->
+          <!--                    Наши партнёры-->
+          <!--                </h2>-->
+          <TitleLanding titleText="Виды котельных"/>
+          <Carousel perPage={{800:4, 500:3, 400:2}}
+                    dots={false}
+                    autoplay={8000}
+                    duration={3000}>
+                          <span class="control" slot="left-control">
+                              <Icon icon={faChevronLeft}/>
+                          </span>
+
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+            <div class="slide-content">
+              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
+            </div>
+
+            <span class="control" slot="right-control">
+                              <Icon icon={faChevronRight}/>
+                          </span>
+          </Carousel>
+        </div>
+      </div>
     </section>
 
     <section class="section desc px-4">
         <div class="container is-widescreen desc__wrap">
-            <div class="columns">
-                <div class="column is-6">
-                    <img
-                            alt="bmk-img"
-                            class="desc__img"
-                            src="/images/bmk/u-bmk-image_01.png"/>
-                </div>
-                <div class="column is-5 is-offset-1 desc__who">
-                    <TitleLanding left titleText="Что такое БМК:"/>
-                    <p class="desc__text">
-                        БМК – это паровая, водогрейная или пароводогрейная котельная частичной
-                        или полной заводской готовности, состоящая из одного или нескольких
-                        модулей. Комплектация котельной абсолютно любая, в зависимости от
-                        технического задания Заказчика. То есть определяющей характеристикой
-                        БМК является узловая сборка систем котельной в заводских условиях
-                        перед отправкой на место монтажа и подключения.
-                    </p>
-                </div>
-            </div>
-
             <div class="info">
                 <div
                         class="container is-widescreen columns info__content"
                         style="justify-content: center;">
                     <div class="column is-6">
-                       <TitleLanding
+                        <TitleLanding
                                 left
                                 titleText="Является ли бмк обьектом капитального строительства?"
                                 white/>
@@ -427,7 +554,7 @@
                         </p>
                     </div>
                     <div class="column is-6">
-                       <TitleLanding
+                        <TitleLanding
                                 left
                                 titleText="в каких случаях устанавливают бмк?"
                                 white/>
@@ -487,12 +614,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="block__wrap">
-                                <img
-                                        alt="bmk-img"
-                                        class="dignity__img"
-                                        src="/images/bmk/bkm_images_006.jpg"/>
-                            </div>
                         </div>
                         <div class="column is-6 px-6 right-side">
                             <TitleLanding left titleText="Основные недостатки бмк"/>
@@ -518,31 +639,7 @@
                                     ограниченность выбора материалов для ограждающих конструкций,
                                     БМК выполняется всего в двух видах: с использованием сендвич
                                     панелей или в металлическом контейнере. Тем самым, БМК менее
-                                    долго вечны и более пожароопасны, чем стационарные котельные;
-                                </li>
-                                <li class="limitations__item">
-                                    БМК, как правило, собираются заводом-производителем по типовым
-                                    проектам, которые не учитывают всех индивидуальных особенностей
-                                    объекта заказчика;
-                                </li>
-                                <li class="limitations__item">
-                                    зачастую, заводы-изготовители блочно-модульных котельных связаны
-                                    дилерскими договорами с производителями котельного оборудования,
-                                    что накладывает на них обязательства по «навязыванию»
-                                    определенных марок и моделей котельного оборудования. В таком
-                                    случае завод руководствуется скорее своими интересами, нежели
-                                    интересами Заказчика, в этом случае БМК уступает и в
-                                    экономической составляющей;
-                                </li>
-                                <li class="limitations__item">
-                                    завод-изготовитель занимается только поставкой оборудования,
-                                    оставляя вопрос дальнейшей доработки проекта до момента введения
-                                    в эксплуатацию Заказчику, который вынужден брать на себя функцию
-                                    генерального проектировщика, генерального подрядчика и
-                                    заниматься такими вопросами как: разработка, защита в экспертизе
-                                    проектной документации, получение согласований всех
-                                    заинтересованных инстанций, подведение вспомогательных сетей
-                                    (газ, вода, канализация и так далее).
+                                    долго вечны и более пожароопасны, чем стационарные котельные.
                                 </li>
                             </ul>
                         </div>
@@ -621,9 +718,38 @@
                     </ul>
                 </div>
             </div>
+          <div class="section solution">
+            <div class="column ">
+              <TitleLanding left titleText="Преимущества работы с нами" white />
+            </div>
+
+            <div class="columns ">
+              <div class=" column is-6">
+                <ul>
+                  <li class="seo__item">
+                    широкий модельный ряд блочно-модульных котельных различной мощности,
+                    теплоносителя, исполнения, конфигурации оборудования и топлива;
+                  </li>
+                  <li class="seo__item">
+                    компактные конструкторские решения, современная архитектура и дизайн;
+                  </li>
+                  <li class="seo__item">
+                    собственное конструкторское бюро, проектный и строительно-монтажный департаменты;
+                  </li>
+                  <li class="seo__item">
+                    полный цикл инженерно-строительных услуг: от технико-экономического обоснования
+                    и получения разрешительной документации до ввода объекта в эксплуатацию;
+                  </li>
+                  <li class="seo__item">собственное производство, расположенное в Московской области;</li>
+                  <li class="seo__item">многоступенчатый процесс контроля качества производимых БМК;</li>
+                  <li class="seo__item">сроки изготовления и поставки, в среднем, ниже, чем у конкурентов
+                    за счет собственной технологии и избыточных производственных мощностей.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
     </section>
-
     <section class="section px-4">
         <div class="container">
             <div class="content text-center">
@@ -768,7 +894,7 @@
                             <img
                                     alt="modulnaya-kotelnaya"
                                     src="/images/bmk/kotelnay2.png"/>
-                                    <!-- src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/> -->
+                            <!-- src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/> -->
                         </figure>
                     </div>
                     <div class="column is-5">
