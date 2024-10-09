@@ -50,7 +50,7 @@
   }
 
   .desc {
-    padding: 150px 0 100px;
+    padding: 50px 0 100px;
     //background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
     background: darkgray;
 
@@ -77,7 +77,7 @@
 
   .info {
     // padding-bottom: 120px;
-    margin-top: 95px;
+    //margin-top: 95px;
 
     &__content {
       padding-top: 60px;
@@ -223,7 +223,7 @@
   .solution {
     color: #fff;
     background: url("/images/bmk/form-bg22.jpg") center no-repeat;
-    padding: 100px 0px;
+    padding: 100px 0px 130px;
     background-size: cover;
 
     &__text {
@@ -363,54 +363,90 @@
     }
   }
 
-  .container-types-kotelny {
-    padding-top: 30px;
+  .types-boiler-room {
+    padding: 150px;
 
-    .content {
-      color: white;
-      padding: 40px 0 0 0;
+    .table-boiler-room {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
 
-      h2 {
-        color: white;
+      padding: 15px 0;
 
-        &::before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: 150px;
-          height: 10px;
-          background-color: #f60;
-          top: 30px;
-        }
-      }
+      //font-size: 18px;
+      text-transform: uppercase;
+      line-height: 1.6;
+      font-weight: 300;
 
-      .table-types-kotelny {
+      &__row {
         display: flex;
-        flex-wrap: wrap;
-        padding: 15px 0;
-        font-size: 18px;
-        line-height: 1.6;
-        font-weight: 300;
+        justify-content: space-between;
 
-        .row {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          border-bottom: 1px solid white;
 
-          > div {
-            width: 220px;
-            padding: 25px;
+        > div {
+          width: 320px;
+          padding: 2rem;
 
-            &:first-child{
-              font-weight: bold;
-              background: #f86923;
-            }
+          border-bottom: 1px solid $main-brand-color;
+
+          &:first-child {
+            color: #fefefe;
+            font-weight: bold;
+            background: $main-brand-color;
+            border-bottom: 1px solid white;
           }
         }
       }
     }
-   }
+
+    @media screen and (max-width: 1024px) {
+      .table-boiler-room {
+
+        &__row {
+          width: 100%;
+          flex-direction: column;
+
+          div {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .advantage {
+    &__wrap {
+      position: relative;
+      top: -130px;
+      padding: 60px 30px;
+      background-color: #fff;
+      box-shadow: 0 19px 46px 25px rgba(0, 0, 0, 0.15);
+
+      .list {
+        &__item {
+          list-style: none;
+          margin: 20px 0;
+          position: relative;
+          font-size: 18px;
+          line-height: 1.6;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translate(0, -50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 999rem;
+            background-color: #ff6600;
+          }
+        }
+      }
+
+    }
+  }
 </style>
 
 <SvelteSeo {title}/>
@@ -426,105 +462,67 @@
                 </div>
             </HeaderLanding>
         </div>
-        <div class="container container-types-kotelny">
-            <div class="columns">
-                <div class="column ">
-                    <div class="content">
-                        <h2>ВИДЫ КОТЕЛЬНЫХ</h2>
-                        <div class="table-types-kotelny ">
-                          <div class="row">
-                              <div><p>Теплоноситель</p></div>
-                              <div>
-                                  <p>водогрейные</p>
-                              </div>
-                              <div>
-                                  <p>паровые</p>
-                              </div>
-                              <div>
-                                  <p>пароводогрейные</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div>Размещение</div>
-                              <div>
-                                  <p>крышные</p>
-                              </div>
-                              <div>
-                                  <p>пристроенные</p>
-                              </div>
-                              <div>
-                                  <p>отдельностоящие</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div>Исполнение</div>
-                              <div>
-                                  <p>контейнеры</p>
-                              </div>
-                              <div>
-                                  <p>модульные</p>
-                              </div>
-                              <div>
-                                  <p>быстровозводимые</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div>Топливо</div>
-                              <div>
-                                  <p>природный газ</p>
-                              </div>
-                              <div>
-                                  <p>сжиженный газ</p>
-                              </div>
-                              <div>
-                                  <p>дизельное топливо</p>
-                              </div>
-                          </div>
+    </section>
+    <section class="section px-4 types-boiler-room">
+        <div class="container">
+            <div class="content">
+                <TitleLanding
+                    left
+                    titleText="ВИДЫ КОТЕЛЬНЫХ"
+                />
+                <div class="table-boiler-room">
+                    <div class="table-boiler-room__row">
+                        <div>Теплоноситель</div>
+                        <div>
+                            водогрейные
+                        </div>
+                        <div>
+                            паровые
+                        </div>
+                        <div>
+                            пароводогрейные
+                        </div>
+                    </div>
+                    <div class="table-boiler-room__row">
+                        <div>Размещение</div>
+                        <div>
+                            крышные
+                        </div>
+                        <div>
+                            пристроенные
+                        </div>
+                        <div>
+                            отдельностоящие
+                        </div>
+                    </div>
+                    <div class="table-boiler-room__row">
+                        <div>Исполнение</div>
+                        <div>
+                            контейнеры
+                        </div>
+                        <div>
+                            модульные
+                        </div>
+                        <div>
+                            быстровозводимые
+                        </div>
+                    </div>
+                    <div class="table-boiler-room__row">
+                        <div>Топливо</div>
+                        <div>
+                            природный газ
+                        </div>
+                        <div>
+                            сжиженный газ
+                        </div>
+                        <div>
+                            дизельное топливо
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section px-4">
-      <div class="container">
-        <div class="content text-center">
-          <!--                <h2 class="title titlefor has-text-centered">-->
-          <!--                    Наши партнёры-->
-          <!--                </h2>-->
-          <TitleLanding titleText="Виды котельных"/>
-          <Carousel perPage={{800:4, 500:3, 400:2}}
-                    dots={false}
-                    autoplay={8000}
-                    duration={3000}>
-                          <span class="control" slot="left-control">
-                              <Icon icon={faChevronLeft}/>
-                          </span>
-
-            <div class="slide-content">
-              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
-            </div>
-            <div class="slide-content">
-              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
-            </div>
-            <div class="slide-content">
-              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
-            </div>
-            <div class="slide-content">
-              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
-            </div>
-            <div class="slide-content">
-              <img alt="" class="before-image" src="/images/bmk/kotelnay.png">
-            </div>
-
-            <span class="control" slot="right-control">
-                              <Icon icon={faChevronRight}/>
-                          </span>
-          </Carousel>
-        </div>
-      </div>
-    </section>
-
     <section class="section desc px-4">
         <div class="container is-widescreen desc__wrap">
             <div class="info">
@@ -718,37 +716,45 @@
                     </ul>
                 </div>
             </div>
-          <div class="section solution">
-            <div class="column ">
-              <TitleLanding left titleText="Преимущества работы с нами" white />
-            </div>
-
-            <div class="columns ">
-              <div class=" column is-6">
-                <ul>
-                  <li class="seo__item">
-                    широкий модельный ряд блочно-модульных котельных различной мощности,
-                    теплоносителя, исполнения, конфигурации оборудования и топлива;
-                  </li>
-                  <li class="seo__item">
-                    компактные конструкторские решения, современная архитектура и дизайн;
-                  </li>
-                  <li class="seo__item">
-                    собственное конструкторское бюро, проектный и строительно-монтажный департаменты;
-                  </li>
-                  <li class="seo__item">
-                    полный цикл инженерно-строительных услуг: от технико-экономического обоснования
-                    и получения разрешительной документации до ввода объекта в эксплуатацию;
-                  </li>
-                  <li class="seo__item">собственное производство, расположенное в Московской области;</li>
-                  <li class="seo__item">многоступенчатый процесс контроля качества производимых БМК;</li>
-                  <li class="seo__item">сроки изготовления и поставки, в среднем, ниже, чем у конкурентов
-                    за счет собственной технологии и избыточных производственных мощностей.</li>
-                </ul>
+        </div>
+    </section>
+    <section class="section">
+      <div class="container  is-2 advantage">
+        <div class="columns">
+          <div class="content column advantage__wrap">
+            <div class="container ">
+              <div
+                class="px-6 is-flex is-flex-direction-column
+                is-justify-content-space-between">
+                <div class="block__wrap">
+                  <TitleLanding green left titleText="Преимущества работы с нами"/>
+                  <ul class="mb-5 list">
+                    <li class="list__item">
+                      широкий модельный ряд блочно-модульных котельных различной мощности,
+                      теплоносителя, исполнения, конфигурации оборудования и топлива;
+                    </li>
+                    <li class="list__item">
+                      компактные конструкторские решения, современная архитектура и дизайн;
+                    </li>
+                    <li class="list__item">
+                      собственное конструкторское бюро, проектный и строительно-монтажный департаменты;
+                    </li>
+                    <li class="list__item">
+                      полный цикл инженерно-строительных услуг: от технико-экономического обоснования
+                      и получения разрешительной документации до ввода объекта в эксплуатацию;
+                    </li>
+                    <li class="list__item">собственное производство, расположенное в Московской области;</li>
+                    <li class="list__item">многоступенчатый процесс контроля качества производимых БМК;</li>
+                    <li class="list__item">сроки изготовления и поставки, в среднем, ниже, чем у конкурентов
+                      за счет собственной технологии и избыточных производственных мощностей.
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
     <section class="section px-4">
         <div class="container">
