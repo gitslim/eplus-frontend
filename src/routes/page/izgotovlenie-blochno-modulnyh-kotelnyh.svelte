@@ -223,7 +223,7 @@
   .solution {
     color: #fff;
     background: url("/images/bmk/form-bg22.jpg") center no-repeat;
-    padding: 100px 0px;
+    padding: 100px 0px 130px;
     background-size: cover;
 
     &__text {
@@ -411,6 +411,40 @@
           }
         }
       }
+    }
+  }
+
+  .advantage {
+    &__wrap {
+      position: relative;
+      top: -130px;
+      padding: 60px 30px;
+      background-color: #fff;
+      box-shadow: 0 19px 46px 25px rgba(0, 0, 0, 0.15);
+
+      .list {
+        &__item {
+          list-style: none;
+          margin: 20px 0;
+          position: relative;
+          font-size: 18px;
+          line-height: 1.6;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translate(0, -50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 999rem;
+            background-color: #ff6600;
+          }
+        }
+      }
+
     }
   }
 </style>
@@ -682,37 +716,45 @@
                     </ul>
                 </div>
             </div>
-          <div class="section solution">
-            <div class="column ">
-              <TitleLanding left titleText="Преимущества работы с нами" white />
-            </div>
-
-            <div class="columns ">
-              <div class=" column is-6">
-                <ul>
-                  <li class="seo__item">
-                    широкий модельный ряд блочно-модульных котельных различной мощности,
-                    теплоносителя, исполнения, конфигурации оборудования и топлива;
-                  </li>
-                  <li class="seo__item">
-                    компактные конструкторские решения, современная архитектура и дизайн;
-                  </li>
-                  <li class="seo__item">
-                    собственное конструкторское бюро, проектный и строительно-монтажный департаменты;
-                  </li>
-                  <li class="seo__item">
-                    полный цикл инженерно-строительных услуг: от технико-экономического обоснования
-                    и получения разрешительной документации до ввода объекта в эксплуатацию;
-                  </li>
-                  <li class="seo__item">собственное производство, расположенное в Московской области;</li>
-                  <li class="seo__item">многоступенчатый процесс контроля качества производимых БМК;</li>
-                  <li class="seo__item">сроки изготовления и поставки, в среднем, ниже, чем у конкурентов
-                    за счет собственной технологии и избыточных производственных мощностей.</li>
-                </ul>
+        </div>
+    </section>
+    <section class="section">
+      <div class="container  is-2 advantage">
+        <div class="columns">
+          <div class="content column advantage__wrap">
+            <div class="container ">
+              <div
+                class="px-6 is-flex is-flex-direction-column
+                is-justify-content-space-between">
+                <div class="block__wrap">
+                  <TitleLanding green left titleText="Преимущества работы с нами"/>
+                  <ul class="mb-5 list">
+                    <li class="list__item">
+                      широкий модельный ряд блочно-модульных котельных различной мощности,
+                      теплоносителя, исполнения, конфигурации оборудования и топлива;
+                    </li>
+                    <li class="list__item">
+                      компактные конструкторские решения, современная архитектура и дизайн;
+                    </li>
+                    <li class="list__item">
+                      собственное конструкторское бюро, проектный и строительно-монтажный департаменты;
+                    </li>
+                    <li class="list__item">
+                      полный цикл инженерно-строительных услуг: от технико-экономического обоснования
+                      и получения разрешительной документации до ввода объекта в эксплуатацию;
+                    </li>
+                    <li class="list__item">собственное производство, расположенное в Московской области;</li>
+                    <li class="list__item">многоступенчатый процесс контроля качества производимых БМК;</li>
+                    <li class="list__item">сроки изготовления и поставки, в среднем, ниже, чем у конкурентов
+                      за счет собственной технологии и избыточных производственных мощностей.
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
     <section class="section px-4">
         <div class="container">
