@@ -363,54 +363,56 @@
     }
   }
 
-  .container-types-kotelny {
-    padding-top: 30px;
+  .types-boiler-room {
+    padding: 150px;
 
-    .content {
-      color: white;
-      padding: 40px 0 0 0;
+    .table-boiler-room {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
 
-      h2 {
-        color: white;
+      padding: 15px 0;
 
-        &::before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: 150px;
-          height: 10px;
-          background-color: #f60;
-          top: 30px;
-        }
-      }
+      //font-size: 18px;
+      text-transform: uppercase;
+      line-height: 1.6;
+      font-weight: 300;
 
-      .table-types-kotelny {
+      &__row {
         display: flex;
-        flex-wrap: wrap;
-        padding: 15px 0;
-        font-size: 18px;
-        line-height: 1.6;
-        font-weight: 300;
+        justify-content: space-between;
 
-        .row {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          border-bottom: 1px solid white;
 
-          > div {
-            width: 220px;
-            padding: 25px;
+        > div {
+          width: 320px;
+          padding: 2rem;
 
-            &:first-child{
-              font-weight: bold;
-              background: #f86923;
-            }
+          border-bottom: 1px solid $main-brand-color;
+
+          &:first-child {
+            color: #fefefe;
+            font-weight: bold;
+            background: $main-brand-color;
+            border-bottom: 1px solid white;
           }
         }
       }
     }
-   }
+
+    @media screen and (max-width: 1024px) {
+      .table-boiler-room {
+
+        &__row {
+          width: 100%;
+          flex-direction: column;
+
+          div {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 </style>
 
 <SvelteSeo {title}/>
@@ -426,60 +428,61 @@
                 </div>
             </HeaderLanding>
         </div>
-        <div class="container container-types-kotelny">
-            <div class="columns">
-                <div class="column ">
-                    <div class="content">
-                        <h2>ВИДЫ КОТЕЛЬНЫХ</h2>
-                        <div class="table-types-kotelny ">
-                          <div class="row">
-                              <div><p>Теплоноситель</p></div>
-                              <div>
-                                  <p>водогрейные</p>
-                              </div>
-                              <div>
-                                  <p>паровые</p>
-                              </div>
-                              <div>
-                                  <p>пароводогрейные</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div>Размещение</div>
-                              <div>
-                                  <p>крышные</p>
-                              </div>
-                              <div>
-                                  <p>пристроенные</p>
-                              </div>
-                              <div>
-                                  <p>отдельностоящие</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div>Исполнение</div>
-                              <div>
-                                  <p>контейнеры</p>
-                              </div>
-                              <div>
-                                  <p>модульные</p>
-                              </div>
-                              <div>
-                                  <p>быстровозводимые</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div>Топливо</div>
-                              <div>
-                                  <p>природный газ</p>
-                              </div>
-                              <div>
-                                  <p>сжиженный газ</p>
-                              </div>
-                              <div>
-                                  <p>дизельное топливо</p>
-                              </div>
-                          </div>
+    </section>
+    <section class="section px-4 types-boiler-room">
+        <div class="container">
+            <div class="content">
+                <TitleLanding
+                    left
+                    titleText="ВИДЫ КОТЕЛЬНЫХ"
+                />
+                <div class="table-boiler-room">
+                    <div class="table-boiler-room__row">
+                        <div>Теплоноситель</div>
+                        <div>
+                            водогрейные
+                        </div>
+                        <div>
+                            паровые
+                        </div>
+                        <div>
+                            пароводогрейные
+                        </div>
+                    </div>
+                    <div class="table-boiler-room__row">
+                        <div>Размещение</div>
+                        <div>
+                            крышные
+                        </div>
+                        <div>
+                            пристроенные
+                        </div>
+                        <div>
+                            отдельностоящие
+                        </div>
+                    </div>
+                    <div class="table-boiler-room__row">
+                        <div>Исполнение</div>
+                        <div>
+                            контейнеры
+                        </div>
+                        <div>
+                            модульные
+                        </div>
+                        <div>
+                            быстровозводимые
+                        </div>
+                    </div>
+                    <div class="table-boiler-room__row">
+                        <div>Топливо</div>
+                        <div>
+                            природный газ
+                        </div>
+                        <div>
+                            сжиженный газ
+                        </div>
+                        <div>
+                            дизельное топливо
                         </div>
                     </div>
                 </div>
