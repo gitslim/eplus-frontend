@@ -50,7 +50,7 @@
   }
 
   .desc {
-    padding: 150px 0 100px;
+    padding: 50px 0 100px;
     //background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
     background: darkgray;
 
@@ -77,7 +77,7 @@
 
   .info {
     // padding-bottom: 120px;
-    margin-top: 95px;
+    //margin-top: 95px;
 
     &__content {
       padding-top: 60px;
