@@ -17,14 +17,14 @@
                     <img src="{block.image.formats.small.url}" alt="{block.image.alternativeText}"/>
                 </div>
             {/if}
-        {:else if block.__typename === 'ComponentDefaultYoutube'}
-            {#if block.videoId != null}
-                <figure class="image is-16by9 {block.class}">
-                    <iframe allowfullscreen class="has-ratio" frameborder="0"
-                            height="360"
-                            src="https://www.youtube.com/embed/{block.videoId}?showinfo=0" width="640"></iframe>
-                </figure>
-            {/if}
+        <!--{:else if block.__typename === 'ComponentDefaultYoutube'}-->
+        <!--    {#if block.videoId != null}-->
+        <!--        <figure class="image is-16by9 {block.class}">-->
+        <!--            <iframe allowfullscreen class="has-ratio" frameborder="0"-->
+        <!--                    height="360"-->
+        <!--                    src="https://www.youtube.com/embed/{block.videoId}?showinfo=0" width="640"></iframe>-->
+        <!--        </figure>-->
+        <!--    {/if}-->
         {/if}
 <!--        <div class="is-divider"></div>-->
     {/each}
