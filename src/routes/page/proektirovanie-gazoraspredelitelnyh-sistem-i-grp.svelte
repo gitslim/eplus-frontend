@@ -31,11 +31,11 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-blend-mode: multiply;
-      background-image: url(/images/gazoprovodi/gazoprovod-proektirovanie.jpg),
-      linear-gradient(0deg, grey, transparent),
-      linear-gradient(45deg, grey, transparent),
-      linear-gradient(80deg, grey, transparent),
-      linear-gradient(100deg, grey, transparent);
+      background-image: url(/images/gazoprovodi/gazoprovod_grp.jpg),
+      linear-gradient(0deg, grey, transparent);
+      //linear-gradient(45deg, grey, transparent),
+      //linear-gradient(80deg, grey, transparent),
+      //linear-gradient(100deg, grey, transparent)
 
       .hero-body {
         margin-top: 50px;
@@ -53,7 +53,7 @@
       background-color: #f60;
     }
 
-    .about,.docs {
+    .about, .docs {
       .content {
         font-size: 18px;
         text-align: justify;
@@ -78,17 +78,33 @@
         transform: translateX(-50%);
       }
 
+
+    }
+
+    .tech-section {
+      //&__wrap {
+      //  position: relative;
+      //  top: -130px;
+      //  padding: 100px 30px;
+      //  background-color: #fff;
+      //  box-shadow: 0 19px 46px 25px rgba(0, 0, 0, 0.15);
+      //
+      //  font-size: 18px;
+      //
+      //
+      //}
+
+      background-color:#353535
+
       .objects-map {
         display: flex;
         flex-wrap: wrap;
-        gap: 40px;
 
         .objects-map__row {
           width: 100%;
 
           display: flex;
           justify-content: space-evenly;
-          gap: 40px;
           flex-wrap: wrap;
 
           .objects-map__item {
@@ -99,20 +115,6 @@
             }
           }
         }
-      }
-    }
-
-    .tech-section {
-      &__wrap {
-        position: relative;
-        top: -130px;
-        padding: 100px 30px;
-        background-color: #fff;
-        box-shadow: 0 19px 46px 25px rgba(0, 0, 0, 0.15);
-
-        font-size: 18px;
-
-
       }
     }
 
@@ -191,11 +193,12 @@
     </section>
 
     <section class="section about">
-        <div class="container">
+        <div class="container content">
             <div class="columns">
-                <div class="content column">
-                    <div class="px-6">
-                        <TitleLanding green left titleText="О нас"/>
+                    <div class="column is-6">
+                        <img alt="" src="/images/gazoprovodi/gazoprovod_grp2.jpg">
+                    </div>
+                    <div class="column is-6">
                         <p>Проектный отдел ООО «Энергия Плюс», уже более двух десятилетий успешно выполняет
                             полный спектр работ по проектированию линейных объектов для всех видов строительства
                             (новое строительство, реконструкция, капитальный ремонт, техническое перевооружение,
@@ -208,87 +211,8 @@
                             мероприятий (футляров) на действующих газопроводах.</p>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
-    <section class="section objects-section">
-        <div class="container">
-            <h2 class="title">Объекты по выносу и устройству защитных футляров</h2>
-            <div class="objects-map ">
-                <div class="objects-map__row">
-                    <div class="objects-map__item">
-                        <Lightbox noScroll="false"
-                                  modalClasses="pipu">
-                            <figure class="image">
-                                <LazyImage
-                                    class="objects-map__img"
-                                    src={'/images/map/object-map.png'}
-                                    alt={'Проект 1'}/>
-                            </figure>
-                        </Lightbox>
-                    </div>
-                    <div class="objects-map__item">
-                        <Lightbox noScroll="false"
-                                  modalClasses="pipu">
-                            <figure class="image">
-                                <LazyImage
-                                    class="objects-map__img"
-                                    src={'/images/map/object-map2.png'}
-                                    alt={'Проект 2'}/>
-                            </figure>
-                        </Lightbox>
-                    </div>
-                    <div class="objects-map__item">
-                        <Lightbox noScroll="false"
-                                  modalClasses="pipu">
-                            <figure class="image">
-                                <LazyImage
-                                    class="objects-map__img"
-                                    src={'/images/map/object-map3.png'}
-                                    alt={'Проект 3'}/>
-                            </figure>
-                        </Lightbox>
-                    </div>
-                </div>
-                <div class="objects-map__row">
-                    <div class="objects-map__item">
-                        <Lightbox noScroll="false"
-                                  modalClasses="pipu">
-                            <figure class="image">
-                                <LazyImage
-                                    class="objects-map__img"
-                                    src={'/images/map/object-map4.png'}
-                                    alt={'Проект 1'}/>
-                            </figure>
-                        </Lightbox>
-                    </div>
-                    <div class="objects-map__item">
-                        <Lightbox noScroll="false"
-                                  modalClasses="pipu">
-                            <figure class="image">
-                                <LazyImage
-                                    class="objects-map__img"
-                                    src={'/images/map/object-map5.jpg'}
-                                    alt={'Проект 2'}/>
-                            </figure>
-                        </Lightbox>
-                    </div>
-                    <div class="objects-map__item">
-                        <Lightbox noScroll="false"
-                                  modalClasses="pipu">
-                            <figure class="image">
-                                <LazyImage
-                                    class="objects-map__img"
-                                    src={'/images/map/object-map6.jpg'}
-                                    alt={'Проект 3'}/>
-                            </figure>
-                        </Lightbox>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section text-center">
         <div class="container tech-section">
             <div class="columns">
@@ -296,6 +220,7 @@
                     <div class="container ">
                         <div class="px-6">
                             <TitleLanding left titleText="В раздел технологических решений входят"/>
+
                             <ul class="mb-5 list">
                                 <li class="list__item">
                                     расчет схемы газоснабжения, подбор газового оборудования
@@ -317,7 +242,45 @@
                                 <li class="list__item">проект системы контроля загазованности</li>
                                 <li class="list__item">проект системы диспетчеризации и телеметрии</li>
                             </ul>
+                            <div class="objects-map ">
+                                <div class="objects-map__row">
+                                    <div class="objects-map__item">
+                                        <Lightbox noScroll="false"
+                                                  modalClasses="pipu">
+                                            <figure class="image">
+                                                <LazyImage
+                                                    class="objects-map__img"
+                                                    src={'/images/map/object-map2.png'}
+                                                    alt={'Проект 2'}/>
+                                            </figure>
+                                        </Lightbox>
+                                    </div>
+                                    <div class="objects-map__item">
+                                        <Lightbox noScroll="false"
+                                                  modalClasses="pipu">
+                                            <figure class="image">
+                                                <LazyImage
+                                                    class="objects-map__img"
+                                                    src={'/images/map/object-map5.jpg'}
+                                                    alt={'Проект 2'}/>
+                                            </figure>
+                                        </Lightbox>
+                                    </div>
+                                    <div class="objects-map__item">
+                                        <Lightbox noScroll="false"
+                                                  modalClasses="pipu">
+                                            <figure class="image">
+                                                <LazyImage
+                                                    class="objects-map__img"
+                                                    src={'/images/map/object-map3.png'}
+                                                    alt={'Проект 3'}/>
+                                            </figure>
+                                        </Lightbox>
+                                    </div>
 
+
+                                </div>
+                            </div>
                             <p>Для проектирования используется специализированное программное обеспечение, позволяющее
                                 создавать как двухмерные чертежи, так и визуализировать их трёхмерные модели.
                                 Использование 3D-моделирования позволяет нам создавать более точные и функциональные
@@ -334,8 +297,8 @@
         <div class="container">
             <div class="columns">
                 <div class="content column is-8">
-                        <TitleLanding titleText="Калькуляторы расчета стоимости"/>
-                        <CalcTabs selected="gaz" classes="calc__tabs"/>
+                    <TitleLanding titleText="Калькуляторы расчета стоимости"/>
+                    <CalcTabs selected="gaz" classes="calc__tabs"/>
                 </div>
             </div>
         </div>
