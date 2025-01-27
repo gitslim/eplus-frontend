@@ -5,10 +5,11 @@
     import CalcKotel from '$lib/components/calc/CalcKotel.svelte'
 
     export let selected = 'kotel'
+    export let classes = 'is-centered'
 </script>
 
 <div class="container">
-    <div class="tabs is-centered">
+    <div class="tabs {classes}">
         <ul>
             <li class:is-active={selected==='kotel'}>
                 <a on:click={()=>selected='kotel'}>
