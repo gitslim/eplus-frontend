@@ -476,7 +476,7 @@
                                                 <figure class="image">
                                                     <LazyImage
                                                         class="objects-map__img"
-                                                        src={'/images/map/object-map2.png'}
+                                                        src={'/images/map/object-map2.jpg'}
                                                         alt={'Проект 2'}/>
                                                 </figure>
                                             </Lightbox>
@@ -510,7 +510,7 @@
                                                 <figure class="image">
                                                     <LazyImage
                                                         class="objects-map__img"
-                                                        src={'/images/map/object-map3.png'}
+                                                        src={'/images/map/object-map3.jpg'}
                                                         alt={'Проект 3'}/>
                                                 </figure>
                                             </Lightbox>
