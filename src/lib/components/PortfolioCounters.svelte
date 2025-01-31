@@ -22,10 +22,10 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-info">20</h3>
+                            <h3 class="title is-1 has-text-info">21</h3>
                         </div>
                     </div>
-                    <h4 class="title">Лет</h4>
+                    <h4 class="title">Год</h4>
                     <h5 class="subtitle">на рынке</h5>
                     <progress aria-label="on-market" class="progress is-info" max="100" role="progressbar" value="75"></progress>
                 </div>
@@ -39,7 +39,7 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-danger">215</h3>
+                            <h3 class="title is-1 has-text-danger">225</h3>
                         </div>
                     </div>
                     <h4 class="title">Организаций</h4>
@@ -56,7 +56,7 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-success">450</h3>
+                            <h3 class="title is-1 has-text-success">485</h3>
                         </div>
                     </div>
                     <h4 class="title">Проектов</h4>
@@ -73,7 +73,7 @@
                             </figure>
                         </div>
                         <div class="media-content has-text-right">
-                            <h3 class="title is-1 has-text-info">730</h3>
+                            <h3 class="title is-1 has-text-info">750</h3>
                         </div>
                     </div>
                     <h4 class="title">Километров</h4>
