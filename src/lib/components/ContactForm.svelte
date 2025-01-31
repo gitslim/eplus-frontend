@@ -33,7 +33,7 @@
             phone: yup.string().required('Обязательное поле')
         }),
         onSubmit: async values => {
-            ym(54841009, 'init', {
+            window.ym(54841009, 'init', {
                 clickmap: true,
                 trackLinks: true,
                 accurateTrackBounce: true,
