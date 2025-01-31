@@ -33,6 +33,13 @@
             phone: yup.string().required('Обязательное поле')
         }),
         onSubmit: async values => {
+            ym(54841009, 'init', {
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true,
+                webvisor: true,
+            })
+
             let data = {
                 type: lead.type || 'lead.contactForm',
                 title: lead.title || 'Форма контактов',
