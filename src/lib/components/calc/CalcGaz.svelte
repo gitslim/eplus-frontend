@@ -59,6 +59,13 @@
             phone: ''
         },
         onSubmit: async values => {
+            ym(54841009, 'init', {
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true,
+                webvisor: true,
+            })
+
             let log = []
 
             if (vals.projVp || vals.montVp) {
