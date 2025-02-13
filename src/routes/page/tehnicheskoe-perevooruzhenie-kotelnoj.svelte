@@ -9,6 +9,7 @@
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import InfoBlock from '$lib/components/InfoBlock.svelte'
     import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
+    import LazyImage from "svelte-lazy-image"
 
     let title = 'Техническое переворужение котельной'
 
@@ -99,11 +100,19 @@
     display: block;
     padding-top: 180px !important;
     padding-bottom: 130px;
-    background: url("/images/tehnicheskoePerevooruzhenie/main-banner.jpg") no-repeat center;
     background-size: cover;
+    background-blend-mode: multiply;
+    background: url("/images/pages/tehnicheskoe-perevooruzhenie-kotelnoj/Рисунок10.jpg") no-repeat center,
+    linear-gradient(0deg, grey, transparent),
+    linear-gradient(45deg, grey, transparent),
+    linear-gradient(80deg, grey, transparent),
+    linear-gradient(100deg, grey, transparent);
+    background-size: cover;
+
     overflow: hidden;
     color: #fff;
     width: 100vw;
+
   }
 
   .main {

@@ -660,7 +660,7 @@
                         </ul>
                     </div>
                     <div class="column is-half">
-                        <img class="spisok1_img" alt="" src="/images/smr/foto-smr1.jpg">
+                        <img class="spisok1_img" alt="" src="/images/pages/stroitelno-montazhnye-raboty/Рисунок9.jpg">
                     </div>                   
                 </div>
             </div>                
@@ -693,7 +693,8 @@
                                 modalClasses = "pipu">
                         <figure class="image">
                             <LazyImage
-                                    src={'/images/smr/projects/04.jpg'}
+                                    style="aspect-ratio: 316/209; object-fit: cover"
+                                    src="/images/pages/stroitelno-montazhnye-raboty/Рисунок8.jpg"
                                     alt={'Проект 2'}/>
                         </figure>
                     </Lightbox>
