@@ -447,6 +447,17 @@
 
     }
   }
+
+  .partners{
+    .slide-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 210px;
+      height: 210px;
+    }
+  }
 </style>
 
 <SvelteSeo {title}/>
@@ -756,7 +767,7 @@
         </div>
       </div>
     </section>
-    <section class="section px-4">
+    <section class="section px-4 partners">
         <div class="container">
             <div class="content text-center">
                 <!--                <h2 class="title titlefor has-text-centered">-->
@@ -772,19 +783,28 @@
                         </span>
 
                     <div class="slide-content">
-                        <img alt="" class="before-image" src="/images/kotel/partners/01.jpg">
+                        <img alt="" class="before-image" src="/images/kotel/partners/Ветна.jpg">
                     </div>
                     <div class="slide-content">
-                        <img alt="" class="before-image" src="/images/kotel/partners/02.jpg">
+                        <img alt="" class="before-image" src="/images/kotel/partners/Зиосаб.jpg">
                     </div>
                     <div class="slide-content">
-                        <img alt="" class="before-image" src="/images/kotel/partners/03.jpg">
+                        <img alt="" class="before-image" src="/images/kotel/partners/Лаварт.png">
                     </div>
                     <div class="slide-content">
-                        <img alt="" class="before-image" src="/images/kotel/partners/04.jpg">
+                        <img alt="" class="before-image" src="/images/kotel/partners/НОРД.png">
                     </div>
                     <div class="slide-content">
-                        <img alt="" class="before-image" src="/images/kotel/partners/05.jpg">
+                        <img alt="" class="before-image" src="/images/kotel/partners/БМК.jpg">
+                    </div>
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/Теплорос.jpg">
+                    </div>
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/Этра.jpg">
+                    </div>
+                    <div class="slide-content">
+                        <img alt="" class="before-image" src="/images/kotel/partners/Ютермо.jpg">
                     </div>
 
                     <span class="control" slot="right-control">
