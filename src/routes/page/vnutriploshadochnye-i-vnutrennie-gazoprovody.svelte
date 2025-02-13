@@ -82,7 +82,7 @@
         background-size: cover;
         background-blend-mode: multiply;
         background-color: rgba(0, 0, 0, 0.7);
-        background-image: url(/images/interGazoprovod/gas.jpeg);
+        background-image: url(/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок6.jpg)
     }
 
     .hero2 .hero-body {
@@ -159,6 +159,11 @@
 
     .buttonHead {
         line-height: 1.1em;
+    }
+
+    .hero2__img{
+      object-fit: cover;
+      aspect-ratio: 43/30
     }
 
     .line-image {
@@ -673,7 +678,7 @@
             <div class="columns is-vcentered pt-5">
                 <div class="column is-4">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/gazsnab.jpg" alt="Промышленные" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок13.jpg" alt="Промышленные" style="max-width:450px;"/>
                     </div>
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
@@ -743,7 +748,7 @@
                     <div class="tile is-parent">
                             <div class="tile is-child is-vertical box">
                                 <figure class="image">
-                                    <img src="/images/interGazoprovod/objekt1.jpg" alt="Энергетические"/>
+                                    <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок3.jpg" alt="Энергетические"/>
                                         <div style="position:relative">
                                             <div class="line-image">
                                                 <p class="has-text-weight-medium">ГРАЖДАНСКИЕ </p>
@@ -790,7 +795,7 @@
                     <div class="tile is-parent">
                         <div class="tile is-child is-vertical box">
                             <figure class="image">
-                                <img src="/images/interGazoprovod/objekt2.jpg" alt="Промышленные"/>
+                                <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок4.jpg"  alt="Промышленные"/>
                                     <div style="position:relative">
                                         <div class="line-image">
                                             <p class="has-text-weight-medium">ПРОМЫШЛЕННЫЕ </p>
@@ -837,7 +842,7 @@
                     <div class="tile is-parent">
                         <div class="tile is-child is-vertical box">
                             <figure class="image">
-                                <img src="/images/interGazoprovod/objekt3.jpg" alt="Сельскохозяйственные"/>
+                                <img class="hero2__img"  src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок5.jpg"  alt="Сельскохозяйственные"/>
                                     <div style="position:relative">
                                         <div class="line-image">
                                             <p class="has-text-weight-medium">СЕЛЬСКОХОЗЯЙСТВЕННЫЕ </p>
@@ -1045,7 +1050,7 @@
             <div class="columns is-vcentered">
                 <div class="column py-0">
                     <div class="image-box" style="height: 350px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/kaska.jpeg" alt="Промышленные" style="max-width: 700px;"/>
+                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок11.jpg" alt="Промышленные" style="max-width: 700px;"/>
                     </div>
                 </div>
                 <div class="column">
@@ -1194,7 +1199,8 @@
                         <figure class="image">
                             <div class="shtora"></div>
                             <LazyImage
-                                    src={'/images/interGazoprovod/projects/01.jpg'}
+                                    style="aspect-ratio: 316/209; object-fit: cover"
+                                    src={'/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок7.jpg'}
                                     alt={'Проект 1'}/>
                             <span class="item-content-2">
                                 <strong class="item-title">Проект 1</strong>
