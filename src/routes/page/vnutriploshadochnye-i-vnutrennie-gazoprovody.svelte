@@ -65,7 +65,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-blend-mode: multiply;
-        background-image: url(/images/interGazoprovod/wp_gazoprovod.jpg),
+        background-image: url(/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок2.jpg),
         linear-gradient(0deg, grey, transparent),
         linear-gradient(45deg, grey, transparent),
         linear-gradient(80deg, grey, transparent),
