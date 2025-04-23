@@ -19,9 +19,9 @@
     let lead
 
     // Логика табов
-    let numa = 1;
-    let num = 1;
-    let active = 1;
+    let numa = 1
+    let num = 1
+    let active = 1
     let activeB = false
     let count = 0
     const toggleVissible = (numa) => () => {
@@ -470,6 +470,32 @@
     }
   }
 
+  .section.cert-video {
+    display: flex;
+    justify-content: center;
+
+    .content {
+      max-width: 1200px;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      @media screen and (min-width: 900px){
+        margin-left: 100px;
+      }
+
+      .cert-video__img {
+        max-width: 400px;
+      }
+
+      .cert-video__video {
+        max-width: 800px;
+      }
+    }
+  }
+
   .section3 {
     margin-bottom: 60px;
     background-color: #ffebcd;
@@ -851,7 +877,26 @@
             </div>
         </div>
     </section>
-
+    <section class="section cert-video">
+        <div class="content">
+            <div class="cert-video__img">
+                <Lightbox noScroll="false"
+                          modalClasses="pipu">
+                    <figure class="image">
+                        <LazyImage
+                                style="max-width: 800px"
+                                src={'/images/company/Сертификат БМК800_page-0001.jpg'}
+                                alt={'Сертификат'}/>
+                    </figure>
+                </Lightbox>
+            </div>
+            <div class="cert-video__video">
+                <video autoplay loop muted playsinline controls>
+                    <source src="{'/video/БМК 800.mp4'}" type="video/mp4"/>
+                </video>
+            </div>
+        </div>
+    </section>
 
     <section class="section section3 text-center">
         <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
@@ -924,7 +969,7 @@
         <div class="container">
             <div class="button3">
                 <ContactFormFullButton lead={lead = {
-                    title: 'Форма контактов из Контейнерная котельная 800 кВт', 
+                    title: 'Форма контактов из Контейнерная котельная 800 кВт',
                     comments: 'КНОПКА скачать договор поставки',
                     }}>
                     <div slot="button">Скачать договор поставки</div>
@@ -952,14 +997,14 @@
                 <div class="column column2">
                     <div class="p-3">
                         <a
-                            href="/presentation/Буклет%20с%20услугами%20в%20области%20энергетики.pdf"
-                            target="_blank"
-                            title="Буклет с услугами в области энергетики"
+                                href="/presentation/Буклет%20с%20услугами%20в%20области%20энергетики.pdf"
+                                target="_blank"
+                                title="Буклет с услугами в области энергетики"
                         >
                             <figure class="image">
                                 <LazyImage
-                                    alt="Буклет с услугами в области энергетики"
-                                    src="/presentation/energy-cover.png"
+                                        alt="Буклет с услугами в области энергетики"
+                                        src="/presentation/energy-cover.png"
                                 />
                                 <div class="is-overlay p-1">
                                     <span class="tag is-primary"
