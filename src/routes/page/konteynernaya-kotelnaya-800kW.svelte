@@ -883,7 +883,7 @@
                 <Lightbox noScroll="false"
                           modalClasses="pipu">
                     <figure class="image">
-                        <LazyImage
+                        <img
                                 style="max-width: 800px"
                                 src={'/images/company/Сертификат БМК800_page-0001.jpg'}
                                 alt={'Сертификат'}/>
