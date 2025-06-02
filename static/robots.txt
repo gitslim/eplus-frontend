@@ -1,2 +1,33 @@
-User-Agent: *
+User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /api/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /robots.txt
+Disallow: /sitemap.xml
+Disallow: /*.php$
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.pdf$
+Disallow: /*.zip$
+Disallow: /*.rar$
+Disallow: /*.doc$
+Disallow: /*.xls$
+Disallow: /*.ppt$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*?utm_*
+Disallow: /*?_openstat=*
+
+Sitemap: https://xn--c1adkmgpem4hrai.xn--p1ai/sitemap.xml
+```
+
+---
