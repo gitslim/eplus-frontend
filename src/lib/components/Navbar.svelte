@@ -137,6 +137,20 @@
                                 Функции технического заказчика
                             </Link>
                         </div>
+                        <div class="column">
+                            <Link
+                                    cls="navbar-item navbar-title"
+                                    path="page"
+                                    title="Производство">
+                                Производство
+                            </Link>
+                            <Link
+                                    cls="navbar-item"
+                                    path="page"
+                                    title="Изготовление блочно-модульных котельных">
+                                Изготовление блочно-модульных котельных
+                            </Link>
+                        </div>
                         <!-- <div class="column">
                           <Link
                             cls="navbar-item navbar-title"
@@ -194,29 +208,6 @@
                                     slug="konteynernaya-kotelnaya-800kW"
                                     title="Контейнерная котельная 800 кВт в наличии">
                                 Контейнерная котельная 800 кВт в наличии
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                    class="navbar-item has-dropdown is-hoverable"
-                    on:mouseleave={() => toggleDropdown(false)}
-                    on:mouseover={() => toggleDropdown(true)}
-                    on:focus={() => toggleDropdown(true)}>
-                <Link cls="navbar-link" title="Производство">
-                    Производство
-                </Link>
-                <div
-                        class="navbar-dropdown is-boxed is-hidden-mobile"
-                        class:is-hidden={!showDropdown}>
-                    <div class="container is-fluid columns">
-                        <div class="column">
-                            <Link
-                                    cls="navbar-item"
-                                    path="page"
-                                    title="Изготовление блочно-модульных котельных">
-                                Изготовление блочно-модульных котельных
                             </Link>
                         </div>
                     </div>
