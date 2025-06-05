@@ -13,6 +13,21 @@
     import ContactFormButton from '$lib/components/ContactFormButton.svelte'
 
     export let data
+
+    /**
+     * TODO Временно. Удалить после добавления полей description и h1 в STRAPI
+     */
+    let meta = {
+        title:data.faq.title, description: data.faq.title, h1: data.faq.title
+    }
+
+    if (data.faq.slug === "pochemu-sostavlenie-smetnoj-dokumentaczii-neobhodimo-poruchat-tolko-razrabotchiku-proekta-a-ne-frilanseru-ili-storonnemu-smetnomu-byuro") {
+        meta = {
+            title: 'Сметная документация для котельных. Профессионалы своего дела. Экспертиза и согласования. Консультация бесплатно',
+            description: 'Разработка сметы на строительство котельной. Прозрачный процесс, согласование с заказчиком. Почему составление сметы следует доверить компании-проектанту',
+            h1: 'Лучшие сметчики для Вашего объекта. Разработка сметной документации. Промышленные газовые котельные и газопроводы. Ознакомьтесь перед тем, как заказать проект '
+        }
+    }
 </script>
 
 <style>
@@ -21,10 +36,11 @@
     /*}*/
 </style>
 
-<SvelteSeo title={data.faq.title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
 
 <article>
-    <h1 class="title has-text-centered">{data.faq.title}</h1>
+    <h1 class="title has-text-centered">{meta.h1}</h1>
     <DynamicZone content={data.faq.content}/>
 
     {#if data.faq.title == "Что понимается под охранной зоной газопровода?"}
