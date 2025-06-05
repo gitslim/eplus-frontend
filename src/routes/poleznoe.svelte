@@ -6,10 +6,16 @@
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
 
-    let title = 'Полезное'
+    const meta = {
+        title: 'Полезные материалы для тех, кто планирует строить котельную, проектировать газопровод или купить блочно-модульную котельную',
+        description: 'Полезные материалы от профессионалов. Актуальные нормативные акты для проектирования и строительства. Калькуляторы расчета стоимости котельной и газопровода.',
+        h1: 'Проектирование и строительство котельной и газопровода. Согласование. Экспертиза. Полезные материалы для инженеров, энергетиков. Узнайте стоимость проекта на сайте.'
+    }
 </script>
 
-<SvelteSeo {title}/>
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<h1 style="position: absolute; clip-path: inset(100%); width: 1px; height: 1px; overflow: hidden;">{meta.h1}</h1>
+
 
 <style lang="scss">
   // .content__wrap {

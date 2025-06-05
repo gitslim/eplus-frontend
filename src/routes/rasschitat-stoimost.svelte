@@ -6,10 +6,16 @@
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
 
-    let title = 'Рассчитать стоимость котельной и газопровода'
+    const meta = {
+        title: 'Калькуляторы расчета газопровода и котельной. Рассчитаем стоимость проектирования и строительства',
+        description: 'Стоимость проектирования и строительства промышленной газовой котельной и газопровода. Собственный штат инженеров. Аккредитации и СРО.',
+        h1: 'Расчет стоимости газовой котельной и трубопровода для промышленного объекта.'
+    }
 </script>
 
-<SvelteSeo {title}/>
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+
+<h1 style="position: absolute; clip-path: inset(100%); width: 1px; height: 1px; overflow: hidden;">{meta.h1}</h1>
 
 <style lang="scss">
   .content-block {
