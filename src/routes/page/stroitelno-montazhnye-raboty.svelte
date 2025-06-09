@@ -869,22 +869,22 @@
             </div>
             <div class="columns is-multiline is-centered">
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/men-icon1.png">
+                    <img class="command__image" src="/images/command/Харитонов.png">
                     <p class="command__text">Харитонов Николай</p>
                     <p class="command__text2">Технический директор</p>
                 </div>
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/men-icon3.png">
+                    <img class="command__image" src="/images/command/Зайков.png">
                     <p class="command__text">Тарас Зайков</p>
                     <p class="command__text2">Производитель работ</p>
                 </div>
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/men-icon4.png">
+                    <img class="command__image" src="/images/command/Бачинин.png">
                     <p class="command__text">Дмитрий Бачинин</p>
                     <p class="command__text2">Начальник участка КИП</p>
                 </div>
                 <div class="column is-narrow is-3">
-                    <img class="command__image" src="/images/smr/men-icon2.png">
+                    <img class="command__image" src="/images/command/Петров.png">
                     <p class="command__text">Евгений Петров</p>
                     <p class="command__text2">Ведущий инженер</p>
                 </div>
