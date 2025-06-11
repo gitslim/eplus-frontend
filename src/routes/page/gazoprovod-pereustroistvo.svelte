@@ -14,8 +14,16 @@
             faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
  let title = 'Переустройство (вынос) участков магистральных газопроводов'
+
+    const meta = {
+        title: "Переустройство (вынос) участков магистральных газопроводов. разработка проектной документации. Согласование. Экспертиза проектной документации",
+        description: "Разработка проектно-сметной документации. Изыскания и сметы. Защита сметы в экспертизе. Допуски СРО. Аккредитация в ПАО «Газпром»",
+        h1: "Переустройство (вынос) участков газопроводов. Расчет стоимости разработки ПСД. Смета и изыскания. Имеем допуск СРО. Аккредитованы в ПАО «Газпром». Работаем в BIM"
+    }
+
 
     onMount(async () => {
 
@@ -267,7 +275,10 @@
 </style>
 
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <main>
 
@@ -275,7 +286,7 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">Переустройство (вынос) участков газопроводов</h1>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Переустройство (вынос) участков газопроводов</h2>
                     <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">в связи со строительством новых объектов в зоне минимально-допустимых расстояний</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
                         <div slot="button">Заказать проект</div>

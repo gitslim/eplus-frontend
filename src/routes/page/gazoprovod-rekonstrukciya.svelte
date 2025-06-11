@@ -14,8 +14,16 @@
             faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
  let title = 'Реконструкция, модернизация или техническое перевооружение ГРС'
+
+    const meta = {
+        title: "Реконструкция, модернизация или техническое перевооружение ГРС",
+        description: "Проектная и рабочая документация. Проектирование. Строительство ГРС. Реконструкция газораспределительной станции. Техническое перевооружение газораспределительной станции",
+        h1: "Полный комплекс работ по реконструкции ГРС. Модернизация ГРС. Подбор оборудования. Составление смет. Экспертиза документации. ПД и РД. Техническое перевооружение ГРС"
+    }
+
 
     onMount(async () => {
 
@@ -416,7 +424,10 @@
 </style>
 
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <main>
 
@@ -424,8 +435,8 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">Реконструкция, модернизация или техническое перевооружение ГРС, крановых узлов, 
-                        участков магистральных газопроводов</h1>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Реконструкция, модернизация или техническое перевооружение ГРС, крановых узлов,
+                        участков магистральных газопроводов</h2>
                     <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">в связи с истечением нормативного срока эксплуатации</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
                         <div slot="button">Заказать проект</div>

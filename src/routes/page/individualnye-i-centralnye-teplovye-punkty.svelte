@@ -11,8 +11,16 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import LazyImage from 'svelte-lazy-image'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
  let title = 'Индивидуальные и центральные тепловые пункты'
+
+    const meta = {
+        title: "Индивидуальные и центральные тепловые пункты. Проектирование и монтаж",
+        description: "Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК». Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК». Поставка оборудования и комплектация материалами. Монтажные работы. Пуско-наладочные работы. Сдача объекта в ПАО «МОЭК». Ростехнадзор.",
+        h1: "Индивидуальные и центральные тепловые пункты. Проектирование строительство. Расчет стоимости. Экспертиза. Смета"
+    }
+
 
     onMount(async () => {
 
@@ -226,11 +234,11 @@
 </script>
 
 <svelte:head>
-    <meta name="description" content="Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК», Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК», Поставка оборудования и комплектация материалами, Монтажные работы, Пуско-наладочные работы, Сдача объекта в ПАО «МОЭК», Ростехнадзор.">
+    <meta name="description" content="{meta.description}">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:type" content="article">
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content="Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК», Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК», Поставка оборудования и комплектация материалами, Монтажные работы, Пуско-наладочные работы, Сдача объекта в ПАО «МОЭК», Ростехнадзор.">
+    <meta property="og:title" content={meta.title}>
+    <meta property="og:description" content="{meta.description}">
     <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/page/individualnye-i-centralnye-teplovye-punkty">
     <meta property="og:site_name" content="ООО Энергия Плюс">
     <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/itc_ctp/teplovoy_punkt-og.png">
@@ -888,14 +896,16 @@
 
 </style>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main>
     <section class="hero hero1">
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10">
-                    <h1 class="has-text-white has-text-weight-normal title titlefor">ИНДИВИДУАЛЬНЫЕ И ЦЕНТРАЛЬНЫЕ ТЕПЛОВЫЕ ПУНКТЫ (ИТП и ЦТП)</h1>                   
+                    <h1 style="font-size: 60px; max-width: 900px;" class="has-text-white has-text-weight-normal title titlefor">ИНДИВИДУАЛЬНЫЕ И ЦЕНТРАЛЬНЫЕ ТЕПЛОВЫЕ ПУНКТЫ (ИТП и ЦТП)</h1>
                 </div>
             </div>
             <div class="columns hero__text">

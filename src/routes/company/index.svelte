@@ -7,15 +7,26 @@
     import LazyImage from "svelte-lazy-image";
     import Icon from "fa-svelte";
     import { faFile } from "@fortawesome/free-regular-svg-icons";
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = "О компании";
+
+    const meta = {
+        title: "«Энергия Плюс». Инжиниринговая компания полного цикла. Проектирование газопроводов. Строительство котельных.",
+        description: "Инжиниринговая компания «Энергия Плюс». Комплексный инжиниринг для промышленных объектов. Газификация. Промышленная газовая котельная. Природный газ и дизельное топливо. Поставка оборудования",
+        h1: "«Энергия Плюс». Газификация производства. ТТР и ТУ «Мосгаз», «Мособлгаз», «Газпром». Проект котельной. Строительство энергоцентра. УУГ, ИТП, ЦТП. Производство и поставка. Котельная контейнерного типа. Поставка котельного оборудования"
+    }
+
+
 </script>
 
-<SvelteSeo {title} />
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <section class="section">
     <div class="container">
-        <h1 class="title">{title}</h1>
+        <h2 class="title">{title}</h2>
         <div class="columns">
             <div class="column is-8">
                 <!--            <ul class="columns">

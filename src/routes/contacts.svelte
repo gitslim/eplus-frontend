@@ -11,9 +11,17 @@
     import YandexMap2 from '$lib/counters/YandexMap2.svelte'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import Modal from '$lib/components/Modal.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'Контакты'
     let showContactForm = false
+
+    const meta = {
+        title: "Энергия Плюс. Контакты. Телефон. Электронная почта. Телеграм канал.",
+        description: "Инжиниринговая компания Энергия Плюс. Контакты. Адрес. 111123, Москва, 1-я Владимирская, д.10А, стр. 1, +7 (495) 790-76-97, +7 (495) 961-26-97, info@energy-plus.biz",
+        h1: "Контактные данные ООО Энергия Плюс. Социальные сети компании. Номер телефона. Имейл адрес. Телеграм канал и Дзен. Подписывайтесь на наши соцсети"
+    }
+
 
     function handleContactFormCancel(event) {
         showContactForm = false
@@ -21,7 +29,10 @@
     }
 </script>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <!--<Modal onClose={() => (showContactForm = false)} open={showContactForm}>-->
 <!--    <div class="box">-->
@@ -78,7 +89,7 @@
 <main class="container pt-4">
     <section class="section">
         <div class="box">
-            <h1 class="title titlefor pt-3">{title}</h1>
+            <h2 class="title titlefor pt-3">{title}</h2>
             <div class="columns">
                 <div class="column hiden-block">
                     <YandexMap></YandexMap>

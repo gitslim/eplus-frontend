@@ -4,20 +4,28 @@
 
 <script>
     import CallbackForm from '$lib/components/CallbackForm.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let y = 0
-    export let title = 'Услуги'
+
+    const meta = {
+        title: 'Услуги. Проектирование. Строительство. Производство и поставка БМК.',
+        description: 'Инжиниринга полного цикла. Промышленные газопроводы. Производство и поставка блочно-модульных котельных. Строительство стационарных котельных. Природный газ и дизельное топливо. ',
+        h1: 'Услуги по энергоснабжению промышленного объекта. Газификация производства. Энергоаудит. Проектирование и строительство. '
+    }
 </script>
 
 <style lang="scss">
 
 </style>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+
 
 <section class="section py-4">
     <div class="container">
-        <h1 class="title">{title}</h1>
+        <h1 class="title">{meta.h1}</h1>
 
         <h2 class="title has-text-centered">
             <a class="has-text-grey" href="/page/proektirovanie">Проектирование

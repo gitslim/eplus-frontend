@@ -11,17 +11,28 @@
 
 <script>
     import NewsIndexItem from '$lib/components/NewsIndexItem.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     export let data
 
     let title = 'Новости'
+
+    const meta = {
+        title: "Новости энергетики, природного газа. Изменения в стандартах, СНиП, ГОСТ по проектированию и строительству. Полезные материалы для инженеров, энергетиков и директоров предприятий",
+        description: "Новостные материалы. Газификация. Промышленные котельные и энергоцентры. Электросетевой комплекс.",
+        h1: "Новости энергетики России и мира. Новости нефтегазовой отрасли. Изменения в законодательстве и нормативных документах. Читать новости о природном газе, СПГ, ESG и политике"
+    }
+
 </script>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <section class="section">
     <div class="container .is-widescreen">
-        <h1 class="title">{title}</h1>
+        <h2 class="title">{title}</h2>
 
         <div class="columns is-desktop">
             <div class="column is-8">

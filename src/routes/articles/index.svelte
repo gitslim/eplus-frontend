@@ -11,17 +11,28 @@
 
 <script>
     import ArticleIndexItem from '$lib/components/ArticleIndexItem.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     export let data
     let title = 'Статьи'
+
+    const meta = {
+        title: "Статьи. Природный газ. Энергетика.",
+        description: "Материалы по теплоснабжению, газификации промышленных объектов. Комментарии экспертов.",
+        h1: "Полезные статьи для инженеров, энергетиков, инвесторов. Газификация промышленного объекта. Энергоснабжение и повышение энергоэффективности"
+    }
+
 </script>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <main class="container pt-4">
     <section class="section">
         <div class="box">
-            <h1 class="title">{title}</h1>
+            <h2 class="title">{title}</h2>
         </div>
 
         <div class="columns is-desktop">

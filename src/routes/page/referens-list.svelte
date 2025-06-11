@@ -8,7 +8,16 @@
 
 <script>
 
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import SvelteSeo from "svelte-seo"
+
     let title = 'Референс-лист'
+
+    const meta = {
+        title: "Проекты, реализованные «Энергией Плюс». Проект котельной. Проект газопровода.",
+        description: "Список объектов «Энергии Плюс». Выполненные работы. Проектно-сметная документация. Строительство, проектирование. техническое перевооружение котельной. Блочно-модульные котельные. Природный газ, дизель, комбинированное топливо",
+        h1: "Референс-лист. Газовая промышленная котельная. Индивидуальный и центральный тепловой пункт. Газопроводы. Экспертиза ПСД. Сметы на выполнение работ. БМК для промышленного объекта. Теплотехнический расчет и получение ТУ"
+    }
 
 </script>
 
@@ -49,12 +58,16 @@
 
 </style>
 
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 <section class="section">
     <div class="container">
         <div class="columns">
             <div class="column is-8">
                 <div class="box">
-                    <h1 class="title">Референс-лист</h1>
+                    <h2 class="title">Референс-лист</h2>
                     <div class="content"><!-- HTML_TAG_START -->
                         <h2 id="линейные-объекты-2014-2024г">Линейные объекты (2014-2025г.)</h2>
                         <table class="table is-bordered is-striped">
