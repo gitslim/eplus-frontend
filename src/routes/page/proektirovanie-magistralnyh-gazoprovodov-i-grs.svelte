@@ -11,8 +11,13 @@
     import ContactForm from '$lib/components/ContactForm.svelte'
     import Icon from 'fa-svelte'
     import {faPhone} from '@fortawesome/free-solid-svg-icons'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
- let title = 'Проектирование магистральных газопроводов и ГРС'
+    const meta = {
+        title: "Проектирование магистральных газопроводов и газораспределительных станций от компании с СРО",
+        description: "Разработка проектной документации для линейных объектов. Газопроводы различного давления. Сопровождение в экспертизе. Сметная документация",
+        h1: "Проектирование магистральных газопроводов и ГРС. Проведение изысканий. Подготовка смет. Проектная и рабочая документация. Газораспределительные станции."
+    }
 
     onMount(async () => {
 
@@ -364,7 +369,9 @@
 </style>
 
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main>
     
@@ -372,7 +379,7 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">Проектирование магистральных газопроводов и ГРС</h1>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Проектирование магистральных газопроводов и ГРС</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
                         <div slot="button">Заказать проект</div>
                     </ContactFormButton>

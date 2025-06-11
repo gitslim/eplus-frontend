@@ -5,17 +5,18 @@
 <script>
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     const meta = {
-        title: 'Калькуляторы расчета газопровода и котельной. Рассчитаем стоимость проектирования и строительства',
-        description: 'Стоимость проектирования и строительства промышленной газовой котельной и газопровода. Собственный штат инженеров. Аккредитации и СРО.',
-        h1: 'Расчет стоимости газовой котельной и трубопровода для промышленного объекта.'
+        title: "Рассчитать стоимость котельной. Рассчитать стоимость газопровода",
+        description: "Выполнить расчет стоимости газопровода любого давления. Выполнить расчет стоимости промышленной котельной онлайн. Консультация и расчет",
+        h1: "Расчет стоимости газовой, дизельной промышленной котельной онлайн. Расчет стоимости газопровода онлайн. Стоимость газопровода. Стоимость котельной. Москва"
     }
 </script>
 
 <SvelteSeo title="{meta.title}" description="{meta.description}"/>
 
-<h1 style="position: absolute; clip-path: inset(100%); width: 1px; height: 1px; overflow: hidden;">{meta.h1}</h1>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <style lang="scss">
   .content-block {

@@ -8,6 +8,14 @@
     import InfoBlock from '$lib/components/InfoBlock.svelte'
     import TitleLanding from '$lib/components/TitleLanding.svelte'
     import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
+
+    const meta = {
+        title: "Внутриплощадочные и внутренние газопроводы. Проектирование газопровода. Рассчитать стоимость",
+        description: "Проектирование газопровода. Инженерные изыскания. Сметная документация. Распределительные газопроводы. Сотрудничаем с «Мозгаз», «Мособлгаз», «Газпром». Согласование",
+        h1: "Внутриплощадочные и внутренние газопроводы для промышленного объекта. Сметная документация. Экспертиза и согласования. Получение Технических условий на подключение. Проектирование газопровода"
+    }
+
 
     let title = 'Внутриплощадочные и внутренние газопроводы'
 
@@ -208,7 +216,9 @@
   }
 </style>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main class="main container-fluid">
     <section class="section caption">

@@ -17,8 +17,8 @@
         </figure>
     </div>
     <div class="column is-6 is-offset-1">
-        <h1 class="title is-2">Инжиниринг полного цикла</h1>
-        <h2 class="subtitle is-4">Наши преимущества</h2>
+        <h2 class="title is-2">Инжиниринг полного цикла</h2>
+        <h3 class="subtitle is-4">Наши преимущества</h3>
 
         <ul>
             <li>

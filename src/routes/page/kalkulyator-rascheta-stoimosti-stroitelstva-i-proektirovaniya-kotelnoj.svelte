@@ -4,15 +4,16 @@
 
 <script>
     import CalcKotel from '$lib/components/calc/CalcKotel.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     const title = 'Калькулятор расчета стоимости строительства и проектирования котельной'
     const titlePart1 = 'Калькулятор расчета стоимости'
     const titlePart2 = 'Проектирования и строительства котельной'
 
     const meta = {
-        title: 'Калькулятор стоимости котельной «Энергии Плюс» — получите расчет стоимости онлайн',
-        description: 'Промышленная котельная для производства. Получите расчет стоимости котельной от профессионалов. Более 20 лет на рынке.',
-        h1: "Проект и монтаж котельной. Получить точный расчет затрат на реализацию инвестиционного проекта. "
+        title: "Калькулятор стоимости котельной «Энергии Плюс» — получите расчет стоимости онлайн",
+        description: "Промышленная котельная для производства. Получите расчет стоимости котельной от профессионалов. Более 20 лет на рынке.",
+        h1: "Проект и монтаж котельной. Получить точный расчет затрат на реализацию инвестиционного проекта."
     }
 </script>
 
@@ -43,7 +44,7 @@
 <SvelteSeo title="{meta.title}" description="{meta.description}"/>
 
 <main class="main-content calc">
-    <h1 style="position: absolute; clip-path: inset(100%); width: 1px; height: 1px; overflow: hidden;">{meta.h1}</h1>
+    <HiddenH1>{meta.h1}</HiddenH1>
     <div class="container is-widescreen">
         <div class="columns">
             <div class="widget column">

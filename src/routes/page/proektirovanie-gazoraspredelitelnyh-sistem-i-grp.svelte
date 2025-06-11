@@ -12,12 +12,16 @@
     import TitleLanding from '$lib/components/TitleLanding.svelte';
     import LazyImage from 'svelte-lazy-image';
     import {Lightbox} from 'svelte-lightbox';
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'ПРОЕКТИРОВАНИЕ ГАЗОПРОВОДОВ И ГРП'
 
-    const headerCaption = {
-        caption: title,
+    const meta = {
+        title: "Проектирование газопроводов и ГРП",
+        description: "Разработка проектной документации для распределительных газопроводов и газорегуляторных пунктов. Изыскания, технико-экономическое обоснование, расчет сметы",
+        h1: "Газорегуляторный пункт для промышленного абонента. Газораспределительные сети. Проектирование, получение согласований, экспертиза документации. Расчет стоимости"
     }
+
 </script>
 
 
@@ -391,13 +395,15 @@
 </style>
 
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main>
 
     <section class="section hero caption">
         <div class="column hero-body">
-            <HeaderLanding {...headerCaption}>
+            <HeaderLanding caption="{title}">
                 <div class="columns">
                     <div class="column is-half">
                         <BtnZayavka btnText="Заказать" radius/>

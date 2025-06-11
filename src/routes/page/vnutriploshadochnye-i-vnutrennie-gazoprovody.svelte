@@ -16,8 +16,15 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import LazyImage from 'svelte-lazy-image'
     import {Lightbox} from 'svelte-lightbox'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
  let title = 'Газоснабжение'
+
+    const meta = {
+        title: "Проектирование внутриплощадочного и внутреннего газопровода",
+        description: "Разработка проектной и рабочей документации для внутриплощадочного газопровода. Узел учета газа. Пункт редуцирования газа. Гарантия качества",
+        h1: "Газоснабжение промышленного объекта. Расчет стоимости проекта газопровода. УУГ и ПРГ. Экспертиза от профессионалов."
+    }
 
     onMount(async () => {
 
@@ -605,7 +612,9 @@
 </style>
 
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main>
     
@@ -613,9 +622,9 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7 udal ">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">
+                    <h2 style="font-size: 60px" class="has-text-white has-text-weight-medium title titlefor">
                         Газоснабжение
-                    </h1>
+                    </h2>
                     <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">
                         ПРОМЫШЛЕННЫХ и ГРАЖДАНСКИХ ОБЪЕКТОВ
                     </h2>
