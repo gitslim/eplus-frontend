@@ -13,8 +13,16 @@
     import { browser } from '$app/env';
     import Icon from 'fa-svelte'
     import {faDownload} from '@fortawesome/free-solid-svg-icons'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'Теплотехнический расчёт'
+
+    const meta = {
+        title: "Теплотехнический расчёт. МЧРГ. ТТР. Расчет потребности в тепле и топливе",
+        description: "Расчет потребности в тепле и топливе. Выполнение МЧРГ для получения ТУ в «Мосгаз», «Мособлгаз». Выписка из СРО. Стоимость онлайн",
+        h1: "ТТР для промышленного объекта. Расчет потребности в тепле и топливе для получения технических условий на присоединение к газовым сетям. Допуски СРО."
+    }
+
 
     //белый цвет текста
     let white = true
@@ -537,14 +545,17 @@
 
 </style>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <main>
     <section class="hero is-medium hero1">
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h1>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h2>
                     <div>
                       <h2 class="subtitle">Максимальный часовой расход газа-МЧРГ (м<sup>3</sup>/ч)</h2>
                       <h3 class="subtitle">Для получения ТУ ПАО «Газпром», АО «Мосгаз», АО «Мособлгаз»</h3>

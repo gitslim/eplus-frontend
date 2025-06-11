@@ -20,6 +20,7 @@
     import {faPhone} from '@fortawesome/free-solid-svg-icons'
     import Link from '$lib/components/Link.svelte'
     import TestimonialsGallery from '$lib/components/TestimonialsGallery.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     export let data
 
@@ -32,11 +33,11 @@
         return ia - ib
     }).slice(0, 3)
 
-    const {siteTitle} = website
+    const {siteTitle, siteDescription, siteH1} = website
 </script>
 
-<SvelteSeo title="{siteTitle}"/>
-
+<SvelteSeo title="{siteTitle}" description="{siteDescription}"/>
+<HiddenH1>{siteH1}</HiddenH1>
 <MobileHero>
     <div class="video-head container has-text-centered py-4" slot="head">
         <p class="subtitle has-text-white">

@@ -18,17 +18,28 @@
         faTwitter,
         faFacebook,
     } from '@fortawesome/free-brands-svg-icons'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     export let data
     let title = 'Нормативные документы'
+
+    const meta = {
+        title: "Нормативные документы. Газораспределение. Энергетика. Строительство",
+        description: "Нормативно-правовые документы. Регламенты по проектированию, строительству и эксплуатации. Опасные производственные объекты. ГОСТ, СНиП, регламенты для инженеров",
+        h1: "Нормативная база для строительства и проектирования. Газовая котельная. Дизельная котельная. Газопровод. БМК. Документы для инженеров и проектировщиков. Природный газ и дизельное топливо"
+    }
+
 </script>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <main class="container pt-4">
     <section class="section">
         <div class="box">
-            <h1 class="title">{title}</h1>
+            <h2 class="title">{title}</h2>
         </div>
 
         <div class="columns">

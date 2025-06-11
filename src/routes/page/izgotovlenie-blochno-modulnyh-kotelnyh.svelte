@@ -15,8 +15,16 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Icon from 'fa-svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'Изготовление блочно-модульных котельных'
+
+    const meta = {
+        title: "Изготовление блочно-модульных котельных. Газовая БМК. Дизельная БМК. Поставка блочно-модульной котельной",
+        description: "Собственное производство блочно-модульных котельных в Москве. Поставка и монтаж БМК в Москве. Котельные малой и средней мощности. От 0,5 МВт до 10 МВт",
+        h1: "Изготовление блочно-модульных котельных различной мощности. Проектирование подводящего газопровода. Поставка, монтаж БМК. Экспертиза и смета. Гарантия качества"
+    }
+
 
     const headerCaption = {
         caption: title,
@@ -460,7 +468,8 @@
   }
 </style>
 
-<SvelteSeo {title}/>
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main>
     <section class="section hero caption">

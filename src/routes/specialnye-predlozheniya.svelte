@@ -5,13 +5,15 @@
 <script>
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'Специальные предложения'
     const meta = {
-        title: 'Спецпредложения «Энергии Плюс». Закажите котельную с газопроводом.',
-        description: 'Техническое перевооружение котельной, проект внутриплощадочного газопровода, контейнерная котельная от производителя. Закажите сейчас и получите скидку.',
-        h1: "Котельная для промышленного объекта. Комплексная услуга для Вашего бизнеса."
+        title: "Специальные предложения. Техническое перевооружение котельной. Внутриплощадочные газопроводы. БМК",
+        description: "Особые условия. Поставка блочно-модульной котельной. Проектирование внутриплощадочного и внутреннего газопровода. Техническое перевооружение котельной. Смета и экспертиза",
+        h1: "Проектирование и строительство газопроводов. Техническое перевооружение котельной. Реестр ОПО. Подбор оборудования. Составление сметы. Поставка БМК"
     }
+
 </script>
 
 <style lang="scss">
@@ -61,7 +63,7 @@
 
 <SvelteSeo title="{meta.title}" description="{meta.description}"/>
 <main class="container">
-    <h1 style="position: absolute; clip-path: inset(100%); width: 1px; height: 1px; overflow: hidden;">{meta.h1}</h1>
+    <HiddenH1>{meta.h1}</HiddenH1>
     <div class="content__wrap">
         <div class="content-block is-max-desctop">
             <section>

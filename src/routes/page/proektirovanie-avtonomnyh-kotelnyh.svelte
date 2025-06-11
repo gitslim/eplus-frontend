@@ -14,9 +14,13 @@
             faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Carousel from '$lib/components/Carousel.svelte'
     import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
-
-        let carousel;
+    const meta = {
+        title: "Проектирование промышленных газовых котельных. Разработка проектной и рабочей документации. Экспертиза",
+        description: "Подготовка проектной документации. Газовые и дизельные котельные. Полный цикл. Расчет стоимости проекта",
+        h1: "Проектирование водогрейных и паровых котельных. Подготовка сметной документации. Консультация. Расчет стоимости котельной"
+    }
 
 
     let title = 'Проектирование автономных котельных'
@@ -431,15 +435,16 @@
 
 </style>
 
-<SvelteSeo {title}/>
 
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main>
     <section class="hero is-medium hero1">
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-normal title titlefor">Проектирование водогрейных и паровых котельных</h1>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-normal title titlefor">Проектирование водогрейных и паровых котельных</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
                         <div slot="button">Заказать проект</div>
                     </ContactFormButton>
