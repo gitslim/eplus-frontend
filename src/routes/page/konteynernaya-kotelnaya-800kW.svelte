@@ -14,9 +14,16 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import LazyImage from 'svelte-lazy-image'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'Контейнерная котельная 800 кВт'
     let lead
+
+    const meta = {
+        title: "Контейнерная котельная 800 кВт. Промышленная блочно-модульная котельная. Газ и дизельное топливо",
+        description: "В НАЛИЧИИ. Комбинированный вид топлива: газ / дизель. Комплект проектной документации. Срок поставки по РФ: до 7 дней. Автоматизированная блочно-модульная котельная, полной заводской готовности.",
+        h1: "Контейнерная котельная 800 кВт. Заводская сборка. Расчет стоимости котельной. Комбинированное топливо. Блочно-модульная котельная для промышленного объекта"
+    }
 
     // Логика табов
     let numa = 1
@@ -42,12 +49,12 @@
 
 <svelte:head>
     <meta name="description"
-          content="В НАЛИЧИИ. Комбинированный вид топлива: газ / дизель. Комплект проектной документации. Срок поставки по РФ: до 7 дней. Автоматизированная блочно-модульная котельная, полной заводской готовности.">
+          content="{meta.description}">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:type" content="article">
-    <meta property="og:title" content={title}>
+    <meta property="og:title" content={meta.title}>
     <meta property="og:description"
-          content="В НАЛИЧИИ. Комбинированный вид топлива: газ / дизель. Комплект проектной документации. Срок поставки по РФ: до 7 дней. Автоматизированная блочно-модульная котельная, полной заводской готовности.">
+          content="{meta.description}">
     <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/page/konteynernaya-kotelnaya-800kW">
     <meta property="og:site_name" content="ООО Энергия Плюс">
     <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
@@ -629,14 +636,17 @@
   }
 </style>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <main>
     <section class="hero hero1">
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10">
-                    <h1 class="has-text-white has-text-weight-normal title titlefor">Контейнерная котельная 800 кВт</h1>
+                    <h2 style="font-size: 60px;max-width: 900px;" class="has-text-white has-text-weight-normal title titlefor">Контейнерная котельная 800 кВт</h2>
                 </div>
             </div>
             <div class="columns hero__text">

@@ -14,6 +14,7 @@
     import Icon from 'fa-svelte'
     import {faBook} from '@fortawesome/free-solid-svg-icons'
     import Link from '$lib/components/Link.svelte'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'Часто задаваемые вопросы'
 
@@ -42,17 +43,18 @@
     })
 
     const meta = {
-        title: 'Ответы на часто задаваемые вопросы. Проектирование газопровода. Проект и монтаж котельной. Узнайте больше о БМК',
-        description: 'Полезные материалы. Узнайте полезную информацию о котельных, БМК и газопроводах. Статьи от ведущих инженеров отрасли',
-        h1: 'FAQ для инженеров, энергетиков и предпринимателей. Ознакомьтесь с полезными материалами перед тем, как купить БМК.Узнайте больше о проектировании и строительстве газопроводов, котельных'
+        title: "Часто задаваемые вопросы. Котельные, газопроводы. Природный газ. Дизельное топливо. Нормативные акты",
+        description: "Ответы на вопросы по проектированию и строительству газопроводов и газовых котельных.",
+        h1: "Природный газ. Газопроводы. Проектная и рабочая документация. Нормативно-правовая база. СНиП и ГОСТ для проектирования ОПО и газопроводов"
     }
+
 </script>
 
 <style lang="scss">
 </style>
 
 <SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<h1 style="position: absolute; clip-path: inset(100%); width: 1px; height: 1px; overflow: hidden;">{meta.h1}</h1>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 
 <main class="p-4">

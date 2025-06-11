@@ -10,8 +10,16 @@
     import InfoBlock from '$lib/components/InfoBlock.svelte'
     import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
     import LazyImage from "svelte-lazy-image"
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'Техническое переворужение котельной'
+
+    const meta = {
+        title: "Техническое перевооружение котельной. Газовая или дизельная котельная. Допуски СРО. Консультация",
+        description: "Изыскания, проектные работы. Экспертиза. Монтаж котельной. Пуско-наладочные работы и сдача в эксплуатацию. Техническое перевооружение газовой котельной",
+        h1: "Техническое перевооружение котельной. Природный газ или дизельное топливо. Согласования. Составление сметы. Экспертиза. Подбор и поставка оборудования. Расчет стоимости котельной"
+    }
+
 
     const headerCaption = {
         caption: title,
@@ -216,7 +224,9 @@
   }
 </style>
 
-<SvelteSeo {title}/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
 
 <main class="main">
     <section class="section caption">

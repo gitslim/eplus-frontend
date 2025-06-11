@@ -4,17 +4,25 @@
 
 <script>
     import LazyImage from 'svelte-lazy-image'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
     let title = 'История компании'
+    const meta = {
+        title: "История компании. Энергия Плюс. Инжиниринг полного цикла",
+        description: "Энергия Плюс — проектная компания. Разработка проектов. Монтаж. Газопровод. Газовая промышленная котельная. Производство и поставка блочно-модульных котельных",
+        h1: "Инжиниринг полного цикла. EPC-контракт. Проектирование и монтаж котельной. Москва и МО. Собственное производство котельного оборудования. БМК. Дизельное топливо и природный газ. Расчет стоимости проекта"
+    }
+
 </script>
 
-<SvelteSeo
-        title="{title}"
-/>
+
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <section class="section">
     <div class="container">
-        <h1 class="title">{title}</h1>
+        <h2 class="title">{title}</h2>
         <div class="columns">
             <div class="column is-8">
                 <div class="block">

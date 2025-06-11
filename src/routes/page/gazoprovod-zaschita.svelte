@@ -14,8 +14,16 @@
             faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
+    import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
  let title = 'Устройство защитных мероприятий'
+
+    const meta = {
+        title: "Устройство защитных мероприятий. Газопроводы. Проектная документация. Согласования и экспертиза",
+        description: "Разработка проектной документации. Защитные мероприятия для газопроводов. Согласование ПД. Допуски СРО. Аттестация ПАО «ГАЗПРОМ»",
+        h1: "Разработка проекта. Устройство защитных мероприятий на действующих магистральных газопроводах. Сотрудничаем с ПАО «Газпром». Аккредитация и допуски СРО на проектные работы. Расчет стоимости"
+    }
+
 
     onMount(async () => {
 
@@ -267,7 +275,9 @@
 </style>
 
 
-<SvelteSeo {title}/>
+<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<HiddenH1>{meta.h1}</HiddenH1>
+
 
 <main>
 
@@ -275,7 +285,7 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h1 class="has-text-white has-text-weight-medium title titlefor">Устройство защитных мероприятий на действующих магистральных газопроводах</h1>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Устройство защитных мероприятий на действующих магистральных газопроводах</h2>
                     <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">(установка защитных футляров (кожухов))</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
                         <div slot="button">Заказать проект</div>

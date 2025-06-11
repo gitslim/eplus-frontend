@@ -60,7 +60,7 @@
 </style>
 
 <div class="container">
-    <h1 class={order ? 'order__title' : 'container__title'}>{caption}</h1>
+    <h2 class={order ? 'order__title' : 'container__title'}>{caption}</h2>
     {#if subtitle}
         <p class="container__text">{subtitle}</p>
     {/if}
