@@ -663,7 +663,7 @@
             <div class="columns is-vcentered pt-5">
                 <div class="column is-4 hiden1">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="Промышленные" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="ГРПШ" style="max-width:450px;"/>
                     </div>
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
@@ -680,14 +680,14 @@
                 </div>
                 <div class="column is-4 hiden2">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="Промышленные" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="ГРПШ" style="max-width:450px;"/>
                     </div>
                 </div>
             </div>
             <div class="columns is-vcentered pt-5">
                 <div class="column is-4">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок13.jpg" alt="Промышленные" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок13.jpg" alt="ГРП" style="max-width:450px;"/>
                     </div>
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
@@ -709,7 +709,7 @@
             <div class="columns is-vcentered py-5">
                 <div class="column is-4 hiden1">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt="Промышленные" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt="Проектирование" style="max-width:450px;"/>
                     </div>
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
@@ -727,7 +727,7 @@
                 </div>
                 <div class="column is-4 hiden2">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt="Промышленные" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt="Проектирование" style="max-width:450px;"/>
                     </div>
                 </div>
             </div>  
@@ -757,7 +757,7 @@
                     <div class="tile is-parent">
                             <div class="tile is-child is-vertical box">
                                 <figure class="image">
-                                    <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок3.jpg" alt="Энергетические"/>
+                                    <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок3.jpg" alt="Газоснабжение ЖК"/>
                                         <div style="position:relative">
                                             <div class="line-image">
                                                 <p class="has-text-weight-medium">ГРАЖДАНСКИЕ </p>
@@ -804,7 +804,7 @@
                     <div class="tile is-parent">
                         <div class="tile is-child is-vertical box">
                             <figure class="image">
-                                <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок4.jpg"  alt="Промышленные"/>
+                                <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок4.jpg"  alt="Газопровод картинка"/>
                                     <div style="position:relative">
                                         <div class="line-image">
                                             <p class="has-text-weight-medium">ПРОМЫШЛЕННЫЕ </p>
@@ -851,7 +851,7 @@
                     <div class="tile is-parent">
                         <div class="tile is-child is-vertical box">
                             <figure class="image">
-                                <img class="hero2__img"  src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок5.jpg"  alt="Сельскохозяйственные"/>
+                                <img class="hero2__img"  src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок5.jpg"  alt="Сельское хозяйство"/>
                                     <div style="position:relative">
                                         <div class="line-image">
                                             <p class="has-text-weight-medium">СЕЛЬСКОХОЗЯЙСТВЕННЫЕ </p>
@@ -1059,7 +1059,7 @@
             <div class="columns is-vcentered">
                 <div class="column py-0">
                     <div class="image-box" style="height: 350px;">
-                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок11.jpg" alt="Промышленные" style="max-width: 700px;"/>
+                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок11.jpg" alt="Вентиль газопровод" style="max-width: 700px;"/>
                     </div>
                 </div>
                 <div class="column">
@@ -1238,7 +1238,7 @@
                             <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/04.jpg'}
-                                    alt={'Проект 3'}/>
+                                    alt={'Газовая котельная'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 3</strong>
                 </span>
@@ -1310,7 +1310,7 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img src="/images/interGazoprovod/wp_gazoprovod2.jpg"/>
+                    <img alt="Манометр газопровод" src="/images/interGazoprovod/wp_gazoprovod2.jpg"/>
                 </div>
                 <div class="column zayvka">
                     <h4 class="title titlefor has-text-white">Отправить заявку</h4>

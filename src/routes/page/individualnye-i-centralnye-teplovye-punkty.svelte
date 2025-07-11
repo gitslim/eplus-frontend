@@ -956,7 +956,7 @@
                         </div>
                 </div>
                 <div class="column is-half">
-                    <img class="spisok1_img" alt="" src="/images/itc_ctp/teplovoy_punkt.png">
+                    <img class="spisok1_img" alt="ИТП" src="/images/itc_ctp/teplovoy_punkt.png">
                     
                 </div> 
         </div>        
@@ -1225,7 +1225,7 @@
     <section class="section5">
         <div class="container pt-3 text-center spisok1">
             <div class="content">
-                <img class="" alt="" src="/images/itc_ctp/difference.jpg">
+                <img class="" alt="ИТП блочно-модульный" src="/images/itc_ctp/difference.jpg">
                 <div class="button3 is-justify-content-center py-4">
                     <ContactFormButton class="">
                         <div slot="button">Заказать звонок</div>
@@ -1342,7 +1342,7 @@
                         </div>
                         <div class="column">
                             <div>
-                                <img class="blockGrafik__img" alt="график СМР" src="/images/smr/grafikSMR.svg">
+                                <img class="blockGrafik__img" alt="Реализация проекта" src="/images/smr/grafikSMR.svg">
                             </div>
                         </div>
                     </div>

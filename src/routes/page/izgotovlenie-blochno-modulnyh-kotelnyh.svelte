@@ -702,7 +702,7 @@
                     </p>
                 </div>
                 <div class="seo__img column is-6">
-                    <img alt="bmk-img" src="/images/bmk/bmk_image_003.png"/>
+                    <img alt="Картинка котельная" src="/images/bmk/bmk_image_003.png"/>
                 </div>
             </div>
         </div>
@@ -927,7 +927,7 @@
                     <div class="column is-7 py-6">
                         <figure class="image advice__img">
                             <img
-                                    alt="modulnaya-kotelnaya"
+                                    alt="Блочно-модульная котельная"
                                     src="/images/bmk/kotelnay2.png"/>
                             <!-- src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/> -->
                         </figure>

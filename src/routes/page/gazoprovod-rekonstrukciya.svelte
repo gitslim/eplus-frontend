@@ -714,7 +714,7 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img  src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
+                    <img alt="Газопровод станция" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
                 </div>
                 <div class="column zayvka">
                     <h4 class="title titlefor has-text-white">Отправить заявку</h4>

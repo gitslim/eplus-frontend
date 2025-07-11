@@ -468,7 +468,7 @@
         <div class="hero-body">
             <div class="columns is-vcentered">
                 <div class="column is-6">
-                    <img alt="" src="/images/kotel/u-bmk-image_01.png">
+                    <img alt="Котельная рисунок" src="/images/kotel/u-bmk-image_01.png">
                 </div>
                 <div class="column is-6">
                     <h1 class="title has-text-weight-normal titlefor">Проектирование промышленных газовых котельных</h1>
@@ -544,7 +544,7 @@
                         </div>
                     </div>
                     <div class="column ">
-                        <img alt="" src="/images/kotel/bmk_image_003.png">
+                        <img alt="Картинка котельная" src="/images/kotel/bmk_image_003.png">
                     </div>
                 </div>
             </div>
@@ -704,7 +704,7 @@
             <div class="columns is-align-items-stretch">
                 <div class="column is-6">
                     <div class="box">
-                        <img alt="" src="/images/kotel/projects/01.jpg">
+                        <img alt="Котельная изнутри" src="/images/kotel/projects/01.jpg">
                     </div>
                 </div>
                 <div class="column is-6 is-flex">
@@ -744,7 +744,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/02.jpg'}
-                                    alt={'Проект 2'}/>
+                                    alt={'Газовый котел Висман'}/>
                             <span class="item-content-2">
                                 <strong class="item-title">Проект 2</strong>
                             </span>
@@ -757,7 +757,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/03.jpg'}
-                                    alt={'Проект 3'}/>
+                                    alt={'Газовый котел 1 МВт'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 3</strong>
                 </span>
@@ -770,7 +770,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/04.jpg'}
-                                    alt={'Проект 4'}/>
+                                    alt={'Газовая котельная'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 4</strong>
                 </span>
@@ -783,7 +783,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/kotel/projects/05.jpg'}
-                                    alt={'Проект 5'}/>
+                                    alt={'Котельная для загородного дома'}/>
                 <span class="item-content-2">
 					<strong class="item-title">Проект 5</strong>
                 </span>
