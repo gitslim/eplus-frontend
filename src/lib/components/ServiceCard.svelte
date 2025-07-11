@@ -2,7 +2,7 @@
     import Link from './Link.svelte'
     import LazyImage from 'svelte-lazy-image'
 
-    export let title, image, path, slug
+    export let title, image, path, slug, alt
 </script>
 
 <div class="card  has-text-centered">
@@ -14,7 +14,7 @@
         <div class="card-image">
             <figure class="image is-16by9">
                 <LazyImage
-                        alt="{title}"
+                        alt="{alt ?? title}"
                         placeholder="/white-200.png"
                         src="{image}"
                 />

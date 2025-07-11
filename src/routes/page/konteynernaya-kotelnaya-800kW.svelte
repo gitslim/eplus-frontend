@@ -700,13 +700,13 @@
                     <div class="description-item">
                         <div class="description-item__left-side">
                             <div class="description-item__image-container">
-                                <img class="" alt="" src="/images/kotel/800kw/photo_2025-02-12_21-29-54.jpg">
+                                <img class="" alt="БМК изнутри" src="/images/kotel/800kw/photo_2025-02-12_21-29-54.jpg">
                             </div>
                             <div class="description-item__image-container">
-                                <img class="" alt="" src="/images/kotel/800kw/photo_2025-02-10_20-27-43%20(2).jpg">
+                                <img class="" alt="БМК внутри" src="/images/kotel/800kw/photo_2025-02-10_20-27-43%20(2).jpg">
                             </div>
                             <div class="description-item__image-container">
-                                <img class="" alt="" src="/images/kotel/800kw/photo_2025-02-10_20-27-43.jpg">
+                                <img class="" alt="БМК газовая" src="/images/kotel/800kw/photo_2025-02-10_20-27-43.jpg">
                             </div>
                         </div>
                         <div class="description-item__center-side">

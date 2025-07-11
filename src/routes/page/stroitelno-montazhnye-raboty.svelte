@@ -670,7 +670,7 @@
                         </ul>
                     </div>
                     <div class="column is-half">
-                        <img class="spisok1_img" alt="" src="/images/pages/stroitelno-montazhnye-raboty/Рисунок9.jpg">
+                        <img class="Строительство газопровода" alt="" src="/images/pages/stroitelno-montazhnye-raboty/Рисунок9.jpg">
                     </div>                   
                 </div>
             </div>                
@@ -694,7 +694,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/smr/projects/03.jpg'}
-                                    alt={'Проект 1'}/>                          
+                                    alt={'Поставка газового котла'}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -705,7 +705,7 @@
                             <LazyImage
                                     style="aspect-ratio: 316/209; object-fit: cover"
                                     src="/images/pages/stroitelno-montazhnye-raboty/Рисунок8.jpg"
-                                    alt={'Проект 2'}/>
+                                    alt={'Горелка газовая'}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -715,7 +715,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/smr/projects/05.jpg'}
-                                    alt={'Проект 3'}/>
+                                    alt={'Трубы в котельной'}/>
                         </figure>
                     </Lightbox>
                 </div>
