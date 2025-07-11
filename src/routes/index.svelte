@@ -82,12 +82,14 @@
                 <ServiceCard
                         image="/images/Магистральные газопроводы.jpg"
                         path="page"
+                        alt="Магистральный трубопровод"
                         slug="proektirovanie-magistralnyh-gazoprovodov-i-grs"
                         title="Магистральные газопроводы"/>
             </div>
             <div class="column">
                 <ServiceCard
                         image="/images/Газораспределительные системы.jpg"
+                        alt="Газораспределительные системы"
                         path="page"
                         slug="proektirovanie-gazoraspredelitelnyh-sistem-i-grp"
                         title="Газораспределительные системы"/>
@@ -96,6 +98,7 @@
                 <ServiceCard
                         image="/images/Теплоэнергетика.jpg"
                         path="page"
+                        alt="Трубопровод"
                         slug="proektirovanie-avtonomnyh-kotelnyh"
                         title="Теплоэнергетика"/>
             </div>
