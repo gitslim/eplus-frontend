@@ -417,7 +417,7 @@
         <div class="container content">
             <div class="columns">
                 <div class="column is-7">
-                    <img alt="" src="/images/gazoprovodi/gazoprovod_grp2.jpg">
+                    <img alt="Проект газопровода" src="/images/gazoprovodi/gazoprovod_grp2.jpg">
                 </div>
                 <div class="column is-5 text-22">
                     <p>Проектный отдел ООО «Энергия Плюс», уже более двух десятилетий успешно выполняет
@@ -483,7 +483,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/map/object-map2.jpg'}
-                                                        alt={'Проект 2'}/>
+                                                        alt={'Трасса газопровода'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -494,7 +494,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/gazoprovodi/gazoprovod_grp3.jpg'}
-                                                        alt={'Проект 3'}/>
+                                                        alt={'Схема ГРП'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -505,7 +505,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/map/object-map5.jpg'}
-                                                        alt={'Проект 2'}/>
+                                                        alt={'Магистральный газопровод на схеме'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -517,7 +517,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/map/object-map3.jpg'}
-                                                        alt={'Проект 3'}/>
+                                                        alt={'Газопровод на схеме'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -675,7 +675,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-6 order-form__img-container">
-                    <img src="\images\gazoprovodi\gazoprovod-build.jpg"/>
+                    <img alt="Прокладка газопровода" src="\images\gazoprovodi\gazoprovod-build.jpg"/>
                 </div>
                 <div class="column">
                     <h4 class="title has-text-white">Отправить заявку</h4>
