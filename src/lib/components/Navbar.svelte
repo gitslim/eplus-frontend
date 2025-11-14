@@ -205,9 +205,9 @@
                             <Link
                                     cls="navbar-item"
                                     path="page"
-                                    slug="konteynernaya-kotelnaya-800kW"
-                                    title="Контейнерная котельная 800 кВт в наличии">
-                                Контейнерная котельная 800 кВт в наличии
+                                    slug="konteynernaya-kotelnaya-1MW"
+                                    title="Контейнерная котельная 1 МВт в наличии">
+                                Контейнерная котельная 1 МВт в наличии
                             </Link>
                         </div>
                     </div>
