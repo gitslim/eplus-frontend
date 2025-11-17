@@ -84,7 +84,7 @@
                                 и внутренние газопроводы</a>
                         </li>
                         <li>
-                          <a href="/page/konteynernaya-kotelnaya-1MW"> Контейнерная котельная 1 МВт в наличии </a>
+                          <a href="/page/konteynernaya-kotelnaya"> Контейнерная котельная 1 МВт в наличии </a>
                       </li>
                     </ul>
                 </div>

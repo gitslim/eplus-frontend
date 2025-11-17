@@ -16,13 +16,13 @@
     import LazyImage from 'svelte-lazy-image'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
-    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 1 МВт. Производство, доставка, подключение'
+    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ. Производство, доставка, подключение'
     let lead
 
     const meta = {
-        title: "Контейнерная котельная 1 МВт. Промышленная блочно-модульная котельная. Газ и дизельное топливо",
+        title: "Контейнерная котельная. Промышленная блочно-модульная котельная. Газ и дизельное топливо",
         description: "В НАЛИЧИИ. Вид топлива: газ / дизель / комбинированный. Комплект проектной документации. Срок поставки по РФ: до 7 дней. Автоматизированная блочно-модульная котельная, полной заводской готовности.",
-        h1: "Контейнерная котельная 1 МВт. Заводская сборка. Расчет стоимости котельной. Комбинированное топливо. Блочно-модульная котельная для промышленного объекта"
+        h1: "Контейнерная котельная. Заводская сборка. Расчет стоимости котельной. Комбинированное топливо. Блочно-модульная котельная для промышленного объекта"
     }
 
     // Логика табов
@@ -55,7 +55,7 @@
     <meta property="og:title" content={meta.title}>
     <meta property="og:description"
           content="{meta.description}">
-    <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/page/konteynernaya-kotelnaya-1MW">
+    <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/page/konteynernaya-kotelnaya">
     <meta property="og:site_name" content="ООО Энергия Плюс">
     <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
     <meta property="og:image:secure_url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
