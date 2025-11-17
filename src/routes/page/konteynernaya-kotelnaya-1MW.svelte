@@ -647,18 +647,16 @@
             <div class="columns">
                 <div class="column is-10">
                     <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 1 МВт</h2>
-                    <p style="font-size: 50px; " class="has-text-white">Производство, доставка, подключение</p>
+                    <p style="font-size: 50px; " class="has-text-white">производство, доставка, подключение</p>
 
                 </div>
             </div>
             <div class="columns hero__text">
-                <div class="column is-7">
-                    <h2 class="block has-text-white has-text-weight-medium has-text-left titleb">В НАЛИЧИИ
-                    </h2>
-                    <ul class="hero__spisok">
-                        <li>Вид топлива: газ / дизель / комбинированный</li>
-                        <li>Комплект проектной документации</li>
-                        <li>Срок поставки по РФ: до 7 дней</li>
+                <div class="column" >
+                    <ul class="hero__spisok " style="display: flex;  max-width: 1000px ">
+                        <li style="white-space: nowrap; width: fit-content;"  >Вид топлива: газ / дизель / комбинированный</li>
+                        <li style="white-space: nowrap; width: fit-content;">Комплект проектной документации</li>
+                        <li style="white-space: nowrap; width: fit-content;">Срок поставки по РФ: до 7 дней</li>
                     </ul>
                 </div>
             </div>
