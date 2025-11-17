@@ -205,7 +205,7 @@
                             <Link
                                     cls="navbar-item"
                                     path="page"
-                                    slug="konteynernaya-kotelnaya-1MW"
+                                    slug="konteynernaya-kotelnaya"
                                     title="Контейнерная котельная 1 МВт в наличии">
                                 Контейнерная котельная 1 МВт в наличии
                             </Link>
