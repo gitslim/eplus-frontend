@@ -16,7 +16,7 @@
     import LazyImage from 'svelte-lazy-image'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
-    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ. Производство. Доставка. Подключение. 1 МВт'
+    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 1 МВт. Производство, доставка, подключение'
     let lead
 
     const meta = {
@@ -61,7 +61,7 @@
     <meta property="og:image:secure_url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="533">
-    <meta property="og:image:alt" content="КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ. Производство. Доставка. Подключение. ">
+    <meta property="og:image:alt" content="КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 1 МВт. Производство. Доставка. Подключение. ">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image"/>
 </svelte:head>
@@ -646,7 +646,9 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10">
-                    <h2 style="font-size: 60px;max-width: 900px;" class="has-text-white has-text-weight-normal title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ. Производство. Доставка. Подключение.  1 МВт</h2>
+                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 1 МВт</h2>
+                    <p style="font-size: 50px; " class="has-text-white">Производство, доставка, подключение</p>
+
                 </div>
             </div>
             <div class="columns hero__text">
@@ -830,7 +832,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    Водогрейный жаротрубный котёл (2 х 400 кВт), двухходовой // "Teplofor Lex V2 – D400"
+                                    Водогрейный жаротрубный котёл, двухходовой // "Teplofor Lex V2 – D400"
                                 </td>
                             </tr>
                             <tr>
@@ -862,7 +864,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Бак дизельного топлива Т800ВК3 // "Анион"
+                                    Бак дизельного топлива // "Анион"
                                 </td>
                             </tr>
                             <tr>
