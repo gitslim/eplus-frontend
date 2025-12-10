@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <header class="header ">
+    <div class="header__top container">
+      <div class="header_logo">
+        <img src="img\Логотип.png" alt="logo">
+      </div>
+
+      <form role="search" class="header__search">
+        <input type="text" class="header__search-input" placeholder="Поиск" aria-label="Поиск по сайту">
+        <button class="header__search-button" type="submit" aria-label="Найти">
+          <img src="img\ant-design_search-outlined.svg" alt="search logo" class="header__search-img">
+        </button>
+      </form>
+
+      <div class="header__phone">
+        <img src="img\ic_round-phone.svg" alt="phone logo" class="header__phone-img">
+        <span class="header__phone-text">+7 (495) 790-76-97</span>
+      </div>
+    </div>
+
+    <nav class="header__nav container">
+      <ul class="header__menu">
+        <li class="header__menu-item">
+          <a href="#">Услуги</a> <img src="img\iconamoon_arrow-down-2-thin.svg" alt="search" class="header__menu-img">
+        </li>
+        <li class="header__menu-item">
+          <a href="#">Спецпредложения</a> <img src="img\iconamoon_arrow-down-2-thin.svg" alt="search"
+            class="header__menu-img">
+        </li>
+        <li class="header__menu-item">
+          <a href="#">Полезное</a> <img src="img\iconamoon_arrow-down-2-thin.svg" alt="search" class="header__menu-img">
+        </li>
+        <li class="header__menu-item">
+          <a href="#">Новости</a> <img src="img\iconamoon_arrow-down-2-thin.svg" alt="search" class="header__menu-img">
+        </li>
+        <li class="header__menu-item">
+          <a href="#">Контакты</a> <img src="img\iconamoon_arrow-down-2-thin.svg" alt="search" class="header__menu-img">
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero container">
+      <div class="hero__block">
+        <h2 class="hero__subtitle">Работаем с 2003 года</h2>
+        <h1 class="hero__title">Инжиниринговая компания <span style="color: #d35d2d;">"Энергия плюс" </span></h1>
+        <p class="hero__text">Мы создаём инженерные решения в сфере производства, газоснабжения и энергетики — от
+          проектирования до внедрения и технической поддержки.</p>
+        <div class="hero__btn">
+          <a href="#" class="hero__button">Наши услуги</a>
+          <a href="#" class="hero__button-second">Связаться с нами</a>
+        </div>
+      </div>
+      <div class="hero__video">
+        <div class="hero__video-card">
+          <video class="hero__video-item" src="video\Видео в шапку.MOV" controls></video>
+          <button class="video-play-btn" aria-label="Play video" type="button"></button>
+          <div class="video-overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services container">
+      <h2 class="services__title">Наши услуги</h2>
+      <div class="services__grid">
+        <article class="service__card service__card-bmw">
+          <img src="img\Сборка БМК.jpg" alt="сборка БМК" class="service__card-image">
+
+          <div class="services__wrapper">
+            <div class="service__card-badge">
+              <img src="img\Frame 23.svg" alt="icon" class="service__card-icon">
+            </div>
+            <p class="service__card-label">Сборка БМК</p>
+          </div>
+
+
+        </article>
+
+        <article class="service__card service__card-gas">
+          <img src="img\Сборка БМК.jpg" alt="сборка БМК" class="service__card-image">
+
+          <div class="service__card-badge">
+            <img src="img\Frame 23 (1).svg" alt="icon" class="service__card-icon">
+            <p class="service__card-label">Газоснабжение</p>
+          </div>
+
+        </article>
+        <article class="service__card service__card-energy">
+          <img src="img\Малая энергетика.jpg" alt="сборка БМК" class="service__card-image">
+
+          <div class="service__card-badge">
+            <img src="img\Frame 23 (2).svg" alt="icon" class="service__card-icon">
+          </div>
+
+          <p class="service__card-label">Малая энергетика</p>
+        </article>
+        <article class="service__card service__card-design">
+          <img src="img\Проектирование.jpg" alt="сборка БМК" class="service__card-image">
+
+          <div class="service__card-badge">
+            <img src="img\Frame 23 (3).svg" alt="icon" class="service__card-icon">
+          </div>
+
+          <p class="service__card-label">Проектирование</p>
+        </article>
+        <article class="service__card service__card-build">
+          <img src="img\Строительство.jpg" alt="сборка БМК" class="service__card-image">
+
+          <div class="service__card-badge">
+            <img src="img\Frame 23 (4).svg" alt="icon" class="service__card-icon">
+          </div>
+
+          <p class="service__card-label">Строительство</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cards container">
+      <h2 class="cards__title">Наши заслуги</h2>
+      <div class="cards__wrapper">
+        <article class="card">
+          <div class="card__wrap">
+            <div class="card__cutout"></div>
+            <div class="card__content">
+              <h3 class="card__content-subtitle">22</h3>
+              <p class="card__content-text">Года работы</p>
+            </div>
+          </div>
+          <div class="card__icon">
+            <img src="img/solar_calendar-bold.svg" alt="icon" class="card__icon-img">
+          </div>
+
+        </article>
+
+        <article class="card">
+          <div class="card__wrap">
+            <div class="card__cutout"></div>
+            <div class="card__content">
+              <h3 class="card__content-subtitle">225</h3>
+              <p class="card__content-text">Организаций-заказчиков</p>
+            </div>
+          </div>
+          <div class="card__icon">
+            <img src="img/fluent_people-add-20-filled.svg" alt="icon" class="card__icon-img">
+          </div>
+
+        </article>
+
+        <article class="card">
+          <div class="card__wrap">
+            <div class="card__cutout"></div>
+            <div class="card__content">
+              <h3 class="card__content-subtitle">458</h3>
+              <p class="card__content-text">Проектов выполнено</p>
+            </div>
+          </div>
+          <div class="card__icon">
+            <img src="img/mingcute_building-2-fill.svg" alt="icon" class="card__icon-img">
+          </div>
+
+        </article>
+
+        <article class="card">
+          <div class="card__wrap">
+            <div class="card__cutout"></div>
+            <div class="card__content">
+              <h3 class="card__content-subtitle">750км</h3>
+              <p class="card__content-text">Запроектировано</p>
+            </div>
+          </div>
+          <div class="card__icon">
+            <img src="img/fa6-solid_road.svg" alt="icon" class="card__icon-img">
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+
+    <section class="cycle container">
+      <div class="cycle__left">
+        <div class="center-circle">
+          <img src="img\svg\material-symbols_settings-rounded.svg" alt="">
+          <p>Инжиниринг полного цикла</p>
+        </div>
+
+        <div class="circle-items">
+          <div class="circle-item i1">
+            <img src="img\svg\Vector (7).svg" style="color: black;">
+            <p>ПНР и сдача объекта</p>
+          </div>
+
+          <div class="circle-item i2">
+            <img src="img\svg\basil_document-solid.svg">
+            <p>Готовый к эксплуатации объект</p>
+          </div>
+
+          <div class="circle-item i3">
+            <img src="img\svg\solar_notebook-bold.svg">
+            <p>Разработка ТЭО</p>
+          </div>
+
+          <div class="circle-item i4">
+            <img src="img\svg\solar_box-bold.svg">
+            <p>Сбор ИРД</p>
+          </div>
+
+          <div class="circle-item i5">
+            <img src="img\svg\icon-park-solid_spanner.svg">
+            <p>Выполнение и адаптация</p>
+          </div>
+
+          <div class="circle-item i6">
+            <img src="img\svg\clarity_list-solid.svg">
+            <p>ПИР, экспертиза,<br>авторский надзор</p>
+          </div>
+
+          <div class="circle-item i7">
+            <img src="img\svg\roentgen_crane.svg">
+            <p>Оборудование и СМР</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cycle__right">
+        <h2 class="cycle__subtitle">Дополнительные услуги</h2>
+
+        <div class="cycle__card">
+          <img src="img\svg\Иконка (8).svg" class="cycle__right-img">
+          <p class="cycle__text">Расчет потребности в тепле и топливе</p>
+        </div>
+
+        <div class="cycle__card" class="cycle__right-img">
+          <img src="img\svg\Иконка (9).svg" class="cycle__right-img">
+          <p class="cycle__text">Сопровождение при получении технических условий</p>
+        </div>
+
+        <div class="cycle__card" class="cycle__right-img">
+          <img src="img\svg\Иконка (10).svg" class="cycle__right-img">
+          <p class="cycle__text">Разработка альтернативных моделей теплоснабжения</p>
+        </div>
+
+        <div class="cycle__card" v>
+          <img src="img\svg\Иконка (11).svg" class="cycle__right-img">
+          <p class="cycle__text">Энергоаудит предприятия</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="station container">
+      <h2 class="station__title">
+        Стационарные котельные по индивидуальному проекту
+      </h2>
+
+      <div class="station__wrapper">
+        <div class="station__item">
+          <img src="img\Котельная 1.jpg" alt="" class="station__img">
+        </div>
+        <div class="station__item">
+          <img src="img\Котельная 2.png" alt="" class="station__img">
+
+        </div>
+        <div class="station__item">
+          <img src="img\Котельная 3.png" alt="" class="station__img">
+
+        </div>
+        <div class="station__item">
+          <img src="img\Котельная 4.png" alt="" class="station__img">
+
+        </div>
+        <div class="station__item">
+          <img src="img\Котельная 5.png" alt="" class="station__img">
+
+        </div>
+      </div>
+    </section>
+
+    <section class="objects container">
+      <h2 class="objects__title">Объекты в сфере газоснабжения</h2>
+
+      <div class="objects__wrapper">
+        <div class="objects__photo">
+          <img src="img\Газоснабжение.jpg" alt="photo" class="objects__photo-img">
+        </div>
+        <div class="objects__main">
+          <div class="objects__item">
+            <img src="img\pepicons-pop_checkmark-filled.svg" alt="logo" class="objects__icon">
+            <p class="objects__item-text">Устройство защитных мероприятий на действующих магистральных газопроводах</p>
+          </div>
+          <div class="objects__item">
+            <img src="img\pepicons-pop_checkmark-filled.svg" alt="logo" class="objects__icon">
+            <p class="objects__item-text">Переустройство (вынос) участков газопроводов</p>
+          </div>
+          <div class="objects__item">
+            <img src="img\pepicons-pop_checkmark-filled.svg" alt="logo" class="objects__icon">
+            <p class="objects__item-text">Строительство магистрального газопровода (МГ) или газопровода-отвода к
+              газораспределительной станции (ГРС)</p>
+          </div>
+          <div class="objects__item">
+            <img src="img\pepicons-pop_checkmark-filled.svg" alt="logo" class="objects__icon">
+            <p class="objects__item-text">Реконструкция, модернизация или техническое перевооружение ГРС, крановых
+              узлов, участков магистральных газопроводов</p>
+          </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="energy container">
+
+      <h2 class="energy__title">О нас</h2>
+      <div class="energy__container">
+        <div class="energy__wrapper">
+          <video src="video\Видео сборки.mp4" class="energy__video" controls></video>
+
+          <button class="video-play-btn" aria-label="Play video" type="button"></button>
+
+          <div class="video-overlay" aria-hidden="true"></div>
+        </div>
+
+        <div class="energy__block">
+          <h3 class="energy__subtitle">Энергия Плюс</h3>
+          <p class="energy__text">Более 20 лет обеспечивает промышленных абонентов эффективными решениями в области
+            газоснабжения и энергетики. Компетенции и опыт, накопленные за это время, конвертировались в качественный
+            продукт модульные котельные. </p>
+          <p class="energy__text">Производством БМК занимается дочернее предприятие - "Энергия Плюс"</p>
+        </div>
+      </div>
+
+
+    </section>
+
+    <section class="gallery container">
+      <h2 class="gallery__title">Контейнерные котельные, собранные "Энергией плюс"</h2>
+
+      <div class="gallery__grid">
+        <div class="thumb thumb--left top">
+          <img src="img\БМК 3.jpg" alt="Котельная на трейлере" />
+        </div>
+
+        <div class="thumb thumb--left bottom">
+          <img src="img\БМК 3.jpg" alt="Белый контейнер" />
+        </div>
+
+        <div class="centra__video">
+          <video src="video\Видео сборки.mp4" class="energy__video" controls></video>
+
+          <button class="video-play-btn" aria-label="Play video" type="button"></button>
+
+          <div class="video-overlay" aria-hidden="true"></div>
+        </div>
+
+        <div class="thumb thumb--right top">
+          <img src="img\БМК 3.jpg" alt="Синий контейнер на площадке" />
+        </div>
+
+        <div class="thumb thumb--right bottom">
+          <img src="img\БМК 3.jpg" alt="Схема внутри контейнера" />
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="booklets container">
+      <h2 class="booklets__title">Наши буклеты</h2>
+
+      <div class="booklets__grid">
+        <div class="booklet">
+          <h3 class="booklet__subtitle">Буклет по энергетике</h3>
+          <img src="img\Буклет по энергетике.png" alt="img" class="booklet__img">
+        </div>
+        <div class="booklet">
+          <h3 class="booklet__subtitle">Буклет по газу</h3>
+          <img src="img\Буклет по газу.png" alt="img" class="booklet__img">
+        </div>
+      </div>
+
+    </section>
+
+    <section class="contacts container">
+      <h2 class="contacts__title">Свяжитесь с нами</h2>
+      <div class="contacts__wrapper">
+        <form class="contacts__form">
+          <h3 class="contacts__subtitle">Отправить заявку</h3>
+          <div class="contacts__inputs">
+            <img src="img\solar_user-linear.svg" alt="user logo" class="contacts__inputs-img">
+            <input type="text" placeholder="Ваше имя" class="contacts__input">
+          </div>
+          <div class="contacts__inputs">
+            <img src="img\prime_phone.svg" alt="photo logo" class="contacts__inputs-img">
+            <input type="text" placeholder="Ваш телефон" class="contacts__input">
+          </div>
+          <div class="contacts__inputs contacts__inputs-textarea">
+            <img src="img\mynaui_message.svg" alt="photo logo" class="contacts__inputs-img">
+            <textarea placeholder="Расскажите о вашем проекте" class="contacts__textarea contacts__input"></textarea>
+
+          </div>
+
+          <button class="contacts__btn">Отправить</button>
+        </form>
+
+        <aside class="contacts__info">
+          <h3 class="contacts__info-title">Контактная информация</h3>
+          <p class="contacts__info-text">Мы всегда готовы ответить на ваши вопросы и <br>обсудить возможности
+            сотрудничества
+          </p>
+
+
+          <div class="contacts__wraper">
+            <div class="contacts__item">
+              <img src="img\Иконка.svg" alt="icon">
+              <div class="contacts__data">
+                <h4 class="contacts__data-title">Телефон</h4>
+                <p class="contacts__data-text">+7 (495) 790-76-97</p>
+              </div>
+            </div>
+
+            <div class="contacts__item">
+              <img src="img\Иконка (1).svg" alt="icon">
+              <div class="contacts__data">
+                <h4 class="contacts__data-title">Email</h4>
+                <p class="contacts__data-text">info@energy-plus.biz</p>
+              </div>
+            </div>
+
+            <div class="contacts__item">
+              <img src="img\Иконка (2).svg" alt="icon">
+              <div class="contacts__data">
+                <h4 class="contacts__data-title">Адрес</h4>
+                <p class="contacts__data-text">111123, Москва...</p>
+              </div>
+            </div>
+
+            <div class="contacts__item">
+              <img src="img\Иконка (3).svg" alt="icon">
+              <div class="contacts__data">
+                <h4 class="contacts__data-title">Время работы</h4>
+                <p class="contacts__data-text">Пн–Пт: 9:00–18:00</p>
+              </div>
+            </div>
+          </div>
+
+
+        </aside>
+      </div>
+
+
+    </section>
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
