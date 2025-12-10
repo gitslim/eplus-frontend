@@ -1268,6 +1268,7 @@ img{
   justify-content: space-between;
   align-items: center;
   gap: 80px;
+  margin-bottom: 50px;
 }
 
 .cycle__left {
