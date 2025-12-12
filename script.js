@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    /**
-     * Инициализирует логику пользовательской кнопки для видео
-     * @param {string} wrapperSelector - Селектор родительского контейнера видео
-     */
+  
     function initializeVideoPlayer(wrapperSelector) {
         const wrapper = document.querySelector(wrapperSelector);
         if (!wrapper) return;
@@ -13,19 +10,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!video || !btn) return;
 
-        // 1. Обработка клика по центральной кнопке:
-        // Она должна только запустить видео, если оно на паузе.
+      
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             if (video.paused) {
-                video.play(); // Если на паузе, запускаем
+                video.play();
             } else {
-                video.pause(); // Если играет, ставим на паузу
+                video.pause(); 
             }
         });
 
-        // 2. Скрытие/показ кнопки/оверлея при старте/паузе:
-        // Эти слушатели управляют видимостью центральной кнопки через CSS класс 'playing'
+       
         video.addEventListener('play', function () {
             wrapper.classList.add('playing');
         });
@@ -34,12 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
             wrapper.classList.remove('playing');
         });
 
-        // 3. Обработка окончания видео:
         video.addEventListener('ended', function () {
              wrapper.classList.remove('playing');
         });
 
-        // 4. Доступность с клавиатуры (если вы это используете):
         btn.addEventListener('keydown', function (e) {
             if (e.key === ' ' || e.key === 'Enter') {
                 e.preventDefault();
@@ -54,3 +47,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     initializeVideoPlayer('.centra__video');
 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const imgs = Array.from(document.querySelectorAll('.zoomable'));
+
+    imgs.forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        if (img.classList.contains('zoomed')) {
+          img.classList.remove('zoomed');
+          return;
+        }
+
+        imgs.forEach(i => i.classList.remove('zoomed'));
+        img.classList.add('zoomed');
+      });
+    });
+
+    document.addEventListener('click', () => {
+      imgs.forEach(i => i.classList.remove('zoomed'));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') imgs.forEach(i => i.classList.remove('zoomed'));
+    });
+  });

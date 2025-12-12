@@ -1,3 +1,8 @@
+:root {
+  --radius: 200px; 
+  --line-length: 110px
+}
+
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -8,7 +13,6 @@ body {
 
   margin: 0;;
 
-  /* overflow-y: scroll; */
 }
 
 *, *::before, *::after {
@@ -332,9 +336,7 @@ img{
 /* SERVICES */
 
 
-/* * {
-  outline: 1px solid red;
-} */
+
 
 .services {
  /* min-height: 100vh; */
@@ -374,24 +376,18 @@ img{
   margin-bottom: 50px;
 }
 
-.services__wrapper {
-  position: absolute;
 
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-direction: row;
-  
-  padding-top: 80px;
 
-}
 .service__card {
-  position: relative;
   
   background: #fff;
   border-radius: 12px;
   
   overflow: hidden;
+  
+  /* НОВОЕ: Настраиваем flex для выстраивания элементов вертикально */
+  display: flex;
+  flex-direction: column;
 }
 .service__card-bmw {
   grid-area: bmw;
@@ -406,18 +402,26 @@ img{
   object-fit: cover;
 }
 .service__card-badge {
-  position: absolute;
-  left: 32px;
-  bottom: 60px; 
 
-  /* display: inline-flex; */
+  display: inline-flex; 
   justify-content: center;
-  /* padding: 12px 18px; */
+  align-items: center;
+  
 
   border-radius: 10px;
   background: #d35d2d;
-  align-items: center;
+  
+  margin-right: 16px;
+}
 
+.services__info {
+    display: flex;
+    align-items: center;
+
+    
+    margin-top: -40px;
+    padding-left: 20px;
+    
 }
 
 .service__card-gas {
@@ -433,6 +437,15 @@ img{
   grid-area: build; 
 }
 
+
+.service__card-label{
+
+  padding-top: 30px;
+
+  font-weight: 400;
+  font-size: 24px;
+  color: #000;
+}
 
 /* station */
 
@@ -472,6 +485,8 @@ img{
 .station__item{
   flex: 1;
   max-width: 238px;
+
+  overflow: hidden;
 }
 .station__img {
   width: 100%;
@@ -483,19 +498,27 @@ img{
   
   object-fit: cover;
   cursor: pointer;
+  transform-origin: center center;
+  will-change: transform;
 }
+
+ .station__img.zoomed {
+    transform: scale(1.1);     
+    filter: saturate(1.06) contrast(1.03);
+  }
 
 /* objects */
 .objects {
   margin-bottom: 100px;
 }
 .objects__title{
-  margin-bottom: 70px;
-
+  
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
+
+  margin-bottom: 70px;
 
   font-size: 20px;
   color: rgba(0, 0, 0, 0.3);
@@ -533,9 +556,10 @@ img{
 }
 
 .objects__wrapper {
+  min-height: 0;
+
   display: flex;
   align-items: stretch;
-  min-height: 0;
   justify-content: space-between;
   flex: 1 1 48%;
   /* gap: 30px; */
@@ -609,11 +633,9 @@ img{
 }
 
 .booklet {
-  /* padding: 20px 20px 0 20px; */
 
   background: white;
-  /* border-radius: 10px 10px 0 0; */
-  /* border: 1px solid #e6e6e6; */
+
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 
   overflow: hidden;
@@ -625,6 +647,7 @@ img{
 
   border-radius: 10px 10px 0 0;
   border: 1px solid #e6e6e6;
+
   text-align: center;
   font-weight: 500;
   font-size: 24px;
@@ -783,6 +806,7 @@ img{
 .contacts__data-title{
   margin: 0;
   padding: 0;
+
   font-weight: 500;
   font-size: 16px;
   color: #ffcbb8;
@@ -929,49 +953,54 @@ img{
 
 
 .energy__video {
+  position: relative;
+  z-index: 1;               
+
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
   border-radius: 16px;
-  position: relative;
-  z-index: 1;               
+  
+  object-fit: cover;
 }
 
 .video-overlay {
   position: absolute;
   inset: 0;                 
-  background: rgba(0, 0, 0, 0.35);
   z-index: 3;
-  transition: background 0.4s ease, opacity 0.4s ease;
-  pointer-events: none;      
+
   border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  
+  pointer-events: none;      
+  transition: background 0.4s ease, opacity 0.4s ease;
 }
 
 .video-play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 4;
+
   width: 50px; 
   height: 50px; 
-  transform: translate(-50%, -50%) scale(1);
-  border: none;
-  cursor: pointer;
-  z-index: 4;
   
-  background: transparent; 
-
+  display: inline-block;
+  padding: 0;
+  
+  background: transparent;  
   background-image: url('img/Frame 35.svg'); 
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%; 
-  
+  border: none;
   border-radius: 10px;
-
+  
   box-shadow: none; 
   transition: transform 0.18s cubic-bezier(.2,.9,.3,1), box-shadow 0.18s;
-  display: inline-block;
-  padding: 0;
+  cursor: pointer;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .video-play-btn:hover,
@@ -1009,7 +1038,7 @@ img{
 }
 
 
-/* gallery */
+
 .gallery {
   margin-bottom: 60px;
 
@@ -1058,36 +1087,41 @@ img{
 }
 
 .centra__video{
- grid-area: hero;
   position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 6px 24px rgba(20,20,20,0.06);
-  
   height: 90%; 
   width: 100%;
-  
-  align-self: center; 
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
+  grid-area: hero;
+
+
+  border-radius: 14px;
   background: #000;
+  
+  
+  align-self: center; 
+  
+  box-shadow: 0 6px 24px rgba(20,20,20,0.06);
+  overflow: hidden;
 }
 
 .centra__video.playing .video-play-btn,
 .centra__video.playing .video-overlay {
     opacity: 0;
-    visibility: hidden; /* Помогает в старых браузерах и гарантирует, что элемент не кликабелен */
-    transition: opacity 0.3s; /* Делает исчезновение плавным */
+    visibility: hidden; 
+    transition: opacity 0.3s; 
 }
 
 .thumb{
+  position: relative;
+  height: 100%;
+
+
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(20,20,20,0.04);
-  position: relative;
-  height: 100%;
 }
 
 .thumb img {
@@ -1116,13 +1150,8 @@ img{
 
 
 /* cards */
-.cards {
-}
-.container {
 
-}
 .cards__title {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1150,13 +1179,15 @@ img{
 }
 .card {
   position: relative;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(0,0,0,0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Добавляем плавный переход */
   min-width: 130px; 
-  max-width: 320px; /* Ограничиваем ширину для лучшего вида */
+  max-width: 320px; 
   width: 100%;
+
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.03);
+
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
 }
 
 .card__wrap {
@@ -1167,19 +1198,21 @@ img{
   position: absolute;
   top: -40px; 
   left: 70px;
-  transform: translateX(-50%);
   width: 90px;
   height: 90px;
+
   background: #fff;
   border-radius: 50%;
+
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  transform: translateX(-50%);
 }
 
 
 .card:hover,
 .card:focus-within,
 .card.is-active {
-  transform: translateY(-10px); /* Поднимаем карточку */
+  transform: translateY(-10px); 
   box-shadow: 0 18px 30px rgba(0,0,0,0.12);
   border-color: rgba(0,0,0,0.06);
 }
@@ -1193,7 +1226,7 @@ img{
   
   overflow: visible;
   
-  background: #d35d2d; /* Оранжевый фон */
+  background: #d35d2d;
   z-index: 10;
   width: 80px;
   height: 80px;
@@ -1217,6 +1250,7 @@ img{
   display: block;
   width: 40px;        
   height: 40px;
+
   transform-origin: center center; 
   transition: transform 0.32s cubic-bezier(.2,.9,.2,1), filter 0.28s ease;
   will-change: transform;          
@@ -1260,84 +1294,202 @@ img{
   color: #000;
 }
 
-g
-/* cycle */
+
 
 .cycle {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; 
   align-items: center;
-  gap: 80px;
-  margin-bottom: 50px;
+  flex-direction: row;
+  gap: 40px; 
+  flex-wrap: wrap; 
+  
 }
 
 .cycle__left {
   position: relative;
-  width: 480px;
-  height: 480px;
+  width: 550px; 
+  height: 550px;
+  min-width: 550px; 
+
+  flex: 0 0 550px;
+
+  overflow: visible;
+}
+
+.cycle__right {
+  flex: 1 1 auto; 
+  max-width: calc(100% - 550px - 48px); 
+  min-width: 300px;
+
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }
 
 .center-circle {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 16;
   width: 180px;
   height: 180px;
-  border-radius: 50%;
-  background: #E4572E;
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: white;
   padding: 20px;
+
+  background: #d35d2d; 
+  border-radius: 50%;
+  text-align: center;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px 0 rgba(228, 87, 46, 0.4);
 }
 
-/* dawda
- */
+.center-circle img {
+    width: 32px; 
+    height: 32px;
+    filter: brightness(0) invert(1); 
+}
 
 .circle-item {
   position: absolute;
-  width: 120px;
-  height: 120px;
+
+  width: 130px; 
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  
+  color: black; 
+  font-size: 14px;
+  line-height: 1.2;
+
+  transition: transform 0.3s ease-in-out;
+
+}
+
+.circle-item:hover {
+  transform: translate(-50%, -50%) scale(1.1); 
+  z-index: 10; 
+}
+
+.circle-line {
+    position: absolute;
+    width: var(--line-length); 
+    top: 40px; 
+    left: 40px; 
+    height: 20px;
+    
+    border-bottom: 1px dashed #dcdcdc; 
+
+    transform-origin: 0 50%;
+    transform: translate(-100%, -50%); 
+
+    z-index: -1; 
+    transition: border-color 0.3s ease-in-out;
+}
+
+.circle-item:hover .circle-line {
+   border-bottom: 1px solid #E4572E;
+}
+
+.circle-item:hover .circle-icon-wrapper {
+    transform: scale(1.005);
+}
+
+.circle-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px; 
+  height: 80px;
+
   border-radius: 50%;
   background: #E4572E;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  transition: transform 0.3s ease-in-out; 
+}
+
+.circle-icon-wrapper img {
+  width: 28px; 
+  height: 28px;
+  filter: brightness(0) invert(1); 
+  margin: 0;
+}
+
+.circle-item img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); 
+}
+
+.circle-item-label {
+  margin-top: 10px; 
+  font-size: 14px;
+  font-size: 18px;
   text-align: center;
-  padding: 10px;
 }
 
-/* 0° */
-.i1 { top: 0; left: 50%; transform: translateX(-50%); }
-
-/* 60° */
-.i2 { top: 70px; right: 0; transform: translateY(-50%); }
-
-/* 120° */
-.i3 { top: 50%; right: 0; transform: translateY(-50%); }
-
-/* 180° */
-.i4 { bottom: 0; left: 50%; transform: translateX(-50%); }
-
-/* 240° */
-.i5 { top: 50%; left: 0; transform: translateY(-50%); }
-
-/* 300° */
-.i6 { top: 70px; left: 0; transform: translateY(-50%); }
-
-/* 330° (пример подгонки) */
-.i7 { top: 20%; left: 10%; }
-
-
-.cycle__right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.i2 { 
+  top: calc(57% - var(--radius) * 0.819); 
+  left: calc(50% + var(--radius) * 0.574); 
+  transform: translate(-50%, -50%); 
 }
+
+.i3 { 
+  top: calc(56% - var(--radius) * 0.174); 
+  left: calc(49% + var(--radius) * 0.985); 
+  transform: translate(-50%, -50%); 
+}
+
+.i4 { 
+  top: calc(49% + var(--radius) * 0.766); 
+  left: calc(49% + var(--radius) * 0.642); 
+  transform: translate(-50%, -50%); 
+}
+
+.i5 { 
+  top: calc(48% + var(--radius) * 0.985); 
+  left: calc(48% - var(--radius) * 0.174); 
+  transform: translate(-50%, -50%); 
+}
+
+.i6 { 
+  top: calc(58% + var(--radius) * 0.174); 
+  left: calc(53% - var(--radius) * 0.985); 
+  transform: translate(-50%, -50%); 
+}
+
+.i7 { 
+  top: calc(62% - var(--radius) * 0.766); 
+  left: calc(42% - var(--radius) * 0.642); 
+  transform: translate(-50%, -50%); 
+}
+
+.i1 { 
+  top: calc(56% - var(--radius) * 0.985); 
+  left: calc(50% - var(--radius) * 0.174); 
+  transform: translate(-50%, -50%); 
+}
+.i1 .circle-line { transform: rotate(80deg); margin-left: 30px; }
+.i2 .circle-line { transform: rotate(117deg); margin-left: 30px;}
+.i3 .circle-line { transform: rotate(168deg); }
+.i4 .circle-line { transform: rotate(227deg); margin-left: 10px;}
+.i5 .circle-line { transform: rotate(294deg); }
+.i7 .circle-line { transform: rotate(390deg); margin-left: 40px;}
+.i6 .circle-line { transform: rotate(352deg); margin-top: -14px; margin-left: 10px;}
+
 .cycle__card {
   display: flex;
   align-items: center;
@@ -1361,6 +1513,11 @@ g
 
 }
 
-.cycle__right-img{
+.zoomable {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
 
+.zoomable.zoomed {
+  transform: scale(1.10); /* насколько увеличить */
 }
