@@ -1,23 +1,22 @@
-# This stage builds the application.
-FROM mhart/alpine-node:14 AS build-app
+FROM node:20-bookworm-slim AS build-app
+
 WORKDIR /app
 COPY . .
-RUN npm ci --no-audit --unsafe-perm
+# Убедитесь, что установлены все необходимые для сборки зависимости
+RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
+RUN npm ci --no-audit
 RUN npm run build
 
-# This stage installs the runtime dependencies.
-FROM mhart/alpine-node:14 AS build-runtime
+# Финальный этап
+FROM node:20-bookworm-slim
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci --production --unsafe-perm
+# Настройте non-root пользователя для безопасности
+RUN chown -R node:node /app
+USER node
 
-# This stage only needs the compiled application
-# and the runtime dependencies.
-FROM mhart/alpine-node:slim-14
-WORKDIR /app
 COPY --from=build-app /app/build ./build
-COPY --from=build-runtime /app/package.json ./package.json
-COPY --from=build-runtime /app/node_modules ./node_modules
+COPY --from=build-app /app/package.json ./package.json
+COPY --from=build-app /app/node_modules ./node_modules
 
 EXPOSE 3000
 CMD ["node", "build"]
