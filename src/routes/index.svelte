@@ -7,14 +7,13 @@
 </script>
 
 <script>
+/*---------ИМПОРТЫ---------*/
     import SvelteSeo from 'svelte-seo'
     import website from '$lib/config/website'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
     import { onMount } from 'svelte';
 
-    // --- ФУНКЦИИ КОНТЕНТА (Видео, Формы) ---
-
-    // 1. Логика видео
+/*---------ФУНКЦИИ ВИДЕО---------*/
     function handlePlayClick(event) {
         const wrapper = event.currentTarget.closest('.video-wrapper');
         if (!wrapper) return;
@@ -26,7 +25,7 @@
         }
     }
 
-    // 2. Обработка формы - отправка в Bitrix24
+/*---------ОБРАБОТКА ФОРМЫ BITRIX24---------*/
     async function handleFormSubmit(event) {
         event.preventDefault();
         
@@ -63,16 +62,14 @@
         }
     }
 
-    // --- ON MOUNT ---
+/*---------ON MOUNT---------*/
     onMount(() => {
-        // Подсветка узлов (Nodes)
         const nodes = document.querySelectorAll('.node[data-target]');
         nodes.forEach((node) => {
             node.addEventListener('mouseenter', () => {
                 const targetId = node.getAttribute('data-target');
                 const line = document.getElementById(`glow-${targetId}`);
                 if (line) {
-                    // Устанавливаем ВСЕ стили напрямую
                     line.setAttribute('style', `
                         opacity: 1 !important;
                         stroke: #d35d2d !important;
@@ -95,7 +92,6 @@
             });
         });
 
-        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -112,23 +108,24 @@
             });
         });
 
-        // Модалки (Галерея 1)
         const containerItems = document.querySelectorAll('[data-gallery="photo"]');
         const containerModal = document.getElementById('containerModal');
         const containerImage = document.getElementById('containerImage');
         const containerClose = document.getElementById('containerClose');
 
         containerItems.forEach((item) => {
-            item.addEventListener('click', () => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 const img = item.querySelector('img');
-                if (containerModal && containerImage) {
+                if (containerModal && containerImage && img) {
                     containerModal.classList.add('active');
                     containerImage.src = img.src;
+                    document.body.style.overflow = 'hidden';
                 }
             });
         });
 
-        // Стационарные модалки (Галерея 2)
         const stationaryItems = document.querySelectorAll('.stationary-item');
         const stationaryModal = document.getElementById('stationaryModal');
         const stationaryImage = document.getElementById('stationaryImage');
@@ -152,19 +149,30 @@
                 if (indexAttr !== null) {
                     currentIndex = parseInt(indexAttr);
                     showStationaryImage(currentIndex);
-                    if (stationaryModal) stationaryModal.classList.add('active');
+                    if (stationaryModal) {
+                        stationaryModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
                 }
             });
         });
 
-        // Общая логика закрытия модалок
         [containerClose, stationaryClose].forEach(btn => {
-            if(btn) btn.addEventListener('click', (e) => e.target.closest('.modal').classList.remove('active'));
+            if(btn) btn.addEventListener('click', (e) => {
+                const modal = e.target.closest('.modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         });
 
         [containerModal, stationaryModal].forEach(modal => {
             if(modal) modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.classList.remove('active');
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             });
         });
 
@@ -184,10 +192,12 @@
             });
         }
 
-        // Клавиатура (Только закрытие модалок)
         const handleKeydown = (e) => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
+                document.querySelectorAll('.modal.active').forEach(m => {
+                    m.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
             }
             if (stationaryModal && stationaryModal.classList.contains('active')) {
                 if (e.key === 'ArrowLeft') statPrev?.click();
@@ -213,7 +223,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check_circle" />
 </svelte:head>
 
+<!--=========== MAIN ==========-->
 <main class="energiya-plus-page" style="padding-top: 85px;">
+  
+  <!--=========== HERO ==========-->
   <section class="hero">
     <div class="site-container hero-wrapper">
       <div class="hero-content">
@@ -227,8 +240,8 @@
           проектирования до внедрения и технической поддержки.
         </p>
         <div class="hero-buttons">
-          <a href="#services" class="hero-btn hero-btn-primary" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; height: 52px !important; padding: 0 32px !important; text-decoration: none !important; border-radius: 10px !important; font-size: 16px !important; font-weight: 500 !important; background: #d35d2d !important; color: white !important; border: none !important; box-sizing: border-box !important; line-height: 1 !important; white-space: nowrap !important; margin: 0 !important; position: relative !important; left: 0 !important; right: auto !important;">Наши услуги</a>
-          <a href="#contacts" class="hero-btn hero-btn-secondary" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; height: 52px !important; padding: 0 32px !important; text-decoration: none !important; border-radius: 10px !important; font-size: 16px !important; font-weight: 500 !important; background: transparent !important; color: black !important; border: 1px solid black !important; box-sizing: border-box !important; line-height: 1 !important; white-space: nowrap !important; margin: 0 !important; position: relative !important; left: 0 !important; right: auto !important;">Связаться с нами</a>
+          <a href="#services" class="hero-btn hero-btn-primary">Наши услуги</a>
+          <a href="#contacts" class="hero-btn hero-btn-secondary">Связаться с нами</a>
         </div>
       </div>
 
@@ -251,6 +264,7 @@
     <div class="separator"><span>наши услуги</span></div>
   </div>
 
+  <!--=========== SERVICES ==========-->
   <section class="services-section" id="services">
     <div class="site-container">
       <div class="services-grid">
@@ -311,6 +325,7 @@
     <div class="separator"><span>наши заслуги</span></div>
   </div>
 
+  <!--=========== ACHIEVEMENTS ==========-->
   <section class="achievements-section">
     <div class="site-container">
       <div class="achievements-grid">
@@ -338,6 +353,7 @@
     <div class="separator"><span>Комплексный подход</span></div>
   </div>
 
+  <!--=========== COMPLEX APPROACH ==========-->
   <section class="complex-section">
     <div class="site-container">
       <div class="complex-wrapper">
@@ -369,9 +385,10 @@
           <div class="node sat-2" data-target="2"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-6.png" alt="" /></div><div class="node-text">Разработка ТЭО</div></div>
           <div class="node sat-3" data-target="3"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-4.png" alt="" /></div><div class="node-text">Сбор ИРД</div></div>
           <div class="node sat-4" data-target="4"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-2.png" alt="" /></div><div class="node-text">Выполнение и<br> адаптация</div></div>
-          <div class="node sat-5" data-target="5"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-3.png" alt="" /></div><div class="node-text">ПИР, экспертиза</div></div>
-          <div class="node sat-6" data-target="6"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-5.png" alt="" /></div><div class="node-text">Оборудование</div></div>
-          <div class="node sat-7" data-target="7"><div class="sat-icon"><span class="material-symbols-outlined">check_circle</span></div><div class="node-text">ПНР и сдача</div></div>
+          <div class="node sat-5" data-target="5"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-3.png" alt="" /></div><div class="node-text">ПИР, экспертиза,<br> авторский надзор</div></div>
+          <div class="node sat-6" data-target="6"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-5.png" alt="" /></div><div class="node-text">Оборудование<br>
+и СМР</div></div>
+          <div class="node sat-7" data-target="7"><div class="sat-icon"><span class="material-symbols-outlined">check_circle</span></div><div class="node-text">ПНР и сдача<br>объекта</div></div>
         </div>
 
         <div class="additional-services">
@@ -389,6 +406,7 @@
     <div class="separator"><span>О нас</span></div>
   </div>
 
+  <!--=========== ABOUT ==========-->
   <section class="about-section">
     <div class="site-container about-wrapper">
       <div class="visual-box">
@@ -416,6 +434,7 @@
     <div class="separator"><span>Контейнерные котельные, собранные "Энергией плюс"</span></div>
   </div>
 
+  <!--=========== CONTAINER BOILERS ==========-->
   <section class="container-boilers-section">
     <div class="site-container">
         <div class="container-gallery">
@@ -457,6 +476,8 @@
   </section>
 
   <div class="site-container"><div class="separator"><span>Стационарные котельные по индивидуальному проекту</span></div></div>
+  
+  <!--=========== STATIONARY BOILERS ==========-->
   <section class="stationary-boilers-section">
     <div class="site-container">
         <div class="stationary-gallery">
@@ -470,6 +491,8 @@
   </section>
 
   <div class="site-container"><div class="separator"><span>Линейные объекты</span></div></div>
+  
+  <!--=========== LINEAR OBJECTS ==========-->
   <section class="linear-objects-section">
     <div class="site-container">
       <div class="linear-wrapper">
@@ -508,6 +531,8 @@
   </section>
 
   <div class="site-container"><div class="separator"><span>Наши буклеты</span></div></div>
+  
+  <!--=========== BOOKLETS ==========-->
   <section class="booklets-section">
     <div class="site-container">
       <div class="booklets-container">
@@ -523,31 +548,41 @@
     </div>
   </section>
 
-  <div class="site-container"><div class="separator"><span>Свяжитесь с нами</span></div></div>
-  <section class="contacts-section" id="contacts">
-    <div class="site-container">
-      <div class="contacts-container">
-        <form class="contact-form" on:submit={handleFormSubmit}>
-          <h2 class="form-title">Отправить заявку</h2>
-          <div class="input-group">
-            <input type="text" name="username" placeholder="Ваше имя" required />
-            <input type="tel" name="phone" placeholder="Ваш телефон" required />
-            <textarea name="message" placeholder="Расскажите о вашем проекте"></textarea>
+<!--=========== CONTACTS ==========-->
+<section class="contacts-section" id="contacts">
+  <div class="site-container">
+    <div class="contacts-container">
+      <form class="contact-form" on:submit={handleFormSubmit}>
+        <h2 class="form-title">Отправить заявку</h2>
+        <div class="input-group">
+          <div class="form-input-wrapper">
+            <img src="static\ickonandlogo\contact\Vector.png" alt="" class="form-input-icon" />
+            <input type="text" name="username" placeholder="Ваше имя" required class="form-input-field" />
           </div>
-          <button type="submit" class="submit-btn">Отправить</button>
-        </form>
-        <div class="contact-info">
-          <h2 class="info-title">Контактная информация</h2>
-          <p class="info-description">Мы всегда готовы ответить на ваши вопросы</p>
-          <div class="info-item"><div class="info-icon"><img src="/contact/Vector.png" alt="" /></div><div class="info-details"><div class="info-label">Телефон</div><div class="info-value">+7 (495) 790-76-97</div></div></div>
-          <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@example.com">info@example.com</a></div></div></div>
-          <div class="info-item"><div class="info-icon"><img src="/contact/Vector-2.png" alt="" /></div><div class="info-details"><div class="info-label">Адрес</div><div class="info-value">Москва, 1-я Владимирская, д.10А</div></div></div>
-          <div class="info-item"><div class="info-icon"><img src="/contact/watch.png" alt="" /></div><div class="info-details"><div class="info-label">Время работы</div><div class="info-value">Пн-Пт: 9:00 - 18:00</div></div></div>
+          <div class="form-input-wrapper">
+            <img src="static\ickonandlogo\contact\solar_user-linear (1).png" alt="" class="form-input-icon" />
+            <input type="tel" name="phone" placeholder="Ваш телефон" required class="form-input-field" />
+          </div>
+          <div class="form-input-wrapper form-textarea-wrapper">
+            <img src="static\ickonandlogo\contact\Vector (1).png" alt="" class="form-input-icon form-input-icon-textarea" />
+            <textarea name="message" placeholder="Расскажите о вашем проекте" class="form-input-field form-input-textarea"></textarea>
+          </div>
         </div>
+        <button type="submit" class="submit-btn">Отправить</button>
+      </form>
+      <div class="contact-info">
+        <h2 class="info-title">Контактная информация</h2>
+        <p class="info-description">Мы всегда готовы ответить на ваши вопросы</p>
+        <div class="info-item"><div class="info-icon"><img src="/contact/Vector.png" alt="" /></div><div class="info-details"><div class="info-label">Телефон</div><div class="info-value">+7 (495) 790-76-97</div></div></div>
+        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@example.com">info@energy-plus.biz</a></div></div></div>
+        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-2.png" alt="" /></div><div class="info-details"><div class="info-label">Адрес</div><div class="info-value">111123, Москва, 1-я Владимирская, д.10А, стр. 1</div></div></div>
+        <div class="info-item"><div class="info-icon"><img src="/contact/watch.png" alt="" /></div><div class="info-details"><div class="info-label">Время работы</div><div class="info-value">Пн-Пт: 9:00 - 18:00</div></div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<!--=========== MODALS ==========-->
   <div class="modal" id="containerModal">
     <span class="modal-close" id="containerClose">&times;</span>
     <img class="modal-content" id="containerImage" alt="Полноэкранный просмотр" />
@@ -562,50 +597,39 @@
 </main>
 
 <style>
-/* ========================================
-   ИЗОЛИРОВАННЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ ЭНЕРГИЯ ПЛЮС
-======================================== */
-
-/* CSS переменные доступны глобально, но используются только внутри .energiya-plus-page */
+/*---------CSS VARIABLES---------*/
 :root {
   --primary-orange: #d35d2d;
   --primary-orange-light: rgba(211, 93, 45, 0.3);
   --primary-orange-shadow: rgba(211, 93, 45, 0.2);
   --gradient-orange: linear-gradient(135deg, #e36e40, #cf5628);
-
   --text-dark: #000000;
   --text-muted: rgba(0, 0, 0, 0.3);
   --text-white: #ffffff;
-
   --tag-bg: #fcece6;
   --tag-text: #8b4a36;
-
   --border-color: #999999;
   --border-light: #e0e0e0;
   --bg-white: #ffffff;
   --icon-gray: #777;
-
   --container-max-width: 1360px;
   --content-max-width: 1272px;
   --container-padding-left: clamp(20px, 5vw, 40px);
   --container-padding-right: clamp(20px, 5vw, 40px);
-
   --section-gap: clamp(40px, 6vw, 90px);
   --separator-padding: clamp(30px, 2.8vw, 40px);
-
   --border-radius: 10px;
   --border-radius-lg: 12px;
   --transition-speed: 0.3s;
-
   --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 10px 20px rgba(211, 93, 45, 0.2);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
   --shadow-header: 0px 15px 15px -10px rgba(0, 0, 0, 0.05);
-
   --gallery-gap: 24px;
   --photo-gap: 20px;
 }
 
+/*---------RESET---------*/
 *,
 *::before,
 *::after {
@@ -614,13 +638,13 @@
   padding: 0;
 }
 
-/* Убираем глобальный стиль body - он может повлиять на весь сайт */
+/*---------MAIN---------*/
 .energiya-plus-page {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  background-color: var(--bg-white);
+  background-color: rgba(255, 255, 255, 1);
   color: var(--text-dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -643,6 +667,7 @@ ul {
   list-style: none;
 }
 
+/*---------CONTAINER---------*/
 .site-container {
   max-width: var(--container-max-width);
   width: 100%;
@@ -652,164 +677,7 @@ ul {
   position: relative;
 }
 
-.header-wrapper {
-  width: 100%;
-  background: var(--bg-white);
-  box-shadow: var(--shadow-header);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-top {
-  display: flex;
-  align-items: center;
-  min-height: 57px;
-  padding-top: 15px;
-  gap: clamp(20px, 12vw, 178px);
-  flex-wrap: wrap;
-}
-
-.logo {
-  width: clamp(150px, 14vw, 205px);
-  height: auto;
-  aspect-ratio: 205/42;
-  flex-shrink: 0;
-  transition: opacity var(--transition-speed);
-}
-
-.logo:hover {
-  opacity: 0.8;
-}
-
-.logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.search-bar {
-  position: relative;
-  flex-grow: 1;
-  max-width: 549px;
-  min-width: 200px;
-}
-
-.search-bar input {
-  width: 100%;
-  height: 40px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  padding: 0 40px 0 15px;
-  outline: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-  transition: border-color var(--transition-speed);
-}
-
-.search-bar input:focus {
-  border-color: var(--primary-orange);
-}
-
-.search-bar i {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--icon-gray);
-  pointer-events: none;
-}
-
-.contact-phone {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  font-size: clamp(14px, 1.1vw, 16px);
-  color: var(--text-dark);
-  white-space: nowrap;
-  transition: color var(--transition-speed);
-}
-
-.contact-phone:hover {
-  color: var(--primary-orange);
-}
-
-/* Бургер меню (скрыто на десктопе) */
-.burger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-  position: relative;
-}
-
-.burger-menu span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: var(--text-dark);
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-.burger-menu:hover span {
-  background: var(--primary-orange);
-}
-
-/* Навигация по умолчанию */
-nav {
-  position: relative;
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  min-height: 50px;
-  padding: 15px 0;
-  gap: clamp(15px, 4.3vw, 61.5px);
-  flex-wrap: wrap;
-}
-
-.nav-item {
-  cursor: pointer;
-  color: var(--text-dark);
-  font-weight: 400;
-  font-size: clamp(13px, 1.1vw, 16px);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  transition: color var(--transition-speed);
-}
-
-.nav-item:hover {
-  color: var(--primary-orange);
-}
-
-.nav-arrow {
-  width: 5.83px;
-  height: 2.92px;
-  display: flex;
-  align-items: center;
-  transition: transform var(--transition-speed);
-}
-
-.nav-item:hover .nav-arrow {
-  transform: translateY(2px);
-}
-
-.nav-arrow svg {
-  width: 100%;
-  height: 100%;
-}
-
+/*---------HERO---------*/
 .hero {
   padding: clamp(40px, 5.8vw, 83px) 0 clamp(30px, 2.8vw, 40px);
   background: var(--bg-white);
@@ -861,65 +729,60 @@ h1 {
   margin: 4px 0 clamp(20px, 2.1vw, 30px);
 }
 
+
 .hero-buttons {
   display: flex;
   gap: clamp(15px, 1.4vw, 20px);
   flex-wrap: wrap;
   align-items: center;
-  margin: 0 !important;
-  padding: 0 !important;
-  justify-content: flex-start !important;
+  justify-content: flex-start;
+
 }
 
-/* ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ КНОПОК - ВЫСОКАЯ СПЕЦИФИЧНОСТЬ */
-.hero-buttons .hero-btn,
-a.hero-btn {
-  height: clamp(44px, 3.6vw, 52px) !important;
-  padding: 0 clamp(20px, 2.2vw, 32px) !important;
-  border-radius: var(--border-radius) !important;
-  font-size: clamp(14px, 1.1vw, 16px) !important;
-  font-weight: 500 !important;
-  cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  white-space: nowrap !important;
-  transition: all var(--transition-speed) !important;
-  text-decoration: none !important;
-  box-sizing: border-box !important;
-  line-height: 1 !important;
+/*---------HERO BUTTONS---------*/
+.hero-btn {
+  height: clamp(44px, 3.6vw, 52px);
+  padding: 0 clamp(20px, 2.2vw, 32px);
+  border-radius: var(--border-radius);
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all var(--transition-speed);
+  text-decoration: none;
+  box-sizing: border-box;
+  line-height: 1;
+  border: none;
 }
 
-.hero-buttons .hero-btn-primary,
-a.hero-btn-primary {
+.hero-btn-primary {
   background: var(--primary-orange) !important;
   color: var(--bg-white) !important;
-  border: none !important;
 }
 
-.hero-buttons .hero-btn-primary:hover,
-a.hero-btn-primary:hover {
-  background: #FF753D !important;
+.hero-btn-primary:hover {
+  background: rgba(255, 117, 61, 1) !important;
   transform: translateY(-2px) !important;
   box-shadow: var(--shadow-md) !important;
-  color: var(--bg-white) !important;
 }
 
-.hero-buttons .hero-btn-secondary,
-a.hero-btn-secondary {
+.hero-btn-secondary {
   background: transparent !important;
   border: 1px solid var(--text-dark) !important;
   color: var(--text-dark) !important;
 }
 
-.hero-buttons .hero-btn-secondary:hover,
-a.hero-btn-secondary:hover {
+.hero-btn-secondary:hover {
   background: rgba(211, 93, 45, 0.1) !important;
   border-color: var(--primary-orange) !important;
   color: var(--primary-orange) !important;
   transform: translateY(-2px) !important;
 }
 
+/*---------VISUAL BOX---------*/
 .visual-box {
   position: relative;
   flex: 1;
@@ -1041,6 +904,7 @@ video {
   left: -20px;
 }
 
+/*---------SEPARATOR---------*/
 .separator {
   padding: var(--separator-padding) 0;
   margin: 0 auto;
@@ -1069,6 +933,7 @@ video {
   letter-spacing: 0.05em;
 }
 
+/*---------SERVICES---------*/
 .services-section {
   padding-top: var(--separator-padding);
   padding-bottom: var(--section-gap);
@@ -1173,6 +1038,7 @@ video {
   white-space: nowrap;
 }
 
+/*---------ACHIEVEMENTS---------*/
 .achievements-section {
   padding-top: 30px;
   padding-bottom: 80px;
@@ -1263,6 +1129,7 @@ video {
   color: var(--text-dark);
 }
 
+/*---------COMPLEX APPROACH---------*/
 .complex-section {
   width: 100%;
   padding-bottom: var(--section-gap);
@@ -1451,6 +1318,7 @@ video {
   left: 16.67%;
 }
 
+/*---------ADDITIONAL SERVICES---------*/
 .additional-services {
   flex: 1;
   max-width: 542px;
@@ -1517,6 +1385,7 @@ video {
   color: var(--text-dark);
 }
 
+/*---------ABOUT---------*/
 .about-section {
   padding-top: var(--separator-padding);
   padding-bottom: var(--section-gap);
@@ -1556,6 +1425,7 @@ video {
   margin-bottom: 0;
 }
 
+/*---------CONTAINER BOILERS---------*/
 .container-boilers-section {
   padding-top: var(--separator-padding);
   padding-bottom: var(--section-gap);
@@ -1637,6 +1507,7 @@ video {
   opacity: 0.9;
 }
 
+/*---------STATIONARY BOILERS---------*/
 .stationary-boilers-section {
   padding-top: var(--separator-padding);
   padding-bottom: var(--section-gap);
@@ -1702,6 +1573,7 @@ video {
   opacity: 1;
 }
 
+/*---------LINEAR OBJECTS---------*/
 .linear-objects-section {
   padding-top: var(--separator-padding);
   padding-bottom: var(--section-gap);
@@ -1806,6 +1678,7 @@ video {
   flex: 1;
 }
 
+/*---------BOOKLETS---------*/
 .booklets-section {
   padding-top: var(--separator-padding);
   padding-bottom: var(--section-gap);
@@ -1863,6 +1736,7 @@ video {
   transform: scale(1.05);
 }
 
+/*---------CONTACTS---------*/
 .contacts-section {
   padding-top: var(--separator-padding);
   padding-bottom: 60px;
@@ -1902,11 +1776,39 @@ video {
   gap: 15px;
 }
 
-.input-group input,
-.input-group textarea {
-  border: 1px solid rgba(0, 0, 0, 0.3);
+/*---------FORM INPUTS WITH ICONS---------*/
+.form-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-textarea-wrapper {
+  align-items: flex-start;
+}
+
+.form-input-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.form-input-icon-textarea {
+  top: 15px !important;
+  transform: translateY(0) !important;
+}
+
+.form-input-field {
+  width: 100%;
+  border: 1.5px solid rgba(0, 0, 0, 0.3);
   border-radius: var(--border-radius);
-  padding: 15px 20px;
+  padding: 15px 20px 15px 56px;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -1915,21 +1817,21 @@ video {
   outline: none;
 }
 
-.input-group input:focus,
-.input-group textarea:focus {
+.form-input-field:focus {
   border-color: var(--primary-orange);
 }
 
-.input-group input::placeholder,
-.input-group textarea::placeholder {
+.form-input-field::placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.input-group textarea {
+.form-input-textarea {
   resize: vertical;
   min-height: 100px;
+  padding-top: 15px;
 }
 
+/*---------SUBMIT BUTTON---------*/
 .submit-btn {
   align-self: flex-start;
   border: none;
@@ -1945,11 +1847,12 @@ video {
 }
 
 .submit-btn:hover {
-  background: #b94d20;
+  background: rgba(255, 117, 61, 1);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
+/*---------CONTACT INFO---------*/
 .contact-info {
   flex: 1;
   max-width: 623px;
@@ -2017,6 +1920,7 @@ video {
   font-size: 16px;
 }
 
+/*---------MODALS---------*/
 .modal {
   display: none;
   position: fixed;
@@ -2098,6 +2002,7 @@ video {
   }
 }
 
+/*---------MEDIA QUERIES---------*/
 @media (max-width: 1320px) {
   .container-gallery {
     gap: 20px;
@@ -2246,124 +2151,7 @@ video {
   }
 }
 
-/* ============================================
-   МОБИЛЬНОЕ МЕНЮ (КАК В ВАШЕМ ПРИМЕРЕ)
-============================================ */
 @media (max-width: 768px) {
-  /* Показываем бургер */
-  .burger-menu {
-    display: flex;
-  }
-
-  .header-top {
-    gap: 15px;
-    padding-bottom: 10px;
-  }
-
-  .search-bar {
-    order: 3;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* Оверлей - ОТДЕЛЬНЫЙ div будет добавлен через JS */
-  .mobile-nav-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .mobile-nav-overlay.active {
-    display: block;
-    opacity: 1;
-  }
-
-  /* Мобильное меню */
-  nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--bg-white);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease;
-    z-index: 999;
-    overflow-y: auto;
-  }
-
-  nav.mobile-open {
-    right: 0;
-  }
-
-  /* Кнопка закрытия */
-  .mobile-close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    background: var(--primary-orange);
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: all 0.3s ease;
-  }
-
-  .mobile-close-btn::before,
-  .mobile-close-btn::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background: white;
-  }
-
-  .mobile-close-btn::before {
-    transform: rotate(45deg);
-  }
-
-  .mobile-close-btn::after {
-    transform: rotate(-45deg);
-  }
-
-  .mobile-close-btn:hover {
-    background: #b94d20;
-    transform: rotate(90deg);
-  }
-
-  /* Меню вертикальное */
-  .nav-list {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 70px 20px 20px;
-    min-height: auto;
-  }
-
-  .nav-item {
-    width: 100%;
-    padding: 15px 10px;
-    border-bottom: 1px solid var(--border-light);
-    font-size: 16px;
-    color: var(--text-dark);
-  }
-
-  .nav-item:last-child {
-    border-bottom: none;
-  }
-
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2563,10 +2351,8 @@ video {
     width: 100%;
   }
 
-  .hero-btn,
-  a.hero-btn {
-    width: 100% !important;
-    max-width: 100% !important;
+  .hero-btn {
+    width: 100%;
   }
 
   .services-grid {
@@ -2648,10 +2434,9 @@ video {
     font-size: 20px;
   }
 
-  .input-group input,
-  .input-group textarea {
+  .form-input-field {
     font-size: 16px;
-    padding: 12px 16px;
+    padding: 12px 16px 12px 52px;
   }
 
   .submit-btn {
@@ -2671,10 +2456,6 @@ video {
   .info-label,
   .info-value {
     font-size: 14px;
-  }
-
-  nav {
-    width: 100%;
   }
 
   .center-circle {
