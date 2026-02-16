@@ -576,12 +576,12 @@
         <h2 class="form-title">Отправить заявку</h2>
         <div class="input-group">
           <div class="form-input-wrapper">
-            <img src="/ickonandlogo/contact/Vector.png" alt="" class="form-input-icon" />
+            <img src="/ickonandlogo/contact/solar_user-linear (1).png" alt="Иконка пользователя" class="form-input-icon" />
             <input type="text" name="username" placeholder="Ваше имя" required class="form-input-field" />
           </div>
           
           <div class="form-input-wrapper">
-             <img src="/ickonandlogo/contact/solar_user-linear (1).png" alt="" class="form-input-icon" />
+             <img src="/ickonandlogo/contact/Vector.png" alt="" class="form-input-icon" />
             <input type="tel" name="phone" placeholder="Ваш телефон" required class="form-input-field" />
           </div>
 
