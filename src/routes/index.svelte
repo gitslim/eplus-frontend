@@ -25,19 +25,47 @@
         }
     }
 
-/*---------ОБРАБОТКА ФОРМЫ BITRIX24---------*/
+/*---------ВАЛИДАЦИЯ И ОТПРАВКА BITRIX24---------*/
     async function handleFormSubmit(event) {
         event.preventDefault();
         
         const form = event.target;
         const formData = new FormData(form);
         
+        const username = formData.get('username').trim();
+        const phone = formData.get('phone').trim();
+        const email = formData.get('email').trim();
+        const message = formData.get('message').trim();
+
+        // 1. Проверка Имени (только буквы, мин 2 символа)
+        const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/;
+        if (username.length < 2 || !nameRegex.test(username)) {
+            alert('Пожалуйста, введите корректное имя (без цифр и спецсимволов).');
+            return;
+        }
+
+        // 2. Проверка Телефона (очистка от скобок/тире, проверка длины)
+        const phoneClean = phone.replace(/\D/g, ''); // Оставляем только цифры
+        if (phoneClean.length < 10) {
+            alert('Пожалуйста, введите корректный номер телефона (минимум 10 цифр).');
+            return;
+        }
+
+        // 3. Проверка Email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Пожалуйста, введите корректный Email адрес.');
+            return;
+        }
+
+        // Формирование данных для Bitrix24
         const data = {
             fields: {
-                TITLE: `Заявка с сайта от ${formData.get('username')}`,
-                NAME: formData.get('username'),
-                PHONE: [{ VALUE: formData.get('phone'), VALUE_TYPE: 'WORK' }],
-                COMMENTS: formData.get('message') || 'Без комментариев'
+                TITLE: `Заявка с сайта от ${username}`,
+                NAME: username,
+                PHONE: [{ VALUE: phone, VALUE_TYPE: 'WORK' }],
+                EMAIL: [{ VALUE: email, VALUE_TYPE: 'WORK' }],
+                COMMENTS: message || 'Без комментариев'
             }
         };
 
@@ -51,14 +79,14 @@
             });
 
             if (response.ok) {
-                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                alert('Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.');
                 form.reset();
             } else {
-                throw new Error('Ошибка отправки');
+                throw new Error('Ошибка сервера Bitrix');
             }
         } catch (error) {
             console.error('Ошибка отправки формы:', error);
-            alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже или позвоните нам.');
+            alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже или позвоните нам по телефону +7 (495) 790-76-97.');
         }
     }
 
@@ -223,10 +251,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check_circle" />
 </svelte:head>
 
-<!--=========== MAIN ==========-->
 <main class="energiya-plus-page" style="padding-top: 85px;">
   
-  <!--=========== HERO ==========-->
   <section class="hero">
     <div class="site-container hero-wrapper">
       <div class="hero-content">
@@ -264,12 +290,11 @@
     <div class="separator"><span>наши услуги</span></div>
   </div>
 
-  <!--=========== SERVICES ==========-->
   <section class="services-section" id="services">
     <div class="site-container">
       <div class="services-grid">
         <article class="service-card service-card--top">
-          <a href="/page/konteynernaya-kotelnaya-800kW" class="service-link">
+          <a href="/page/izgotovlenie-blochno-modulnyh-kotelnyh" class="service-link">
             <div class="service-img-box"><img src="/fotoandvideo/sborkambk.jpg" alt="Сборка БМК" class="service-img" /></div>
             <div class="service-label">
               <div class="service-icon-box"><img src="/ickonandlogo/ourservices/Vector.png" alt="" class="service-icon-img" /></div>
@@ -325,7 +350,6 @@
     <div class="separator"><span>наши заслуги</span></div>
   </div>
 
-  <!--=========== ACHIEVEMENTS ==========-->
   <section class="achievements-section">
     <div class="site-container">
       <div class="achievements-grid">
@@ -353,7 +377,6 @@
     <div class="separator"><span>Комплексный подход</span></div>
   </div>
 
-  <!--=========== COMPLEX APPROACH ==========-->
   <section class="complex-section">
     <div class="site-container">
       <div class="complex-wrapper">
@@ -381,7 +404,7 @@
             <line x1="300" y1="300" x2="100" y2="130" class="line-glow" id="glow-7" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
           </svg>
           <div class="node center-node"><div class="center-circle"><img src="/ickonandlogo/anintegratedapproach/Vector-7.png" alt="" /><span>Инжиниринг<br />полного цикла</span></div></div>
-          <div class="node sat-1" data-target="1"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector 112.png" alt="" /></div><div class="node-text">Готовый к<br> эксплотации обьект</div></div>
+          <div class="node sat-1" data-target="1"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector 112.png" alt="" /></div><div class="node-text">Готовый к<br> эксплуатации объект</div></div>
           <div class="node sat-2" data-target="2"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-6.png" alt="" /></div><div class="node-text">Разработка ТЭО</div></div>
           <div class="node sat-3" data-target="3"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-4.png" alt="" /></div><div class="node-text">Сбор ИРД</div></div>
           <div class="node sat-4" data-target="4"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-2.png" alt="" /></div><div class="node-text">Выполнение и<br> адаптация</div></div>
@@ -393,7 +416,10 @@
 
         <div class="additional-services">
           <h2>Дополнительные услуги</h2>
-          <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-8.png" alt="" /></div><div class="add-service-text">Расчет потребности в тепле и топливе</div></div>
+          <a href="/page/teplotehnicheskij-raschet" class="add-service-card">
+            <div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-8.png" alt="" /></div>
+            <div class="add-service-text">Расчет потребности в тепле и топливе</div>
+          </a>
           <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-9.png" alt="" /></div><div class="add-service-text">Сопровождение при получении технических<br> условия на подключение в ГРО</div></div>
           <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-10.png" alt="" /></div><div class="add-service-text">Разработка альтернативных моделей<br> теплоснабжения</div></div>
           <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-11.png" alt="" /></div><div class="add-service-text">Энергоаудит предприятия</div></div>
@@ -406,7 +432,6 @@
     <div class="separator"><span>О нас</span></div>
   </div>
 
-  <!--=========== ABOUT ==========-->
   <section class="about-section">
     <div class="site-container about-wrapper">
       <div class="visual-box">
@@ -425,7 +450,7 @@
       <div class="about-content">
         <h2 class="about-title">Энергия Плюс</h2>
         <p class="about-text">Более 20 лет обеспечивает промышленных абонентов эффективными решениями в области газоснабжения и энергетики. Компетенции и опыт, накопленные за это время, конвертировались в качественный продукт модульные котельные.</p>
-        <p class="about-text">Производством БМК занимается дочернее предприятие - "Энергия Плюс"</p>
+        <p class="about-text">Производством БМК занимается дочернее предприятие - "Энергия Групп"</p>
       </div>
     </div>
   </section>
@@ -434,7 +459,6 @@
     <div class="separator"><span>Контейнерные котельные, собранные "Энергией плюс"</span></div>
   </div>
 
-  <!--=========== CONTAINER BOILERS ==========-->
   <section class="container-boilers-section">
     <div class="site-container">
         <div class="container-gallery">
@@ -477,7 +501,6 @@
 
   <div class="site-container"><div class="separator"><span>Стационарные котельные по индивидуальному проекту</span></div></div>
   
-  <!--=========== STATIONARY BOILERS ==========-->
   <section class="stationary-boilers-section">
     <div class="site-container">
         <div class="stationary-gallery">
@@ -492,7 +515,6 @@
 
   <div class="site-container"><div class="separator"><span>Линейные объекты</span></div></div>
   
-  <!--=========== LINEAR OBJECTS ==========-->
   <section class="linear-objects-section">
     <div class="site-container">
       <div class="linear-wrapper">
@@ -532,11 +554,10 @@
 
   <div class="site-container"><div class="separator"><span>Наши буклеты</span></div></div>
   
-  <!--=========== BOOKLETS ==========-->
   <section class="booklets-section">
     <div class="site-container">
       <div class="booklets-container">
-        <a href="https://xn--c1adkmgpem4hrai.xn--p1ai/presentation/%D0%91%D1%83%D0%BA%D0%BB%D0%B5%D1%82%20%D1%81%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8%20%D1%8D%D0%BD%D0%B5%D1%80%D0%B5%D1%82%D0%B8%D0%BA%D0%B8.pdf" class="booklet" target="_blank" rel="noopener noreferrer">
+        <a href="https://xn--c1adkmgpem4hrai.xn--p1ai/presentation/Буклет с услугами в области энергетики.pdf" class="booklet" target="_blank" rel="noopener noreferrer">
           <div class="booklet-title"><span>Буклет по энергетике</span></div>
           <div class="booklet-image"><img src="/fotoandvideo/bucletenerge.png" alt="" /></div>
         </a>
@@ -548,7 +569,6 @@
     </div>
   </section>
 
-<!--=========== CONTACTS ==========-->
 <section class="contacts-section" id="contacts">
   <div class="site-container">
     <div class="contacts-container">
@@ -556,15 +576,22 @@
         <h2 class="form-title">Отправить заявку</h2>
         <div class="input-group">
           <div class="form-input-wrapper">
-            <img src="static\ickonandlogo\contact\Vector.png" alt="" class="form-input-icon" />
+            <img src="/ickonandlogo/contact/Vector.png" alt="" class="form-input-icon" />
             <input type="text" name="username" placeholder="Ваше имя" required class="form-input-field" />
           </div>
+          
           <div class="form-input-wrapper">
-            <img src="static\ickonandlogo\contact\solar_user-linear (1).png" alt="" class="form-input-icon" />
+             <img src="/ickonandlogo/contact/solar_user-linear (1).png" alt="" class="form-input-icon" />
             <input type="tel" name="phone" placeholder="Ваш телефон" required class="form-input-field" />
           </div>
+
+          <div class="form-input-wrapper">
+            <img src="/ickonandlogo/contact/Vector (1).png" alt="" class="form-input-icon" style="transform: translateY(-50%) !important; top: 50% !important;" />
+            <input type="email" name="email" placeholder="Ваш Email" required class="form-input-field" />
+          </div>
+
           <div class="form-input-wrapper form-textarea-wrapper">
-            <img src="static\ickonandlogo\contact\Vector (1).png" alt="" class="form-input-icon form-input-icon-textarea" />
+             <img src="/ickonandlogo/contact/Vector (1).png" alt="" class="form-input-icon form-input-icon-textarea" />
             <textarea name="message" placeholder="Расскажите о вашем проекте" class="form-input-field form-input-textarea"></textarea>
           </div>
         </div>
@@ -574,7 +601,7 @@
         <h2 class="info-title">Контактная информация</h2>
         <p class="info-description">Мы всегда готовы ответить на ваши вопросы</p>
         <div class="info-item"><div class="info-icon"><img src="/contact/Vector.png" alt="" /></div><div class="info-details"><div class="info-label">Телефон</div><div class="info-value">+7 (495) 790-76-97</div></div></div>
-        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@example.com">info@energy-plus.biz</a></div></div></div>
+        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@energy-plus.biz">info@energy-plus.biz</a></div></div></div>
         <div class="info-item"><div class="info-icon"><img src="/contact/Vector-2.png" alt="" /></div><div class="info-details"><div class="info-label">Адрес</div><div class="info-value">111123, Москва, 1-я Владимирская, д.10А, стр. 1</div></div></div>
         <div class="info-item"><div class="info-icon"><img src="/contact/watch.png" alt="" /></div><div class="info-details"><div class="info-label">Время работы</div><div class="info-value">Пн-Пт: 9:00 - 18:00</div></div></div>
       </div>
@@ -582,8 +609,7 @@
   </div>
 </section>
 
-<!--=========== MODALS ==========-->
-  <div class="modal" id="containerModal">
+<div class="modal" id="containerModal">
     <span class="modal-close" id="containerClose">&times;</span>
     <img class="modal-content" id="containerImage" alt="Полноэкранный просмотр" />
   </div>
@@ -727,6 +753,7 @@ h1 {
   line-height: 1.5;
   color: var(--text-dark);
   margin: 4px 0 clamp(20px, 2.1vw, 30px);
+  text-align: justify; 
 }
 
 
@@ -1346,6 +1373,7 @@ video {
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: all var(--transition-speed);
+  text-decoration: none; 
 }
 
 .add-service-card:hover {
