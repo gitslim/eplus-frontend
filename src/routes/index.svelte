@@ -413,7 +413,7 @@
         <div class="decor decor-tr"></div>
         <div class="decor decor-bl"></div>
         <div class="video-box video-wrapper">
-            <video src="/fotoandvideo/videoheader.MOV" controls preload="metadata"></video>
+            <video src="static\fotoandvideo\videoBMKK.mp4" controls preload="metadata"></video>
             <div class="play-btn-wrapper" on:click={handlePlayClick}>
                 <div class="play-overlay">
                     <div class="gallery-play-btn"></div>
