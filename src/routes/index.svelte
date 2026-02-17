@@ -13,6 +13,61 @@
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
     import { onMount } from 'svelte';
 
+/*---------ПЕРЕМЕННЫЕ МОДАЛОВ---------*/
+    let containerModalActive = false;
+    let containerImageSrc = '';
+
+    let stationaryModalActive = false;
+    let stationaryImageSrc = '';
+    let currentStationaryIndex = 0;
+
+    const stationaryImages = [
+        '/fotoandvideo/kotelnaya1.jpg',
+        '/fotoandvideo/kotelnaya2.png',
+        '/fotoandvideo/kotelnaya3.png',
+        '/fotoandvideo/kotelnaya4.png',
+        '/fotoandvideo/kotelnaya5.png',
+    ];
+
+/*---------ФУНКЦИИ КОНТЕЙНЕРНЫХ ФОТО---------*/
+    function openContainerPhoto(event) {
+        const item = event.currentTarget;
+        const img = item.querySelector('img');
+        if (img) {
+            containerImageSrc = img.src;
+            containerModalActive = true;
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeContainerModal() {
+        containerModalActive = false;
+        document.body.style.overflow = '';
+    }
+
+/*---------ФУНКЦИИ СТАЦИОНАРНЫХ ФОТО---------*/
+    function openStationaryPhoto(index) {
+        currentStationaryIndex = index;
+        stationaryImageSrc = stationaryImages[index];
+        stationaryModalActive = true;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeStationaryModal() {
+        stationaryModalActive = false;
+        document.body.style.overflow = '';
+    }
+
+    function statPrev() {
+        currentStationaryIndex = (currentStationaryIndex - 1 + stationaryImages.length) % stationaryImages.length;
+        stationaryImageSrc = stationaryImages[currentStationaryIndex];
+    }
+
+    function statNext() {
+        currentStationaryIndex = (currentStationaryIndex + 1) % stationaryImages.length;
+        stationaryImageSrc = stationaryImages[currentStationaryIndex];
+    }
+
 /*---------ФУНКЦИИ ВИДЕО---------*/
     function handlePlayClick(event) {
         const wrapper = event.currentTarget.closest('.video-wrapper');
@@ -37,28 +92,24 @@
         const email = formData.get('email').trim();
         const message = formData.get('message').trim();
 
-        // 1. Проверка Имени (только буквы, мин 2 символа)
         const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/;
         if (username.length < 2 || !nameRegex.test(username)) {
             alert('Пожалуйста, введите корректное имя (без цифр и спецсимволов).');
             return;
         }
 
-        // 2. Проверка Телефона (очистка от скобок/тире, проверка длины)
-        const phoneClean = phone.replace(/\D/g, ''); // Оставляем только цифры
+        const phoneClean = phone.replace(/\D/g, '');
         if (phoneClean.length < 10) {
             alert('Пожалуйста, введите корректный номер телефона (минимум 10 цифр).');
             return;
         }
 
-        // 3. Проверка Email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             alert('Пожалуйста, введите корректный Email адрес.');
             return;
         }
 
-        // Формирование данных для Bitrix24
         const data = {
             fields: {
                 TITLE: `Заявка с сайта от ${username}`,
@@ -72,9 +123,7 @@
         try {
             const response = await fetch(`${import.meta.env.VITE_BITRIX_HOOK_URL}crm.lead.add.json`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
 
@@ -92,6 +141,7 @@
 
 /*---------ON MOUNT---------*/
     onMount(() => {
+        // Hover-эффекты для схемы комплексного подхода
         const nodes = document.querySelectorAll('.node[data-target]');
         nodes.forEach((node) => {
             node.addEventListener('mouseenter', () => {
@@ -120,6 +170,7 @@
             });
         });
 
+        // Плавный скролл к якорям
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -136,100 +187,15 @@
             });
         });
 
-        const containerItems = document.querySelectorAll('[data-gallery="photo"]');
-        const containerModal = document.getElementById('containerModal');
-        const containerImage = document.getElementById('containerImage');
-        const containerClose = document.getElementById('containerClose');
-
-        containerItems.forEach((item) => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const img = item.querySelector('img');
-                if (containerModal && containerImage && img) {
-                    containerModal.classList.add('active');
-                    containerImage.src = img.src;
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-
-        const stationaryItems = document.querySelectorAll('.stationary-item');
-        const stationaryModal = document.getElementById('stationaryModal');
-        const stationaryImage = document.getElementById('stationaryImage');
-        const stationaryClose = document.getElementById('stationaryClose');
-        const statPrev = document.getElementById('statPrev');
-        const statNext = document.getElementById('statNext');
-
-        let currentIndex = 0;
-        const stationaryImages = Array.from(stationaryItems).map(item => {
-            const img = item.querySelector('img');
-            return img ? img.src : '';
-        });
-
-        const showStationaryImage = (index) => {
-            if (stationaryImage) stationaryImage.src = stationaryImages[index];
-        };
-
-        stationaryItems.forEach((item) => {
-            item.addEventListener('click', () => {
-                const indexAttr = item.getAttribute('data-index');
-                if (indexAttr !== null) {
-                    currentIndex = parseInt(indexAttr);
-                    showStationaryImage(currentIndex);
-                    if (stationaryModal) {
-                        stationaryModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
-                }
-            });
-        });
-
-        [containerClose, stationaryClose].forEach(btn => {
-            if(btn) btn.addEventListener('click', (e) => {
-                const modal = e.target.closest('.modal');
-                if (modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        [containerModal, stationaryModal].forEach(modal => {
-            if(modal) modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        if (statPrev) {
-            statPrev.addEventListener('click', (e) => {
-                e.stopPropagation();
-                currentIndex = (currentIndex - 1 + stationaryImages.length) % stationaryImages.length;
-                showStationaryImage(currentIndex);
-            });
-        }
-
-        if (statNext) {
-            statNext.addEventListener('click', (e) => {
-                e.stopPropagation();
-                currentIndex = (currentIndex + 1) % stationaryImages.length;
-                showStationaryImage(currentIndex);
-            });
-        }
-
+        // Клавиатурные события для модалов
         const handleKeydown = (e) => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('.modal.active').forEach(m => {
-                    m.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
+                if (containerModalActive) closeContainerModal();
+                if (stationaryModalActive) closeStationaryModal();
             }
-            if (stationaryModal && stationaryModal.classList.contains('active')) {
-                if (e.key === 'ArrowLeft') statPrev?.click();
-                if (e.key === 'ArrowRight') statNext?.click();
+            if (stationaryModalActive) {
+                if (e.key === 'ArrowLeft') statPrev();
+                if (e.key === 'ArrowRight') statNext();
             }
         };
         
@@ -384,22 +350,16 @@
           <svg class="scheme-lines" viewBox="0 0 600 600" aria-hidden="true">
             <line x1="300" y1="300" x2="300" y2="50" class="line-bg" style="stroke: #e0e0e0; stroke-width: 2; stroke-dasharray: 8 6; fill: none;" />
             <line x1="300" y1="300" x2="300" y2="50" class="line-glow" id="glow-1" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
-            
             <line x1="300" y1="300" x2="500" y2="130" class="line-bg" style="stroke: #e0e0e0; stroke-width: 2; stroke-dasharray: 8 6; fill: none;" />
             <line x1="300" y1="300" x2="500" y2="130" class="line-glow" id="glow-2" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
-            
             <line x1="300" y1="300" x2="540" y2="330" class="line-bg" style="stroke: #e0e0e0; stroke-width: 2; stroke-dasharray: 8 6; fill: none;" />
             <line x1="300" y1="300" x2="540" y2="330" class="line-glow" id="glow-3" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
-            
             <line x1="300" y1="300" x2="410" y2="510" class="line-bg" style="stroke: #e0e0e0; stroke-width: 2; stroke-dasharray: 8 6; fill: none;" />
             <line x1="300" y1="300" x2="410" y2="510" class="line-glow" id="glow-4" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
-            
             <line x1="300" y1="300" x2="190" y2="510" class="line-bg" style="stroke: #e0e0e0; stroke-width: 2; stroke-dasharray: 8 6; fill: none;" />
             <line x1="300" y1="300" x2="190" y2="510" class="line-glow" id="glow-5" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
-            
             <line x1="300" y1="300" x2="60" y2="330" class="line-bg" style="stroke: #e0e0e0; stroke-width: 2; stroke-dasharray: 8 6; fill: none;" />
             <line x1="300" y1="300" x2="60" y2="330" class="line-glow" id="glow-6" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
-            
             <line x1="300" y1="300" x2="100" y2="130" class="line-bg" style="stroke: #e0e0e0; stroke-width: 2; stroke-dasharray: 8 6; fill: none;" />
             <line x1="300" y1="300" x2="100" y2="130" class="line-glow" id="glow-7" style="stroke: #d35d2d; stroke-width: 4; opacity: 0; fill: none; transition: opacity 0.3s;" />
           </svg>
@@ -409,8 +369,7 @@
           <div class="node sat-3" data-target="3"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-4.png" alt="" /></div><div class="node-text">Сбор ИРД</div></div>
           <div class="node sat-4" data-target="4"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-2.png" alt="" /></div><div class="node-text">Выполнение и<br> адаптация</div></div>
           <div class="node sat-5" data-target="5"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-3.png" alt="" /></div><div class="node-text">ПИР, экспертиза,<br> авторский надзор</div></div>
-          <div class="node sat-6" data-target="6"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-5.png" alt="" /></div><div class="node-text">Оборудование<br>
-и СМР</div></div>
+          <div class="node sat-6" data-target="6"><div class="sat-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-5.png" alt="" /></div><div class="node-text">Оборудование<br>и СМР</div></div>
           <div class="node sat-7" data-target="7"><div class="sat-icon"><span class="material-symbols-outlined">check_circle</span></div><div class="node-text">ПНР и сдача<br>объекта</div></div>
         </div>
 
@@ -420,8 +379,8 @@
             <div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-8.png" alt="" /></div>
             <div class="add-service-text">Расчет потребности в тепле и топливе</div>
           </a>
-          <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-9.png" alt="" /></div><div class="add-service-text">Сопровождение при получении технических<br> условия на подключение в ГРО</div></div>
-          <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-10.png" alt="" /></div><div class="add-service-text">Разработка альтернативных моделей<br> теплоснабжения</div></div>
+          <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-9.png" alt="" /></div><div class="add-service-text">Сопровождение при получении технических условия на подключение в ГРО</div></div>
+          <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-10.png" alt="" /></div><div class="add-service-text">Разработка альтернативных моделей теплоснабжения</div></div>
           <div class="add-service-card"><div class="add-service-icon"><img src="/ickonandlogo/anintegratedapproach/Vector-11.png" alt="" /></div><div class="add-service-text">Энергоаудит предприятия</div></div>
         </div>
       </div>
@@ -438,7 +397,7 @@
         <div class="decor decor-tr"></div>
         <div class="decor decor-bl"></div>
         <div class="video-box video-wrapper">
-            <video src="static\fotoandvideo\videoBMKK.mp4" controls preload="metadata"></video>
+            <video src="/fotoandvideo/videopoletaeva.MOV" controls preload="metadata"></video>
             <div class="play-btn-wrapper" on:click={handlePlayClick}>
                 <div class="play-overlay">
                     <div class="gallery-play-btn"></div>
@@ -463,10 +422,10 @@
     <div class="site-container">
         <div class="container-gallery">
             <div class="gallery-column gallery-column--side">
-                <div class="gallery-item gallery-item--small" data-gallery="photo" data-index="0">
+                <div class="gallery-item gallery-item--small" on:click={openContainerPhoto}>
                     <img src="/fotoandvideo/bkm1.png" alt="Контейнерная котельная на транспортировке" />
                 </div>
-                <div class="gallery-item gallery-item--small" data-gallery="photo" data-index="1">
+                <div class="gallery-item gallery-item--small" on:click={openContainerPhoto}>
                     <img src="/fotoandvideo/bkm2.png" alt="Монтаж контейнерной котельной" />
                 </div>
             </div>
@@ -488,11 +447,11 @@
             </div>
 
             <div class="gallery-column gallery-column--side">
-                <div class="gallery-item gallery-item--small" data-gallery="photo" data-index="2">
-                <img src="/fotoandvideo/bmk3.jpg" alt="Готовая контейнерная котельная" />
+                <div class="gallery-item gallery-item--small" on:click={openContainerPhoto}>
+                    <img src="/fotoandvideo/bmk3.jpg" alt="Готовая контейнерная котельная" />
                 </div>
-                <div class="gallery-item gallery-item--small" data-gallery="photo" data-index="3">
-                <img src="/fotoandvideo/3dmodel.png" alt="3D модель котельной" />
+                <div class="gallery-item gallery-item--small" on:click={openContainerPhoto}>
+                    <img src="/fotoandvideo/3dmodel.png" alt="3D модель котельной" />
                 </div>
             </div>
         </div>
@@ -504,11 +463,11 @@
   <section class="stationary-boilers-section">
     <div class="site-container">
         <div class="stationary-gallery">
-            <div class="stationary-item" data-number="1" data-index="0"><img src="/fotoandvideo/kotelnaya1.jpg" alt="" /></div>
-            <div class="stationary-item" data-number="2" data-index="1"><img src="/fotoandvideo/kotelnaya2.png" alt="" /></div>
-            <div class="stationary-item" data-number="3" data-index="2"><img src="/fotoandvideo/kotelnaya3.png" alt="" /></div>
-            <div class="stationary-item" data-number="4" data-index="3"><img src="/fotoandvideo/kotelnaya4.png" alt="" /></div>
-            <div class="stationary-item" data-number="5" data-index="4"><img src="/fotoandvideo/kotelnaya5.png" alt="" /></div>
+            <div class="stationary-item" data-number="1" on:click={() => openStationaryPhoto(0)}><img src="/fotoandvideo/kotelnaya1.jpg" alt="" /></div>
+            <div class="stationary-item" data-number="2" on:click={() => openStationaryPhoto(1)}><img src="/fotoandvideo/kotelnaya2.png" alt="" /></div>
+            <div class="stationary-item" data-number="3" on:click={() => openStationaryPhoto(2)}><img src="/fotoandvideo/kotelnaya3.png" alt="" /></div>
+            <div class="stationary-item" data-number="4" on:click={() => openStationaryPhoto(3)}><img src="/fotoandvideo/kotelnaya4.png" alt="" /></div>
+            <div class="stationary-item" data-number="5" on:click={() => openStationaryPhoto(4)}><img src="/fotoandvideo/kotelnaya5.png" alt="" /></div>
         </div>
     </div>
   </section>
@@ -521,31 +480,20 @@
         <div class="linear-photo"><img src="/fotoandvideo/gazoprovod.png" alt="" /></div>
         <div class="linear-cards">
           <a href="/page/gazoprovod-zaschita" class="linear-card">
-            <div class="card-icon">
-              <img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" />
-            </div>
-            <div class="card-text">Устройство защитных мероприятий на действующих<br>магистральных газопроводах</div>
+            <div class="card-icon"><img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" /></div>
+            <div class="card-text">Устройство защитных мероприятий на действующих магистральных газопроводах</div>
           </a>
-
           <a href="/page/gazoprovod-pereustroistvo" class="linear-card">
-            <div class="card-icon">
-              <img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" />
-            </div>
+            <div class="card-icon"><img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" /></div>
             <div class="card-text">Переустройство (вынос) участков газопроводов</div>
           </a>
-
           <a href="/page/stroitelsvo-gazoprovoda" class="linear-card">
-            <div class="card-icon">
-              <img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" />
-            </div>
-            <div class="card-text">Строительство магистрального газопровода (МГ) или<br>газопровода-отвода к газораспределительной станции (ГРС)</div>
+            <div class="card-icon"><img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" /></div>
+            <div class="card-text">Строительство магистрального газопровода (МГ) или газопровода-отвода к газораспределительной станции (ГРС)</div>
           </a>
-
           <a href="/page/gazoprovod-rekonstrukciya" class="linear-card">
-            <div class="card-icon">
-              <img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" />
-            </div>
-            <div class="card-text">Реконструкция, модернизация или техническое перево-<br>оружение ГРС, крановых узлов, участков магистральных газопроводов</div>
+            <div class="card-icon"><img src="/ickonandlogo/anintegratedapproach/emege.png" alt="" /></div>
+            <div class="card-text">Реконструкция, модернизация или техническое переоружение ГРС, крановых узлов, участков магистральных газопроводов</div>
           </a>
         </div>
       </div>
@@ -569,60 +517,59 @@
     </div>
   </section>
 
-<section class="contacts-section" id="contacts">
-  <div class="site-container">
-    <div class="contacts-container">
-      <form class="contact-form" on:submit={handleFormSubmit}>
-        <h2 class="form-title">Отправить заявку</h2>
-        <div class="input-group">
-          <div class="form-input-wrapper">
-            <img src="/ickonandlogo/contact/solar_user-linear (1).png" alt="Иконка пользователя" class="form-input-icon" />
-            <input type="text" name="username" placeholder="Ваше имя" required class="form-input-field" />
+  <section class="contacts-section" id="contacts">
+    <div class="site-container">
+      <div class="contacts-container">
+        <form class="contact-form" on:submit={handleFormSubmit}>
+          <h2 class="form-title">Отправить заявку</h2>
+          <div class="input-group">
+            <div class="form-input-wrapper">
+              <img src="/ickonandlogo/contact/solar_user-linear (1).png" alt="Иконка пользователя" class="form-input-icon" />
+              <input type="text" name="username" placeholder="Ваше имя" required class="form-input-field" />
+            </div>
+            <div class="form-input-wrapper">
+              <img src="/ickonandlogo/contact/Vector.png" alt="" class="form-input-icon" />
+              <input type="tel" name="phone" placeholder="Ваш телефон" required class="form-input-field" />
+            </div>
+            <div class="form-input-wrapper form-textarea-wrapper">
+              <img src="/ickonandlogo/contact/Vector (1).png" alt="" class="form-input-icon form-input-icon-textarea" />
+              <textarea name="message" placeholder="Расскажите о вашем проекте" class="form-input-field form-input-textarea"></textarea>
+            </div>
           </div>
-          
-          <div class="form-input-wrapper">
-             <img src="/ickonandlogo/contact/Vector.png" alt="" class="form-input-icon" />
-            <input type="tel" name="phone" placeholder="Ваш телефон" required class="form-input-field" />
-          </div>
-
-          <div class="form-input-wrapper">
-            <img src="/ickonandlogo/contact/Vector (1).png" alt="" class="form-input-icon" style="transform: translateY(-50%) !important; top: 50% !important;" />
-            <input type="email" name="email" placeholder="Ваш Email" required class="form-input-field" />
-          </div>
-
-          <div class="form-input-wrapper form-textarea-wrapper">
-             <img src="/ickonandlogo/contact/Vector (1).png" alt="" class="form-input-icon form-input-icon-textarea" />
-            <textarea name="message" placeholder="Расскажите о вашем проекте" class="form-input-field form-input-textarea"></textarea>
-          </div>
+          <button type="submit" class="submit-btn">Отправить</button>
+        </form>
+        <div class="contact-info">
+          <h2 class="info-title">Контактная информация</h2>
+          <p class="info-description">Мы всегда готовы ответить на ваши вопросы</p>
+          <div class="info-item"><div class="info-icon"><img src="/contact/Vector.png" alt="" /></div><div class="info-details"><div class="info-label">Телефон</div><div class="info-value">+7 (495) 790-76-97</div></div></div>
+          <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@energy-plus.biz">info@energy-plus.biz</a></div></div></div>
+          <div class="info-item"><div class="info-icon"><img src="/contact/Vector-2.png" alt="" /></div><div class="info-details"><div class="info-label">Адрес</div><div class="info-value">111123, Москва, 1-я Владимирская, д.10А, стр. 1</div></div></div>
+          <div class="info-item"><div class="info-icon"><img src="/contact/watch.png" alt="" /></div><div class="info-details"><div class="info-label">Время работы</div><div class="info-value">Пн-Пт: 9:00 - 18:00</div></div></div>
         </div>
-        <button type="submit" class="submit-btn">Отправить</button>
-      </form>
-      <div class="contact-info">
-        <h2 class="info-title">Контактная информация</h2>
-        <p class="info-description">Мы всегда готовы ответить на ваши вопросы</p>
-        <div class="info-item"><div class="info-icon"><img src="/contact/Vector.png" alt="" /></div><div class="info-details"><div class="info-label">Телефон</div><div class="info-value">+7 (495) 790-76-97</div></div></div>
-        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@energy-plus.biz">info@energy-plus.biz</a></div></div></div>
-        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-2.png" alt="" /></div><div class="info-details"><div class="info-label">Адрес</div><div class="info-value">111123, Москва, 1-я Владимирская, д.10А, стр. 1</div></div></div>
-        <div class="info-item"><div class="info-icon"><img src="/contact/watch.png" alt="" /></div><div class="info-details"><div class="info-label">Время работы</div><div class="info-value">Пн-Пт: 9:00 - 18:00</div></div></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="modal" id="containerModal">
-    <span class="modal-close" id="containerClose">&times;</span>
-    <img class="modal-content" id="containerImage" alt="Полноэкранный просмотр" />
-  </div>
-
-  <div class="modal" id="stationaryModal">
-    <span class="modal-close" id="stationaryClose">&times;</span>
-    <img class="modal-content" id="stationaryImage" alt="Полноэкранный просмотр" />
-    <span class="modal-nav modal-prev" id="statPrev">‹</span>
-    <span class="modal-nav modal-next" id="statNext">›</span>
-  </div>  
 </main>
 
+<!-- МОДАЛ: Контейнерные котельные -->
+{#if containerModalActive}
+<div class="modal active" on:click|self={closeContainerModal}>
+    <img class="modal-content" src={containerImageSrc} alt="Полноэкранный просмотр" />
+</div>
+{/if}
+
+<!-- МОДАЛ: Стационарные котельные -->
+{#if stationaryModalActive}
+<div class="modal active" on:click|self={closeStationaryModal}>
+    <img class="modal-content" src={stationaryImageSrc} alt="Полноэкранный просмотр" />
+    <span class="modal-nav modal-prev" on:click|stopPropagation={statPrev}>‹</span>
+    <span class="modal-nav modal-next" on:click|stopPropagation={statNext}>›</span>
+</div>
+{/if}
+
 <style>
+
 /*---------CSS VARIABLES---------*/
 :root {
   --primary-orange: #d35d2d;
