@@ -1,6 +1,7 @@
 <script>
     import Icon from 'fa-svelte'
     import {faEnvelope, faMapMarkerAlt, faPhone} from '@fortawesome/free-solid-svg-icons'
+    import website from '$lib/config/website'
 </script>
 
 <ul>
@@ -23,7 +24,7 @@
         </a>
     </li>
     <li>
-        <a href="mailto:info@energy-plus.biz">
+        <a href="mailto:{website.contactEmail}">
             <Icon icon="{faEnvelope}"/>
             info@energy-plus.biz
         </a>

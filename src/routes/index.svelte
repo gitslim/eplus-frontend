@@ -574,7 +574,7 @@
         <h2 class="info-title">Контактная информация</h2>
         <p class="info-description">Мы всегда готовы ответить на ваши вопросы</p>
         <div class="info-item"><div class="info-icon"><img src="/contact/Vector.png" alt="" /></div><div class="info-details"><div class="info-label">Телефон</div><div class="info-value">+7 (495) 790-76-97</div></div></div>
-        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@example.com">info@energy-plus.biz</a></div></div></div>
+        <div class="info-item"><div class="info-icon"><img src="/contact/Vector-1.png" alt="" /></div><div class="info-details"><div class="info-label">Email</div><div class="info-value"><a href="mailto:{website.contactEmail}">{website.contactEmail}</a></div></div></div>
         <div class="info-item"><div class="info-icon"><img src="/contact/Vector-2.png" alt="" /></div><div class="info-details"><div class="info-label">Адрес</div><div class="info-value">111123, Москва, 1-я Владимирская, д.10А, стр. 1</div></div></div>
         <div class="info-item"><div class="info-icon"><img src="/contact/watch.png" alt="" /></div><div class="info-details"><div class="info-label">Время работы</div><div class="info-value">Пн-Пт: 9:00 - 18:00</div></div></div>
       </div>
