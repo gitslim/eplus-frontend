@@ -70,7 +70,7 @@
                                 газопровода</a>
                         </h3>
                         <h3>
-                            <a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">Расчет стоимости
+                            <a href="/page/kalkulyator-rascheta-stoimosti-stroitelstva-i-proektirovaniya-kotelnoj">Расчет стоимости
                                 котельной</a>
                         </h3>
                     </div>
