@@ -753,7 +753,7 @@
                     <h3>Калькулятор<br>расчета стоимости<br>строительства<br><a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">газопровода</a></h3>
                 </div>
                 <div class="column is-4 lister__column">
-                    <h3>Калькулятор<br>расчета стоимости<br>строительства<br><a href="/page/kalkulyator-rascheta-stoimosti-kotelnoj">котельной</a></h3>
+                    <h3>Калькулятор<br>расчета стоимости<br>строительства<br><a href="/page/kalkulyator-rascheta-stoimosti-stroitelstva-i-proektirovaniya-kotelnoj">котельной</a></h3>
                 </div>
             </div>
             <p class="lister__text">Комплексный подход позволяет экономить до 38% от стоимости возможных затрат за счет экономии на наших 
