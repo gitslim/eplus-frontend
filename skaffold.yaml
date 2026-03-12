@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+metadata:
+  name: energyplus-frontend
+build:
+  artifacts:
+  - image: slim777/eplus-frontend
+    context: .
+  tagPolicy:
+    gitCommit: {}
+deploy:
+  statusCheckDeadlineSeconds: 300
+  kubectl:
+    manifests:
+    - k8s/deployment.yaml
+    - k8s/service.yaml
+    - k8s/ingress.yaml

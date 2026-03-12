@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: energyplus-frontend
+  namespace: energyplus
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/acme-challenge-type: http01
+    # Working http->https redirect. Need to apply traefik-redirect-middleware.yaml first.
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+spec:
+  tls:
+    - hosts:
+        # Change this to your own hostname
+        - xn--c1adkmgpem4hrai.xn--p1ai
+      secretName: new-energyplus-tls
+  rules:
+    # Change this to your own hostname
+    - host: xn--c1adkmgpem4hrai.xn--p1ai
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: energyplus-frontend
+                port:
+                  number: 3000
+
