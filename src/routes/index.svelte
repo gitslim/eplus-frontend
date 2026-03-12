@@ -55,16 +55,39 @@
  
   const heroTogglePlay = () => {
     if (!heroEl) return;
-    if (heroEl.paused) { heroEl.muted = false; heroEl.volume = heroVolume; heroEl.play(); heroPlaying = true; }
-    else { heroEl.pause(); heroPlaying = false; }
+    if (heroEl.paused) {
+      heroEl.play();
+      heroPlaying = true;
+    } else {
+      heroEl.pause();
+      heroPlaying = false;
+    }
+    // При первом ручном нажатии снимаем mute
+    if (heroMuted) { heroMuted = false; heroEl.muted = false; heroEl.volume = heroVolume; }
   };
+
   const heroTimeUpdate = () => { heroCurrentTime = heroEl.currentTime; };
   const heroLoadedMetadata = () => {
-    heroDuration = heroEl.duration;
-    if (!isFinite(heroDuration)) heroEl.currentTime = 1e101;
+    const d = heroEl.duration;
+    if (isFinite(d) && d > 0) {
+      heroDuration = d;
+    } else {
+      // .MOV trick: seek to end to force browser to reveal duration
+      heroEl.currentTime = 1e101;
+    }
   };
-  const heroDurationChange = () => { if (isFinite(heroEl.duration)) heroDuration = heroEl.duration; };
-  const heroSeeked = () => { if (!isFinite(heroDuration) || heroDuration === 0) { heroDuration = heroEl.currentTime; heroEl.currentTime = 0; } };
+  const heroDurationChange = () => {
+    const d = heroEl.duration;
+    if (isFinite(d) && d > 0) heroDuration = d;
+  };
+  const heroSeeked = () => {
+    const d = heroEl.duration;
+    if (isFinite(d) && d > 0) {
+      heroDuration = d;
+      // Reset back to start only if we did the trick seek
+      if (heroEl.currentTime > d - 0.5) heroEl.currentTime = 0;
+    }
+  };
   const heroToggleMute = () => { heroMuted = !heroMuted; heroEl.muted = heroMuted; };
   const heroChangeVolume = (e) => { heroVolume = parseFloat(e.target.value); heroEl.volume = heroVolume; heroMuted = heroVolume === 0; heroEl.muted = heroMuted; };
   const heroSetSpeed = (s) => { heroSpeed = s; heroEl.playbackRate = s; heroSpeedMenu = false; };
@@ -82,11 +105,24 @@
   };
   const bmkTimeUpdate = () => { bmkCurrentTime = bmkEl.currentTime; };
   const bmkLoadedMetadata = () => {
-    bmkDuration = bmkEl.duration;
-    if (!isFinite(bmkDuration)) bmkEl.currentTime = 1e101;
+    const d = bmkEl.duration;
+    if (isFinite(d) && d > 0) {
+      bmkDuration = d;
+    } else {
+      bmkEl.currentTime = 1e101;
+    }
   };
-  const bmkDurationChange = () => { if (isFinite(bmkEl.duration)) bmkDuration = bmkEl.duration; };
-  const bmkSeeked = () => { if (!isFinite(bmkDuration) || bmkDuration === 0) { bmkDuration = bmkEl.currentTime; bmkEl.currentTime = 0; } };
+  const bmkDurationChange = () => {
+    const d = bmkEl.duration;
+    if (isFinite(d) && d > 0) bmkDuration = d;
+  };
+  const bmkSeeked = () => {
+    const d = bmkEl.duration;
+    if (isFinite(d) && d > 0) {
+      bmkDuration = d;
+      if (bmkEl.currentTime > d - 0.5) bmkEl.currentTime = 0;
+    }
+  };
   const bmkToggleMute = () => { bmkMuted = !bmkMuted; bmkEl.muted = bmkMuted; };
   const bmkChangeVolume = (e) => { bmkVolume = parseFloat(e.target.value); bmkEl.volume = bmkVolume; bmkMuted = bmkVolume === 0; bmkEl.muted = bmkMuted; };
   const bmkSetSpeed = (s) => { bmkSpeed = s; bmkEl.playbackRate = s; bmkSpeedMenu = false; };
@@ -98,6 +134,10 @@
   // — JSON-LD через onMount (обход бага svelte-preprocess) —
   import { onMount } from 'svelte';
   onMount(() => {
+    // Автозапуск hero видео + синхронизация состояния
+    if (heroEl) {
+      heroEl.play().then(() => { heroPlaying = true; }).catch(() => {});
+    }
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify({
@@ -275,13 +315,14 @@
             class="video-poster"
             src="/fotoandvideo/videoheader.MOV"
             loop
+            autoplay
+            muted
             playsinline
-            preload="metadata"
+            preload="auto"
             on:timeupdate={heroTimeUpdate}
             on:loadedmetadata={heroLoadedMetadata}
             on:durationchange={heroDurationChange}
             on:seeked={heroSeeked}
-            on:play={() => { heroEl.muted = false; heroEl.volume = heroVolume; }}
             aria-label="Видео о компании Энергия Плюс"
           >
             <track kind="captions" />
