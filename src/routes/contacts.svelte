@@ -126,7 +126,7 @@
             <h3>Мы работаем на всей территории России</h3>
         </div>
         <div class="columns" >
-            <div class="column is-8 is-offset-2">              
+            <div class="column is-8 is-offset-2">
                 <div class="map-item">
                     <YandexMap2     center = {[58.813777, 57.622613]}
                                     zoomSize = {3}
@@ -134,7 +134,7 @@
                                     nameAdress = {'155800, Иваново, Куконковых, д.10А, стр. 1'}>
                     </YandexMap2>
                 </div>
-            </div>           
+            </div>
         </div>
     </section>
 </main>
