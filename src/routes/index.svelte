@@ -371,9 +371,22 @@
                 heroEl.muted = true;
                 heroEl.play().then(() => {
                   heroPlaying = true;
-                  // Autoplay требует muted, но сразу снимаем после старта
+                  // Пробуем снять muted — если браузер разрешит
                   heroEl.muted = false;
                   heroEl.volume = heroVolume;
+                  if (heroEl.muted) {
+                    // Браузер не разрешил — ждём первого клика
+                    heroMuted = true;
+                    const unlock = () => {
+                      heroEl.muted = false;
+                      heroEl.volume = heroVolume;
+                      heroMuted = false;
+                      document.removeEventListener("click", unlock);
+                    };
+                    document.addEventListener("click", unlock, { once: true });
+                  } else {
+                    heroMuted = false;
+                  }
                 }).catch(() => {});
               }
             }}
