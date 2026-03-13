@@ -289,7 +289,7 @@
  
   const booklets = [
     {
-      video: "/fotoandvideo/b4v1.mp4",
+      video: "/fotoandvideo/B4v1.mp4",
       alt: "Блочно-модульные котельные ООО Энергия Плюс",
       heading: "Блочно-модульные котельные «ООО Энергия Плюс»",
       desc: "Автоматизированные контейнерные котельные полной заводской готовности. В комплектации оборудования для работы как на природном газе, так и на дизельном топливе в соответствии с СП «Котельные установки» и СП «Газораспределительные системы» по принципу «Включил и забыл».",
@@ -366,17 +366,7 @@
             on:loadedmetadata={heroLoadedMetadata}
             on:durationchange={heroDurationChange}
             on:seeked={heroSeeked}
-            on:canplay={() => {
-              if (!heroPlaying) {
-                heroEl.muted = true;
-                heroEl.play().then(() => {
-                  heroPlaying = true;
-                  // Autoplay требует muted, но сразу снимаем после старта
-                  heroEl.muted = false;
-                  heroEl.volume = heroVolume;
-                }).catch(() => {});
-              }
-            }}
+
             aria-label="Видео о компании Энергия Плюс"
           >
             <track kind="captions" />
