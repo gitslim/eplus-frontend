@@ -51,70 +51,108 @@
   // — Hero плеер —
   let heroEl, heroSeekEl;
   let heroPlaying = false, heroCurrentTime = 0, heroDuration = 0;
-  let heroVolume = 1, heroMuted = true, heroSpeed = 1, heroSpeedMenu = false;
- 
-  const heroTogglePlay = () => {
-    if (!heroEl) return;
-    if (heroEl.paused) {
-      heroEl.play();
-      heroPlaying = true;
-    } else {
-      heroEl.pause();
-      heroPlaying = false;
-    }
-    // При первом ручном нажатии снимаем mute
-    if (heroMuted) { heroMuted = false; heroEl.muted = false; heroEl.volume = heroVolume; }
+  // userWantsMuted = true изначально (autoplay требует muted)
+  // но как только пользователь нажал звук — false
+  let heroVolume = 1, heroMuted = false, heroSpeed = 1, heroSpeedMenu = false;
+
+  // Обновляем полоску напрямую — берём duration прямо с элемента
+  const heroUpdateSeek = () => {
+    if (!heroSeekEl || !heroEl) return;
+    const dur = heroEl.duration;
+    if (!isFinite(dur) || dur === 0) return;
+    if (heroDuration !== dur) heroDuration = dur; // синхронизируем переменную
+    const pct = (heroEl.currentTime / dur) * 100;
+    heroSeekEl.style.setProperty("--pct", pct.toFixed(2));
+    heroSeekEl.value = heroEl.currentTime;
+    heroSeekEl.max = dur;
   };
 
-  const heroTimeUpdate = () => { heroCurrentTime = heroEl.currentTime; };
+  const heroTogglePlay = () => {
+    if (!heroEl) return;
+    if (heroEl.paused) { heroEl.play(); heroPlaying = true; }
+    else { heroEl.pause(); heroPlaying = false; }
+  };
+
+  const heroTimeUpdate = () => {
+    heroCurrentTime = heroEl.currentTime;
+    heroUpdateSeek();
+  };
+
   const heroLoadedMetadata = () => {
     const d = heroEl.duration;
-    if (isFinite(d) && d > 0) {
-      heroDuration = d;
-    } else {
-      // .MOV trick: seek to end to force browser to reveal duration
-      heroEl.currentTime = 1e101;
-    }
+    if (isFinite(d) && d > 0) { heroDuration = d; heroUpdateSeek(); }
+    else { heroEl.currentTime = 1e101; }
   };
   const heroDurationChange = () => {
     const d = heroEl.duration;
-    if (isFinite(d) && d > 0) heroDuration = d;
+    if (isFinite(d) && d > 0) { heroDuration = d; heroUpdateSeek(); }
   };
   const heroSeeked = () => {
     const d = heroEl.duration;
     if (isFinite(d) && d > 0) {
       heroDuration = d;
-      // Reset back to start only if we did the trick seek
       if (heroEl.currentTime > d - 0.5) heroEl.currentTime = 0;
     }
+    heroUpdateSeek();
+    // Восстанавливаем звук — браузер мог сбросить при seek
+    heroEl.muted = heroMuted;
+    if (!heroMuted) heroEl.volume = heroVolume;
   };
-  const heroToggleMute = () => { heroMuted = !heroMuted; heroEl.muted = heroMuted; };
-  const heroChangeVolume = (e) => { heroVolume = parseFloat(e.target.value); heroEl.volume = heroVolume; heroMuted = heroVolume === 0; heroEl.muted = heroMuted; };
+
+  const heroToggleMute = () => {
+    heroMuted = !heroMuted;
+    heroEl.muted = heroMuted;
+    heroEl.volume = heroMuted ? 0 : heroVolume;
+  };
+  const heroChangeVolume = (e) => {
+    heroVolume = parseFloat(e.target.value);
+    heroEl.volume = heroVolume;
+    heroMuted = heroVolume === 0;
+    heroEl.muted = heroMuted;
+  };
   const heroSetSpeed = (s) => { heroSpeed = s; heroEl.playbackRate = s; heroSpeedMenu = false; };
   const heroFullscreen = () => { if (!document.fullscreenElement) heroEl.closest(".video-box").requestFullscreen(); else document.exitFullscreen(); };
  
   // — BMK плеер —
   let bmkEl, bmkSeekEl;
   let bmkPlaying = false, bmkCurrentTime = 0, bmkDuration = 0;
-  let bmkVolume = 1, bmkMuted = true, bmkSpeed = 1, bmkSpeedMenu = false;
- 
+  let bmkVolume = 1, bmkMuted = false, bmkSpeed = 1, bmkSpeedMenu = false;
+
+  const bmkUpdateSeek = () => {
+    if (!bmkSeekEl || !bmkEl) return;
+    const dur = bmkEl.duration;
+    if (!isFinite(dur) || dur === 0) return;
+    if (bmkDuration !== dur) bmkDuration = dur;
+    const pct = (bmkEl.currentTime / dur) * 100;
+    bmkSeekEl.style.setProperty("--pct", pct.toFixed(2));
+    bmkSeekEl.value = bmkEl.currentTime;
+    bmkSeekEl.max = dur;
+  };
+
   const bmkTogglePlay = () => {
     if (!bmkEl) return;
-    if (bmkEl.paused) { bmkEl.muted = false; bmkEl.volume = bmkVolume; bmkEl.play(); bmkPlaying = true; }
-    else { bmkEl.pause(); bmkPlaying = false; }
+    if (bmkEl.paused) {
+      bmkEl.muted = false;
+      bmkEl.volume = bmkVolume;
+      bmkEl.play();
+      bmkPlaying = true;
+    } else {
+      bmkEl.pause();
+      bmkPlaying = false;
+    }
   };
-  const bmkTimeUpdate = () => { bmkCurrentTime = bmkEl.currentTime; };
+  const bmkTimeUpdate = () => {
+    bmkCurrentTime = bmkEl.currentTime;
+    bmkUpdateSeek();
+  };
   const bmkLoadedMetadata = () => {
     const d = bmkEl.duration;
-    if (isFinite(d) && d > 0) {
-      bmkDuration = d;
-    } else {
-      bmkEl.currentTime = 1e101;
-    }
+    if (isFinite(d) && d > 0) { bmkDuration = d; bmkUpdateSeek(); }
+    else { bmkEl.currentTime = 1e101; }
   };
   const bmkDurationChange = () => {
     const d = bmkEl.duration;
-    if (isFinite(d) && d > 0) bmkDuration = d;
+    if (isFinite(d) && d > 0) { bmkDuration = d; bmkUpdateSeek(); }
   };
   const bmkSeeked = () => {
     const d = bmkEl.duration;
@@ -122,22 +160,29 @@
       bmkDuration = d;
       if (bmkEl.currentTime > d - 0.5) bmkEl.currentTime = 0;
     }
+    bmkUpdateSeek();
+    bmkEl.muted = bmkMuted;
+    if (!bmkMuted) bmkEl.volume = bmkVolume;
   };
-  const bmkToggleMute = () => { bmkMuted = !bmkMuted; bmkEl.muted = bmkMuted; };
-  const bmkChangeVolume = (e) => { bmkVolume = parseFloat(e.target.value); bmkEl.volume = bmkVolume; bmkMuted = bmkVolume === 0; bmkEl.muted = bmkMuted; };
+  const bmkToggleMute = () => {
+    bmkMuted = !bmkMuted;
+    bmkEl.muted = bmkMuted;
+    bmkEl.volume = bmkMuted ? 0 : bmkVolume;
+  };
+  const bmkChangeVolume = (e) => {
+    bmkVolume = parseFloat(e.target.value);
+    bmkEl.volume = bmkVolume;
+    bmkMuted = bmkVolume === 0;
+    bmkEl.muted = bmkMuted;
+  };
   const bmkSetSpeed = (s) => { bmkSpeed = s; bmkEl.playbackRate = s; bmkSpeedMenu = false; };
   const bmkFullscreen = () => { if (!document.fullscreenElement) bmkEl.closest(".bmk-video-box").requestFullscreen(); else document.exitFullscreen(); };
  
-  $: if (heroSeekEl) heroSeekEl.style.setProperty("--pct", (heroDuration ? (heroCurrentTime / heroDuration) * 100 : 0).toFixed(2));
-  $: if (bmkSeekEl) bmkSeekEl.style.setProperty("--pct", (bmkDuration ? (bmkCurrentTime / bmkDuration) * 100 : 0).toFixed(2));
+  // bmkUpdateSeek вызывается напрямую из timeUpdate и seeked
  
   // — JSON-LD через onMount (обход бага svelte-preprocess) —
   import { onMount } from 'svelte';
   onMount(() => {
-    // Автозапуск hero видео + синхронизация состояния
-    if (heroEl) {
-      heroEl.play().then(() => { heroPlaying = true; }).catch(() => {});
-    }
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify({
@@ -313,16 +358,25 @@
           <video
             bind:this={heroEl}
             class="video-poster"
-            src="/fotoandvideo/videoheader.MOV"
+            src="/fotoandvideo/videoheader.mp4"
             loop
-            autoplay
-            muted
             playsinline
-            preload="auto"
+            preload="metadata"
             on:timeupdate={heroTimeUpdate}
             on:loadedmetadata={heroLoadedMetadata}
             on:durationchange={heroDurationChange}
             on:seeked={heroSeeked}
+            on:canplay={() => {
+              if (!heroPlaying) {
+                heroEl.muted = true;
+                heroEl.play().then(() => {
+                  heroPlaying = true;
+                  // Autoplay требует muted, но сразу снимаем после старта
+                  heroEl.muted = false;
+                  heroEl.volume = heroVolume;
+                }).catch(() => {});
+              }
+            }}
             aria-label="Видео о компании Энергия Плюс"
           >
             <track kind="captions" />
@@ -342,7 +396,9 @@
                 max={heroDuration || 100}
                 step="0.1"
                 value={heroCurrentTime}
-                on:input={(e) => { heroEl.currentTime = parseFloat(e.target.value); }}
+                on:input={(e) => {
+                  heroEl.currentTime = parseFloat(e.target.value);
+                }}
                 aria-label="Перемотка"
               />
             </div>
@@ -352,8 +408,9 @@
               </button>
               <span class="vc-time">{fmt(heroCurrentTime)} / {fmt(heroDuration)}</span>
               <div class="vc-spacer"></div>
-              <button class="vc-btn" on:click={heroToggleMute} aria-label="Звук">
+              <button class="vc-btn vc-mute-btn" on:click={heroToggleMute} aria-label="Звук" title={heroMuted ? 'Включить звук' : 'Выключить звук'}>
                 <i class="fa-solid {heroMuted || heroVolume === 0 ? 'fa-volume-xmark' : heroVolume < 0.5 ? 'fa-volume-low' : 'fa-volume-high'}"></i>
+                {#if heroMuted}<span class="vc-unmute-hint">Включить звук</span>{/if}
               </button>
               <input class="vc-volume" type="range" min="0" max="1" step="0.05" value={heroVolume} on:input={heroChangeVolume} aria-label="Громкость" />
               <div class="vc-speed-wrap">
@@ -691,6 +748,15 @@
     box-shadow: 0 8px 28px rgba(0,0,0,0.35);
   }
  
+  #ep-root .vc-mute-btn { display: flex; align-items: center; gap: 5px; }
+  #ep-root .vc-unmute-hint {
+    font-size: 11px; font-weight: 600; color: #fff;
+    background: rgba(240,112,48,0.85); border-radius: 4px;
+    padding: 2px 7px; white-space: nowrap; letter-spacing: 0.2px;
+    animation: ep-pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes ep-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
   /* — Play кнопка — */
   #ep-root .play-btn {
     position: absolute; top: 50%; left: 50%;
