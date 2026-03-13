@@ -53,7 +53,7 @@
   let heroPlaying = false, heroCurrentTime = 0, heroDuration = 0;
   // userWantsMuted = true изначально (autoplay требует muted)
   // но как только пользователь нажал звук — false
-  let heroVolume = 1, heroMuted = false, heroSpeed = 1, heroSpeedMenu = false;
+  let heroVolume = 1, heroMuted = true, heroSpeed = 1, heroSpeedMenu = false;
 
   // Обновляем полоску напрямую — берём duration прямо с элемента
   const heroUpdateSeek = () => {
@@ -183,6 +183,22 @@
   // — JSON-LD через onMount (обход бага svelte-preprocess) —
   import { onMount } from 'svelte';
   onMount(() => {
+    // Автозапуск hero видео
+    if (heroEl) {
+      heroEl.muted = true;
+      heroMuted = true;
+      const tryPlay = () => {
+        heroEl.play().then(() => { heroPlaying = true; }).catch(() => {
+          // Если не сработало — ждём canplay
+          heroEl.addEventListener('canplay', () => {
+            heroEl.play().then(() => { heroPlaying = true; }).catch(() => {});
+          }, { once: true });
+        });
+      };
+      if (heroEl.readyState >= 3) { tryPlay(); }
+      else { heroEl.addEventListener('canplay', () => { heroEl.play().then(() => { heroPlaying = true; }).catch(() => {}); }, { once: true }); }
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify({
@@ -366,7 +382,6 @@
             on:loadedmetadata={heroLoadedMetadata}
             on:durationchange={heroDurationChange}
             on:seeked={heroSeeked}
-
             aria-label="Видео о компании Энергия Плюс"
           >
             <track kind="captions" />
