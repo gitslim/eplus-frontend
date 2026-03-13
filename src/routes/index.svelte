@@ -313,7 +313,7 @@
           <video
             bind:this={heroEl}
             class="video-poster"
-            src="/fotoandvideo/videoheader.MOV"
+            src="/fotoandvideo/videoheader.mp4"
             loop
             playsinline
             preload="metadata"
