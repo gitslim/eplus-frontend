@@ -88,7 +88,11 @@
       if (heroEl.currentTime > d - 0.5) heroEl.currentTime = 0;
     }
   };
-  const heroToggleMute = () => { heroMuted = !heroMuted; heroEl.muted = heroMuted; };
+  const heroToggleMute = () => {
+    heroMuted = !heroMuted;
+    heroEl.muted = heroMuted;
+    if (!heroMuted) { heroEl.volume = heroVolume; }
+  };
   const heroChangeVolume = (e) => { heroVolume = parseFloat(e.target.value); heroEl.volume = heroVolume; heroMuted = heroVolume === 0; heroEl.muted = heroMuted; };
   const heroSetSpeed = (s) => { heroSpeed = s; heroEl.playbackRate = s; heroSpeedMenu = false; };
   const heroFullscreen = () => { if (!document.fullscreenElement) heroEl.closest(".video-box").requestFullscreen(); else document.exitFullscreen(); };
@@ -134,10 +138,6 @@
   // — JSON-LD через onMount (обход бага svelte-preprocess) —
   import { onMount } from 'svelte';
   onMount(() => {
-    // Автозапуск hero видео + синхронизация состояния
-    if (heroEl) {
-      heroEl.play().then(() => { heroPlaying = true; }).catch(() => {});
-    }
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify({
@@ -315,14 +315,13 @@
             class="video-poster"
             src="/fotoandvideo/videoheader.MOV"
             loop
-            autoplay
-            muted
             playsinline
-            preload="auto"
+            preload="metadata"
             on:timeupdate={heroTimeUpdate}
             on:loadedmetadata={heroLoadedMetadata}
             on:durationchange={heroDurationChange}
             on:seeked={heroSeeked}
+            on:canplay={() => { heroEl.muted = true; heroEl.play().then(() => { heroPlaying = true; }).catch(() => {}); }}
             aria-label="Видео о компании Энергия Плюс"
           >
             <track kind="captions" />
@@ -352,8 +351,9 @@
               </button>
               <span class="vc-time">{fmt(heroCurrentTime)} / {fmt(heroDuration)}</span>
               <div class="vc-spacer"></div>
-              <button class="vc-btn" on:click={heroToggleMute} aria-label="Звук">
+              <button class="vc-btn vc-mute-btn" on:click={heroToggleMute} aria-label="Звук" title={heroMuted ? 'Включить звук' : 'Выключить звук'}>
                 <i class="fa-solid {heroMuted || heroVolume === 0 ? 'fa-volume-xmark' : heroVolume < 0.5 ? 'fa-volume-low' : 'fa-volume-high'}"></i>
+                {#if heroMuted}<span class="vc-unmute-hint">Включить звук</span>{/if}
               </button>
               <input class="vc-volume" type="range" min="0" max="1" step="0.05" value={heroVolume} on:input={heroChangeVolume} aria-label="Громкость" />
               <div class="vc-speed-wrap">
@@ -691,6 +691,15 @@
     box-shadow: 0 8px 28px rgba(0,0,0,0.35);
   }
  
+  #ep-root .vc-mute-btn { display: flex; align-items: center; gap: 5px; }
+  #ep-root .vc-unmute-hint {
+    font-size: 11px; font-weight: 600; color: #fff;
+    background: rgba(240,112,48,0.85); border-radius: 4px;
+    padding: 2px 7px; white-space: nowrap; letter-spacing: 0.2px;
+    animation: ep-pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes ep-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
   /* — Play кнопка — */
   #ep-root .play-btn {
     position: absolute; top: 50%; left: 50%;
