@@ -19,6 +19,28 @@
     transform: translateX(-50%);
 }
 
+.image {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); // Dark layer
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+}
+
 /* Style for "Our Projects" Carousel */
 .image .item-content-2 {
     top: 50%;
@@ -53,4 +75,11 @@
 
 .proect-carousel-item {
     padding: 0 10px;
+
+    img {
+        width: 100%;
+        height: 250px; // Fixed height for consistency
+        object-fit: cover; // Fill the area without stretching
+        border-radius: 4px;
+    }
 }
