@@ -233,7 +233,7 @@
     </div>
   </section>
   <section class="section py-6">
-    <div class="container text-center">
+    <div class="container text-center pt-6">
       <div class="title titlefor has-text-centered">
         <h2 class="">Наши проекты</h2>
       </div>
@@ -267,7 +267,7 @@
         </span>
       </Carousel> -->
     </div>
-    <div align="center">
+    <div align="center" class="pb-6">
       <!-- class="pt-4" -->
       <a
         class="button is-primary is-medium is-raunded"
@@ -976,7 +976,7 @@
   }
 
   .types-boiler-room {
-    padding: 150px;
+    padding: 50px;
 
     .table-boiler-room {
       display: flex;
