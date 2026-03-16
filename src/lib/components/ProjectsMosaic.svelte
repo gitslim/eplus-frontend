@@ -65,7 +65,7 @@
         & :global(.svelte-lightbox-trigger),
         & :global(.h-100),
         & :global(.clickable),
-        & :global([class*="s-Gd2xy"]) {
+        & :global(div) {
             display: flex;
             flex-direction: column;
             height: 100%;
