@@ -16,6 +16,9 @@
     import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
     import Icon from 'fa-svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import CalcTabs from "$lib/components/calc/CalcTabs.svelte"
+    import LazyImage from "svelte-lazy-image"
+    import {Lightbox} from "svelte-lightbox"
 
     let title = 'Изготовление блочно-модульных котельных'
 
@@ -42,10 +45,9 @@
     display: block;
     padding-top: 180px !important;
     padding-bottom: 130px;
-    // background: url("/images/bmk/bmk_background2.jpg") no-repeat center;
     background-position: center;
     background-blend-mode: multiply;
-    background-image: url(/images/bmk/bmk_background2.jpg),
+    background-image: url(/images/bmk/bmk.jpg),
     linear-gradient(45deg, grey, transparent),
     linear-gradient(90deg, grey, transparent);
     background-size: cover;
@@ -59,7 +61,6 @@
 
   .desc {
     padding: 50px 0 100px;
-    //background: url("/images/bmk/u-bmk-bg_01.png") bottom no-repeat;
     background: darkgray;
 
     &__wrap {
@@ -543,129 +544,81 @@
             </div>
         </div>
     </section>
-    <section class="section desc px-4">
-        <div class="container is-widescreen desc__wrap">
-            <div class="info">
-                <div
-                        class="container is-widescreen columns info__content"
-                        style="justify-content: center;">
-                    <div class="column is-6">
-                        <TitleLanding
-                                left
-                                titleText="Является ли бмк обьектом капитального строительства?"
-                                white/>
-                        <p class="block info__text">
-                            Не стоит забывать, что несмотря на то, что блочная котельная
-                            доставляется транспортом, она является объектом капитального
-                            строительства и требует получения разрешения на строительство после
-                            прохождения экспертизы проекта. Без получения данных документов ввод
-                            БМК в эксплуатацию невозможен.
-                        </p>
-                        <p class="block info__text">
-                            Применяются блочно-модульные котельные для отопления, горячего
-                            водоснабжения, производства пара для технологических нужд.
-                            Обслуживать БМК может одно или нескольких зданий.
-                        </p>
-                        <p class="block info__text">
-                            Блочно-модульные котельные также называют«транспортабельные
-                            котельные установки ТКУ (БКУ)».
-                        </p>
-                    </div>
-                    <div class="column is-6">
-                        <TitleLanding
-                                left
-                                titleText="в каких случаях устанавливают бмк?"
-                                white/>
-                        <p class="block info__text">
-                            Расположение объекта в удаленном или труднодоступном районе, где
-                            нерационально возводить стационарную котельную в силу ряда факторов:
-                            удаленность поставщиков строительных материалов, слабой развитости
-                            инфраструктуры либо невозможности организации мест проживания
-                            монтажников, отсутствие мест заправки баллонов кислородом и
-                            пропаном, сложные погодные условия
-                        </p>
-                        <p class="block info__text">
-                            Необходимость возведения котельной в крышном исполнении. Временное
-                            теплоснабжение (как пример - строительство объектов в сжатые сроки).
-                            В данном случае лучше всего подходит БМК на дизельном топливе
-                        </p>
-                        <p class="block info__text">
-                            Невозможность строительства стационарной котельной непосредственно
-                            на объекте заказчика (режимные предприятия и пр.)
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <section class="section pb-6 mb-6">
+        <div class="title has-text-centered has-text-weight-bold">РАСЧЕТ СТОИМОСТИ</div>
+        <div class="container is-max-widescreen">
+            <CalcTabs/>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container block__inner">
-            <div class="columns">
-                <div class="content column block__inner_wrap">
-                    <div class="container columns">
-                        <div
-                                class="left-side column is-6 px-6 is-flex is-flex-direction-column
-              is-justify-content-space-between">
-                            <div class="block__wrap">
-                                <TitleLanding green left titleText="Основные достоинства бмк"/>
-                                <ul class="mb-5 dignity">
-                                    <li class="dignity__item">
-                                        максимальная готовность блочно-модульной котельной,
-                                        поставленной на объект, к подключению к инженерным сетям и к
-                                        вводу в эксплуатацию (БМК поставляется с завода вместе с
-                                        пакетом необходимой технической документации, которая
-                                        подтверждает готовность внутренних инженерных систем к
-                                        эксплуатации);
-                                    </li>
-                                    <li class="dignity__item">
-                                        минимальные сроки монтажа БМК на участке Заказчика;
-                                    </li>
-                                    <li class="dignity__item">
-                                        котельная, хоть и относится к объектам капитального
-                                        строительства, может быть демонтирована и перевезена в другую
-                                        площадку (ТКУ);
-                                    </li>
-                                    <li class="dignity__item">
-                                        блочно-модульная котельная, как правило – на дизельном
-                                        топливе, может быть взята в аренду под конкретный проект.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="column is-6 px-6 right-side">
-                            <TitleLanding left titleText="Основные недостатки бмк"/>
-                            <ul class="limitations">
-                                <li class="limitations__item">
-                                    при наличии помещений в существующих зданиях или отдельных
-                                    сооружений, соответствующих требованиям размещения котельного
-                                    оборудования, блочно-модульные котельные, как правило, не
-                                    используются в силу экономической нецелесообразности (стоимость
-                                    БМК в таком случае выше на 25-30%, чем стационарной
-                                    альтернативы);
-                                </li>
-                                <li class="limitations__item">
-                                    ограничения в тепловой мощности котельной ввиду предельных
-                                    габаритных размеров модулей, узлов и агрегатов (котлов, насосных
-                                    станций и других элементов);
-                                </li>
-                                <li class="limitations__item">
-                                    стесненные условия при обслуживании котельной, обусловленный
-                                    компактностью расположения внутренних элементов;
-                                </li>
-                                <li class="limitations__item">
-                                    ограниченность выбора материалов для ограждающих конструкций,
-                                    БМК выполняется всего в двух видах: с использованием сендвич
-                                    панелей или в металлическом контейнере. Тем самым, БМК менее
-                                    долго вечны и более пожароопасны, чем стационарные котельные.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+<!--    <section class="section">-->
+<!--        <div class="container block__inner">-->
+<!--            <div class="columns">-->
+<!--                <div class="content column block__inner_wrap">-->
+<!--                    <div class="container columns">-->
+<!--                        <div-->
+<!--                                class="left-side column is-6 px-6 is-flex is-flex-direction-column-->
+<!--              is-justify-content-space-between">-->
+<!--                            <div class="block__wrap">-->
+<!--                                <TitleLanding green left titleText="Основные достоинства бмк"/>-->
+<!--                                <ul class="mb-5 dignity">-->
+<!--                                    <li class="dignity__item">-->
+<!--                                        максимальная готовность блочно-модульной котельной,-->
+<!--                                        поставленной на объект, к подключению к инженерным сетям и к-->
+<!--                                        вводу в эксплуатацию (БМК поставляется с завода вместе с-->
+<!--                                        пакетом необходимой технической документации, которая-->
+<!--                                        подтверждает готовность внутренних инженерных систем к-->
+<!--                                        эксплуатации);-->
+<!--                                    </li>-->
+<!--                                    <li class="dignity__item">-->
+<!--                                        минимальные сроки монтажа БМК на участке Заказчика;-->
+<!--                                    </li>-->
+<!--                                    <li class="dignity__item">-->
+<!--                                        котельная, хоть и относится к объектам капитального-->
+<!--                                        строительства, может быть демонтирована и перевезена в другую-->
+<!--                                        площадку (ТКУ);-->
+<!--                                    </li>-->
+<!--                                    <li class="dignity__item">-->
+<!--                                        блочно-модульная котельная, как правило – на дизельном-->
+<!--                                        топливе, может быть взята в аренду под конкретный проект.-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="column is-6 px-6 right-side">-->
+<!--                            <TitleLanding left titleText="Основные недостатки бмк"/>-->
+<!--                            <ul class="limitations">-->
+<!--                                <li class="limitations__item">-->
+<!--                                    при наличии помещений в существующих зданиях или отдельных-->
+<!--                                    сооружений, соответствующих требованиям размещения котельного-->
+<!--                                    оборудования, блочно-модульные котельные, как правило, не-->
+<!--                                    используются в силу экономической нецелесообразности (стоимость-->
+<!--                                    БМК в таком случае выше на 25-30%, чем стационарной-->
+<!--                                    альтернативы);-->
+<!--                                </li>-->
+<!--                                <li class="limitations__item">-->
+<!--                                    ограничения в тепловой мощности котельной ввиду предельных-->
+<!--                                    габаритных размеров модулей, узлов и агрегатов (котлов, насосных-->
+<!--                                    станций и других элементов);-->
+<!--                                </li>-->
+<!--                                <li class="limitations__item">-->
+<!--                                    стесненные условия при обслуживании котельной, обусловленный-->
+<!--                                    компактностью расположения внутренних элементов;-->
+<!--                                </li>-->
+<!--                                <li class="limitations__item">-->
+<!--                                    ограниченность выбора материалов для ограждающих конструкций,-->
+<!--                                    БМК выполняется всего в двух видах: с использованием сендвич-->
+<!--                                    панелей или в металлическом контейнере. Тем самым, БМК менее-->
+<!--                                    долго вечны и более пожароопасны, чем стационарные котельные.-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <section class="section pt-0 px-4">
         <div class="container seo">
@@ -707,6 +660,165 @@
             </div>
         </div>
     </section>
+    <section class="section py-6">
+        <div class="container text-center">
+
+            <div class="title titlefor has-text-centered ">
+                <h2 class="">Наши проекты</h2>
+            </div>
+
+            <Carousel perPage={{1000:4, 800:3, 500:2, 400:1}}
+                      dots={false}
+                      loop={false}>
+
+
+                <span class="control" slot="left-control">
+                            <Icon icon={faChevronLeft}/>
+                </span>
+
+                <div class="slide-content proect-carousel-item">
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu">
+                        <figure class="image">
+                            <LazyImage
+                                    src={'/images/kotel/projects/02.jpg'}
+                                    alt={'Газовый котел Висман'}/>
+                            <span class="item-content-2">
+                                <strong class="item-title">Проект 2</strong>
+                            </span>
+                        </figure>
+                    </Lightbox>
+                </div>
+                <div class="slide-content proect-carousel-item">
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu">
+                        <figure class="image">
+                            <LazyImage
+                                    src={'/images/kotel/projects/03.jpg'}
+                                    alt={'Газовый котел 1 МВт'}/>
+                            <span class="item-content-2">
+					<strong class="item-title">Проект 3</strong>
+                </span>
+                        </figure>
+                    </Lightbox>
+                </div>
+                <div class="slide-content proect-carousel-item">
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu">
+                        <figure class="image">
+                            <LazyImage
+                                    src={'/images/kotel/projects/04.jpg'}
+                                    alt={'Газовая котельная'}/>
+                            <span class="item-content-2">
+					<strong class="item-title">Проект 4</strong>
+                </span>
+                        </figure>
+                    </Lightbox>
+                </div>
+                <div class="slide-content proect-carousel-item">
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu">
+                        <figure class="image">
+                            <LazyImage
+                                    src={'/images/kotel/projects/05.jpg'}
+                                    alt={'Котельная для загородного дома'}/>
+                            <span class="item-content-2">
+					<strong class="item-title">Проект 5</strong>
+                </span>
+                        </figure>
+                    </Lightbox>
+                </div>
+                <div class="slide-content proect-carousel-item">
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu">
+                        <figure class="image">
+                            <LazyImage
+                                    src={'/images/kotel/projects/06.jpg'}
+                                    alt={'Проект 6'}/>
+                            <span class="item-content-2">
+					<strong class="item-title">Проект 6</strong>
+                </span>
+                        </figure>
+                    </Lightbox>
+                </div>
+                <div class="slide-content proect-carousel-item">
+                    <Lightbox   noScroll="false"
+                                modalClasses = "pipu">
+                        <figure class="image">
+                            <LazyImage
+                                    src={'/images/kotel/projects/07.jpg'}
+                                    alt={'Проект 7'}/>
+                            <span class="item-content-2">
+					<strong class="item-title">Проект 7</strong>
+                </span>
+                        </figure>
+                    </Lightbox>
+                </div>
+                <span class="control" slot="right-control">
+                            <Icon icon={faChevronRight}/>
+                </span>
+
+            </Carousel>
+        </div>
+        <div align="center" class="pt-4">
+            <a class="button is-primary is-medium is-raunded" href="/page/referens-list/#object_teplo">Наши проекты</a>
+        </div>
+    </section>
+        <section class="section desc px-4">
+            <div class="container is-widescreen desc__wrap">
+                <div class="info">
+                    <div
+                            class="container is-widescreen columns info__content"
+                            style="justify-content: center;">
+                        <div class="column is-6">
+                            <TitleLanding
+                                    left
+                                    titleText="Является ли бмк обьектом капитального строительства?"
+                                    white/>
+                            <p class="block info__text">
+                                Не стоит забывать, что несмотря на то, что блочная котельная
+                                доставляется транспортом, она является объектом капитального
+                                строительства и требует получения разрешения на строительство после
+                                прохождения экспертизы проекта. Без получения данных документов ввод
+                                БМК в эксплуатацию невозможен.
+                            </p>
+                            <p class="block info__text">
+                                Применяются блочно-модульные котельные для отопления, горячего
+                                водоснабжения, производства пара для технологических нужд.
+                                Обслуживать БМК может одно или нескольких зданий.
+                            </p>
+                            <p class="block info__text">
+                                Блочно-модульные котельные также называют«транспортабельные
+                                котельные установки ТКУ (БКУ)».
+                            </p>
+                        </div>
+                        <div class="column is-6">
+                            <TitleLanding
+                                    left
+                                    titleText="в каких случаях устанавливают бмк?"
+                                    white/>
+                            <p class="block info__text">
+                                Расположение объекта в удаленном или труднодоступном районе, где
+                                нерационально возводить стационарную котельную в силу ряда факторов:
+                                удаленность поставщиков строительных материалов, слабой развитости
+                                инфраструктуры либо невозможности организации мест проживания
+                                монтажников, отсутствие мест заправки баллонов кислородом и
+                                пропаном, сложные погодные условия
+                            </p>
+                            <p class="block info__text">
+                                Необходимость возведения котельной в крышном исполнении. Временное
+                                теплоснабжение (как пример - строительство объектов в сжатые сроки).
+                                В данном случае лучше всего подходит БМК на дизельном топливе
+                            </p>
+                            <p class="block info__text">
+                                Невозможность строительства стационарной котельной непосредственно
+                                на объекте заказчика (режимные предприятия и пр.)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     <section class="section solution px-4">
         <div class="container ">
