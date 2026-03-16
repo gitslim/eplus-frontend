@@ -17,13 +17,40 @@
     faChevronLeft,
     faChevronRight,
   } from "@fortawesome/free-solid-svg-icons";
+  import { Lightbox } from "svelte-lightbox";
+  import ProjectsMosaic from "$lib/components/ProjectsMosaic.svelte";
   import Icon from "fa-svelte";
   import HiddenH1 from "$lib/components/HiddenH1.svelte";
   import CalcTabs from "$lib/components/calc/CalcTabs.svelte";
-  import LazyImage from "svelte-lazy-image";
-  import { Lightbox } from "svelte-lightbox";
 
   let title = "Изготовление блочно-модульных котельных";
+
+  const projects = [
+    {
+      src: "/images/bmk/IMG_27.12.25г..jpg",
+      alt: "Котельная для нужд учебного заведения. Мощность 1 МВт",
+    },
+    {
+      src: "/images/bmk/IMG_5258 (1).jpg",
+      alt: "Котельная для нужд аграрного колледжа. Мощность 0,8 МВт",
+    },
+    {
+      src: "/images/bmk/IMG_5556 (2).jpg",
+      alt: "Котельная для нужд автомобильного колледжа. Мощность 0,8 МВт",
+    },
+    {
+      src: "/images/bmk/IMG_5620 (1).jpg",
+      alt: "Котельная для нужд дошкольного учреждения. Мощность 0,8 МВт",
+    },
+    {
+      src: "/images/bmk/6a330be1-601f-4fc6-81b5-1b61a497c62d (1) (1).jpg",
+      alt: "Котельная для нужд учебного заведения. Мощность 0,6 МВт",
+    },
+    {
+      src: "/images/bmk/f9ebdc26-2250-4b34-a272-cf4e717cd8fa.jpg",
+      alt: "Котельная для нужд промышленного производства радиотехнического оборудования. Мощность 0,8 МВт",
+    },
+  ];
 
   const meta = {
     title:
@@ -211,6 +238,8 @@
         <h2 class="">Наши проекты</h2>
       </div>
 
+      <ProjectsMosaic {projects} />
+      <!-- 
       <Carousel
         perPage={{ 1000: 4, 800: 3, 500: 2, 400: 1 }}
         dots={false}
@@ -220,103 +249,26 @@
           <Icon icon={faChevronLeft} />
         </span>
 
-        <div class="slide-content proect-carousel-item">
-          <Lightbox noScroll="false" modalClasses="pipu">
-            <figure class="image">
-              <img
-                src="/images/bmk/IMG_27.12.25г..jpg"
-                alt="Котельная для нужд учебного заведения. Мощность 1 МВт"
-              />
-              <span class="item-content-2">
-                <strong class="item-title"
-                  >Котельная для нужд учебного заведения. Мощность 1 МВт</strong
-                >
-              </span>
-            </figure>
-          </Lightbox>
-        </div>
-        <div class="slide-content proect-carousel-item">
-          <Lightbox noScroll="false" modalClasses="pipu">
-            <figure class="image">
-              <img
-                src="/images/bmk/IMG_5258 (1).jpg"
-                alt="Котельная для нужд аграрного колледжа. Мощность 0,8 МВт"
-              />
-              <span class="item-content-2">
-                <strong class="item-title"
-                  >Котельная для нужд аграрного колледжа. Мощность 0,8 МВт</strong
-                >
-              </span>
-            </figure>
-          </Lightbox>
-        </div>
-        <div class="slide-content proect-carousel-item">
-          <Lightbox noScroll="false" modalClasses="pipu">
-            <figure class="image">
-              <img
-                src="/images/bmk/IMG_5556 (2).jpg"
-                alt="Котельная для нужд автомобильного колледжа. Мощность 0,8 МВт"
-              />
-              <span class="item-content-2">
-                <strong class="item-title"
-                  >Котельная для нужд автомобильного колледжа. Мощность 0,8 МВт</strong
-                >
-              </span>
-            </figure>
-          </Lightbox>
-        </div>
-        <div class="slide-content proect-carousel-item">
-          <Lightbox noScroll="false" modalClasses="pipu">
-            <figure class="image">
-              <img
-                src="/images/bmk/IMG_5620 (1).jpg"
-                alt="Котельная для нужд дошкольного учреждения. Мощность 0,8 МВт"
-              />
-              <span class="item-content-2">
-                <strong class="item-title"
-                  >Котельная для нужд дошкольного учреждения. Мощность 0,8 МВт</strong
-                >
-              </span>
-            </figure>
-          </Lightbox>
-        </div>
-        <div class="slide-content proect-carousel-item">
-          <Lightbox noScroll="false" modalClasses="pipu">
-            <figure class="image">
-              <img
-                src="/images/bmk/6a330be1-601f-4fc6-81b5-1b61a497c62d (1) (1).jpg"
-                alt="Котельная для нужд учебного заведения. Мощность 0,6 МВт"
-              />
-              <span class="item-content-2">
-                <strong class="item-title"
-                  >Котельная для нужд учебного заведения. Мощность 0,6 МВт</strong
-                >
-              </span>
-            </figure>
-          </Lightbox>
-        </div>
-        <div class="slide-content proect-carousel-item">
-          <Lightbox noScroll="false" modalClasses="pipu">
-            <figure class="image">
-              <img
-                src="/images/bmk/f9ebdc26-2250-4b34-a272-cf4e717cd8fa.jpg"
-                alt="Котельная для нужд промышленного производства радиотехнического оборудования. Мощность 0,8 МВт"
-              />
-              <span class="item-content-2">
-                <strong class="item-title"
-                  >Котельная для нужд промышленного производства
-                  радиотехнического оборудования. Мощность 0,8 МВт</strong
-                >
-              </span>
-            </figure>
-          </Lightbox>
-        </div>
+        {#each projects as project}
+          <div class="slide-content proect-carousel-item">
+            <Lightbox noScroll="false" modalClasses="pipu">
+              <figure class="image">
+                <img src={project.src} alt={project.alt} />
+                <span class="item-content-2">
+                  <strong class="item-title">{project.alt}</strong>
+                </span>
+              </figure>
+            </Lightbox>
+          </div>
+        {/each}
+
         <span class="control" slot="right-control">
           <Icon icon={faChevronRight} />
         </span>
-      </Carousel>
+      </Carousel> -->
     </div>
-    <div align="center" class="pt-4">
+    <div align="center">
+      <!-- class="pt-4" -->
       <a
         class="button is-primary is-medium is-raunded"
         href="/page/referens-list/#object_teplo">Наши проекты</a
