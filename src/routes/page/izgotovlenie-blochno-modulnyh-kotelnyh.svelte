@@ -120,7 +120,7 @@
       РАСЧЕТ СТОИМОСТИ
     </div>
     <div class="container is-max-widescreen">
-      <CalcTabs />
+      <CalcTabs showType={false} />
     </div>
   </section>
 

@@ -6,6 +6,7 @@
 
     export let selected = 'kotel'
     export let classes = 'is-centered'
+    export let showType = true
 </script>
 
 <div class="container">
@@ -33,7 +34,7 @@
     <div class="section">
         {#if selected === 'kotel'}
             <div class="box">
-                <CalcKotel/>
+                <CalcKotel {showType}/>
             </div>
         {:else if selected === 'gaz'}
             <div class="box">

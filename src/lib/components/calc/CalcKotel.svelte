@@ -11,6 +11,8 @@
 
     const dispatch = createEventDispatcher()
 
+    export let showType = true
+
     let amount = 0
     let isDone = false
     let calcDelay = 3000
@@ -315,6 +317,7 @@
 
             <!--            <div class="is-divider" data-content="Внутриплощадочный газопровод"></div>-->
 
+            {#if showType}
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
                     <label class="label">Вид строительства:</label>
@@ -356,6 +359,7 @@
                     </div>
                 </div>
             </div>
+            {/if}
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
