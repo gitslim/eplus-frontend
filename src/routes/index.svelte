@@ -387,11 +387,11 @@
             <track kind="captions" />
           </video>
  
-          <button class="play-btn" on:click={heroTogglePlay} aria-label="Воспроизвести / Пауза">
+          <!-- <button class="play-btn" on:click={heroTogglePlay} aria-label="Воспроизвести / Пауза">
             <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>
-          </button>
+          </button> -->
  
-          <div class="video-controls">
+          <!-- <div class="video-controls">
             <div class="vc-progress-wrap">
               <input
                 bind:this={heroSeekEl}
@@ -406,8 +406,8 @@
                 }}
                 aria-label="Перемотка"
               />
-            </div>
-            <div class="vc-row">
+            </div> -->
+            <!-- <div class="vc-row">
               <button class="vc-btn" on:click={heroTogglePlay} aria-label="Play/Pause">
                 <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>
               </button>
@@ -432,7 +432,7 @@
                 <i class="fa-solid fa-expand"></i>
               </button>
             </div>
-          </div>
+          </div> -->
   </div>
 </section>
  
