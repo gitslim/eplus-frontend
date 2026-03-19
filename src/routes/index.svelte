@@ -387,52 +387,52 @@
             <track kind="captions" />
           </video>
  
-          <button class="play-btn" on:click={heroTogglePlay} aria-label="Воспроизвести / Пауза">
-            <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>
-          </button>
- 
-          <div class="video-controls">
-            <div class="vc-progress-wrap">
-              <input
-                bind:this={heroSeekEl}
-                class="vc-seek"
-                type="range"
-                min="0"
-                max={heroDuration || 100}
-                step="0.1"
-                value={heroCurrentTime}
-                on:input={(e) => {
-                  heroEl.currentTime = parseFloat(e.target.value);
-                }}
-                aria-label="Перемотка"
-              />
-            </div>
-            <div class="vc-row">
-              <button class="vc-btn" on:click={heroTogglePlay} aria-label="Play/Pause">
-                <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>
-              </button>
-              <span class="vc-time">{fmt(heroCurrentTime)} / {fmt(heroDuration)}</span>
-              <div class="vc-spacer"></div>
-              <button class="vc-btn vc-mute-btn" on:click={heroToggleMute} aria-label="Звук" title={heroMuted ? 'Включить звук' : 'Выключить звук'}>
-                <i class="fa-solid {heroMuted || heroVolume === 0 ? 'fa-volume-xmark' : heroVolume < 0.5 ? 'fa-volume-low' : 'fa-volume-high'}"></i>
-                {#if heroMuted}<span class="vc-unmute-hint">Включить звук</span>{/if}
-              </button>
-              <input class="vc-volume" type="range" min="0" max="1" step="0.05" value={heroVolume} on:input={heroChangeVolume} aria-label="Громкость" />
-              <div class="vc-speed-wrap">
-                <button class="vc-btn vc-speed-btn" on:click={() => (heroSpeedMenu = !heroSpeedMenu)} aria-label="Скорость">{heroSpeed}x</button>
-                {#if heroSpeedMenu}
-                  <div class="vc-speed-menu">
-                    {#each speeds as s}
-                      <button class="vc-speed-option {s === heroSpeed ? 'active' : ''}" on:click={() => heroSetSpeed(s)}>{s}x</button>
-                    {/each}
-                  </div>
-                {/if}
-              </div>
-              <button class="vc-btn" on:click={heroFullscreen} aria-label="Полный экран">
-                <i class="fa-solid fa-expand"></i>
-              </button>
-            </div>
-          </div>
+<!--          <button class="play-btn" on:click={heroTogglePlay} aria-label="Воспроизвести / Пауза">-->
+<!--            <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>-->
+<!--          </button>-->
+<!-- -->
+<!--          <div class="video-controls">-->
+<!--            <div class="vc-progress-wrap">-->
+<!--              <input-->
+<!--                bind:this={heroSeekEl}-->
+<!--                class="vc-seek"-->
+<!--                type="range"-->
+<!--                min="0"-->
+<!--                max={heroDuration || 100}-->
+<!--                step="0.1"-->
+<!--                value={heroCurrentTime}-->
+<!--                on:input={(e) => {-->
+<!--                  heroEl.currentTime = parseFloat(e.target.value);-->
+<!--                }}-->
+<!--                aria-label="Перемотка"-->
+<!--              />-->
+<!--            </div>-->
+<!--            <div class="vc-row">-->
+<!--              <button class="vc-btn" on:click={heroTogglePlay} aria-label="Play/Pause">-->
+<!--                <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>-->
+<!--              </button>-->
+<!--              <span class="vc-time">{fmt(heroCurrentTime)} / {fmt(heroDuration)}</span>-->
+<!--              <div class="vc-spacer"></div>-->
+<!--              <button class="vc-btn vc-mute-btn" on:click={heroToggleMute} aria-label="Звук" title={heroMuted ? 'Включить звук' : 'Выключить звук'}>-->
+<!--                <i class="fa-solid {heroMuted || heroVolume === 0 ? 'fa-volume-xmark' : heroVolume < 0.5 ? 'fa-volume-low' : 'fa-volume-high'}"></i>-->
+<!--                {#if heroMuted}<span class="vc-unmute-hint">Включить звук</span>{/if}-->
+<!--              </button>-->
+<!--              <input class="vc-volume" type="range" min="0" max="1" step="0.05" value={heroVolume} on:input={heroChangeVolume} aria-label="Громкость" />-->
+<!--              <div class="vc-speed-wrap">-->
+<!--                <button class="vc-btn vc-speed-btn" on:click={() => (heroSpeedMenu = !heroSpeedMenu)} aria-label="Скорость">{heroSpeed}x</button>-->
+<!--                {#if heroSpeedMenu}-->
+<!--                  <div class="vc-speed-menu">-->
+<!--                    {#each speeds as s}-->
+<!--                      <button class="vc-speed-option {s === heroSpeed ? 'active' : ''}" on:click={() => heroSetSpeed(s)}>{s}x</button>-->
+<!--                    {/each}-->
+<!--                  </div>-->
+<!--                {/if}-->
+<!--              </div>-->
+<!--              <button class="vc-btn" on:click={heroFullscreen} aria-label="Полный экран">-->
+<!--                <i class="fa-solid fa-expand"></i>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
   </div>
 </section>
  
