@@ -81,7 +81,7 @@
                         style="font-size: 40px"
                         class="has-text-white has-text-weight-normal title titlefor"
                     >
-                        Проектирование водогрейных и паровых котельных
+                        ВОДОГРЕЙНЫЕ И ПАРОВЫЕ КОТЕЛЬНЫЕ
                     </h2>
                     <ContactFormButton
                         class="button is-primary is-large is-raunded button-raunded"
@@ -390,13 +390,13 @@
                             src="/images/kotel/partners/НОРД.png"
                         />
                     </div>
-                    <div class="slide-content">
-                        <img
-                            alt=""
-                            class="before-image"
-                            src="/images/kotel/partners/БМК.jpg"
-                        />
-                    </div>
+<!--                    <div class="slide-content">-->
+<!--                        <img-->
+<!--                            alt=""-->
+<!--                            class="before-image"-->
+<!--                            src="/images/kotel/partners/БМК.jpg"-->
+<!--                        />-->
+<!--                    </div>-->
                     <div class="slide-content">
                         <img
                             alt=""
@@ -1139,6 +1139,16 @@
 
     .person-comment p:first-child {
         padding-top: 20px;
+    }
+    .partners {
+      .slide-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 210px;
+        height: 210px;
+      }
     }
 
     /*.fix-button .btn__zayavka {*/

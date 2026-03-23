@@ -10,14 +10,12 @@
 <script>
   import BtnZayavka from "$lib/components/BtnZayavka.svelte";
   import HeaderLanding from "$lib/components/HeaderLanding.svelte";
-  import PartnersCarousel from "$lib/components/PartnersCarousel.svelte";
   import TitleLanding from "$lib/components/TitleLanding.svelte";
   import Carousel from "$lib/components/Carousel.svelte";
   import {
     faChevronLeft,
     faChevronRight,
   } from "@fortawesome/free-solid-svg-icons";
-  import { Lightbox } from "svelte-lightbox";
   import ProjectsMosaic from "$lib/components/ProjectsMosaic.svelte";
   import Icon from "fa-svelte";
   import HiddenH1 from "$lib/components/HiddenH1.svelte";
@@ -43,7 +41,7 @@
       alt: "Котельная для нужд дошкольного учреждения. Мощность 0,8 МВт",
     },
     {
-      src: "/images/bmk/6a330be1-601f-4fc6-81b5-1b61a497c62d (1) (1).jpg",
+      src: "/images/bmk/bmk6.png",
       alt: "Котельная для нужд учебного заведения. Мощность 0,6 МВт",
     },
     {
@@ -232,10 +230,10 @@
       </div>
     </div>
   </section>
-  <section class="section py-6">
-    <div class="container text-center pt-6">
-      <div class="title titlefor has-text-centered">
-        <h2 class="">Наши проекты</h2>
+  <section class="section py-6 my-6">
+    <div class="container text-center py-6">
+      <div class="title titlefor has-text-centered pb-6">
+        <h2 >Наши проекты</h2>
       </div>
 
       <ProjectsMosaic {projects} />
@@ -282,7 +280,7 @@
           class="container is-widescreen columns info__content"
           style="justify-content: center;"
         >
-          <div class="column is-6">
+          <div class="column is-5">
             <TitleLanding
               left
               titleText="Является ли бмк обьектом капитального строительства?"
@@ -305,7 +303,7 @@
               котельные установки ТКУ (БКУ)».
             </p>
           </div>
-          <div class="column is-6">
+          <div class="column is-4">
             <TitleLanding
               left
               titleText="в каких случаях устанавливают бмк?"
@@ -465,13 +463,13 @@
               src="/images/kotel/partners/НОРД.png"
             />
           </div>
-          <div class="slide-content">
-            <img
-              alt=""
-              class="before-image"
-              src="/images/kotel/partners/БМК.jpg"
-            />
-          </div>
+<!--          <div class="slide-content">-->
+<!--            <img-->
+<!--              alt=""-->
+<!--              class="before-image"-->
+<!--              src="/images/kotel/partners/БМК.jpg"-->
+<!--            />-->
+<!--          </div>-->
           <div class="slide-content">
             <img
               alt=""
@@ -649,7 +647,7 @@
     padding-bottom: 130px;
     background-position: center;
     background-blend-mode: multiply;
-    background-image: url(/images/bmk/bmk.jpg),
+    background-image: url(/images/bmk/bmk_background2.jpg),
       linear-gradient(45deg, grey, transparent),
       linear-gradient(90deg, grey, transparent);
     background-size: cover;
@@ -662,8 +660,8 @@
   }
 
   .desc {
-    padding: 50px 0 100px;
-    background: darkgray;
+    padding: 100px 0;
+    background: #353535;
 
     &__wrap {
       margin-bottom: 50px;
@@ -691,7 +689,8 @@
     //margin-top: 95px;
 
     &__content {
-      padding-top: 60px;
+      padding-top: 50px;
+      gap: 40px;
     }
 
     &__text {

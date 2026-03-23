@@ -3,7 +3,7 @@
      ================================================================ -->
 <script>
   let showModal = false;
- 
+
   async function handleFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
@@ -40,14 +40,14 @@
       );
     }
   }
- 
+
   // — Вспомогательное —
   const fmt = (s) => {
     if (!s || isNaN(s)) return "0:00";
     return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
   };
   const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
- 
+
   // — Hero плеер —
   let heroEl, heroSeekEl;
   let heroPlaying = false, heroCurrentTime = 0, heroDuration = 0;
@@ -112,7 +112,7 @@
   };
   const heroSetSpeed = (s) => { heroSpeed = s; heroEl.playbackRate = s; heroSpeedMenu = false; };
   const heroFullscreen = () => { if (!document.fullscreenElement) heroEl.closest(".video-box").requestFullscreen(); else document.exitFullscreen(); };
- 
+
   // — BMK плеер —
   let bmkEl, bmkSeekEl;
   let bmkPlaying = false, bmkCurrentTime = 0, bmkDuration = 0;
@@ -177,9 +177,9 @@
   };
   const bmkSetSpeed = (s) => { bmkSpeed = s; bmkEl.playbackRate = s; bmkSpeedMenu = false; };
   const bmkFullscreen = () => { if (!document.fullscreenElement) bmkEl.closest(".bmk-video-box").requestFullscreen(); else document.exitFullscreen(); };
- 
+
   // bmkUpdateSeek вызывается напрямую из timeUpdate и seeked
- 
+
   // — JSON-LD через onMount (обход бага svelte-preprocess) —
   import { onMount } from 'svelte';
   onMount(() => {
@@ -214,7 +214,7 @@
     });
     document.head.appendChild(script);
   });
- 
+
   // — Данные —
   const services = [
     {
@@ -236,14 +236,14 @@
       href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/proektirovanie-avtonomnyh-kotelnyh",
     },
   ];
- 
+
   const stats = [
     { number: "22", unit: "", label: "года работы" },
     { number: "45", unit: "", label: "построенных котельных" },
     { number: "750", unit: "км", label: "проектов газопроводов" },
     { number: "225", unit: "", label: "довольных заказчиков" },
   ];
- 
+
   const advantages = [
     { faIcon: "fa-fire", text: "Получение тех. возможности подачи газа" },
     { svgIcon: "/ickonandlogo/newsrtikon/architecture.svg", text: "Оптимальные технические решения в 2D, 3D" },
@@ -251,7 +251,7 @@
     { svgIcon: "/ickonandlogo/newsrtikon/person.svg", text: "Своевременная сдача результата работ" },
     { svgIcon: "/ickonandlogo/newsrtikon/leaderboart.svg", text: "Гарантия положительного заключения экспертизы" },
   ];
- 
+
   const schemeItems = [
     {
       svgSrc: "/ickonandlogo/newsrtikon/document.svg",
@@ -259,7 +259,9 @@
       satStyle: "transform: translate(-50%, -50%) translate(0px, -190px);",
       midStyle: "transform: translate(-50%, -50%) translate(95px, -165px);",
       labelStyle: "transform: translate(-50%, -100%) translate(0px, -235px); text-align: center;",
+      link: "/page/funkcii-generalnogo-proektirovshika",
       arrowDeg: 75,
+
     },
     {
       svgSrc: "/ickonandlogo/newsrtikon/magnifier.svg",
@@ -267,6 +269,7 @@
       satStyle: "transform: translate(-50%, -50%) translate(165px, -95px);",
       midStyle: "transform: translate(-50%, -50%) translate(190px, 0px);",
       labelStyle: "transform: translate(0%, -50%) translate(215px, -95px); text-align: left;",
+      link: "/page/funkcii-tehnicheskogo-zakazchika",
       arrowDeg: 135,
     },
     {
@@ -275,6 +278,7 @@
       satStyle: "transform: translate(-50%, -50%) translate(165px, 95px);",
       midStyle: "transform: translate(-50%, -50%) translate(95px, 165px);",
       labelStyle: "transform: translate(0%, -50%) translate(215px, 95px); text-align: left;",
+      link: "/page/proektirovanie-avtonomnyh-kotelnyh",
       arrowDeg: 195,
     },
     {
@@ -283,6 +287,7 @@
       satStyle: "transform: translate(-50%, -50%) translate(0px, 190px);",
       midStyle: "transform: translate(-50%, -50%) translate(-95px, 165px);",
       labelStyle: "transform: translate(-50%, 0%) translate(0px, 235px); text-align: center;",
+      link: "/page/pusko-naladochnye-raboty",
       arrowDeg: 255,
     },
     {
@@ -302,7 +307,7 @@
       arrowDeg: 15,
     },
   ];
- 
+
   const booklets = [
     {
       video: "/fotoandvideo/B4v1.mp4",
@@ -327,7 +332,7 @@
     },
   ];
 </script>
- 
+
 <svelte:head>
   <!-- SEO -->
   <title>ООО Энергия Плюс — проектирование и строительство котельных, газоснабжение</title>
@@ -335,7 +340,7 @@
   <meta name="keywords" content="котельные, проектирование котельных, строительство котельных, газоснабжение, блочно-модульные котельные, ГРПШ, газопровод" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xn--c1adkmgpem4hrai.xn--p1ai/" />
- 
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="ООО Энергия Плюс — проектирование и строительство котельных" />
@@ -344,20 +349,20 @@
   <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/logo-512.png" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:site_name" content="ООО Энергия Плюс" />
- 
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
- 
+
   <!-- Font Awesome синхронно -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
- 
+
   <!-- Material Symbols async -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_outward" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_outward" /></noscript>
 </svelte:head>
- 
+
 <div id="ep-root">
 
 <!-- ================================================================
@@ -386,7 +391,7 @@
           >
             <track kind="captions" />
           </video>
- 
+
 <!--          <button class="play-btn" on:click={heroTogglePlay} aria-label="Воспроизвести / Пауза">-->
 <!--            <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>-->
 <!--          </button>-->
@@ -435,7 +440,7 @@
 <!--          </div>-->
   </div>
 </section>
- 
+
 <!-- ================================================================
      3 КАРТОЧКИ УСЛУГ
      ================================================================ -->
@@ -453,7 +458,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================================================================
      ИНЖИНИРИНГ ПОЛНОГО ЦИКЛА — схема + преимущества
      ================================================================ -->
@@ -471,25 +476,28 @@
             <line x1="290" y1="290" x2="125" y2="195" stroke="#f07030" stroke-width="2" />
             <circle cx="290" cy="290" r="190" fill="none" stroke="#f07030" stroke-width="2" />
           </svg>
- 
+
           <div class="center-circle">
             <img src="/ickonandlogo/newsrtikon/worker.svg" alt="Инженер" class="center-icon" width="270" height="270" />
           </div>
- 
+
           {#each schemeItems as item, idx}
             <div class="sat-circle" style={item.satStyle}>
-              {#if idx === 0}
-                <svg class="sat-icon sat-icon--doc" viewBox="148 148 478 478" xmlns="http://www.w3.org/2000/svg" fill="white" aria-hidden="true">
-                  <defs><clipPath id="doc-clip"><path d="m199 148.09h402v503.81h-402z" /></clipPath></defs>
-                  <g clip-path="url(#doc-clip)">
-                    <path d="m561.64 439.7v-133.18c0-13.816-5.6133-27.332-15.406-37.078l-106.64-106.12c-9.8711-9.8242-22.977-15.23-36.895-15.23h-152.46c-27.828 0-50.469 22.641-50.469 50.469v368.52c0 27.828 22.641 50.469 50.469 50.469h141.99c22.102 21.254 52.086 34.352 85.094 34.352 67.77 0 122.91-55.137 122.91-122.91-0.007813-35.148-14.863-66.871-38.594-89.301zm-311.39 146.48c-10.523 0-19.09-8.5664-19.09-19.09v-368.53c0-10.523 8.5664-19.09 19.09-19.09h152.46c5.5742 0 10.816 2.1641 14.762 6.0938l106.63 106.12c3.9766 3.9609 6.1641 9.2266 6.1641 14.832v111.58c-16.043-7.6836-33.992-11.996-52.93-11.996-4.8477 0-9.6133 0.35547-14.32 0.90625l-182.36-0.003906v23.617h123.32c-16.391 12.258-29.613 28.449-38.258 47.23h-85.059v23.617h76.988c-2.0391 8.8633-3.2188 18.059-3.2188 27.535 0 20.633 5.1328 40.086 14.16 57.176zm227.08 39.574c-53.348 0-96.754-43.398-96.754-96.754 0-53.348 43.398-96.754 96.754-96.754 53.348 0 96.754 43.398 96.754 96.754 0.003906 53.355-43.402 96.754-96.754 96.754z" />
-                  </g>
-                  <path d="m280.65 336.16h199.83v23.617h-199.83z" />
-                  <path d="m457.24 582.46c-1.8203 0-3.5664-0.72266-4.8477-2.0078l-37.258-37.266c-1.2891-1.2812-2.0078-3.0312-2.0078-4.8477 0-1.8203 0.72266-3.5664 2.0078-4.8477l15.777-15.77c2.6758-2.6758 7.0234-2.6758 9.6992 0l16.641 16.641 56.797-56.797c2.6758-2.6758 7.0234-2.6758 9.6992 0l15.777 15.77c1.2812 1.2812 2.0078 3.0312 2.0078 4.8477 0 1.8203-0.72266 3.5664-2.0078 4.8477l-77.422 77.422c-1.2969 1.2812-3.043 2.0078-4.8633 2.0078z" />
-                </svg>
-              {:else}
-                <img src={item.svgSrc} alt="" class="sat-icon" width="50" height="50" aria-hidden="true" />
-              {/if}
+
+                <a href="{item.link}" title="{item.label}">
+                  {#if idx === 0}
+                    <svg class="sat-icon sat-icon--doc" viewBox="148 148 478 478" xmlns="http://www.w3.org/2000/svg" fill="white" aria-hidden="true">
+                      <defs><clipPath id="doc-clip"><path d="m199 148.09h402v503.81h-402z" /></clipPath></defs>
+                      <g clip-path="url(#doc-clip)">
+                        <path d="m561.64 439.7v-133.18c0-13.816-5.6133-27.332-15.406-37.078l-106.64-106.12c-9.8711-9.8242-22.977-15.23-36.895-15.23h-152.46c-27.828 0-50.469 22.641-50.469 50.469v368.52c0 27.828 22.641 50.469 50.469 50.469h141.99c22.102 21.254 52.086 34.352 85.094 34.352 67.77 0 122.91-55.137 122.91-122.91-0.007813-35.148-14.863-66.871-38.594-89.301zm-311.39 146.48c-10.523 0-19.09-8.5664-19.09-19.09v-368.53c0-10.523 8.5664-19.09 19.09-19.09h152.46c5.5742 0 10.816 2.1641 14.762 6.0938l106.63 106.12c3.9766 3.9609 6.1641 9.2266 6.1641 14.832v111.58c-16.043-7.6836-33.992-11.996-52.93-11.996-4.8477 0-9.6133 0.35547-14.32 0.90625l-182.36-0.003906v23.617h123.32c-16.391 12.258-29.613 28.449-38.258 47.23h-85.059v23.617h76.988c-2.0391 8.8633-3.2188 18.059-3.2188 27.535 0 20.633 5.1328 40.086 14.16 57.176zm227.08 39.574c-53.348 0-96.754-43.398-96.754-96.754 0-53.348 43.398-96.754 96.754-96.754 53.348 0 96.754 43.398 96.754 96.754 0.003906 53.355-43.402 96.754-96.754 96.754z" />
+                      </g>
+                      <path d="m280.65 336.16h199.83v23.617h-199.83z" />
+                      <path d="m457.24 582.46c-1.8203 0-3.5664-0.72266-4.8477-2.0078l-37.258-37.266c-1.2891-1.2812-2.0078-3.0312-2.0078-4.8477 0-1.8203 0.72266-3.5664 2.0078-4.8477l15.777-15.77c2.6758-2.6758 7.0234-2.6758 9.6992 0l16.641 16.641 56.797-56.797c2.6758-2.6758 7.0234-2.6758 9.6992 0l15.777 15.77c1.2812 1.2812 2.0078 3.0312 2.0078 4.8477 0 1.8203-0.72266 3.5664-2.0078 4.8477l-77.422 77.422c-1.2969 1.2812-3.043 2.0078-4.8633 2.0078z" />
+                    </svg>
+                  {:else}
+                    <img src={item.svgSrc} alt="" class="sat-icon" width="50" height="50" aria-hidden="true" />
+                  {/if}
+                </a>
             </div>
             <div class="mid-circle" style={item.midStyle} aria-hidden="true">
               <span class="material-symbols-outlined" style="transform: rotate({item.arrowDeg}deg);">arrow_outward</span>
@@ -498,7 +506,7 @@
           {/each}
         </div>
       </div>
- 
+
       <div class="text-block">
         <h2 class="eng-title">Инжиниринг полного<br />цикла</h2>
         <p class="eng-subtitle">Наши преимущества</p>
@@ -519,7 +527,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================================================================
      СТАТИСТИКА
      ================================================================ -->
@@ -538,7 +546,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================================================================
      ПРОДУКТЫ — буклеты / видео БМК
      ================================================================ -->
@@ -617,7 +625,7 @@
             {/if}
           </div>
         {/if}
- 
+
         <div class="booklet-content">
           {#if b.href}
             <a href={b.href} target="_blank" rel="noopener">
@@ -632,7 +640,7 @@
     {/each}
   </div>
 </section>
- 
+
 <!-- ================================================================
      МОДАЛЬНАЯ ФОРМА — заказ котельной
      ================================================================ -->
@@ -659,9 +667,9 @@
     </div>
   </div>
 {/if}
- 
+
 </div><!-- /ep-root -->
- 
+
 <!-- ================================================================
      СТИЛИ
      ================================================================ -->
@@ -685,7 +693,7 @@
   }
   #ep-root img { max-width: 100%; height: auto; display: block; }
   #ep-root a { text-decoration: none; color: inherit; }
- 
+
   /* — Containers — */
   #ep-root .site-container {
     max-width: 1360px; width: 100%; margin: 0 auto;
@@ -697,7 +705,7 @@
     padding-left: clamp(20px, 5vw, 40px);
     padding-right: clamp(20px, 5vw, 40px);
   }
- 
+
   /* ================================================================
      HERO — полная ширина, фиксированная высота как на скриншоте
      ================================================================ */
@@ -752,7 +760,7 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(0,0,0,0.35);
   }
- 
+
   #ep-root .vc-mute-btn { display: flex; align-items: center; gap: 5px; }
   #ep-root .vc-unmute-hint {
     font-size: 11px; font-weight: 600; color: #fff;
@@ -781,7 +789,7 @@
   }
   #ep-root .play-btn i { font-size: 24px; color: #fff; line-height: 1; }
   #ep-root .play-btn i.fa-play { margin-left: 3px; }
- 
+
   /* — Панель управления видео — */
   #ep-root .video-controls {
     position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
@@ -837,7 +845,7 @@
   }
   #ep-root .vc-speed-option:hover { background: rgba(255,255,255,0.1); }
   #ep-root .vc-speed-option.active { color: #f07030; font-weight: 700; }
- 
+
   /* ================================================================
      КАРТОЧКИ УСЛУГ
      ================================================================ */
@@ -868,7 +876,7 @@
     font-size: clamp(13px, 1.1vw, 16px); font-weight: 600;
     color: #fff; line-height: 1.3; text-align: center;
   }
- 
+
   /* — Инжиниринг — */
   #ep-root .engineering-section { padding-bottom: clamp(40px, 6vw, 90px); }
   #ep-root .engineering-wrapper {
@@ -942,7 +950,7 @@
     transition: background 0.3s, transform 0.3s;
   }
   #ep-root .btn-order:hover { background: #d35d2d; transform: translateY(-2px); }
- 
+
   /* ================================================================
      СТАТИСТИКА
      ================================================================ */
@@ -965,7 +973,7 @@
   #ep-root .stats-unit { font-size: clamp(28px, 3vw, 40px); font-weight: 800; color: #f07030; letter-spacing: -1px; }
   #ep-root .stats-divider { width: 40px; height: 3px; background: #f07030; border-radius: 99px; margin: 12px 0; }
   #ep-root .stats-label { font-size: clamp(13px, 1vw, 15px); font-weight: 500; color: #888; line-height: 1.4; }
- 
+
   /* — Буклеты — */
   #ep-root .booklets-section { padding-bottom: clamp(40px, 6vw, 90px); }
   #ep-root .booklet-block {
@@ -986,7 +994,7 @@
   #ep-root .booklet-heading { font-weight: 700; font-size: clamp(20px, 2vw, 28px); color: #111; margin-bottom: 20px; }
   #ep-root .booklet-heading--link:hover { color: #f07030; text-decoration: underline; }
   #ep-root .booklet-desc { font-size: clamp(15px, 1.3vw, 18px); font-weight: 400; color: #444; line-height: 1.8; text-align: justify; }
- 
+
   /* — Модальная форма — */
   #ep-root .order-modal-overlay {
     position: fixed; inset: 0; z-index: 1000;

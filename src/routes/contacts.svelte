@@ -1,5 +1,6 @@
 <script context="module">
     import SvelteSeo from 'svelte-seo'
+    import website from "$lib/config/website.js"
 </script>
 
 <script>

@@ -646,7 +646,7 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10">
-                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 1 МВт</h2>
+                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 0,8 МВт</h2>
                     <p style="font-size: 50px; " class="has-text-white">производство, доставка, подключение</p>
 
                 </div>
@@ -753,7 +753,7 @@
                                     Тепловая мощность
                                 </td>
                                 <td>
-                                    до 1 МВт
+                                    до 0,8 МВт
                                 </td>
                             </tr>
                             <tr>
@@ -902,7 +902,7 @@
             </div>
             <div class="cert-video__video">
                 <video autoplay loop muted playsinline controls>
-                    <source src="{'/video/БМК 800.mp4'}" type="video/mp4"/>
+                    <source src="{'/video/0225(2).mp4'}" type="video/mp4"/>
                 </video>
             </div>
         </div>
