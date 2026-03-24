@@ -9,7 +9,7 @@
     let isFormSubmitted
 
     function handleSuccessSubmit(event) {
-        // window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
+        window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
         isFormSubmitted = true
     }
 </script>

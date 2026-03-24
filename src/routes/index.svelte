@@ -6,6 +6,7 @@
 
   async function handleFormSubmit(event) {
     event.preventDefault();
+    
     const form = event.target;
     const formData = new FormData(form);
     const data = {
@@ -26,6 +27,7 @@
         },
       );
       if (response.ok) {
+        window.ym(54841009, 'reachGoal', 'lidformsiteyagtm');
         alert(
           "Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.",
         );
