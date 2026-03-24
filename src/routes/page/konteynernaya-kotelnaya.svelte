@@ -646,7 +646,7 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10">
-                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 0,8 МВт</h2>
+                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ </h2>
                     <p style="font-size: 50px; " class="has-text-white">производство, доставка, подключение</p>
 
                 </div>
@@ -753,7 +753,7 @@
                                     Тепловая мощность
                                 </td>
                                 <td>
-                                    до 0,8 МВт
+                                    0,8 МВт
                                 </td>
                             </tr>
                             <tr>
