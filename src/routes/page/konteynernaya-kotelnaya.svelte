@@ -61,7 +61,7 @@
     <meta property="og:image:secure_url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="533">
-    <meta property="og:image:alt" content="КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ до 1 МВт. Производство. Доставка. Подключение. ">
+    <meta property="og:image:alt" content="КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ. Производство. Доставка. Подключение. ">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image"/>
 </svelte:head>
@@ -979,7 +979,7 @@
         <div class="container">
             <div class="button3">
                 <ContactFormFullButton lead={lead = {
-                    title: 'Форма контактов из Контейнерная котельная 1 МВт',
+                    title: 'Форма контактов из Контейнерная котельная',
                     comments: 'КНОПКА скачать договор поставки',
                     }}>
                     <div slot="button">Скачать договор поставки</div>
