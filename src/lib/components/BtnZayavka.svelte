@@ -86,8 +86,8 @@
 
 <Modal>
     <div class="btn-wrap" slot="trigger" let:open>
-        <a class="btn__zayavka {radius ? 'btn__zayavka-radius' : ''}{btnWhite ? 'btn-white' : ''}"
-           on:click={()=>{open()}}>{btnText}</a>
+        <a href="/" class="btn__zayavka {radius ? 'btn__zayavka-radius' : ''}{btnWhite ? 'btn-white' : ''}"
+           on:click|preventDefault={()=>{open()}}>{btnText}</a>
     </div>
     <div slot="content" class="modal-content" let:store={{close}}>
         <div class="box">

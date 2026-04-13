@@ -13,8 +13,8 @@
 
 <Modal>
     <div slot="trigger" let:open>
-        <a class={$$props.class}
-           on:click={()=>{open(); onClick();}}>
+        <a href="/" class={$$props.class}
+           on:click|preventDefault={()=>{open(); onClick();}}>
             <slot name="button"/>
         </a>
     </div>

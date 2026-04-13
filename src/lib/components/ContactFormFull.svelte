@@ -6,12 +6,17 @@
     import * as yup from 'yup'
     import {bitrixLead} from '$lib/utils'
     import {goto} from '$app/navigation'
+    import {imask} from '@imask/svelte'
 
     const dispatch = createEventDispatcher()
 
     export let btnText = 'Отправить'
     export let inverted = false
     export let lead = {}
+
+    const maskOptions = {
+        mask: '+7 (000) 000-00-00'
+    }
 
     const {
         form,
@@ -32,7 +37,9 @@
         },
         validationSchema: yup.object().shape({
             name: yup.string().required('Обязательное поле'),
-            phone: yup.string().required('Обязательное поле'),
+            phone: yup.string()
+                .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, 'Некорректный номер телефона')
+                .required('Обязательное поле'),
             email: yup.string().email('Неверный формат Email')
         }),
         onSubmit: async values => {
@@ -65,24 +72,22 @@
         <!--        <label class="label" for="name">Ваше имя</label>-->
         <div class="control has-icons-left has-icons-right">
             <input class="input"
-                   class:is-danger={$errors.name}
+                   class:is-danger={$touched.name && $errors.name}
                    id="name"
                    name="name"
                    placeholder="Ваше имя"
-                   on:change={handleChange}
-                   on:blur={handleChange}
-                   on:keyup={handleChange}
+                   on:blur={handleBlur}
                    bind:value={$form.name}>
             <span class="icon is-small is-left">
           <Icon icon="{faUser}"/>
         </span>
-            <div class="icon is-small is-right" class:has-text-danger={$errors.name}>
-                {#if $errors.name}
+            <div class="icon is-small is-right" class:has-text-danger={$touched.name && $errors.name}>
+                {#if $touched.name && $errors.name}
                     <Icon icon="{faExclamationTriangle}"/>
                 {/if}
             </div>
         </div>
-        {#if $errors.name}
+        {#if $touched.name && $errors.name}
             <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.name}</p>
         {/if}
     </div>
@@ -93,22 +98,23 @@
             <input id="phone"
                    name="phone"
                    placeholder="Телефон"
-                   on:change={handleChange}
-                   on:blur={handleChange}
-                   on:keyup={handleChange}
-                   bind:value={$form.phone}
+                   use:imask={maskOptions}
+                   on:accept={(e) => {
+                        $form.phone = e.detail.value;
+                   }}
+                   on:blur={handleBlur}
                    class="input"
-                   class:is-danger={$errors.phone}>
+                   class:is-danger={$touched.phone && $errors.phone}>
             <span class="icon is-small is-left">
         <Icon icon="{faPhone}"/>
     </span>
-            <span class="icon is-small is-right" class:has-text-danger={$errors.phone}>
-        {#if $errors.phone}
+            <span class="icon is-small is-right" class:has-text-danger={$touched.phone && $errors.phone}>
+        {#if $touched.phone && $errors.phone}
               <Icon icon="{faExclamationTriangle}"/>
           {/if}
     </span>
         </div>
-        {#if $errors.phone}
+        {#if $touched.phone && $errors.phone}
             <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.phone}</p>
         {/if}
     </div>
@@ -117,31 +123,29 @@
         <!--        <label class="label" for="name">Ваше имя</label>-->
         <div class="control has-icons-left has-icons-right">
             <input class="input"
-                   class:is-danger={$errors.name}
+                   class:is-danger={$touched.email && $errors.email}
                    id="email"
                    name="email"
                    placeholder="Email"
-                   on:change={handleChange}
-                   on:blur={handleChange}
-                   on:keyup={handleChange}
+                   on:blur={handleBlur}
                    bind:value={$form.email}>
             <span class="icon is-small is-left">
           <Icon icon="{faEnvelope}"/>
         </span>
-            <div class="icon is-small is-right" class:has-text-danger={$errors.email}>
-                {#if $errors.email}
+            <div class="icon is-small is-right" class:has-text-danger={$touched.email && $errors.email}>
+                {#if $touched.email && $errors.email}
                     <Icon icon="{faExclamationTriangle}"/>
                 {/if}
             </div>
         </div>
-        {#if $errors.email}
+        {#if $touched.email && $errors.email}
             <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.email}</p>
         {/if}
     </div>
 
     <div class="field is-grouped">
         <div class="control">
-            <button class="button is-link" class:is-inverted={inverted} disabled="{!$isValid}" type="submit"
+            <button class="button is-link" class:is-inverted={inverted} type="submit"
                     class:is-loading={$isSubmitting}>
                 {btnText}
             </button>

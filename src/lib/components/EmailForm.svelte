@@ -62,31 +62,29 @@
         <!--        <label class="label" for="name">Ваше имя</label>-->
         <div class="control has-icons-left has-icons-right">
             <input class="input"
-                   class:is-danger={$errors.name}
+                   class:is-danger={$touched.email && $errors.email}
                    id="email"
                    name="email"
                    placeholder="Email"
-                   on:change={handleChange}
-                   on:blur={handleChange}
-                   on:keyup={handleChange}
+                   on:blur={handleBlur}
                    bind:value={$form.email}>
             <span class="icon is-small is-left">
           <Icon icon="{faEnvelope}"/>
         </span>
-            <div class="icon is-small is-right" class:has-text-danger={$errors.email}>
-                {#if $errors.email}
+            <div class="icon is-small is-right" class:has-text-danger={$touched.email && $errors.email}>
+                {#if $touched.email && $errors.email}
                     <Icon icon="{faExclamationTriangle}"/>
                 {/if}
             </div>
         </div>
-        {#if $errors.email}
+        {#if $touched.email && $errors.email}
             <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.email}</p>
         {/if}
     </div>
 
     <div class="field is-grouped">
         <div class="control">
-            <button class="button is-link" class:is-inverted={inverted} disabled="{!$isValid}" type="submit"
+            <button class="button is-link" class:is-inverted={inverted} type="submit"
                     class:is-loading={$isSubmitting}>
                 {btnText}
             </button>
