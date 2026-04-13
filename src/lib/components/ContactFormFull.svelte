@@ -5,6 +5,7 @@
     import {createForm} from 'svelte-forms-lib'
     import * as yup from 'yup'
     import {bitrixLead} from '$lib/utils'
+    import {goto} from '$app/navigation'
 
     const dispatch = createEventDispatcher()
 
@@ -50,6 +51,7 @@
                     values,
                     response
                 })
+                goto('/thanks')
             } else {
                 alert('Ошибка отправки формы. Попробуйте еще раз!')
             }
