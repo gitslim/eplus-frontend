@@ -29,14 +29,17 @@
             _errs.power = 'Минимальная мощность котельной 0.4 МВт'
         if (vals.name === '')
             _errs.name = 'Введите имя'
-        if (vals.phone === '')
+        if (vals.phone === '') {
             _errs.phone = 'Введите телефон'
+        } else if (vals.phone.length < 10) {
+            _errs.phone = 'Введите 10 цифр номера'
+        }
 
         errs = _errs
     }
     $: valid = Object.keys(errs).length === 0
 
-    const {form, handleChange, handleSubmit} = createForm({
+    const {form, touched, handleBlur, handleChange, handleSubmit} = createForm({
         initialValues: {
             type: 'typeNew',
             power: '',
@@ -363,31 +366,29 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label">Мощность котельной, МВт</label>
+                    <label class="label" for="power">Мощность котельной, МВт</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
                         <div class="control is-expanded has-icons-left has-icons-right">
-                            <input name="power"
+                            <input id="power"
+                                   name="power"
                                    use:imask={{mask: /^\d{0,3}[.,]{0,1}\d{0,3}$/}}
                                    class="input"
-                                   class:is-danger={errs.lenVp}
+                                   class:is-danger={($touched.power || isDone) && errs.power}
                                    placeholder="Мощность, МВт"
                                    bind:value={$form.power}
                                    on:change={handleChange}
+                                   on:blur={handleBlur}
                             />
                             <span class="icon is-small is-left"><Icon icon="{icons.faFire}"/></span>
-                            {#if errs.lenVp}
+                            {#if ($touched.power || isDone) && errs.power}
                                 <div class="icon is-small is-right has-text-danger">
                                     <Icon icon="{icons.faExclamationTriangle}"/>
                                 </div>
-                            {:else}
-                                <div class="icon is-small is-right">
-                                    <Icon icon="{icons.faCheck}"/>
-                                </div>
                             {/if}
                         </div>
-                        {#if errs.lenVp}
+                        {#if ($touched.power || isDone) && errs.power}
                             <p class="help is-danger">{errs.power}</p>
                         {/if}
                     </div>
@@ -446,31 +447,33 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label">Ваше имя:</label>
+                    <label class="label" for="userNameKotel">Ваше имя:</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input name="name"
+                            <input id="userNameKotel"
+                                   name="name"
                                    class="input"
+                                   class:is-danger={($touched.name || isDone) && errs.name}
                                    use:imask={{mask: /^[А-яA-z]{0,30}$/}}
                                    placeholder="Как к вам обращаться"
-                                   class:is-danger={errs.name}
                                    bind:value={$form.name}
                                    on:change={handleChange}
+                                   on:blur={handleBlur}
                             />
                             <span class="icon is-small is-left"><Icon icon="{icons.faUser}"/></span>
-                            {#if errs.name}
+                            {#if ($touched.name || isDone) && errs.name}
                                 <div class="icon is-small is-right has-text-danger">
                                     <Icon icon="{icons.faExclamationTriangle}"/>
                                 </div>
-                            {:else}
-                                <div class="icon is-small is-right">
+                            {:else if ($touched.name || isDone) && !errs.name && $form.name}
+                                <div class="icon is-small is-right has-text-success">
                                     <Icon icon="{icons.faCheck}"/>
                                 </div>
                             {/if}
                         </div>
-                        {#if errs.name}
+                        {#if ($touched.name || isDone) && errs.name}
                             <p class="help is-danger">{errs.name}</p>
                         {/if}
                     </div>
@@ -479,39 +482,41 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label">Телефон:</label>
+                    <label class="label" for="userPhoneKotel">Телефон:</label>
                 </div>
                 <div class="field-body">
                     <div class="field is-expanded">
                         <div class="field has-addons">
                             <p class="control">
-                                <a class="button is-static">
+                                <a href="tel:+7" class="button is-static">
                                     +7
                                 </a>
                             </p>
                             <p class="control is-expanded has-icons-right">
-                                <input name="phone"
+                                <input id="userPhoneKotel"
+                                       name="phone"
                                        class="input"
+                                       class:is-danger={($touched.phone || isDone) && errs.phone}
                                        type="tel"
                                        use:imask={{mask: /^\d{0,10}$/}}
                                        placeholder="Максимум 10 цифр"
-                                       class:is-danger={errs.phone}
                                        bind:value={$form.phone}
                                        on:change={handleChange}
+                                       on:blur={handleBlur}
                                 />
                                 <!--                        <span class="icon is-small is-left"><Icon icon="{icons.faPhone}"/></span>-->
-                                {#if errs.phone}
+                                {#if ($touched.phone || isDone) && errs.phone}
                             <span class="icon is-small is-right has-text-danger">
                                 <Icon icon="{icons.faExclamationTriangle}"/>
                             </span>
-                                {:else}
-                            <span class="icon is-small is-right">
+                                {:else if ($touched.phone || isDone) && !errs.phone && $form.phone}
+                            <span class="icon is-small is-right has-text-success">
                                 <Icon icon="{icons.faCheck}"/>
                             </span>
                                 {/if}
                             </p>
                         </div>
-                        {#if errs.phone}
+                        {#if ($touched.phone || isDone) && errs.phone}
                             <p class="help is-danger">{errs.phone}</p>
                         {/if}
                     </div>
@@ -525,7 +530,8 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <button type="submit" class="button is-primary is-rounded" disabled={!valid}>
+                            <button type="submit" class="button is-primary is-rounded"
+                                    on:click={() => { isDone = true; }}>
                                 Рассчитать
                             </button>
                         </div>

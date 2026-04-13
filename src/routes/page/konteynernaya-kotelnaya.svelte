@@ -16,7 +16,7 @@
     import LazyImage from 'svelte-lazy-image'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
-    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ. Производство, доставка, подключение'
+    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ. Производство, доставка, подключение'
     let lead
 
     const meta = {
@@ -61,7 +61,7 @@
     <meta property="og:image:secure_url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="533">
-    <meta property="og:image:alt" content="КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ. Производство. Доставка. Подключение. ">
+    <meta property="og:image:alt" content="КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ. Производство. Доставка. Подключение. ">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image"/>
 </svelte:head>
@@ -646,7 +646,7 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10">
-                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ </h2>
+                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ </h2>
                     <p style="font-size: 50px; " class="has-text-white">производство, доставка, подключение</p>
 
                 </div>
