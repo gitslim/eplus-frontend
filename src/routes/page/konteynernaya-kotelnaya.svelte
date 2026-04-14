@@ -16,7 +16,7 @@
     import LazyImage from 'svelte-lazy-image'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
 
-    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ. Производство, доставка, подключение'
+    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ. Доставка, подключение, пуско-наладка'
     let lead
 
     const meta = {
@@ -645,16 +645,18 @@
     <section class="hero hero1">
         <div class="hero-body">
             <div class="columns">
-                <div class="column is-10">
-                    <h2 style="font-size: 65px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ </h2>
-                    <p style="font-size: 50px; " class="has-text-white">производство, доставка, подключение</p>
+                <div class="column is-10" style="width: 100%;">
+<!--                    <span style="background-color: #f86923; padding: 0 20px">В НАЛИЧИИ </span>-->
+<!--                    <span style="color: #ff5700; text-decoration: underline">В НАЛИЧИИ </span>-->
+                    <h2 style="font-size: 55px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ 800 кВт</h2>
+                    <p style="font-size: 40px; " class="has-text-white">доставка, подключение, пуско-наладка</p>
 
                 </div>
             </div>
             <div class="columns hero__text">
                 <div class="column" >
                     <ul class="hero__spisok " style="display: flex;  max-width: 1000px ">
-                        <li style="white-space: nowrap; width: fit-content;"  >Вид топлива: газ / дизель / комбинированный</li>
+                        <li style="white-space: nowrap; width: fit-content;"  >Вид топлива: газ </li>
                         <li style="white-space: nowrap; width: fit-content;">Комплект проектной документации</li>
                         <li style="white-space: nowrap; width: fit-content;">Срок поставки по РФ: до 7 дней</li>
                     </ul>
