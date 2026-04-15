@@ -428,8 +428,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <button type="submit" class="button is-primary is-rounded"
-                                    on:click={() => { isDone = true; }}>
+                            <button type="submit" class="button is-primary is-rounded">
                                 Рассчитать
                             </button>
                         </div>
