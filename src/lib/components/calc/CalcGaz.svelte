@@ -62,12 +62,17 @@
             phone: ''
         },
         onSubmit: async values => {
-            window.ym(54841009, 'init', {
-                clickmap: true,
-                trackLinks: true,
-                accurateTrackBounce: true,
-                webvisor: true,
-            })
+            if (window.ym) {
+                window.ym(54841009, 'init', {
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true,
+                })
+            } else {
+                console.log("Яндекс Метрика не инициализирована");
+            }
+
 
             let log = []
 
