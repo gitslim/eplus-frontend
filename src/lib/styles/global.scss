@@ -34,56 +34,174 @@ body {
   height: 2em;
 }
 
-.navbar {
-  .navbar-brand a {
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  &.is-transparent {
-    background-color: transparent;
-    background-image: none;
-  }
-
-  &.has-centered-menu .navbar-start {
-    flex-grow: 1;
-    justify-content: center;
-  }
-
-  .navbar-item.is-mega {
+/* Mobile: show all dropdown submenus when burger is open */
+@media (max-width: 1023px) {
+  /* Dropdowns always visible on mobile */
+  .navbar-menu .navbar-dropdown {
+    display: block !important;
     position: static;
-
-    img {
-      max-height: none;
-    }
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0;
   }
 
-  .navbar-title {
-    font-weight: bold;
+  /* Dropdown columns → vertical stack */
+  .navbar-menu .navbar-dropdown .container.columns {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-menu .navbar-dropdown .column {
+    padding: 0;
+  }
+
+  /* ── Top-level nav items (Услуги, Спецпредложения, etc.) ── */
+  .navbar-menu > .navbar-start > .navbar-item.has-dropdown > .navbar-link {
+    font-weight: 700;
+    font-size: 15px;
+    color: #333;
+    padding: 12px 16px;
+    border-left: 3px solid #f60;
+    margin-top: 8px;
+  }
+
+  /* Hide the Bulma dropdown arrow on mobile */
+  .navbar-item.has-dropdown > .navbar-link::after {
+    display: none;
+  }
+
+  /* ── Category headers (ПРОЕКТИРОВАНИЕ, СТРОИТЕЛЬСТВО, etc.) ── */
+  .navbar-menu .navbar-dropdown .navbar-title {
+    font-weight: 700 !important;
+    color: #f60 !important;
+    font-size: 13px !important;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 16px 4px 24px !important;
+    margin-top: 4px;
+    opacity: 0.9;
+  }
+
+  /* ── Sub-items (regular links) ── */
+  .navbar-menu .navbar-dropdown .navbar-item:not(.navbar-title) {
+    padding: 7px 16px 7px 36px !important;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .navbar-menu .navbar-dropdown .navbar-item:not(.navbar-title):hover,
+  .navbar-menu .navbar-dropdown .navbar-item:not(.navbar-title):active {
+    color: #f60;
+    background: rgba(255, 102, 0, 0.04);
+  }
+
+  /* ── Separator between dropdown groups ── */
+  .navbar-menu > .navbar-start > .navbar-item.has-dropdown {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 8px;
+  }
+
+  /* ── Standalone nav items (Новости, Контакты) ── */
+  .navbar-menu > .navbar-start > a.navbar-item {
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 16px;
+    border-left: 3px solid transparent;
+  }
+
+  .navbar-menu > .navbar-start > a.navbar-item:hover,
+  .navbar-menu > .navbar-start > a.navbar-item:active {
+    border-left-color: #f60;
+    color: #f60;
+  }
+
+  /* ── Phone in navbar-end ── */
+  .navbar-menu .navbar-end .navbar-item {
+    padding: 12px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: 8px;
+  }
+
+  /* ── Burger icon — more prominent ── */
+  .navbar-burger {
+    width: 48px;
+    height: 48px;
+  }
+
+  .navbar-burger span {
+    height: 3px !important;
+    width: 24px !important;
+    left: calc(50% - 12px) !important;
+    background-color: #f60 !important;
+    border-radius: 2px;
+  }
+
+  .navbar-burger span:nth-child(1) {
+    top: calc(50% - 9px) !important;
+  }
+
+  .navbar-burger span:nth-child(2) {
+    top: calc(50% - 1px) !important;
+  }
+
+  .navbar-burger span:nth-child(3) {
+    top: calc(50% + 7px) !important;
   }
 }
 
-.navbar-item.has-dropdown.animated {
-  .navbar-dropdown {
-    display: block;
-    opacity: 0;
-    pointer-events: none;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    margin-top: 50px;
-  }
-
-  &:hover {
-    .navbar-dropdown {
-      opacity: 1;
-      margin-top: 0;
-      pointer-events: all;
-    }
-  }
-}
+//.navbar {
+//  .navbar-brand a {
+//    font-weight: bold;
+//    text-transform: uppercase;
+//  }
+//
+//  &.is-transparent {
+//    background-color: transparent;
+//    background-image: none;
+//  }
+//
+//  &.has-centered-menu .navbar-start {
+//    flex-grow: 1;
+//    justify-content: center;
+//  }
+//
+//  .navbar-item.is-mega {
+//    position: static;
+//
+//    img {
+//      max-height: none;
+//    }
+//  }
+//
+//  .navbar-title {
+//    font-weight: bold;
+//    text-transform: uppercase;
+//  }
+//}
+//
+//.navbar-item.has-dropdown.animated {
+//  .navbar-dropdown {
+//    display: block;
+//    opacity: 0;
+//    pointer-events: none;
+//    -webkit-transition: all 0.5s ease;
+//    -moz-transition: all 0.5s ease;
+//    -o-transition: all 0.5s ease;
+//    transition: all 0.5s ease;
+//    margin-top: 50px;
+//  }
+//
+//  &:hover {
+//    .navbar-dropdown {
+//      opacity: 1;
+//      margin-top: 0;
+//      pointer-events: all;
+//    }
+//  }
+//}
 
 .carousel-button {
   filter: drop-shadow(3px 3px 2px gray);
@@ -163,26 +281,26 @@ body {
   overflow: auto;
 }
 
-/* ================================================================
-   Bitrix24 Widget Mobile Fixes
-   ================================================================ */
-@media (max-width: 768px) {
-  /* Fix for the shadow/overlay causing horizontal scrolling */
-  // body .b24-widget-button-shadow {
-  //   width: 100% !important;
-  //   max-width: 100% !important;
-  //   left: 0 !important;
-  //   right: 0 !important;
-  //   box-sizing: border-box !important;
-  //   overflow-x: hidden !important;
-  // }
-
+@media (max-width: 450px) {
   /* Ensure the wrapper doesn't overflow */
-  body .b24-widget-button-wrapper, body .bx-livechat-wrapper {
+  body .b24-widget-button-popup{
+    max-width: 150px !important;
+    left: -160px !important;
+  }
+
+  body .b24-widget-button-wrapper, body .bx-livechat-wrapper{
     z-index: 100 !important;
     max-width: 93% !important;
     right: 10px !important;
-    // max-width: 100vw !important;
-    // box-sizing: border-box !important;
+
+  }
+}
+
+@media (max-width: 768px) {
+  body .b24-widget-button-wrapper, body .bx-livechat-wrapper{
+    z-index: 100 !important;
+    max-width: 93% !important;
+    right: 10px !important;
+
   }
 }

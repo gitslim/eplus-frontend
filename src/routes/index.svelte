@@ -1375,7 +1375,7 @@
     }
 
           /* Ensure the wrapper doesn't overflow */
-      body .b24-widget-button-wrapper, body .bx-livechat-wrapper {
+      body .b24-widget-button-wrapper, body .bx-livechat-wrapper, body .b24-widget-button-popup{
           z-index: 100 !important;
           max-width: 93% !important;
           right: 10px !important;
