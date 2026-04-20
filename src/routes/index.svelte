@@ -2,32 +2,57 @@
      SCRIPT
      ================================================================ -->
 <script>
+  import { bitrixLead } from '$lib/utils.js';
+  import { imask } from '@imask/svelte';
+
+  const maskOptions = {
+    mask: '+7 (000) 000-00-00'
+  };
+
   let showModal = false;
+  let modalErrors = {};
 
   async function handleFormSubmit(event) {
     event.preventDefault();
     
     const form = event.target;
     const formData = new FormData(form);
-    const data = {
-      fields: {
-        TITLE: `Заявка с сайта от ${formData.get("username")}`,
-        NAME: formData.get("username"),
-        PHONE: [{ VALUE: formData.get("phone"), VALUE_TYPE: "WORK" }],
-        COMMENTS: formData.get("message") || "Без комментариев",
-      },
-    };
+    
+    // Clear previous errors
+    modalErrors = {};
+    let hasError = false;
+    
+    const rawName = formData.get("username") || "";
+    if (!rawName.trim()) {
+      modalErrors.name = "Обязательное поле";
+      hasError = true;
+    }
+
+    const rawPhone = formData.get("phone") || "";
+    const phoneDigits = rawPhone.replace(/\D/g, "");
+    if (phoneDigits.length < 11) {
+      modalErrors.phone = "Введите 10 цифр номера телефона";
+      hasError = true;
+    }
+
+    if (hasError) {
+      modalErrors = modalErrors;
+      return;
+    }
+
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BITRIX_HOOK_URL}crm.lead.add.json`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        },
-      );
+      const response = await bitrixLead({
+        type: 'lead.orderForm',
+        title: `Заявка с сайта от ${formData.get("username")}`,
+        name: formData.get("username"),
+        phone: formData.get("phone"),
+        comments: formData.get("message") || "Без комментариев"
+      });
+
       if (response.ok) {
-        window.ym(54841009, 'reachGoal', 'lidformsiteyagtm');
+        if (window.ym) {
+            window.ym(54841009, 'reachGoal', 'lidformsiteyagtm');
+        }
         alert(
           "Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.",
         );
@@ -656,10 +681,12 @@
       <p class="order-modal__sub">Оставьте заявку — мы свяжемся с вами в ближайшее время</p>
       <form class="order-modal__form" on:submit={handleFormSubmit}>
         <div class="order-modal__field">
-          <input type="text" name="username" placeholder="Ваше имя" required class="order-modal__input" autocomplete="name" />
+          <input type="text" name="username" placeholder="Ваше имя" class="order-modal__input {modalErrors.name ? 'is-danger' : ''}" autocomplete="name" on:input={() => modalErrors.name = null} />
+          {#if modalErrors.name}<p class="help is-danger order-modal__error-text">{modalErrors.name}</p>{/if}
         </div>
         <div class="order-modal__field">
-          <input type="tel" name="phone" placeholder="Ваш телефон" required class="order-modal__input" autocomplete="tel" />
+          <input type="tel" name="phone" placeholder="Ваш телефон" class="order-modal__input {modalErrors.phone ? 'is-danger' : ''}" autocomplete="tel" use:imask={maskOptions} on:input={() => modalErrors.phone = null} />
+          {#if modalErrors.phone}<p class="help is-danger order-modal__error-text">{modalErrors.phone}</p>{/if}
         </div>
         <div class="order-modal__field">
           <textarea name="message" placeholder="Расскажите о вашем проекте" class="order-modal__input order-modal__textarea"></textarea>
@@ -1027,7 +1054,9 @@
     font-size: 15px; color: #111; outline: none; transition: border-color 0.2s;
   }
   #ep-root .order-modal__input:focus { border-color: #f07030; }
+  #ep-root .order-modal__input.is-danger { border-color: #f14668; }
   #ep-root .order-modal__input::placeholder { color: #bbb; }
+  #ep-root .order-modal__error-text { color: #f14668; font-size: 12px; margin-top: 5px; }
   #ep-root .order-modal__textarea { resize: vertical; min-height: 100px; }
   #ep-root .order-modal__submit {
     width: 100%; padding: 15px; background: #f07030; color: #fff;
