@@ -465,6 +465,11 @@
 <!--              </button>-->
 <!--            </div>-->
 <!--          </div>-->
+
+          <!-- Scroll down arrow -->
+          <a href="#services" class="hero-scroll-btn" aria-label="Скролл вниз">
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
   </div>
 </section>
 
@@ -1344,5 +1349,37 @@
   @keyframes ep-slideUpMobile {
     from { transform: translateY(100%); }
     to { transform: translateY(0); }
+  }
+
+  /* Animated scroll down arrow in hero section */
+  #ep-root .hero-scroll-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 28px;
+    z-index: 10;
+    opacity: 0.8;
+    animation: ep-bounce 2s infinite ease-in-out;
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+  #ep-root .hero-scroll-btn:hover {
+    opacity: 1;
+    color: #f60;
+  }
+  @media (max-width: 768px) {
+    #ep-root .hero-scroll-btn {
+      bottom: 20px;
+      font-size: 24px;
+    }
+  }
+  @keyframes ep-bounce {
+    0%, 100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 10px);
+    }
   }
 </style>

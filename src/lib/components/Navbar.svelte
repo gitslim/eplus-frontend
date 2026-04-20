@@ -345,42 +345,119 @@
 <style>
     /* Mobile: show all dropdown submenus when burger is open */
     @media (max-width: 1023px) {
+        /* Dropdowns always visible on mobile */
         :global(.navbar-menu .navbar-dropdown) {
             display: block !important;
             position: static;
             box-shadow: none;
             border: none;
             background: transparent;
-            padding: 0 0 0 16px;
+            padding: 0;
         }
 
+        /* Dropdown columns → vertical stack */
         :global(.navbar-menu .navbar-dropdown .container.columns) {
             flex-direction: column;
             padding: 0;
+            margin: 0;
         }
 
         :global(.navbar-menu .navbar-dropdown .column) {
             padding: 0;
         }
 
-        :global(.navbar-menu .navbar-dropdown .navbar-item) {
-            padding: 8px 12px;
-            font-size: 14px;
-        }
-
-        :global(.navbar-menu .navbar-dropdown .navbar-title) {
+        /* ── Top-level nav items (Услуги, Спецпредложения, etc.) ── */
+        :global(.navbar-menu > .navbar-start > .navbar-item.has-dropdown > .navbar-link) {
             font-weight: 700;
-            color: #f60;
-            font-size: 14px;
-            padding-top: 12px;
+            font-size: 15px;
+            color: #333;
+            padding: 12px 16px;
+            border-left: 3px solid #f60;
+            margin-top: 8px;
         }
 
-        :global(.navbar-item.has-dropdown .navbar-link) {
-            padding-right: 12px;
-        }
-
-        :global(.navbar-item.has-dropdown .navbar-link::after) {
+        /* Hide the Bulma dropdown arrow on mobile */
+        :global(.navbar-item.has-dropdown > .navbar-link::after) {
             display: none;
+        }
+
+        /* ── Category headers (ПРОЕКТИРОВАНИЕ, СТРОИТЕЛЬСТВО, etc.) ── */
+        :global(.navbar-menu .navbar-dropdown .navbar-title) {
+            font-weight: 700 !important;
+            color: #f60 !important;
+            font-size: 13px !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 16px 4px 24px !important;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        /* ── Sub-items (regular links) ── */
+        :global(.navbar-menu .navbar-dropdown .navbar-item:not(.navbar-title)) {
+            padding: 7px 16px 7px 36px !important;
+            font-size: 14px;
+            color: #333;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        :global(.navbar-menu .navbar-dropdown .navbar-item:not(.navbar-title):hover),
+        :global(.navbar-menu .navbar-dropdown .navbar-item:not(.navbar-title):active) {
+            color: #f60;
+            background: rgba(255, 102, 0, 0.04);
+        }
+
+        /* ── Separator between dropdown groups ── */
+        :global(.navbar-menu > .navbar-start > .navbar-item.has-dropdown) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding-bottom: 8px;
+        }
+
+        /* ── Standalone nav items (Новости, Контакты) ── */
+        :global(.navbar-menu > .navbar-start > a.navbar-item) {
+            font-weight: 600;
+            font-size: 15px;
+            padding: 12px 16px;
+            border-left: 3px solid transparent;
+        }
+
+        :global(.navbar-menu > .navbar-start > a.navbar-item:hover),
+        :global(.navbar-menu > .navbar-start > a.navbar-item:active) {
+            border-left-color: #f60;
+            color: #f60;
+        }
+
+        /* ── Phone in navbar-end ── */
+        :global(.navbar-menu .navbar-end .navbar-item) {
+            padding: 12px 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            margin-top: 8px;
+        }
+
+        /* ── Burger icon — more prominent ── */
+        :global(.navbar-burger) {
+            width: 48px;
+            height: 48px;
+        }
+
+        :global(.navbar-burger span) {
+            height: 3px !important;
+            width: 24px !important;
+            left: calc(50% - 12px) !important;
+            background-color: #f60 !important;
+            border-radius: 2px;
+        }
+
+        :global(.navbar-burger span:nth-child(1)) {
+            top: calc(50% - 9px) !important;
+        }
+
+        :global(.navbar-burger span:nth-child(2)) {
+            top: calc(50% - 1px) !important;
+        }
+
+        :global(.navbar-burger span:nth-child(3)) {
+            top: calc(50% + 7px) !important;
         }
     }
 </style>
