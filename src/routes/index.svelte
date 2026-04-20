@@ -1373,6 +1373,14 @@
       bottom: 20px;
       font-size: 24px;
     }
+
+          /* Ensure the wrapper doesn't overflow */
+      body .b24-widget-button-wrapper, body .bx-livechat-wrapper {
+          z-index: 100 !important;
+          max-width: 93% !important;
+          right: 10px !important;
+
+      }
   }
   @keyframes ep-bounce {
     0%, 100% {
