@@ -57,6 +57,36 @@
     }
   }
 
+  @media (max-width: 480px) {
+    .container {
+      &__title {
+        font-size: 28px;
+        margin-bottom: 24px;
+        max-width: 100%;
+
+        &::before {
+          width: 80px;
+          height: 6px;
+          top: -30px;
+        }
+      }
+
+      &__text {
+        font-size: 16px;
+      }
+    }
+
+    .order__title {
+      font-size: 20px;
+
+      &::before {
+        width: 80px;
+        height: 6px;
+        top: -30px;
+      }
+    }
+  }
+
 </style>
 
 <div class="container">

@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import {onMount} from 'svelte'
 
     onMount(async () => {
@@ -14,4 +14,4 @@
             'https://cdn.bitrix24.ru/b9447275/crm/site_button/loader_2_ux0fep.js'
         )
     })
-</script>
+</script> -->

@@ -131,4 +131,20 @@
         box-shadow: 0 8px 20px rgba(240, 112, 48, 0.4);
         color: #ffffff;
     }
+
+    @media (max-width: 480px) {
+        #ep-thanks-page {
+            padding: 30px 0;
+        }
+        .thanks-content {
+            padding: 30px 20px;
+            margin: 0 16px;
+        }
+        .btn-home {
+            width: 100%;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 14px;
+        }
+    }
 </style>

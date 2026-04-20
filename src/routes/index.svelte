@@ -465,6 +465,11 @@
 <!--              </button>-->
 <!--            </div>-->
 <!--          </div>-->
+
+          <!-- Scroll down arrow -->
+          <a href="#services" class="hero-scroll-btn" aria-label="Скролл вниз">
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
   </div>
 </section>
 
@@ -532,6 +537,32 @@
             <div class="sat-label" style={item.labelStyle}>{@html item.label}</div>
           {/each}
         </div>
+      </div>
+
+      <!-- Mobile scheme list — visible only ≤768px -->
+      <div class="scheme-mobile-list">
+        {#each schemeItems as item, idx}
+          {#if item.link}
+            <a href={item.link} class="scheme-mobile-item">
+              <div class="scheme-mobile-icon">
+                <img src={item.svgSrc} alt="" width="26" height="26" />
+              </div>
+              <span class="scheme-mobile-text">{@html item.label}</span>
+            </a>
+          {:else}
+            <div class="scheme-mobile-item">
+              <div class="scheme-mobile-icon">
+                <img src={item.svgSrc} alt="" width="26" height="26" />
+              </div>
+              <span class="scheme-mobile-text">{@html item.label}</span>
+            </div>
+          {/if}
+          {#if idx < schemeItems.length - 1}
+            <div class="scheme-mobile-arrow">
+              <i class="fa-solid fa-arrow-down"></i>
+            </div>
+          {/if}
+        {/each}
       </div>
 
       <div class="text-block">
@@ -1065,4 +1096,290 @@
     transition: background 0.3s, transform 0.2s;
   }
   #ep-root .order-modal__submit:hover { background: #d35d2d; transform: translateY(-2px); }
+
+  /* ================================================================
+     MOBILE SCHEME LIST (hidden on desktop, shown on ≤768px)
+     ================================================================ */
+  #ep-root .scheme-mobile-list {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+  #ep-root .scheme-mobile-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 14px 20px;
+    background: #fff;
+    border: 1.5px solid #f07030;
+    border-radius: 12px;
+    transition: background 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  #ep-root .scheme-mobile-item:hover,
+  #ep-root .scheme-mobile-item:active {
+    background: rgba(240, 112, 48, 0.06);
+    box-shadow: 0 4px 16px rgba(240, 112, 48, 0.15);
+  }
+  #ep-root .scheme-mobile-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f07030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #ep-root .scheme-mobile-icon img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+  #ep-root .scheme-mobile-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.4;
+  }
+  #ep-root .scheme-mobile-arrow {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+    color: #f07030;
+    font-size: 16px;
+  }
+
+  /* ================================================================
+     RESPONSIVE — Tablet ≤768px
+     ================================================================ */
+  @media (max-width: 768px) {
+    /* Services → 1 column */
+    #ep-root .top-services-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    #ep-root .top-service-card {
+      aspect-ratio: 16 / 9;
+    }
+    #ep-root .top-service-title {
+      font-size: 15px;
+    }
+
+    /* Engineering: vertical, hide circle, show mobile list */
+    #ep-root .engineering-wrapper {
+      flex-direction: column;
+      padding: 30px 24px;
+      gap: 24px;
+    }
+    #ep-root .scheme-wrap {
+      display: none;
+    }
+    #ep-root .scheme-mobile-list {
+      display: flex;
+    }
+    #ep-root .text-block {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    /* Statistics → 2×2 grid */
+    #ep-root .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    /* Booklets → vertical stack */
+    #ep-root .booklet-block {
+      flex-direction: column;
+      gap: 24px;
+    }
+    #ep-root .booklet-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  /* ================================================================
+     RESPONSIVE — Mobile ≤480px
+     ================================================================ */
+  @media (max-width: 480px) {
+    /* Containers */
+    #ep-root .site-container,
+    #ep-root .site-container--wide {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* Hero */
+    #ep-root .hero-section .video-box {
+      height: 56vh;
+      min-height: 280px;
+    }
+    #ep-root .hero-head {
+      padding: 16px 16px 18px;
+      gap: 10px;
+    }
+    #ep-root .video-top-bar__title {
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    #ep-root .video-top-bar__link {
+      font-size: 13px;
+      padding: 12px 24px;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    /* Services */
+    #ep-root .top-services-section {
+      padding-top: 16px;
+      padding-bottom: 24px;
+    }
+
+    /* Engineering */
+    #ep-root .engineering-wrapper {
+      padding: 24px 20px;
+    }
+    #ep-root .eng-title {
+      font-size: 22px;
+    }
+    #ep-root .eng-list li {
+      font-size: 14px;
+      gap: 10px;
+    }
+    #ep-root .btn-order {
+      padding: 18px 20px;
+      font-size: 15px;
+    }
+    #ep-root .scheme-mobile-item {
+      padding: 12px 16px;
+      gap: 12px;
+    }
+    #ep-root .scheme-mobile-icon {
+      width: 42px;
+      height: 42px;
+    }
+    #ep-root .scheme-mobile-text {
+      font-size: 13px;
+    }
+
+    /* Statistics */
+    #ep-root .stats-grid {
+      gap: 10px;
+    }
+    #ep-root .stats-card {
+      padding: 24px 16px 20px;
+    }
+    #ep-root .stats-number {
+      font-size: 36px;
+      letter-spacing: -1px;
+    }
+    #ep-root .stats-unit {
+      font-size: 20px;
+    }
+    #ep-root .stats-label {
+      font-size: 12px;
+    }
+
+    /* Booklets */
+    #ep-root .booklet-block {
+      gap: 16px;
+      padding: 20px 0;
+    }
+    #ep-root .booklet-heading {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    #ep-root .booklet-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      text-align: left;
+    }
+
+    /* Video controls — simplified */
+    #ep-root .vc-volume,
+    #ep-root .vc-speed-wrap {
+      display: none;
+    }
+    #ep-root .play-btn {
+      width: 56px;
+      height: 56px;
+      opacity: 1;
+    }
+    #ep-root .play-btn i {
+      font-size: 20px;
+    }
+    #ep-root .video-controls {
+      opacity: 1;
+    }
+
+    /* Modal form → bottom sheet */
+    #ep-root .order-modal-overlay {
+      align-items: flex-end;
+    }
+    #ep-root .order-modal {
+      max-width: 100%;
+      border-radius: 16px 16px 0 0;
+      padding: 24px 20px 20px;
+      margin: 0;
+      animation: ep-slideUpMobile 0.3s ease;
+    }
+    #ep-root .order-modal__input {
+      font-size: 16px;
+      padding: 14px 14px;
+    }
+    #ep-root .order-modal__submit {
+      min-height: 48px;
+      font-size: 15px;
+    }
+    #ep-root .order-modal__title {
+      font-size: 20px;
+    }
+  }
+
+  @keyframes ep-slideUpMobile {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  /* Animated scroll down arrow in hero section */
+  #ep-root .hero-scroll-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 28px;
+    z-index: 10;
+    opacity: 0.8;
+    animation: ep-bounce 2s infinite ease-in-out;
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+  #ep-root .hero-scroll-btn:hover {
+    opacity: 1;
+    color: #f60;
+  }
+  @media (max-width: 768px) {
+    #ep-root .hero-scroll-btn {
+      bottom: 20px;
+      font-size: 24px;
+    }
+  }
+  @keyframes ep-bounce {
+    0%, 100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 10px);
+    }
+  }
 </style>
