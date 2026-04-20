@@ -74,6 +74,20 @@
       background-color: #f86923;
     }
   }
+
+  @media (max-width: 480px) {
+    .btn__zayavka {
+      padding: 0 24px;
+      height: 48px;
+      font-size: 14px;
+      width: 100%;
+    }
+    .btn-white {
+      padding: 10px 20px;
+      font-size: 13px;
+      width: 100%;
+    }
+  }
 </style>
 
 <!--<div class="btn-wrap">-->

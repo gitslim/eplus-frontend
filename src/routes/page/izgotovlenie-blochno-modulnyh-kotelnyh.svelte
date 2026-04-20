@@ -1066,4 +1066,206 @@
       height: 210px;
     }
   }
+
+  /* ================================================================
+     RESPONSIVE — Tablet ≤768px
+     ================================================================ */
+  @media (max-width: 768px) {
+    /* Table → vertical list */
+    .types-boiler-room {
+      padding: 24px 16px;
+
+      .table-boiler-room {
+        flex-direction: column;
+        gap: 0;
+
+        &__row {
+          flex-direction: column;
+          margin-bottom: 16px;
+          border-radius: 8px;
+          overflow: hidden;
+          border: 1px solid rgba(248, 105, 35, 0.2);
+
+          > div {
+            width: 100%;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(248, 105, 35, 0.15);
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            &:first-child {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+
+    /* Advantages — remove negative offset */
+    .advantage {
+      &__wrap {
+        top: 0;
+        padding: 30px 20px;
+      }
+    }
+
+    /* Algorithm — hide decorative lines */
+    .logic {
+      &__item {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      &__icon {
+        margin-bottom: 20px;
+      }
+
+      &__wrap {
+        padding: 24px 20px;
+      }
+    }
+
+    /* Partners carousel */
+    .partners {
+      .slide-content {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+
+  /* ================================================================
+     RESPONSIVE — Mobile ≤480px
+     ================================================================ */
+  @media (max-width: 480px) {
+    .section {
+      padding-top: 30px;
+    }
+
+    /* Hero */
+    .caption {
+      padding-top: 100px !important;
+      padding-bottom: 60px;
+    }
+
+    /* Table */
+    .types-boiler-room {
+      .table-boiler-room {
+        &__row {
+          > div {
+            padding: 10px 14px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    /* SEO text */
+    .seo {
+      &__text {
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      &__item {
+        font-size: 15px;
+        margin: 14px 0;
+      }
+    }
+
+    /* Dark section */
+    .desc {
+      padding: 40px 0;
+
+      &__wrap {
+        margin-bottom: 24px;
+      }
+    }
+
+    .info {
+      &__content {
+        padding-top: 24px;
+        gap: 20px;
+      }
+
+      &__text {
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+    }
+
+    /* Solution */
+    .solution {
+      padding: 40px 0 60px;
+
+      &__text {
+        font-size: 15px;
+      }
+
+      &__item {
+        font-size: 15px;
+        margin-bottom: 16px;
+      }
+    }
+
+    /* Advantages */
+    .advantage {
+      &__wrap {
+        padding: 24px 16px;
+
+        .list {
+          &__item {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    /* Algorithm */
+    .logic {
+      &__icon {
+        height: 44px;
+        margin-bottom: 16px;
+      }
+
+      &__text {
+        font-size: 14px;
+      }
+
+      &__wrap {
+        padding: 20px 16px;
+      }
+
+      &__info {
+        font-size: 15px;
+        padding: 0;
+      }
+    }
+
+    /* Consultation */
+    .advice {
+      padding-top: 40px;
+
+      &__bg {
+        padding: 0 0 40px;
+        margin-top: 0;
+      }
+
+      &__btn {
+        width: 100%;
+      }
+    }
+
+    /* Partners */
+    .partners {
+      .slide-content {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
 </style>

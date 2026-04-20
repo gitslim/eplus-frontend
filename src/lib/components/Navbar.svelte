@@ -51,7 +51,7 @@
                     on:focus={() => toggleDropdown(true)}>
                 <Link cls="navbar-link" title="Услуги">Услуги</Link>
                 <div
-                        class="navbar-dropdown is-boxed is-hidden-mobile"
+                        class="navbar-dropdown is-boxed"
                         class:is-hidden={!showDropdown}>
                     <div class="container is-fluid columns">
                         <div class="column">
@@ -186,7 +186,7 @@
                     Специальные предложения
                 </Link>
                 <div
-                        class="navbar-dropdown is-boxed is-hidden-mobile"
+                        class="navbar-dropdown is-boxed"
                         class:is-hidden={!showDropdown}>
                     <div class="container is-fluid columns">
                         <div class="column">
@@ -220,7 +220,7 @@
                     on:focus={() => toggleDropdown(true)}>
                 <Link cls="navbar-link" title="Полезное">Полезное</Link>
                 <div
-                        class="navbar-dropdown is-boxed is-hidden-mobile"
+                        class="navbar-dropdown is-boxed"
                         class:is-hidden={!showDropdown}>
                     <div class="container is-fluid columns">
                         <div class="column">
@@ -252,7 +252,7 @@
                     Рассчитать стоимость
                 </Link>
                 <div
-                        class="navbar-dropdown is-boxed is-hidden-mobile"
+                        class="navbar-dropdown is-boxed"
                         class:is-hidden={!showDropdown}>
                     <div class="container is-fluid columns">
                         <div class="column">
@@ -341,3 +341,46 @@
         </div>
     </div>
 </nav>
+
+<style>
+    /* Mobile: show all dropdown submenus when burger is open */
+    @media (max-width: 1023px) {
+        :global(.navbar-menu .navbar-dropdown) {
+            display: block !important;
+            position: static;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+            padding: 0 0 0 16px;
+        }
+
+        :global(.navbar-menu .navbar-dropdown .container.columns) {
+            flex-direction: column;
+            padding: 0;
+        }
+
+        :global(.navbar-menu .navbar-dropdown .column) {
+            padding: 0;
+        }
+
+        :global(.navbar-menu .navbar-dropdown .navbar-item) {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        :global(.navbar-menu .navbar-dropdown .navbar-title) {
+            font-weight: 700;
+            color: #f60;
+            font-size: 14px;
+            padding-top: 12px;
+        }
+
+        :global(.navbar-item.has-dropdown .navbar-link) {
+            padding-right: 12px;
+        }
+
+        :global(.navbar-item.has-dropdown .navbar-link::after) {
+            display: none;
+        }
+    }
+</style>

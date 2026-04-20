@@ -156,3 +156,21 @@
     </div>
 </form>
 <!--<div>{JSON.stringify($isValid)}</div>-->
+
+<style>
+    @media (max-width: 480px) {
+        :global(.field .input) {
+            font-size: 16px;
+        }
+        :global(.field.is-grouped) {
+            flex-direction: column;
+        }
+        :global(.field.is-grouped .control) {
+            width: 100%;
+        }
+        :global(.field.is-grouped .control .button) {
+            width: 100%;
+            min-height: 48px;
+        }
+    }
+</style>
