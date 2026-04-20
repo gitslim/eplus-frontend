@@ -62,6 +62,16 @@
             phone: ''
         },
         onSubmit: async values => {
+            // Mark all fields as touched so errors are visible
+            $touched.lenVp = true;
+            $touched.lenV = true;
+            $touched.name = true;
+            $touched.phone = true;
+
+            if (!valid) {
+                return;
+            }
+
             if (window.ym) {
                 window.ym(54841009, 'init', {
                     clickmap: true,

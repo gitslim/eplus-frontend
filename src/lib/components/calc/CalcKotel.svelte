@@ -51,6 +51,15 @@
             phone: ''
         },
         onSubmit: async values => {
+            // Mark all fields as touched so errors are visible
+            $touched.power = true;
+            $touched.name = true;
+            $touched.phone = true;
+
+            if (!valid) {
+                return;
+            }
+
             let log = []
             if (vals.proj)
                  log.push('Проект')
