@@ -248,7 +248,7 @@
       img: "/fotoandvideo/proectotp.jpg",
       alt: "Проектирование котельных и систем газоснабжения",
       title: "Проектирование котельных и систем газоснабжения",
-      href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/proektirovanie",
+      href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/proektirovanie-avtonomnyh-kotelnyh",
     },
     {
       img: "/fotoandvideo/creating.jpg",
@@ -260,7 +260,7 @@
       img: "/fotoandvideo/create.png",
       alt: "Строительство котельных по индивидуальным проектам",
       title: "Строительство котельных по индивидуальным проектам",
-      href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/proektirovanie-avtonomnyh-kotelnyh",
+      href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/stroitelno-montazhnye-raboty",
     },
   ];
 
@@ -296,7 +296,7 @@
       satStyle: "transform: translate(-50%, -50%) translate(165px, -95px);",
       midStyle: "transform: translate(-50%, -50%) translate(190px, 0px);",
       labelStyle: "transform: translate(0%, -50%) translate(215px, -95px); text-align: left;",
-      link: "/page/funkcii-tehnicheskogo-zakazchika",
+      link: "/page/proektirovanie",
       arrowDeg: 135,
     },
     {
