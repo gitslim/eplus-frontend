@@ -287,13 +287,6 @@ body {
     max-width: 150px !important;
     left: -160px !important;
   }
-
-  body .b24-widget-button-wrapper, body .bx-livechat-wrapper{
-    z-index: 100 !important;
-    max-width: 93% !important;
-    right: 10px !important;
-
-  }
 }
 
 @media (max-width: 768px) {
@@ -302,5 +295,12 @@ body {
     max-width: 93% !important;
     right: 10px !important;
 
+  }
+
+  body .bx-livechat-wrapper{
+    left: 10px !important;
+    bottom:80px!important;
+    width: 97% !important; 
+    height: 70% !important; 
   }
 }
