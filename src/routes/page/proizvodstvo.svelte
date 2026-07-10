@@ -22,14 +22,28 @@
 
 <style>
   .hero.proizvodstvo-hero {
-    background-image: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('/images/proizvodstvo/hero-bg.jpg');
+    background-image: url('/images/proizvodstvo/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 80vh;
+    position: relative;
   }
-  
+
+  .hero.proizvodstvo-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+  }
+
   .hero.proizvodstvo-hero .hero-body {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
   }
@@ -101,10 +115,44 @@
     background-repeat: no-repeat;
   }
 
+  .advantages-section {
+    position: relative;
+    overflow: hidden;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .advantages-section .text-content {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .advantages-section .image-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 41.6667%; /* is-5 */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+  }
+
   .advantages-section .image-wrapper img {
-    border-radius: 8px;
-    width: 100%;
-    object-fit: cover;
+    width: auto;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+  }
+
+  @media (max-width: 768px) {
+    .advantages-section .image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
   }
 
   .about-production-bg {
@@ -245,10 +293,10 @@
   </section>
 
   <!-- Advantages Section -->
-  <section class="section px-4 advantages-section" style="padding-top: 4rem; padding-bottom: 4rem;">
+  <section class="section px-4 advantages-section">
     <div class="container">
       <div class="columns is-vcentered">
-        <div class="column is-6">
+        <div class="column is-6 text-content">
           <h2 class="title is-3" style="text-transform: uppercase;">ПРЕИМУЩЕСТВА ЗАВОДСКОЙ СБОРКИ</h2>
           <p class="is-size-5 mb-5 mt-4">
             Для блочно-модульных котельных заводская сборка — это ключевой аргумент в пользу надежности и скорости
@@ -261,10 +309,10 @@
             <li>Упрощенная логистика (особенно актуально для изолированных и труднодоступных территорий)</li>
           </ul>
         </div>
-        <div class="column is-5 is-offset-1 has-text-centered image-wrapper">
-          <img src="/images/proizvodstvo/worker.jpg" alt="Специалист в каске" style="max-height: 600px; object-fit: cover;" />
-        </div>
       </div>
+    </div>
+    <div class="image-wrapper">
+      <img src="/images/proizvodstvo/worker.png" alt="Специалист в каске" />
     </div>
   </section>
 
