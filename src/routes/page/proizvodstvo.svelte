@@ -49,7 +49,6 @@
   }
 
   .proizvodstvo-hero :global(.btn__zayavka) {
-    text-transform: lowercase;
     font-weight: 300 !important;
   }
 
@@ -71,12 +70,11 @@
       line-height: 1.2 !important;
     }
     .proizvodstvo-hero :global(.btn__zayavka) {
-      font-size: 32px !important;
-      height: 65px !important;
+      font-size: 20px !important;
       width: 100% !important;
-      max-width: 550px !important;
+      max-width: 350px !important;
       border-radius: 35px !important;
-      padding: 0 0 10px  0px !important;
+      padding: 0 !important;
     }
   }
 
