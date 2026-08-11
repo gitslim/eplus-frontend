@@ -50,6 +50,10 @@ export const post = async request => {
             }
         }
 
+        return {
+            status: 404
+        }
+
     } catch (err) {
         return {
             status: 503
