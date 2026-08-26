@@ -15,15 +15,12 @@
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import LazyImage from 'svelte-lazy-image'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
-    let title = 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ. Доставка, подключение, пуско-наладка'
+    $: currentLocale = $session.locale || 'ru'
+
     let lead
-
-    const meta = {
-        title: "Контейнерная котельная. Промышленная блочно-модульная котельная. Газ и дизельное топливо",
-        description: "В НАЛИЧИИ. Вид топлива: газ / дизель / комбинированный. Комплект проектной документации. Срок поставки по РФ: до 7 дней. Автоматизированная блочно-модульная котельная, полной заводской готовности.",
-        h1: "Контейнерная котельная. Заводская сборка. Расчет стоимости котельной. Комбинированное топливо. Блочно-модульная котельная для промышленного объекта"
-    }
 
     // Логика табов
     let numa = 1
@@ -49,19 +46,19 @@
 
 <svelte:head>
     <meta name="description"
-          content="{meta.description}">
-    <meta property="og:locale" content="ru_RU">
+          content="{$t('container_boiler_page.meta_description')}">
+    <meta property="og:locale" content={currentLocale === 'en' ? 'en_US' : 'ru_RU'}>
     <meta property="og:type" content="article">
-    <meta property="og:title" content={meta.title}>
+    <meta property="og:title" content="{$t('container_boiler_page.meta_title')}">
     <meta property="og:description"
-          content="{meta.description}">
+          content="{$t('container_boiler_page.meta_description')}">
     <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/page/konteynernaya-kotelnaya">
-    <meta property="og:site_name" content="ООО Энергия Плюс">
+    <meta property="og:site_name" content={currentLocale === 'en' ? 'Energiya Plus LLC' : 'ООО Энергия Плюс'}>
     <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
     <meta property="og:image:secure_url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/bmk/bmk_og.png">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="533">
-    <meta property="og:image:alt" content="КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ. Производство. Доставка. Подключение. ">
+    <meta property="og:image:alt" content={currentLocale === 'en' ? 'Container boiler houses in stock' : 'КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ В НАЛИЧИИ. Производство. Доставка. Подключение.'}>
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image"/>
 </svelte:head>
@@ -637,8 +634,8 @@
 </style>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('container_boiler_page.meta_title')}" description="{$t('container_boiler_page.meta_description')}"/>
+<HiddenH1>{$t('container_boiler_page.meta_h1')}</HiddenH1>
 
 
 <main>
@@ -646,25 +643,23 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10" style="width: 100%;">
-<!--                    <span style="background-color: #f86923; padding: 0 20px">В НАЛИЧИИ </span>-->
-<!--                    <span style="color: #ff5700; text-decoration: underline">В НАЛИЧИИ </span>-->
-                    <h2 style="font-size: 55px; text-transform:none" class="has-text-white m-0 title titlefor">КОНТЕЙНЕРНЫЕ КОТЕЛЬНЫЕ 800 кВт</h2>
-                    <p style="font-size: 40px; " class="has-text-white">доставка, подключение, пуско-наладка</p>
+                    <h2 style="font-size: 55px; text-transform:none" class="has-text-white m-0 title titlefor">{$t('container_boiler_page.hero_title')}</h2>
+                    <p style="font-size: 40px; " class="has-text-white">{$t('container_boiler_page.hero_sub')}</p>
 
                 </div>
             </div>
             <div class="columns hero__text">
                 <div class="column" >
                     <ul class="hero__spisok " style="display: flex;  max-width: 1000px ">
-                        <li style="white-space: nowrap; width: fit-content;"  >Вид топлива: газ </li>
-                        <li style="white-space: nowrap; width: fit-content;">Комплект проектной документации</li>
-                        <li style="white-space: nowrap; width: fit-content;">Срок поставки по РФ: до 7 дней</li>
+                        <li style="white-space: nowrap; width: fit-content;"  >{$t('container_boiler_page.fuel_type')}</li>
+                        <li style="white-space: nowrap; width: fit-content;">{$t('container_boiler_page.docs_pkg')}</li>
+                        <li style="white-space: nowrap; width: fit-content;">{$t('container_boiler_page.delivery_term')}</li>
                     </ul>
                 </div>
             </div>
             <div class="button3">
                 <ContactFormButton>
-                    <div slot="button">Получить предложение</div>
+                    <div slot="button">{$t('container_boiler_page.get_proposal')}</div>
                 </ContactFormButton>
             </div>
             <div class="subtitle py-6">
@@ -680,20 +675,20 @@
 
     <section class="section section2 text-center">
         <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-            ОПИСАНИЕ КОТЕЛЬНОЙ
+            {$t('container_boiler_page.desc_title')}
         </h2>
         <div class="">
             <div class="navItem" class:activeB={activeB}>
                 <ul class:action1={num==1} class:action2={num==2} class:action3={num==3}>
                     <div><span>&#9650;</span><span>&#9660;</span></div>
                     <li class:active={active==1} on:click={toggleVissible(1)}>
-                        Описание
+                        {$t('container_boiler_page.tab_desc')}
                     </li>
                     <li class:active={active==2} on:click={toggleVissible(2)}>
-                        Технические характеристики
+                        {$t('container_boiler_page.tab_specs')}
                     </li>
                     <li class:active={active==3} on:click={toggleVissible(3)}>
-                        Комплектация
+                        {$t('container_boiler_page.tab_pack')}
                     </li>
                 </ul>
             </div>
@@ -702,26 +697,17 @@
                     <div class="description-item">
                         <div class="description-item__left-side">
                             <div class="description-item__image-container">
-                                <img class="" alt="БМК изнутри" src="/images/kotel/800kw/photo_2025-02-12_21-29-54.jpg">
+                                <img class="" alt={currentLocale === 'en' ? 'Modular boiler internal view' : 'БМК изнутри'} src="/images/kotel/800kw/photo_2025-02-12_21-29-54.jpg">
                             </div>
                             <div class="description-item__image-container">
-                                <img class="" alt="БМК внутри" src="/images/kotel/800kw/photo_2025-02-10_20-27-43%20(2).jpg">
+                                <img class="" alt={currentLocale === 'en' ? 'Modular boiler interior equipment' : 'БМК внутри'} src="/images/kotel/800kw/photo_2025-02-10_20-27-43%20(2).jpg">
                             </div>
                             <div class="description-item__image-container">
-                                <img class="" alt="БМК газовая" src="/images/kotel/800kw/photo_2025-02-10_20-27-43.jpg">
+                                <img class="" alt={currentLocale === 'en' ? 'Gas modular boiler plant' : 'БМК газовая'} src="/images/kotel/800kw/photo_2025-02-10_20-27-43.jpg">
                             </div>
                         </div>
                         <div class="description-item__center-side">
-                            <p>Автоматизированная блочно-модульная котельная, полной заводской готовности. В
-                                комплектации оборудования для работы, как на природном газе, так и на дизельном топливе
-                                в соответствии с СП "Котельные установки" и СП "Газораспределительные системы" по
-                                принципу "Включил и забыл". В комплекте поставки БМК предусмотрены дымовые трубы,
-                                которые устанавливаются на кровлю котельной, что сокращает затраты по сравнению с
-                                вариантом в отдельно стоящем исполнении. Управление котельной осуществляется с помощью
-                                релейных схем и миниконтроллеров фирмы ОВЕН, не требующих программирования, обеспечивая
-                                надежную работу всех исполнительных механизмов. Договором поставки предусмотрено
-                                проведение пуско-наладочных работ, а также участие завода-изготовителя в сдаче котельной
-                                в промышленную эксплуатацию.</p>
+                            <p>{$t('container_boiler_page.desc_body')}</p>
                         </div>
                         <div class="description-item__right-side">
                             <div>
@@ -729,8 +715,6 @@
                                     <img class="" alt="" src="/images/bmk/kotelnay2.png">
                                 </div>
                                 <div class="description-item__price">
-                                    <!-- <p>Цена</p> -->
-<!--                                    <p>16 900 000 &#8381</p>-->
                                 </div>
                             </div>
                         </div>
@@ -742,76 +726,76 @@
                             <thead>
                             <tr>
                                 <th>
-                                    ТЕХНИЧЕСКИЙ ПАРАМЕТР
+                                    {$t('container_boiler_page.specs_header_param')}
                                 </th>
                                 <th>
-                                    ПОКАЗАТЕЛЬ
+                                    {$t('container_boiler_page.specs_header_val')}
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>
-                                    Тепловая мощность
+                                    {$t('container_boiler_page.param1_title')}
                                 </td>
                                 <td>
-                                    0,8 МВт
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Температура теплоносителя
-                                </td>
-                                <td>
-                                    95/70 ⁰С
+                                    {$t('container_boiler_page.param1_val')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Расход топлива (max) / природный газ
+                                    {$t('container_boiler_page.param2_title')}
                                 </td>
                                 <td>
-                                    от 58 нм3/ч
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Расход топлива (max) / дизель
-                                </td>
-                                <td>
-                                    49 кг/ч
+                                    {$t('container_boiler_page.param2_val')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    КПД котлов
+                                    {$t('container_boiler_page.param3_title')}
                                 </td>
                                 <td>
-                                    92,17 %
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Габаритные размеры здания котельной (без наружных конструкций) LxBxH
-                                </td>
-                                <td>
-                                    12,3х2,6х2,7 м
+                                    {$t('container_boiler_page.param3_val')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Климатическое исполнение
+                                    {$t('container_boiler_page.param4_title')}
                                 </td>
                                 <td>
-                                    УХЛ-1
+                                    {$t('container_boiler_page.param4_val')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Дымовая труба
+                                    {$t('container_boiler_page.param5_title')}
                                 </td>
                                 <td>
-                                    6,5 м
+                                    {$t('container_boiler_page.param5_val')}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {$t('container_boiler_page.param6_title')}
+                                </td>
+                                <td>
+                                    {$t('container_boiler_page.param6_val')}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {$t('container_boiler_page.param7_title')}
+                                </td>
+                                <td>
+                                    {$t('container_boiler_page.param7_val')}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {$t('container_boiler_page.param8_title')}
+                                </td>
+                                <td>
+                                    {$t('container_boiler_page.param8_val')}
                                 </td>
                             </tr>
 
@@ -825,61 +809,59 @@
                             <thead>
                             <tr>
                                 <th>
-                                    БАЗОВАЯ КОМПЛЕКТАЦИЯ
+                                    {$t('container_boiler_page.pack_header')}
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>
-                                    Водогрейный жаротрубный котёл, двухходовой // "Teplofor Lex V2 – D400"
+                                    {$t('container_boiler_page.pack1')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Горелка вентиляторная, модуляционное регулирование // "Riello RS 50 Газ/Дизель"
+                                    {$t('container_boiler_page.pack2')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Аппарат теплообменный пластинчатый разборный ЭТ-007с, ЭТ-004с // НПО «ЭТРА»
+                                    {$t('container_boiler_page.pack3')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Насосное оборудование (насосы котлового контура, насосы внешнего контура отопления,
-                                    насосы подпитки) // "CNP"
+                                    {$t('container_boiler_page.pack4')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Бак мембранный для отопления, бак мембранный для водоснабжения горизонтальный //
-                                    "Wester"
+                                    {$t('container_boiler_page.pack5')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Автоматическая система ХВО // "Водеко"
+                                    {$t('container_boiler_page.pack6')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Бак дизельного топлива // "Анион"
+                                    {$t('container_boiler_page.pack7')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Гидравлический разделитель, Ду 125 // "Geffen"
+                                    {$t('container_boiler_page.pack8')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Запорная арматура // "ADL", "LD"
+                                    {$t('container_boiler_page.pack9')}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Узлы учета газа, тепловой и электрической энергии
+                                    {$t('container_boiler_page.pack10')}
                                 </td>
                             </tr>
                             </tbody>
@@ -898,7 +880,7 @@
                         <img
                                 style="max-width: 800px"
                                 src={'/images/company/Сертификат БМК800_page-0001.jpg'}
-                                alt={'Сертификат'}/>
+                                alt={currentLocale === 'en' ? 'Certificate BMK-800' : 'Сертификат БМК800'}/>
                     </figure>
                 </Lightbox>
             </div>
@@ -912,7 +894,7 @@
 
     <section class="section section3 text-center">
         <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-            ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
+            {$t('container_boiler_page.extra_services_title')}
         </h2>
         <div class="container3">
             <div class="carta">
@@ -920,13 +902,11 @@
                     <img alt="" class="" src="/images/kotel/icons/bmk_icon_04.png">
                 </div>
                 <div class="carta__title">
-                    <h3>Проект привязки<br>с экспертизой</h3>
+                    <h3>{@html $t('container_boiler_page.extra1_title')}</h3>
                 </div>
                 <div class="carta__content">
                     <div class="">
-                        Выполняем проект "привязки" котельной к генплану Заказчика, включая внутриплощадочные сети
-                        газо-, тепло-, электро-, водоснабжения и канализации с получением положительного заключения
-                        экспертизы.
+                        {$t('container_boiler_page.extra1_desc')}
                     </div>
                 </div>
             </div>
@@ -935,13 +915,11 @@
                     <img alt="" class="" src="/images/kotel/icons/bmk_icon_02.png">
                 </div>
                 <div class="carta__title">
-                    <h3>Проектирование внеплощадочного газопровода</h3>
+                    <h3>{$t('container_boiler_page.extra2_title')}</h3>
                 </div>
                 <div class="carta__content">
                     <div class="">
-                        Выполняем проект наружного газоснабжения от точки подключения к газопроводу-источнику до
-                        котельной согласно технических условий газоснабжающей организации. Получаем необходимые
-                        согласования и экспертизы.
+                        {$t('container_boiler_page.extra2_desc')}
                     </div>
                 </div>
             </div>
@@ -950,12 +928,11 @@
                     <img alt="" class="" src="/images/kotel/icons/bmk_icon_06.png">
                 </div>
                 <div class="carta__title">
-                    <h3>Монтаж котельной<br>на объекте</h3>
+                    <h3>{@html $t('container_boiler_page.extra3_title')}</h3>
                 </div>
                 <div class="carta__content">
                     <div class="">
-                        Выполняем строительно-монтажные работы по устройству внутриплощадочных сетей газо-, тепло-,
-                        электро-, водоснабжения и канализации со сдачей в промышленную эксплуатацию.
+                        {$t('container_boiler_page.extra3_desc')}
                     </div>
                 </div>
             </div>
@@ -964,12 +941,11 @@
                     <img alt="" class="" src="/images/interGazoprovod/bmk_icon_12.png">
                 </div>
                 <div class="carta__title">
-                    <h3>Сдача в промышленную<br>эксплуатацию</h3>
+                    <h3>{@html $t('container_boiler_page.extra4_title')}</h3>
                 </div>
                 <div class="carta__content">
                     <div class="">
-                        Готовим комплект исполнительно-технической документации на законченный строительством объект.
-                        Осуществляем сдачу надзорным органам: газоснабжающая организация, Ростехнадзор.
+                        {$t('container_boiler_page.extra4_desc')}
                     </div>
                 </div>
             </div>
@@ -981,10 +957,10 @@
         <div class="container">
             <div class="button3">
                 <ContactFormFullButton lead={lead = {
-                    title: 'Форма контактов из Контейнерная котельная',
-                    comments: 'КНОПКА скачать договор поставки',
+                    title: $t('container_boiler_page.lead_title'),
+                    comments: $t('container_boiler_page.lead_comments'),
                     }}>
-                    <div slot="button">Скачать договор поставки</div>
+                    <div slot="button">{$t('container_boiler_page.download_contract')}</div>
                 </ContactFormFullButton>
             </div>
         </div>
@@ -993,34 +969,29 @@
 
     <section class="section section5 text-center">
         <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-            О НАС
+            {$t('container_boiler_page.about_title')}
         </h2>
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column column1">
-                    <p>Инжиниринговая компания <span>«Энергия Плюс»</span> более двадцати лет <span>специализируется на проектировании и строительстве газовых котельных</span>,
-                        в числе которых блочно-модульные, встроенные, пристроенные, крышные и отдельно стоящие
-                        котельные, в том числе внутриплощадочные и внеплощадочные газопроводы.</p>
-                    <p><span>Наша компания оказывает полный комплекс услуг в сфере теплогенерации</span>: от получения
-                        исходно-разрешительной документации до ввода котельных в эксплуатацию.
-                        <span>Мы обладаем собственным проектным бюро и производственной базой</span>, что позволяет нам
-                        изготавливать котельные с оптимальным соотношением цена-качество.</p>
+                    <p>{@html $t('container_boiler_page.about_p1')}</p>
+                    <p>{@html $t('container_boiler_page.about_p2')}</p>
                 </div>
                 <div class="column column2">
                     <div class="p-3">
                         <a
                                 href="/presentation/Буклет%20с%20услугами%20в%20области%20энергетики.pdf"
                                 target="_blank"
-                                title="Буклет с услугами в области энергетики"
+                                title="{$t('container_boiler_page.booklet_title')}"
                         >
                             <figure class="image">
                                 <LazyImage
-                                        alt="Буклет с услугами в области энергетики"
+                                        alt="{$t('container_boiler_page.booklet_title')}"
                                         src="/presentation/energy-cover.png"
                                 />
                                 <div class="is-overlay p-1">
                                     <span class="tag is-primary"
-                                    >Энергетика</span
+                                    >{$t('container_boiler_page.booklet_tag')}</span
                                     >
                                 </div>
                             </figure>

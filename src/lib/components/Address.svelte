@@ -2,13 +2,14 @@
     import Icon from 'fa-svelte'
     import {faEnvelope, faMapMarkerAlt, faPhone} from '@fortawesome/free-solid-svg-icons'
     import website from '$lib/config/website'
+    import {t} from 'svelte-i18n'
 </script>
 
 <ul>
     <li>
               <span>
                 <Icon icon="{faMapMarkerAlt}"/>
-                111123, Москва, 1-я Владимирская, д.10А, стр. 1
+                {$t('common.address')}
               </span>
     </li>
     <li>

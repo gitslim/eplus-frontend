@@ -15,13 +15,7 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
-
- let title = 'Строительство газопровода или газопровода-отвода'
-    const meta = {
-        title: "Строительство газопровода или газопровода-отвода. Разработка проекта. Получение согласований и экспертизы",
-        description: "Проект газопровода-отвода для промышленного потребления. Разработка проектно-сметной документации, согласование с ГРО. Аккредитация с «Газпроме», допуски СРО",
-        h1: "Проектирование и строительство магистрального газопровода (МГ) или газопровода-отвода к газораспределительной станции (ГРС). Получение разрешительной документации. Изыскания. Технико-экономическое обоснование. Защита сметы в Главгосэкспертизе. Аккредитация в ПАО «Газпром»"
-    }
+    import {t} from 'svelte-i18n'
 
     onMount(async () => {
 
@@ -274,8 +268,8 @@
 
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('pipeline_construction_page.meta_title')}" description="{$t('pipeline_construction_page.meta_description')}"/>
+<HiddenH1>{$t('pipeline_construction_page.meta_h1')}</HiddenH1>
 
 <main>
 
@@ -283,11 +277,10 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Строительство магистрального газопровода (МГ) или газопровода-отвода
-                        к газораспределительной станции (ГРС)</h2>
-                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">с возможностью дальнейшего подключения потребителей различного назначения</h2>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">{$t('pipeline_construction_page.hero_title')}</h2>
+                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">{$t('pipeline_construction_page.hero_subtitle')}</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                        <div slot="button">Заказать проект</div>
+                        <div slot="button">{$t('pipeline_construction_page.order_project')}</div>
                     </ContactFormButton>
                     <div class="subtitle py-6">
                         <a rel="external"
@@ -308,16 +301,12 @@
             <div class="content">
                 <div class="columns is-vcentered vramku-columns-right">
                     <div class="column vramku-column">
-                        <img src="\images\gazoprovodi\burenie.jpg" alt="Магистральный газопровод"/>
+                        <img src="\images\gazoprovodi\burenie.jpg" alt={currentLocale === 'en' ? 'Gas pipeline directional drilling' : 'Магистральный газопровод'}/>
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-justified">При решение данной задачи часто возникают сложности при прокладке магистральных газопроводов
-                                на пересечении с автомобильными дорогами, водоемами, реками. Как правило в таких ситуациях проектом предусматривается
-                                закрытый бестраншейный способ прокладки трубопроводов методом наклонно-направленного бурения,  микротоннелирования
-                                или шнекового бурения. </p>
-                            <p class="is-size-5 has-text-weight-medium has-text-centered">Также у нас есть опыт проектирования прокладки газопроводов по дну водной преграды (без заглубления)
-                                методом протаскивания.</p>
+                            <p class="is-size-5 has-text-justified">{$t('pipeline_construction_page.desc_p1')}</p>
+                            <p class="is-size-5 has-text-weight-medium has-text-centered">{$t('pipeline_construction_page.desc_p2')}</p>
                         </span>
                     </div>
                 </div>
@@ -331,11 +320,11 @@
             <div class="content">
                 <div class="columns is-vcentered vramku-columns-left">
                     <div class="column vramku-column hiden1">
-                        <img src="\images\gazoprovodi\chertez.jpg" alt="Газораспределительная станция"/>
+                        <img src="\images\gazoprovodi\chertez.jpg" alt={currentLocale === 'en' ? 'Gas pipeline engineering drawing' : 'Газораспределительная станция'}/>
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-centered"><b>На предпроектной стадии основными критериями при выборе трассы проектируемого газопровода является:</b></p>
+                            <p class="is-size-5 has-text-centered"><b>{$t('pipeline_construction_page.criteria_title')}</b></p>
                             <ul class="is-size-5 has-text-weight-medium">
 
                                 <li>
@@ -344,7 +333,7 @@
                                     </div>
                                     <div class="pl-3">
                                         <p class="">
-                                            обеспечение эксплуатационной надежности
+                                            {$t('pipeline_construction_page.criteria_item1')}
                                         </p>
                                     </div>                                                                 
                                 </li>
@@ -354,7 +343,7 @@
                                     </div>
                                     <div class="pl-3">
                                         <p class="">
-                                            минимизации затрат на строительство и эксплуатацию
+                                            {$t('pipeline_construction_page.criteria_item2')}
                                         </p>
                                     </div>                                                                 
                                 </li>
@@ -364,7 +353,7 @@
                                     </div>
                                     <div class="pl-3">
                                         <p class="">
-                                            минимизация ущерба окружающей природной среде
+                                            {$t('pipeline_construction_page.criteria_item3')}
                                         </p>
                                     </div>                                                                 
                                 </li>
@@ -374,7 +363,7 @@
                                     </div>
                                     <div class="pl-3">
                                         <p class="">
-                                            обеспечение минимальных расстояний от ГРС и газопровода до существующих сооружений и границ населенных пунктов
+                                            {$t('pipeline_construction_page.criteria_item4')}
                                         </p>
                                     </div>                                                                 
                                 </li>                              
@@ -382,7 +371,7 @@
                         </span>
                     </div>
                     <div class="column vramku-column hiden2">
-                        <img src="\images\gazoprovodi\chertez.jpg" alt="Газораспределительная станция"/>
+                        <img src="\images\gazoprovodi\chertez.jpg" alt={currentLocale === 'en' ? 'Gas pipeline engineering drawing' : 'Газораспределительная станция'}/>
                     </div>
 
                 </div>
@@ -395,16 +384,14 @@
             <div class="content">
                 <div class="columns is-vcentered vramku-columns-right">
                     <div class="column vramku-column">
-                        <img src="\images\gazoprovodi\prokladka-gazoprovoda.jpeg" alt="Магистральный газопровод"/>
+                        <img src="\images\gazoprovodi\prokladka-gazoprovoda.jpeg" alt={currentLocale === 'en' ? 'Gas pipeline installation' : 'Магистральный газопровод'}/>
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-justified"> В процессе проектирования мы рассматриваем варианты прохождения газопровода <b>учитывая сложности размещения ГРС</b>,
-                                наличие стесненных условий.</p>
-                            <p class="is-size-5 has-text-justified"> Трасса газопровода выбирается с учетом <b>минимизации земельных работ</b> при прохождении косогорных участков,
-                                с минимально возможной вырубкой леса.</p>
+                            <p class="is-size-5 has-text-justified">{@html $t('pipeline_construction_page.desc_p3')}</p>
+                            <p class="is-size-5 has-text-justified">{@html $t('pipeline_construction_page.desc_p4')}</p>
                             <ContactFormButton class="hiden2 button is-primary is-medium is-fullwidth is-raunded button-raunded">
-                                <div slot="button">Заказать проект</div>
+                                <div slot="button">{$t('pipeline_construction_page.order_project')}</div>
                             </ContactFormButton>
                         </span>
                     </div>
@@ -417,12 +404,12 @@
         <div class="container">
             <div class="content text-center">
                 <h3 class="is-uppercase titlefor has-text-centered">
-                    Пример сводного календарного плана строительства:
+                    {$t('pipeline_construction_page.schedule_example')}
                 </h3>
                 <div style="max-width: 956px; margin:0 auto;">
                     <Lightbox   noScroll="false"
                                     modalClasses = "pipu">
-                        <img class="is-block img-center" src="\images\gazoprovodi\kalendar-stroitel.png" >
+                        <img class="is-block img-center" src="\images\gazoprovodi\kalendar-stroitel.png" alt={currentLocale === 'en' ? 'Construction schedule' : 'График строительства'}>
                     </Lightbox>
                 </div>
             </div>
@@ -433,12 +420,12 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img alt="Газопровод станция" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
+                    <img alt={currentLocale === 'en' ? 'Gas pipeline facility' : 'Газопровод станция'} src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
                 </div>
                 <div class="column zayvka">
-                    <h4 class="title titlefor has-text-white">Отправить заявку</h4>
+                    <h4 class="title titlefor has-text-white">{$t('pipeline_construction_page.form_title')}</h4>
                     <ContactForm/>
-                    <p class="is-size-7 has-text-centered has-text-white pt-3">Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных</p>
+                    <p class="is-size-7 has-text-centered has-text-white pt-3">{$t('pipeline_construction_page.form_privacy')}</p>
                 </div>
             </div>
         </div>

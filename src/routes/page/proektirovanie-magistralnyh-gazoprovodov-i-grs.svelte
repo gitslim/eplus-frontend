@@ -12,12 +12,11 @@
     import Icon from 'fa-svelte'
     import {faPhone} from '@fortawesome/free-solid-svg-icons'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
-    const meta = {
-        title: "Проектирование магистральных газопроводов и газораспределительных станций от компании с СРО",
-        description: "Разработка проектной документации для линейных объектов. Газопроводы различного давления. Сопровождение в экспертизе. Сметная документация",
-        h1: "Проектирование магистральных газопроводов и ГРС. Проведение изысканий. Подготовка смет. Проектная и рабочая документация. Газораспределительные станции."
-    }
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 
     onMount(async () => {
 
@@ -370,8 +369,8 @@
 
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('main_pipeline_design_page.meta_title')}" description="{$t('main_pipeline_design_page.meta_description')}"/>
+<HiddenH1>{$t('main_pipeline_design_page.meta_h1')}</HiddenH1>
 
 <main>
     
@@ -379,9 +378,9 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Проектирование магистральных газопроводов и ГРС</h2>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">{$t('main_pipeline_design_page.hero_title')}</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                        <div slot="button">Заказать проект</div>
+                        <div slot="button">{$t('main_pipeline_design_page.order_project')}</div>
                     </ContactFormButton>
                     <div class="subtitle py-6">
                         <a rel="external"
@@ -402,17 +401,14 @@
             <div class="content">               
                 <div class="columns is-vcentered vramku-columns-right">
                     <div class="column vramku-column">
-                        <img src="\images\gazoprovodi\gazoprovod.jpg" alt="Магистральный газопровод"/>
+                        <img src="\images\gazoprovodi\gazoprovod.jpg" alt={currentLocale === 'en' ? 'Main gas pipeline' : 'Магистральный газопровод'}/>
                     </div>
                     <div class="column">
                         <span>
                             <h2 class="title titlefor">
-                                Магистральные газопроводы (МГ)
+                                {$t('main_pipeline_design_page.mg_title')}
                             </h2>
-                            <p class="is-size-5 has-text-weight-medium has-text-justified">Магистральные газопроводы (МГ) и ответвления от них (газопроводы-отводы)
-                                номинальным диаметром <b>до 1400мм</b> включительно, с избыточным давлением среды <b>свыше 1,2 до 10 МПа</b> 
-                                включительно (при одиночной прокладке и прокладке в технических коридорах) для транспортирования 
-                                природного газа.</p>
+                            <p class="is-size-5 has-text-weight-medium has-text-justified">{@html $t('main_pipeline_design_page.mg_desc')}</p>
                         </span>
                     </div>
                 </div>
@@ -425,19 +421,18 @@
             <div class="content">              
                 <div class="columns is-vcentered vramku-columns-left">
                     <div class="column vramku-column hiden1">
-                        <img src="\images\gazoprovodi\grs.jpg" alt="Газораспределительная станция"/>
+                        <img src="\images\gazoprovodi\grs.jpg" alt={currentLocale === 'en' ? 'Gas distribution station (GRS)' : 'Газораспределительная станция'}/>
                     </div>
                     <div class="column">
                         <span>
                             <h2 class="title titlefor">
-                                Газораспреде&shy;литель&shy;ная станция (ГРС)
+                                {$t('main_pipeline_design_page.grs_title')}
                             </h2>
-                            <p class="is-size-5 has-text-weight-medium has-text-justified">Газораспределительная станция (ГРС) <b>служит для понижения давления 
-                                газа из магистрального газопровода</b> до уровня, необходимого для безопасного потребления, т.е. до давления 1,2 МПа и ниже.</p>
+                            <p class="is-size-5 has-text-weight-medium has-text-justified">{@html $t('main_pipeline_design_page.grs_desc')}</p>
                         </span>
                     </div>
                     <div class="column vramku-column hiden2">
-                        <img src="\images\gazoprovodi\grs.jpg" alt="Газораспределительная станция"/>
+                        <img src="\images\gazoprovodi\grs.jpg" alt={currentLocale === 'en' ? 'Gas distribution station (GRS)' : 'Газораспределительная станция'}/>
                     </div>
 
                 </div>
@@ -449,11 +444,11 @@
         <div class="container">
             <div class="content text-center">
                 <h3 class="is-uppercase titlefor has-text-centered">
-                    Как показывает практика, наши Заказчики все чаще сталкиваются со&nbsp;<b>следующими задачами:</b>
+                    {@html $t('main_pipeline_design_page.tasks_intro')}
                 </h3>
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
-                        <a  href="stroitelsvo-gazoprovoda" class="ssilka">
+                        <a  href="{p}/page/stroitelsvo-gazoprovoda" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -463,9 +458,7 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium p-color" ><b><u>Строительство магистрального газопровода (МГ)</u></b> или газопровода-отвода
-                                                к газораспре&shy;делительной станции (ГРС) с возможностью дальнейшего
-                                                подключения потребителей различного назначения.</p>
+                                            <p  class="has-text-weight-medium p-color" >{@html $t('main_pipeline_design_page.task1_text')}</p>
                                         </span>
                                     </div>
                                 </div>
@@ -473,7 +466,7 @@
                         </a>
                     </div>
                     <div class="tile is-parent">
-                        <a  href="gazoprovod-zaschita" class="ssilka">
+                        <a  href="{p}/page/gazoprovod-zaschita" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -483,8 +476,7 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium" href="page/referens-list"><b><u>Устройство защитных мероприятий</u></b> на действующих магистральных
-                                                газопроводах (установка защитных футляров (кожухов)).</p>
+                                            <p  class="has-text-weight-medium">{@html $t('main_pipeline_design_page.task2_text')}</p>
                                         </span>
                                     </div>
                                 </div>
@@ -495,7 +487,7 @@
 
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
-                        <a  href="gazoprovod-pereustroistvo" class="ssilka">
+                        <a  href="{p}/page/gazoprovod-pereustroistvo" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -505,9 +497,7 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium" href="#"><b><u>Переустройство (вынос) участков
-                                                газопроводов</u></b> в связи со строительством новых объектов
-                                                в зоне минимально-допустимых расстояний.</p>
+                                            <p  class="has-text-weight-medium">{@html $t('main_pipeline_design_page.task3_text')}</p>
                                         </span>
                                     </div>
                                 </div>
@@ -515,7 +505,7 @@
                         </a>
                     </div>
                     <div class="tile is-parent">
-                        <a  href="gazoprovod-rekonstrukciya" class="ssilka">
+                        <a  href="{p}/page/gazoprovod-rekonstrukciya" class="ssilka">
                             <div class="tile is-child box">
                                 <div class="media">
                                     <div class="media-left">
@@ -525,10 +515,7 @@
                                     </div>
                                     <div class="media-content">
                                         <span>
-                                            <p  class="has-text-weight-medium" href="#"><b><u>Реконструкция, модернизация или техническое
-                                                перевооружение ГРС</u></b>, крановых узлов, участков магистральных
-                                                газопроводов в связи с истечением нормативного
-                                                срока эксплуатации.</p>
+                                            <p  class="has-text-weight-medium">{@html $t('main_pipeline_design_page.task4_text')}</p>
                                         </span>
                                     </div>
                                 </div>
@@ -543,60 +530,59 @@
      <section class="section has-text-centered">
         <div class="container text-center">
             <div class="title titlefor">
-                <h2 class="">Этапы работы</h2>
+                <h2 class="">{$t('main_pipeline_design_page.steps_title')}</h2>
             </div>
-            <p class="mb-5">Алгоритм проектирования магистральных газопроводов и ГРС вместе с «Энергией Плюс»</p>
+            <p class="mb-5">{$t('main_pipeline_design_page.steps_desc')}</p>
             <div class="columns is-desktop ">
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_01.png">
-                    <p class="logic__text svelte-rgyqg6">Оставляете заявку / заполняете опросный лист</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step1')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_04.png">
-                    <p class="logic__text svelte-rgyqg6">Получаете на рассмотрение технико-коммерческое предложение
-                        (ТКП)</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step2')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_02.png">
-                    <p class="logic__text svelte-rgyqg6">Утверждаем задание на проектирование</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step3')}</p>
                 </div>
             </div>
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_09.png">
-                    <p class="logic__text svelte-rgyqg6">Заключаем договор</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step4')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_06.png">
-                    <p class="logic__text svelte-rgyqg6">Утверждаем принципиальные технические решения</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step5')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_03.png">
-                    <p class="logic__text svelte-rgyqg6">Разрабатываем проектную и рабочую документацию</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step6')}</p>
                 </div>
             </div>
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6 rgyqg7"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_07.png">
-                    <p class="logic__text svelte-rgyqg6">Получаем необходимые согласования и экспертизы</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step7')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_05.png">
-                    <p class="logic__text svelte-rgyqg6">Выдаём проект в производство работ</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('main_pipeline_design_page.step8')}</p>
                 </div>
             </div>
         </div>
 
         <div align="center" class="pt-5">
-            <a class="button is-primary is-medium is-raunded" href="/page/referens-list">Наши проекты</a>
+            <a class="button is-primary is-medium is-raunded" href="{p}/page/referens-list">{$t('main_pipeline_design_page.our_projects')}</a>
         </div>
      </section>
 
@@ -604,12 +590,12 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img alt="Газопровод станция" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
+                    <img alt={currentLocale === 'en' ? 'Gas pipeline station' : 'Газопровод станция'} src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
                 </div>
                 <div class="column zayvka">
-                    <h4 class="title titlefor has-text-white">Отправить заявку</h4>
+                    <h4 class="title titlefor has-text-white">{$t('main_pipeline_design_page.form_title')}</h4>
                     <ContactForm/>
-                    <p class="is-size-7 has-text-centered has-text-white pt-3">Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных</p>
+                    <p class="is-size-7 has-text-centered has-text-white pt-3">{$t('main_pipeline_design_page.form_privacy')}</p>
                 </div>
             </div>
         </div>    

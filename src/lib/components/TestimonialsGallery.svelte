@@ -1,6 +1,7 @@
 <script>
     import LazyImage from 'svelte-lazy-image'
     import {Lightbox} from 'svelte-lightbox'
+    import {t} from 'svelte-i18n'
 
     export let items
 </script>
@@ -15,7 +16,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={item.image.url}
-                                    alt='Отзыв "{item.customer}" о компании "Энергия Плюс"'
+                                    alt={$t('testimonials.review_alt', {values: {customer: item.customer}})}
                                     placeholder="/loader.gif"/>
                         </figure>
                     </Lightbox>

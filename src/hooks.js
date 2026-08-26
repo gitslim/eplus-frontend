@@ -7,7 +7,22 @@ import {client, gql} from '$lib/apollo'
 
 const {apiUrl} = website
 
+const SUPPORTED_LOCALES = ['ru', 'en']
+const DEFAULT_LOCALE = 'ru'
+
 export const handle = async ({request, resolve}) => {
+    // --- Locale detection from /en/ prefix ---
+    let locale = DEFAULT_LOCALE
+    let originalPath = request.path
+
+    if (request.path.startsWith('/en/') || request.path === '/en') {
+        locale = 'en'
+        // Strip /en prefix so SvelteKit resolves standard routes
+        request.path = request.path.slice(3) || '/'
+    }
+
+    request.locals.locale = locale
+
     // console.log('request', request)
     // console.log('uri', uri)
     if (request.path.startsWith('/uploads/'))
@@ -46,11 +61,13 @@ export const handle = async ({request, resolve}) => {
         const redirect = result.data.siteMeta.redirects.find((el, idx, arr) => {
             return request.path === el['from']
         })
-        if (redirect)
+        if (redirect) {
+            const redirectTo = (locale === 'en' ? '/en' : '') + redirect['to'] + (request.query.toString() ? '?' : '') + request.query.toString()
             return {
                 status: 301,
-                headers: {location: redirect['to'] + (request.query.toString() ? '?' : '') + request.query.toString()}
+                headers: {location: redirectTo}
             }
+        }
     } catch (e) {
         // console.error('error', e)
         return {status: 503}
@@ -66,6 +83,13 @@ export const handle = async ({request, resolve}) => {
     // }
 
     return await resolve(request)
+}
+
+/** @type {import('@sveltejs/kit').GetSession} */
+export function getSession(request) {
+    return {
+        locale: request.locals.locale || DEFAULT_LOCALE
+    }
 }
 
 /** @type {import('@sveltejs/kit').HandleError} */

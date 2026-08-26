@@ -1,6 +1,7 @@
 <script>
     import {createEventDispatcher} from 'svelte'
     import {imask} from '@imask/svelte'
+    import {t} from 'svelte-i18n'
 
     const dispatch = createEventDispatcher()
 
@@ -30,6 +31,6 @@
 </div>
 <div class="field">
     <div class="control">
-        <a class="{$$props.class}" class:is-hidden={invalid} on:click={handleClick}>Далее</a>
+        <a class="{$$props.class}" class:is-hidden={invalid} on:click={handleClick}>{$t('calculators.quiz.next_btn')}</a>
     </div>
 </div>

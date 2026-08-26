@@ -15,15 +15,7 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
-
- let title = 'Переустройство (вынос) участков магистральных газопроводов'
-
-    const meta = {
-        title: "Переустройство (вынос) участков магистральных газопроводов. разработка проектной документации. Согласование. Экспертиза проектной документации",
-        description: "Разработка проектно-сметной документации. Изыскания и сметы. Защита сметы в экспертизе. Допуски СРО. Аккредитация в ПАО «Газпром»",
-        h1: "Переустройство (вынос) участков газопроводов. Расчет стоимости разработки ПСД. Смета и изыскания. Имеем допуск СРО. Аккредитованы в ПАО «Газпром». Работаем в BIM"
-    }
-
+    import {t} from 'svelte-i18n'
 
     onMount(async () => {
 
@@ -276,8 +268,8 @@
 
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('pipeline_relocation_page.meta_title')}" description="{$t('pipeline_relocation_page.meta_description')}"/>
+<HiddenH1>{$t('pipeline_relocation_page.meta_h1')}</HiddenH1>
 
 
 <main>
@@ -286,10 +278,10 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Переустройство (вынос) участков газопроводов</h2>
-                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">в связи со строительством новых объектов в зоне минимально-допустимых расстояний</h2>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">{$t('pipeline_relocation_page.hero_title')}</h2>
+                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">{$t('pipeline_relocation_page.hero_subtitle')}</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                        <div slot="button">Заказать проект</div>
+                        <div slot="button">{$t('pipeline_relocation_page.order_project')}</div>
                     </ContactFormButton>
                     <div class="subtitle py-6">
                         <a rel="external"
@@ -310,14 +302,11 @@
             <div class="content">
                 <div class="columns is-vcentered vramku-columns-right">
                     <div class="column vramku-column">
-                        <img src="\images\gazoprovodi\pereustroistvo-doroga.jpg" alt="Магистральный газопровод"/>
+                        <img src="\images\gazoprovodi\pereustroistvo-doroga.jpg" alt={currentLocale === 'en' ? 'Gas pipeline relocation under roadway' : 'Магистральный газопровод'}/>
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-weight-medium has-text-justified"><b>При строительстве и реконструкции</b> автомобильных и железных дорог, линий электропередач (ЛЭП), в том числе воздушных линий (ВЛ), 
-                                взлетно-посадочных полос аэродромов, прочих других объектов промышленного и гражданского назначения при наличии вблизи 
-                                существующего магистрального газопровода <b>возникают ситуации сближения и нарушения минимально-допустимых расстояний 
-                                от магистральных газопроводов</b>, крановых узлов до зданий, сооружений.</p>                            
+                            <p class="is-size-5 has-text-weight-medium has-text-justified">{@html $t('pipeline_relocation_page.desc_p1')}</p>                            
                         </span>
                     </div>
                 </div>
@@ -333,22 +322,21 @@
                     <div class="column vramku-column hiden1">
                         <Lightbox   noScroll="false"
                                     modalClasses = "pipu">
-                            <img class="is-block img-center" src="\images\gazoprovodi\pereustroistvo.png" alt="Газораспределительная станция"/>
+                            <img class="is-block img-center" src="\images\gazoprovodi\pereustroistvo.png" alt={currentLocale === 'en' ? 'Gas pipeline engineering schematic' : 'Газораспределительная станция'}/>
                         </Lightbox>
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-weight-medium has-text-justified">При возникновении такой проблемы <b>требуется перекладка (вынос) магистральных газопроводов, 
-                                перенос крановых узлов</b> с целью соблюдения минимальных допустимых расстояний до зданий, сооружений.</p>
+                            <p class="is-size-5 has-text-weight-medium has-text-justified">{@html $t('pipeline_relocation_page.desc_p2')}</p>
                             <ContactFormButton class="hiden2 button is-primary is-medium is-fullwidth is-raunded button-raunded">
-                                <div slot="button">Заказать консультацию</div>
+                                <div slot="button">{$t('pipeline_relocation_page.order_consultation')}</div>
                             </ContactFormButton>             
                         </span>
                     </div>
                     <div class="column vramku-column hiden2">
                         <Lightbox   noScroll="false"
                                     modalClasses = "pipu">
-                             <img class="is-block img-center" src="\images\gazoprovodi\pereustroistvo.png" alt="Газораспределительная станция"/>
+                             <img class="is-block img-center" src="\images\gazoprovodi\pereustroistvo.png" alt={currentLocale === 'en' ? 'Gas pipeline engineering schematic' : 'Газораспределительная станция'}/>
                         </Lightbox>                    </div>
 
                 </div>
@@ -361,14 +349,12 @@
             <div class="content">
                 <div class="columns is-vcentered vramku-columns-right">
                     <div class="column vramku-column">
-                        <img src="\images\gazoprovodi\svarka.jpg" alt="Магистральный газопровод"/>
+                        <img src="\images\gazoprovodi\svarka.jpg" alt={currentLocale === 'en' ? 'Pipeline welding works' : 'Сварка газопровода'}/>
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-weight-medium has-text-justified"> При пересечении строящимися или реконструируемыми дорогами, воздушными линиями электропередачи 
-                                магистральных газопроводов также <b>требуется их переустройство с целью повышения категории трубопроводов</b> и нормативного 
-                                заглубления в местах пересечения.</p>
-                            <p class="is-size-4 has-text-weight-bold has-text-centered">Нами накоплен большой опыт решения данных проблем.</p>                        
+                            <p class="is-size-5 has-text-weight-medium has-text-justified">{@html $t('pipeline_relocation_page.desc_p3')}</p>
+                            <p class="is-size-4 has-text-weight-bold has-text-centered">{$t('pipeline_relocation_page.desc_p4')}</p>                        
                         </span>
                     </div>
                 </div>
@@ -381,16 +367,15 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img alt="Газопровод станция" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
+                    <img alt={currentLocale === 'en' ? 'Gas pipeline facility' : 'Газопровод станция'} src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
                 </div>
                 <div class="column zayvka">
-                    <h4 class="title titlefor has-text-white">Отправить заявку</h4>
+                    <h4 class="title titlefor has-text-white">{$t('pipeline_relocation_page.form_title')}</h4>
                     <ContactForm/>
-                    <p class="is-size-7 has-text-centered has-text-white pt-3">Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных</p>
+                    <p class="is-size-7 has-text-centered has-text-white pt-3">{$t('pipeline_relocation_page.form_privacy')}</p>
                 </div>
             </div>
         </div>
     </section>
-
 </main>
 

@@ -20,61 +20,52 @@
   import Icon from "fa-svelte";
   import HiddenH1 from "$lib/components/HiddenH1.svelte";
   import CalcTabs from "$lib/components/calc/CalcTabs.svelte";
+  import { t } from "svelte-i18n";
+  import { session } from "$app/stores";
 
-  let title = "Изготовление блочно-модульных котельных";
+  $: currentLocale = $session.locale || "ru";
+  $: p = currentLocale === "en" ? "/en" : "";
 
-  const projects = [
+  $: projects = [
     {
       src: "/images/bmk/IMG_27.12.25г..jpg",
-      alt: "Котельная для нужд учебного заведения. Мощность 1 МВт",
+      alt: $t("modular_boiler_production_page.proj1"),
     },
     {
       src: "/images/bmk/IMG_5258 (1).jpg",
-      alt: "Котельная для нужд аграрного колледжа. Мощность 0,8 МВт",
+      alt: $t("modular_boiler_production_page.proj2"),
     },
     {
       src: "/images/bmk/IMG_5556 (2).jpg",
-      alt: "Котельная для нужд автомобильного колледжа. Мощность 0,8 МВт",
+      alt: $t("modular_boiler_production_page.proj3"),
     },
     {
       src: "/images/bmk/Фото 1.jpg",
-      alt: "Котельная для нужд дошкольного учреждения. Мощность 0,8 МВт",
+      alt: $t("modular_boiler_production_page.proj4"),
     },
     {
       src: "/images/bmk/Фото 2.jpg",
-      alt: "Котельная для нужд учебного заведения. Мощность 0,6 МВт",
+      alt: $t("modular_boiler_production_page.proj5"),
     },
     {
       src: "/images/bmk/f9ebdc26-2250-4b34-a272-cf4e717cd8fa.jpg",
-      alt: "Котельная для нужд промышленного производства радиотехнического оборудования. Мощность 0,8 МВт",
+      alt: $t("modular_boiler_production_page.proj6"),
     },
   ];
-
-  const meta = {
-    title:
-      "Изготовление блочно-модульных котельных. Газовая БМК. Дизельная БМК. Поставка блочно-модульной котельной",
-    description:
-      "Собственное производство блочно-модульных котельных в Москве. Поставка и монтаж БМК в Москве. Котельные малой и средней мощности. От 0,5 МВт до 10 МВт",
-    h1: "Изготовление блочно-модульных котельных различной мощности. Проектирование подводящего газопровода. Поставка, монтаж БМК. Экспертиза и смета. Гарантия качества",
-  };
-
-  const headerCaption = {
-    caption: title,
-  };
 
   export let data;
 </script>
 
-<SvelteSeo title={meta.title} description={meta.description} />
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('modular_boiler_production_page.meta_title')}" description="{$t('modular_boiler_production_page.meta_description')}" />
+<HiddenH1>{$t('modular_boiler_production_page.meta_h1')}</HiddenH1>
 
 <main>
   <section class="section hero caption">
     <div class="column hero-body">
-      <HeaderLanding {...headerCaption}>
+      <HeaderLanding caption="{$t('modular_boiler_production_page.title')}">
         <div class="columns">
           <div class="column is-half">
-            <BtnZayavka btnText="Заказать" radius />
+            <BtnZayavka btnText="{$t('modular_boiler_production_page.order')}" radius />
           </div>
         </div>
       </HeaderLanding>
@@ -83,31 +74,31 @@
   <section class="section px-4 types-boiler-room">
     <div class="container">
       <div class="content">
-        <TitleLanding left titleText="ВИДЫ КОТЕЛЬНЫХ" />
+        <TitleLanding left titleText="{$t('modular_boiler_production_page.boiler_types_title')}" />
         <div class="table-boiler-room">
           <div class="table-boiler-room__row">
-            <div>Теплоноситель</div>
-            <div>водогрейные</div>
-            <div>паровые</div>
-            <div>пароводогрейные</div>
+            <div>{$t('modular_boiler_production_page.th_coolant')}</div>
+            <div>{$t('modular_boiler_production_page.th_water')}</div>
+            <div>{$t('modular_boiler_production_page.th_steam')}</div>
+            <div>{$t('modular_boiler_production_page.th_steam_water')}</div>
           </div>
           <div class="table-boiler-room__row">
-            <div>Размещение</div>
-            <div>крышные</div>
-            <div>пристроенные</div>
-            <div>отдельностоящие</div>
+            <div>{$t('modular_boiler_production_page.th_placement')}</div>
+            <div>{$t('modular_boiler_production_page.th_roof')}</div>
+            <div>{$t('modular_boiler_production_page.th_attached')}</div>
+            <div>{$t('modular_boiler_production_page.th_standalone')}</div>
           </div>
           <div class="table-boiler-room__row">
-            <div>Исполнение</div>
-            <div>контейнеры</div>
-            <div>модульные</div>
-            <div>быстровозводимые</div>
+            <div>{$t('modular_boiler_production_page.th_execution')}</div>
+            <div>{$t('modular_boiler_production_page.th_containers')}</div>
+            <div>{$t('modular_boiler_production_page.th_modular')}</div>
+            <div>{$t('modular_boiler_production_page.th_prefabricated')}</div>
           </div>
           <div class="table-boiler-room__row">
-            <div>Топливо</div>
-            <div>природный газ</div>
-            <div>сжиженный газ</div>
-            <div>дизельное топливо</div>
+            <div>{$t('modular_boiler_production_page.th_fuel')}</div>
+            <div>{$t('modular_boiler_production_page.th_nat_gas')}</div>
+            <div>{$t('modular_boiler_production_page.th_lpg')}</div>
+            <div>{$t('modular_boiler_production_page.th_diesel')}</div>
           </div>
         </div>
       </div>
@@ -115,113 +106,37 @@
   </section>
   <section class="section pb-6 mb-6">
     <div class="title has-text-centered has-text-weight-bold">
-      РАСЧЕТ СТОИМОСТИ
+      {$t('modular_boiler_production_page.cost_calc_title')}
     </div>
     <div class="container is-max-widescreen">
       <CalcTabs showType={false} />
     </div>
   </section>
 
-  <!--    <section class="section">-->
-  <!--        <div class="container block__inner">-->
-  <!--            <div class="columns">-->
-  <!--                <div class="content column block__inner_wrap">-->
-  <!--                    <div class="container columns">-->
-  <!--                        <div-->
-  <!--                                class="left-side column is-6 px-6 is-flex is-flex-direction-column-->
-  <!--              is-justify-content-space-between">-->
-  <!--                            <div class="block__wrap">-->
-  <!--                                <TitleLanding green left titleText="Основные достоинства бмк"/>-->
-  <!--                                <ul class="mb-5 dignity">-->
-  <!--                                    <li class="dignity__item">-->
-  <!--                                        максимальная готовность блочно-модульной котельной,-->
-  <!--                                        поставленной на объект, к подключению к инженерным сетям и к-->
-  <!--                                        вводу в эксплуатацию (БМК поставляется с завода вместе с-->
-  <!--                                        пакетом необходимой технической документации, которая-->
-  <!--                                        подтверждает готовность внутренних инженерных систем к-->
-  <!--                                        эксплуатации);-->
-  <!--                                    </li>-->
-  <!--                                    <li class="dignity__item">-->
-  <!--                                        минимальные сроки монтажа БМК на участке Заказчика;-->
-  <!--                                    </li>-->
-  <!--                                    <li class="dignity__item">-->
-  <!--                                        котельная, хоть и относится к объектам капитального-->
-  <!--                                        строительства, может быть демонтирована и перевезена в другую-->
-  <!--                                        площадку (ТКУ);-->
-  <!--                                    </li>-->
-  <!--                                    <li class="dignity__item">-->
-  <!--                                        блочно-модульная котельная, как правило – на дизельном-->
-  <!--                                        топливе, может быть взята в аренду под конкретный проект.-->
-  <!--                                    </li>-->
-  <!--                                </ul>-->
-  <!--                            </div>-->
-  <!--                        </div>-->
-  <!--                        <div class="column is-6 px-6 right-side">-->
-  <!--                            <TitleLanding left titleText="Основные недостатки бмк"/>-->
-  <!--                            <ul class="limitations">-->
-  <!--                                <li class="limitations__item">-->
-  <!--                                    при наличии помещений в существующих зданиях или отдельных-->
-  <!--                                    сооружений, соответствующих требованиям размещения котельного-->
-  <!--                                    оборудования, блочно-модульные котельные, как правило, не-->
-  <!--                                    используются в силу экономической нецелесообразности (стоимость-->
-  <!--                                    БМК в таком случае выше на 25-30%, чем стационарной-->
-  <!--                                    альтернативы);-->
-  <!--                                </li>-->
-  <!--                                <li class="limitations__item">-->
-  <!--                                    ограничения в тепловой мощности котельной ввиду предельных-->
-  <!--                                    габаритных размеров модулей, узлов и агрегатов (котлов, насосных-->
-  <!--                                    станций и других элементов);-->
-  <!--                                </li>-->
-  <!--                                <li class="limitations__item">-->
-  <!--                                    стесненные условия при обслуживании котельной, обусловленный-->
-  <!--                                    компактностью расположения внутренних элементов;-->
-  <!--                                </li>-->
-  <!--                                <li class="limitations__item">-->
-  <!--                                    ограниченность выбора материалов для ограждающих конструкций,-->
-  <!--                                    БМК выполняется всего в двух видах: с использованием сендвич-->
-  <!--                                    панелей или в металлическом контейнере. Тем самым, БМК менее-->
-  <!--                                    долго вечны и более пожароопасны, чем стационарные котельные.-->
-  <!--                                </li>-->
-  <!--                            </ul>-->
-  <!--                        </div>-->
-  <!--                    </div>-->
-  <!--                </div>-->
-  <!--            </div>-->
-  <!--        </div>-->
-  <!--    </section>-->
-
   <section class="section pt-0 px-4">
     <div class="container seo">
       <p class="seo__text">
-        Для оптимизации затрат на строительство котельной перед началом
-        проектирования и строительства, необходимо провести теплотехнический
-        расчет и технико-экономическое обоснование строительства котельной,
-        которые позволят:
+        {$t('modular_boiler_production_page.seo_intro')}
       </p>
       <div class="columns">
         <div class="seo__info column is-6">
           <ul class="seo__list mt-6">
             <li class="seo__item">
-              определить необходимую мощность котельной;
+              {$t('modular_boiler_production_page.seo_item1')}
             </li>
             <li class="seo__item mb-3">
-              определить есть ли преимущества блочно-модульной котельной над
-              стационарной в конкретном случае;
+              {$t('modular_boiler_production_page.seo_item2')}
             </li>
             <li class="seo__item">
-              оптимально подобрать котлы и оборудование путем сравнения их
-              характеристик и стоимости;
+              {$t('modular_boiler_production_page.seo_item3')}
             </li>
             <li class="seo__item">
-              определить стоимость капитальных и текущих затрат на выпуск 1 МВт
-              тепловой энергии;
+              {$t('modular_boiler_production_page.seo_item4')}
             </li>
-            <li class="seo__item">определить срок окупаемости котельной.</li>
+            <li class="seo__item">{$t('modular_boiler_production_page.seo_item5')}</li>
           </ul>
           <p class="seo__text mt-6">
-            Так как котлы разных производителей имеют разные габариты, то до
-            проектирования и строительства немаловажно определить минимальные
-            габариты котельной без потери надежности и качества.
+            {$t('modular_boiler_production_page.seo_outro')}
           </p>
         </div>
         <div class="seo__img column is-6">
@@ -233,43 +148,15 @@
   <section class="section py-6 my-6">
     <div class="container text-center py-6">
       <div class="title titlefor has-text-centered pb-6">
-        <h2 >Наши проекты</h2>
+        <h2>{$t('modular_boiler_production_page.projects_title')}</h2>
       </div>
 
       <ProjectsMosaic {projects} />
-      <!-- 
-      <Carousel
-        perPage={{ 1000: 4, 800: 3, 500: 2, 400: 1 }}
-        dots={false}
-        loop={true}
-      >
-        <span class="control" slot="left-control">
-          <Icon icon={faChevronLeft} />
-        </span>
-
-        {#each projects as project}
-          <div class="slide-content proect-carousel-item">
-            <Lightbox noScroll="false" modalClasses="pipu">
-              <figure class="image">
-                <img src={project.src} alt={project.alt} />
-                <span class="item-content-2">
-                  <strong class="item-title">{project.alt}</strong>
-                </span>
-              </figure>
-            </Lightbox>
-          </div>
-        {/each}
-
-        <span class="control" slot="right-control">
-          <Icon icon={faChevronRight} />
-        </span>
-      </Carousel> -->
     </div>
     <div align="center" class="pb-6">
-      <!-- class="pt-4" -->
       <a
         class="button is-primary is-medium is-raunded"
-        href="/page/referens-list/#object_teplo">Наши проекты</a
+        href="{p}/page/referens-list/#object_teplo">{$t('modular_boiler_production_page.projects_title')}</a
       >
     </div>
   </section>
@@ -283,49 +170,33 @@
           <div class="column is-5">
             <TitleLanding
               left
-              titleText="Является ли бмк обьектом капитального строительства?"
+              titleText="{$t('modular_boiler_production_page.cap_build_title')}"
               white
             />
             <p class="block info__text">
-              Не стоит забывать, что несмотря на то, что блочная котельная
-              доставляется транспортом, она является объектом капитального
-              строительства и требует получения разрешения на строительство
-              после прохождения экспертизы проекта. Без получения данных
-              документов ввод БМК в эксплуатацию невозможен.
+              {$t('modular_boiler_production_page.cap_build_p1')}
             </p>
             <p class="block info__text">
-              Применяются блочно-модульные котельные для отопления, горячего
-              водоснабжения, производства пара для технологических нужд.
-              Обслуживать БМК может одно или нескольких зданий.
+              {$t('modular_boiler_production_page.cap_build_p2')}
             </p>
             <p class="block info__text">
-              Блочно-модульные котельные также называют«транспортабельные
-              котельные установки ТКУ (БКУ)».
+              {$t('modular_boiler_production_page.cap_build_p3')}
             </p>
           </div>
           <div class="column is-4">
             <TitleLanding
               left
-              titleText="в каких случаях устанавливают бмк?"
+              titleText="{$t('modular_boiler_production_page.when_install_title')}"
               white
             />
             <p class="block info__text">
-              Расположение объекта в удаленном или труднодоступном районе, где
-              нерационально возводить стационарную котельную в силу ряда
-              факторов: удаленность поставщиков строительных материалов, слабой
-              развитости инфраструктуры либо невозможности организации мест
-              проживания монтажников, отсутствие мест заправки баллонов
-              кислородом и пропаном, сложные погодные условия
+              {$t('modular_boiler_production_page.when_install_p1')}
             </p>
             <p class="block info__text">
-              Необходимость возведения котельной в крышном исполнении. Временное
-              теплоснабжение (как пример - строительство объектов в сжатые
-              сроки). В данном случае лучше всего подходит БМК на дизельном
-              топливе
+              {$t('modular_boiler_production_page.when_install_p2')}
             </p>
             <p class="block info__text">
-              Невозможность строительства стационарной котельной непосредственно
-              на объекте заказчика (режимные предприятия и пр.)
+              {$t('modular_boiler_production_page.when_install_p3')}
             </p>
           </div>
         </div>
@@ -337,27 +208,24 @@
     <div class="container">
       <div class="columns">
         <div class="column is-6">
-          <TitleLanding left titleText="ООО «Энергия Плюс»" white />
+          <TitleLanding left titleText="{$t('modular_boiler_production_page.energy_plus_title')}" white />
           <p class="solution__text">
-            Предлагает комплексное решение по подключению БМК, выполняя функции
-            технического заказчика строительства. В этом случае Заказчик
-            получает:
+            {$t('modular_boiler_production_page.energy_plus_intro')}
           </p>
         </div>
         <div class="column is-6">
           <ul class="solution__list">
             <li class="solution__item">
-              Полное техническое и юридическое сопровождение строительства;
+              {$t('modular_boiler_production_page.solution_item1')}
             </li>
             <li class="solution__item">
-              Проектную документацию, получившую положительное заключение
-              экспертизы;
+              {$t('modular_boiler_production_page.solution_item2')}
             </li>
             <li class="solution__item">
-              Рабочую документацию, согласованную в установленном порядке;
+              {$t('modular_boiler_production_page.solution_item3')}
             </li>
             <li class="solution__item">
-              Введенную в эксплуатацию блочно-модульную котельную.
+              {$t('modular_boiler_production_page.solution_item4')}
             </li>
           </ul>
         </div>
@@ -377,38 +245,29 @@
                 <TitleLanding
                   green
                   left
-                  titleText="Преимущества работы с нами"
+                  titleText="{$t('modular_boiler_production_page.advantages_title')}"
                 />
                 <ul class="mb-5 list">
                   <li class="list__item">
-                    широкий модельный ряд блочно-модульных котельных различной
-                    мощности, теплоносителя, исполнения, конфигурации
-                    оборудования и топлива;
+                    {$t('modular_boiler_production_page.adv_item1')}
                   </li>
                   <li class="list__item">
-                    компактные конструкторские решения, современная архитектура
-                    и дизайн;
+                    {$t('modular_boiler_production_page.adv_item2')}
                   </li>
                   <li class="list__item">
-                    собственное конструкторское бюро, проектный и
-                    строительно-монтажный департаменты;
+                    {$t('modular_boiler_production_page.adv_item3')}
                   </li>
                   <li class="list__item">
-                    полный цикл инженерно-строительных услуг: от
-                    технико-экономического обоснования и получения
-                    разрешительной документации до ввода объекта в эксплуатацию;
+                    {$t('modular_boiler_production_page.adv_item4')}
                   </li>
                   <li class="list__item">
-                    собственное производство, расположенное в Московской
-                    области;
+                    {$t('modular_boiler_production_page.adv_item5')}
                   </li>
                   <li class="list__item">
-                    многоступенчатый процесс контроля качества производимых БМК;
+                    {$t('modular_boiler_production_page.adv_item6')}
                   </li>
                   <li class="list__item">
-                    сроки изготовления и поставки, в среднем, ниже, чем у
-                    конкурентов за счет собственной технологии и избыточных
-                    производственных мощностей.
+                    {$t('modular_boiler_production_page.adv_item7')}
                   </li>
                 </ul>
               </div>
@@ -421,10 +280,7 @@
   <section class="section px-4 partners">
     <div class="container">
       <div class="content text-center">
-        <!--                <h2 class="title titlefor has-text-centered">-->
-        <!--                    Наши партнёры-->
-        <!--                </h2>-->
-        <TitleLanding titleText="Наши партнеры" />
+        <TitleLanding titleText="{$t('modular_boiler_production_page.partners_title')}" />
         <Carousel
           perPage={{ 800: 4, 500: 3, 400: 2 }}
           dots={false}
@@ -463,13 +319,6 @@
               src="/images/kotel/partners/НОРД.png"
             />
           </div>
-<!--          <div class="slide-content">-->
-<!--            <img-->
-<!--              alt=""-->
-<!--              class="before-image"-->
-<!--              src="/images/kotel/partners/БМК.jpg"-->
-<!--            />-->
-<!--          </div>-->
           <div class="slide-content">
             <img
               alt=""
@@ -502,7 +351,7 @@
 
   <section class="section logic px-4">
     <div class="container">
-      <TitleLanding titleText="Алгоритм работы" />
+      <TitleLanding titleText="{$t('modular_boiler_production_page.algorithm_title')}" />
       <div class="columns">
         <div class="column is-3 logic__item">
           <img
@@ -511,8 +360,7 @@
             src="/images/bmk/bmk_icon_01.png"
           />
           <p class="logic__text">
-            Звоните по телефону<br />+7 (495) 790-76-97 <br /> Или оставьте заявку
-            на сайте
+            {@html $t('modular_boiler_production_page.step1')}
           </p>
         </div>
         <div class="column is-3 logic__item">
@@ -521,7 +369,7 @@
             class="logic__icon"
             src="/images/bmk/bmk_icon_02.png"
           />
-          <p class="logic__text">Составляем техническое задание</p>
+          <p class="logic__text">{$t('modular_boiler_production_page.step2')}</p>
         </div>
         <div class="column is-3 logic__item">
           <img
@@ -529,7 +377,7 @@
             class="logic__icon"
             src="/images/bmk/bmk_icon_03.png"
           />
-          <p class="logic__text">Согласование и комплектация оборудования</p>
+          <p class="logic__text">{$t('modular_boiler_production_page.step3')}</p>
         </div>
         <div class="column is-3 logic__item">
           <img
@@ -538,7 +386,7 @@
             src="/images/bmk/bmk_icon_04.png"
           />
           <p class="logic__text">
-            Расчет стоимости работ и заключение договора
+            {$t('modular_boiler_production_page.step4')}
           </p>
         </div>
       </div>
@@ -550,8 +398,7 @@
             src="/images/bmk/bmk_icon_05.png"
           />
           <p class="logic__text">
-            Проектирование и производство: согласование схем, закупка и
-            комплектация
+            {$t('modular_boiler_production_page.step5')}
           </p>
         </div>
         <div class="column is-3 logic__item">
@@ -560,7 +407,7 @@
             class="logic__icon"
             src="/images/bmk/bmk_icon_06.png"
           />
-          <p class="logic__text">Доставка на объект и монтаж БМК</p>
+          <p class="logic__text">{$t('modular_boiler_production_page.step6')}</p>
         </div>
         <div class="column is-3 logic__item">
           <img
@@ -569,7 +416,7 @@
             src="/images/bmk/bmk_icon_07.png"
           />
           <p class="logic__text">
-            Ввод в эксплуатацию: ПНР и обучение персонала
+            {$t('modular_boiler_production_page.step7')}
           </p>
         </div>
         <div class="column is-3 logic__item">
@@ -578,26 +425,17 @@
             class="logic__icon"
             src="/images/bmk/bmk_icon_08.png"
           />
-          <p class="logic__text">Сдача объекта</p>
+          <p class="logic__text">{$t('modular_boiler_production_page.step8')}</p>
         </div>
       </div>
       <div class="columns">
         <div class="column logic__column is-10 is-offset-1 mt-6">
           <div class="logic__wrap">
             <p class="logic__info">
-              ООО «Энергия Плюс» является техническим партнером интернет-ресурса <a
-                class="logic__link"
-                href="http://bmkrussia.ru/"
-                target="_blank">bmkrussia.ru</a
-              >, на котором представлены все основные заводы- изготовители
-              блочно-модульных котельных. Это позволяет осуществлять подбор
-              котельных в максимально сжатые сроки и получать максимально
-              возможные дисконты на изготовление и поставку.
+              {@html $t('modular_boiler_production_page.partner_resource_p1')}
             </p>
             <p class="logic__info">
-              БМК позволит обеспечить производство энергией, необходимой для
-              постоянного прогресса. Оставьте заявку прямо сейчас и навсегда
-              решите вопрос с энергообеспечением своего объекта!
+              {$t('modular_boiler_production_page.partner_resource_p2')}
             </p>
           </div>
         </div>
@@ -615,19 +453,15 @@
                 alt="Блочно-модульная котельная"
                 src="/images/bmk/kotelnay2.png"
               />
-              <!-- src="/images/bmk/640801199_w640_h640_dizelnaya-blochno-modulnaya-kotelnaya.png"/> -->
             </figure>
           </div>
           <div class="column is-5">
-            <TitleLanding left titleText="Нужна консультация" />
+            <TitleLanding left titleText="{$t('modular_boiler_production_page.consultation_title')}" />
             <div class="">
-              Позвоните нам по телефону: <a
-                class="zphone"
-                href="tel:+74957907697">+7 (495) 790-76-97</a
-              ><br /> или воспользуйтесь формой обратной связи
+              {@html $t('modular_boiler_production_page.consultation_call')}
             </div>
             <div class="advice__btn column is-8 p-0 is-flex mt-6 is-size-5">
-              <BtnZayavka btnText="Отправить Запрос" radius />
+              <BtnZayavka btnText="{$t('modular_boiler_production_page.send_request')}" radius />
             </div>
           </div>
         </div>

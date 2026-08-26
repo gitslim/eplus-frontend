@@ -13,16 +13,12 @@
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
     import Modal from '$lib/components/Modal.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
-    let title = 'Контакты'
+    $: currentLocale = $session.locale || 'ru'
+
     let showContactForm = false
-
-    const meta = {
-        title: "Энергия Плюс. Контакты. Телефон. Электронная почта. Телеграм канал.",
-        description: `Инжиниринговая компания Энергия Плюс. Контакты. Адрес. 111123, Москва, 1-я Владимирская, д.10А, стр. 1, +7 (495) 790-76-97, +7 (495) 961-26-97, ${website.contactEmail}`,
-        h1: "Контактные данные ООО Энергия Плюс. Социальные сети компании. Номер телефона. Имейл адрес. Телеграм канал и Дзен. Подписывайтесь на наши соцсети"
-    }
-
 
     function handleContactFormCancel(event) {
         showContactForm = false
@@ -31,8 +27,8 @@
 </script>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('contacts.meta_title')}" description="{$t('contacts.meta_title')}"/>
+<HiddenH1>{$t('contacts.meta_h1')}</HiddenH1>
 
 
 <!--<Modal onClose={() => (showContactForm = false)} open={showContactForm}>-->
@@ -90,7 +86,7 @@
 <main class="container pt-4">
     <section class="section">
         <div class="box">
-            <h2 class="title titlefor pt-3">{title}</h2>
+            <h2 class="title titlefor pt-3">{$t('contacts.title')}</h2>
             <div class="columns">
                 <div class="column hiden-block">
                     <YandexMap></YandexMap>
@@ -103,14 +99,14 @@
                     <span>
                         <br/>
                         <p class="has-text-justified">
-                            "ООО Энергия Плюс предоставляет <b>услуги по проектированию</b> опасных и особо опасных производственных объектов <b>на всей территории Российской Федерации</b> от Калининграда до Южно-Сахалинска.
+                            {@html $t('contacts.description_1')}
                         </p>
                         <p class="has-text-justified">
-                            Мы предлагаем не только <b>оптимальные технические решения</b>, но и самые <b>конкурентные цены</b> на все виды услуг"
+                            {@html $t('contacts.description_2')}
                         </p>
                     </span>
                     <div class="pt-6">
-                        <BtnZayavka btnText="Заказать звонок"></BtnZayavka>
+                        <BtnZayavka btnText="{$t('form.order_call')}"></BtnZayavka>
 <!--                        <ContactForm></ContactForm>-->
                     </div>
                 </div>
@@ -124,15 +120,15 @@
 
     <section class="section mt-5 mb-3">
         <div class="title pb-2 mb-2 has-text-centered">
-            <h3>Мы работаем на всей территории России</h3>
+            <h3>{$t('contacts.map_title')}</h3>
         </div>
         <div class="columns" >
             <div class="column is-8 is-offset-2">
                 <div class="map-item">
                     <YandexMap2     center = {[58.813777, 57.622613]}
                                     zoomSize = {3}
-                                    nameIcon = {'Иваново икон'}
-                                    nameAdress = {'155800, Иваново, Куконковых, д.10А, стр. 1'}>
+                                    nameIcon = {$t('common.ivanovo_icon')}
+                                    nameAdress = {$t('common.ivanovo_address')}>
                     </YandexMap2>
                 </div>
             </div>

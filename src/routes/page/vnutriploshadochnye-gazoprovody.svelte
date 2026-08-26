@@ -9,53 +9,39 @@
     import TitleLanding from '$lib/components/TitleLanding.svelte'
     import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
 
-    const meta = {
-        title: "Внутриплощадочные и внутренние газопроводы. Проектирование газопровода. Рассчитать стоимость",
-        description: "Проектирование газопровода. Инженерные изыскания. Сметная документация. Распределительные газопроводы. Сотрудничаем с «Мозгаз», «Мособлгаз», «Газпром». Согласование",
-        h1: "Внутриплощадочные и внутренние газопроводы для промышленного объекта. Сметная документация. Экспертиза и согласования. Получение Технических условий на подключение. Проектирование газопровода"
+    $: headerCaption = {
+        caption: $t('onsite_pipelines_page.title'),
     }
 
-
-    let title = 'Внутриплощадочные и внутренние газопроводы'
-
-    const headerCaption = {
-        caption: title,
+    $: info = {
+        text: $t('onsite_pipelines_page.info_text'),
+        subText: $t('onsite_pipelines_page.info_sub'),
     }
 
-    const info = {
-        text:
-            'Исходя из новых Правил подключения, все обязанности и ответственность по подключению в пределах границ участка ложатся на заказчика-застройщика, а не на газораспределительную организацию.',
-        subText:
-            'С утверждением Правил подключения (технологического присоединения) объектов капитального строительства к газораспределительным сетям (Постановления РФ от 30.12.13 № 1314) следует особо отметить, что мероприятия по подключению в пределах границ земельного участка осуществляются заявителем (заказчиком-застройщиком), а мероприятия по подключению до границы земельного участка осуществляются исполнителем (газораспределительной организацией).',
-    }
-
-    const functionsCard = [
+    $: functionsCard = [
         {
             id: 1,
-            text:
-                'Внутриплощадочный газопровод - участок распределительного газопровода (ввод), находящийся внутри производственной территории предприятия, обеспечивающий подачу газа к потребителю».',
+            text: $t('onsite_pipelines_page.item1'),
             alt: 'image-card',
             src: '/images/gazoprovodi/connecting-event__icon1.png',
         },
         {
             id: 2,
-            text:
-                'Внутренний газопровод - газопровод, проложенный внутри здания от вводного (внутриплощадочного) газопровода до места установки газоиспользующего оборудования..',
+            text: $t('onsite_pipelines_page.item2'),
             alt: 'image-card',
             src: '/images/gazoprovodi/connecting-event__icon2.png',
         },
         {
             id: 3,
-            text:
-                'ПРГ (пункт редуцирования газа) - технологическое устройство сетей газораспределения и газопотребления, предназначенное для снижения давления газа и поддержания его в заданных пределах независимо от расхода газа.',
+            text: $t('onsite_pipelines_page.item3'),
             alt: 'image-card',
             src: '/images/gazoprovodi/connecting-event__icon3.png',
         },
         {
             id: 4,
-            text:
-                'Узел учета газа - функционально объединенная совокупность средств измерительной техники, которая преобразует выходной сигнал средства измерений объема и расхода газа при рабочих условиях, измеряет все или некоторые необходимые параметры потока и среды и вычисляет объем и расход газа, приведенные к стандартным условиям.',
+            text: $t('onsite_pipelines_page.item4'),
             alt: 'image-card',
             src: '/images/gazoprovodi/connecting-event__icon4.png',
         },
@@ -217,14 +203,14 @@
 </style>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('onsite_pipelines_page.meta_title')}" description="{$t('onsite_pipelines_page.meta_description')}"/>
+<HiddenH1>{$t('onsite_pipelines_page.meta_h1')}</HiddenH1>
 
 <main class="main container-fluid">
     <section class="section caption">
         <div class="container is-max-widescreen">
             <HeaderLanding {...headerCaption}/>
-            <BtnZayavka btnText="Заказать" radius="true"/>
+            <BtnZayavka btnText="{$t('onsite_pipelines_page.order')}" radius="true"/>
         </div>
     </section>
 
@@ -238,15 +224,11 @@
         <div class="container is-max-widescreen">
             <div class="functions__title">
                 <TitleLanding
-                        titleText="Что включают в себя мероприятия по подключению в пределах границ земельного участка для заявителя?"/>
+                        titleText="{$t('onsite_pipelines_page.section_title')}"/>
             </div>
 
             <p class="functions__desc">
-                Мероприятия подразумевают проектирование и строительство заявителем
-                внутриплощадочных газопроводов, средств антикоррозионной защиты,
-                газорегуляторных пунктов (ПРГ), узлов учета, внутренних газопроводов,
-                газорегуляторных устройств (ГРУ), систем автоматики безопасности и
-                регулирования процесса сжигания газа.
+                {$t('onsite_pipelines_page.section_desc')}
             </p>
 
             <div class="functions__targets columns is-desktop">
@@ -264,8 +246,7 @@
 
             <div class="functions__help">
                 <p class="functions__desc">
-                    Наряду с оперативным выполнением работ, мы окажем всестороннюю
-                    экспертную поддержку:
+                    {$t('onsite_pipelines_page.help_desc')}
                 </p>
                 <div class="functions__icon columns">
                     <div class="functions__step column-gap is-2">
@@ -273,21 +254,21 @@
                                 alt="help-icon"
                                 class="functions__step-img"
                                 src="/images/gazoprovodi/events-help__icon1.png"/>
-                        <p class="functions__step-text">Техническое сопровождение</p>
+                        <p class="functions__step-text">{$t('onsite_pipelines_page.help_step1')}</p>
                     </div>
                     <div class="functions__step column-gap is-2">
                         <img
                                 alt="help-icon"
                                 class="functions__step-img"
                                 src="/images/gazoprovodi/events-help__icon2.png"/>
-                        <p class="functions__step-text">Юридическое сопровождение</p>
+                        <p class="functions__step-text">{$t('onsite_pipelines_page.help_step2')}</p>
                     </div>
                     <div class="functions__step column-gap is-2">
                         <img
                                 alt="help-icon"
                                 class="functions__step-img"
                                 src="/images/gazoprovodi/events-help__icon3.png"/>
-                        <p class="functions__step-text">Авторский надзор</p>
+                        <p class="functions__step-text">{$t('onsite_pipelines_page.help_step3')}</p>
                     </div>
                 </div>
             </div>
@@ -299,7 +280,7 @@
 <!--        </div>-->
 <!--    </section>-->
     <section class="section pt-6">
-        <div class="title has-text-centered has-text-weight-bold">РАСЧЕТ СТОИМОСТИ</div>
+        <div class="title has-text-centered has-text-weight-bold">{$t('onsite_pipelines_page.cost_calc')}</div>
         <div class="container is-max-widescreen">
             <CalcTabs/>
         </div>

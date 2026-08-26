@@ -2,6 +2,7 @@
     import {onMount} from 'svelte'
     import Link from './Link.svelte'
     import {chooseImageUrl, formatDate} from '$lib/utils'
+    import {t} from 'svelte-i18n'
 
     export let article
     let date, imageUrl
@@ -38,7 +39,7 @@
             <time datetime="{article.date}">{date}</time>
         </div>
         <div class="card-footer-item">
-            <Link path="news" slug="{article.slug}">Подробнее</Link>
+            <Link path="news" slug="{article.slug}">{$t('common.read_more')}</Link>
         </div>
     </div>
 </article>

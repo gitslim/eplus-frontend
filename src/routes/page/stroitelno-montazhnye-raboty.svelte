@@ -12,15 +12,23 @@
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import LazyImage from 'svelte-lazy-image'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
-    const meta = {
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
+
+    $: meta = currentLocale === 'en' ? {
+        title: "Construction and Installation Works | SRO Permits | Boiler Plant Installation",
+        description: "Full range of construction and installation works for energy facilities. Industrial gas boiler houses for manufacturing.",
+        h1: "Construction and Installation Works for Industrial Boiler Houses and Power Centers. Modular Boilers Supply & Installation."
+    } : {
         title: "Строительно-монтажные работы. Допуски СРО. Монтаж котельной",
         description: "Выполнение полного комплекса строительно-монтажных работ для объектов энергетики. Газовая промышленная котельная для производства",
         h1: "Строительно-монтажные работы для промышленных котельных и энергоцентров. Поставка и монтаж БМК. Газовые котельные. Дизельные котельные."
     }
 
-
-    let title = 'Строительно-монтажные работы'
+    $: title = currentLocale === 'en' ? 'Construction and Installation Works' : 'Строительно-монтажные работы'
 
     onMount(async () => {
 
@@ -539,50 +547,45 @@
             }
         }
     }
-
-
 </style>
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
-
+<SvelteSeo title="{$t('construction_installation_page.meta_title')}" description="{$t('construction_installation_page.meta_description')}"/>
+<HiddenH1>{$t('construction_installation_page.meta_h1')}</HiddenH1>
 
 <main>
     <section class="hero hero1">
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h2 style="font-size: 60px" class="has-text-white has-text-weight-medium title titlefor">Строительно-монтажные работы</h2>
+                    <h2 style="font-size: 60px" class="has-text-white has-text-weight-medium title titlefor">{$t('construction_installation_page.hero_title')}</h2>
                 </div>
             </div>
             <div class="columns hero__text">
                 <div class="column is-7">
-                    <h2 class="block has-text-white has-text-weight-medium has-text-justified titleb">ООО «Энергия Плюс» выполняет полный комплекс строительства систем газо- 
-                        и теплоснабжения для объектов ЖКХ, промышленного и социально-культурного назначения, в т.ч. внутренние и наружные газопроводы, котельные, 
-                        мини-ТЭС, ЦТП, Индивидуальные тепловые пункты. </h2>
+                    <h2 class="block has-text-white has-text-weight-medium has-text-justified titleb">{$t('construction_installation_page.hero_sub')}</h2>
                 </div>
                 <div class="column is-5 hero__spisok">
                     <div>
-                        <p>Котельные</p>
+                        <p>{$t('construction_installation_page.item_boilers')}</p>
                         <img class="img_right" alt="" src="/images/smr/i_kotel.svg">
                     </div>
                     <div>
-                        <p>Энергоцентры</p>
+                        <p>{$t('construction_installation_page.item_energy_centers')}</p>
                         <img class="img_right" alt="" src="/images/smr/i_energy.svg">
                     </div>
                     <div>
-                        <p>ИТЦ/ЦТП</p>
+                        <p>{$t('construction_installation_page.item_substations')}</p>
                         <img class="img_right" alt="" src="/images/smr/i_teplo.svg">
                     </div>
                     <div>
-                        <p>Газопроводы</p>
+                        <p>{$t('construction_installation_page.item_pipelines')}</p>
                         <img class="img_right" alt="" src="/images/smr/i_gas.svg">
                     </div>
                 </div>
             </div>
             <div class="button3" >
                 <ContactFormButton onClick={onContactButtonClick}>
-                    <div slot="button">Заказать услугу СМР</div>
+                    <div slot="button">{$t('construction_installation_page.order_smr')}</div>
                 </ContactFormButton>
             </div>
             <div class="subtitle py-6">
@@ -599,7 +602,7 @@
     <section class="section">
         <div class="container pt-3 text-center spisok1">
             <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-                КОМПЛЕКС СТРОИТЕЛЬНО-МОНТАЖНЫХ РАБОТ (СМР) ВКЛЮЧАЕТ В СЕБЯ:
+                {$t('construction_installation_page.scope_title')}
             </h2>
             <div class="content">
                 <div class="columns is-align-items-stretch">
@@ -611,8 +614,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Оформление разрешительной документации (разрешение на строительство, ордер на земляные работы, договора на строительный, 
-                                        технический и авторский надзоры и пр.)
+                                        {$t('construction_installation_page.scope1')}
                                     </p>
                                 </div>
                             </li>
@@ -622,7 +624,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Комплектация и поставка оборудования, материалов в соответствии с заказной спецификацией проекта.
+                                        {$t('construction_installation_page.scope2')}
                                     </p>
                                 </div>
                             </li>
@@ -632,8 +634,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Монтаж наружных и внутренних инженерных систем (тепломеханика, дымоудаление, отопление, вентиляция, водоснабжение, 
-                                        канализование, электрика, автоматика, сигнализация) для объектов генерации тепла/электричества.
+                                        {$t('construction_installation_page.scope3')}
                                     </p>
                                 </div>
                             </li>
@@ -643,7 +644,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Проведение испытаний и пуско-наладочных работ.
+                                        {$t('construction_installation_page.scope4')}
                                     </p>
                                 </div>
                             </li>
@@ -653,7 +654,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Оформление исполнительной документации.
+                                        {$t('construction_installation_page.scope5')}
                                     </p>
                                 </div>
                             </li>
@@ -663,14 +664,14 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Сдача работ надзорным органам.
+                                        {$t('construction_installation_page.scope6')}
                                     </p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="column is-half">
-                        <img class="Строительство газопровода" alt="" src="/images/pages/stroitelno-montazhnye-raboty/Рисунок9.jpg">
+                        <img class="is-fullwidth" alt="" src="/images/pages/stroitelno-montazhnye-raboty/Рисунок9.jpg">
                     </div>                   
                 </div>
             </div>                
@@ -680,7 +681,7 @@
     <section class="section py-6 project">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mb-2">Реализованные проекты</h2>
+                <h2 class="has-text-weight-bold mb-2">{$t('construction_installation_page.projects_title')}</h2>
             </div>
             <Carousel perPage={{1000:4, 800:3, 500:2, 400:1}}
                       dots={false}
@@ -694,7 +695,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/smr/projects/03.jpg'}
-                                    alt={'Поставка газового котла'}/>
+                                    alt={$t('construction_installation_page.proj1_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -705,7 +706,7 @@
                             <LazyImage
                                     style="aspect-ratio: 316/209; object-fit: cover"
                                     src="/images/pages/stroitelno-montazhnye-raboty/Рисунок8.jpg"
-                                    alt={'Горелка газовая'}/>
+                                    alt={$t('construction_installation_page.proj2_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -715,7 +716,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/smr/projects/05.jpg'}
-                                    alt={'Трубы в котельной'}/>
+                                    alt={$t('construction_installation_page.proj3_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -725,7 +726,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/smr/projects/06.jpg'}
-                                    alt={'Проект 4'}/>
+                                    alt={$t('construction_installation_page.proj4_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>              
@@ -735,7 +736,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/smr/projects/07.jpg'}
-                                    alt={'Проект 6'}/>
+                                    alt={$t('construction_installation_page.proj5_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -750,23 +751,19 @@
         <div class="container lister">            
             <div class="columns is-gapless is-centered lister__columns">
                 <div class="column is-4 lister__column">
-                    <h3>Калькулятор<br>расчета стоимости<br>строительства<br><a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">газопровода</a></h3>
+                    <h3>{@html $t('construction_installation_page.calc_pipeline', {values: {p}})}</h3>
                 </div>
                 <div class="column is-4 lister__column">
-                    <h3>Калькулятор<br>расчета стоимости<br>строительства<br><a href="/page/kalkulyator-rascheta-stoimosti-stroitelstva-i-proektirovaniya-kotelnoj">котельной</a></h3>
+                    <h3>{@html $t('construction_installation_page.calc_boiler', {values: {p}})}</h3>
                 </div>
             </div>
-            <p class="lister__text">Комплексный подход позволяет экономить до 38% от стоимости возможных затрат за счет экономии на наших 
-                <span class="lister__intext"> партнерских программах </span>
-                с производителями и поставщиками оборудования, а также за счет отлаженных алгоритмов взаимодействия с надзорными государственными органами, 
-                что позволяет сократить сроки ввода в эксплуатацию.
+            <p class="lister__text">{@html $t('construction_installation_page.savings_desc')}
             </p>
             <div class="lister__footer">
-                <h2 >КАК ОПТИМИЗИРОВАТЬ СТОИМОСТЬ СТРОИТЕЛЬСТВА?</h2> 
-                <p class="vstavka">Поручить <a href="/page/funkcii-generalnogo-proektirovshika">функции генерального проектировщика</a> / генерального подрядчика / 
-                    <a href="/page/funkcii-tehnicheskogo-zakazchika">технического заказчика</a>
+                <h2 >{$t('construction_installation_page.how_optimize_title')}</h2> 
+                <p class="vstavka">{$t('construction_installation_page.how_optimize_text')}
                 </p>
-                <h2>ООО «ЭНЕРГИЯ ПЛЮС» </h2>
+                <h2>{$t('construction_installation_page.company_title')}</h2>
             </div>
         </div>
     </section>
@@ -774,11 +771,11 @@
     <section class="section grafik">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mb-2">РАСЧЕТ ЭКОНОМИИ В ЦИФРАХ</h2>
+                <h2 class="has-text-weight-bold mb-2">{$t('construction_installation_page.chart_title')}</h2>
             </div>
             <div class="columns is-vcentered">
                 <div class="column is-flex blockGrafik">
-                    <p class="blockGrafik__head">Стоимость реализации проекта</p>
+                    <p class="blockGrafik__head">{$t('construction_installation_page.chart_project_cost')}</p>
                     <div class="columns is-vcentered">
                         <div class="column">
                             <ul>
@@ -786,7 +783,7 @@
                                     <div class="blockGrafik__grafColor c1"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            Оборудование
+                                            {$t('construction_installation_page.chart_equipment')}
                                         </p>
                                     </div>
                                 </li>
@@ -794,7 +791,7 @@
                                     <div class="blockGrafik__grafColor c2"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            ИРД и ПИР
+                                            {$t('construction_installation_page.chart_ird_pir')}
                                         </p>
                                     </div>
                                 </li>
@@ -802,7 +799,7 @@
                                     <div class="blockGrafik__grafColor c3"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            СМР
+                                            {$t('construction_installation_page.chart_smr')}
                                         </p>
                                     </div>
                                 </li>
@@ -810,7 +807,7 @@
                                     <div class="blockGrafik__grafColor c4"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            Прочие расходы
+                                            {$t('construction_installation_page.chart_other')}
                                         </p>
                                     </div>
                                 </li>
@@ -819,41 +816,34 @@
                         <div class="column">
                             <div>
                                 <img class="blockGrafik__img" alt="график СМР" src="/images/smr/grafikSMR.svg">
-                                <!-- <p class="column blockGrafik__history2">Стоимость <br>с «Энергией Плюс» &nbsp; &nbsp; &nbsp; Среднерыночная стоимость</p> -->
-                                <!-- <div>
-                                    <p class="column blockGrafik__history2">Стоимость<br>с «Энергией<br>Плюс»</p>
-                                    <p class="column blockGrafik__history2">Среднерыночная<br>стоимость</p>
-                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div>
-                        <p class="blockGrafik__footer"> Итоговая экономия:</p>
+                        <p class="blockGrafik__footer"> {$t('construction_installation_page.total_savings')}</p>
                         <p class="blockGrafik__footerNumber">38%</p>
                     </div>                
                 </div>
                 <div class="column textGrafik">
                     <div class="block">
-                        <p><span class="textGrafik__lid">Поставка оборудования:</span> ООО "Энергия Плюс" поставляет котельное оборудование "ЗИОСАБ", "RIELLO", "BOSCH", "ASTEBO" по партнерским программам 
-                        с производителями
+                        <p><span class="textGrafik__lid">{$t('construction_installation_page.fact1_title')}</span> {$t('construction_installation_page.fact1_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 10-15% стоимости оборудования за счет наших наработанных контактов с крупнейшими производителями</p>
+                        <p>{@html $t('construction_installation_page.fact1_save')}</p>
                     </div> 
                     <div class="block">
-                        <p><span class="textGrafik__lid">Функции технического заказчика, Генерального проектировщика и Генерального подрядчика:</span> собственная ERP-система 
-                            (система управления проектом) + инженерным составом узкой и широкой специализации
+                        <p><span class="textGrafik__lid">{$t('construction_installation_page.fact2_title')}</span> {$t('construction_installation_page.fact2_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 7-8% средств за счет сокращения сроков выполнения работ</p>
+                        <p>{@html $t('construction_installation_page.fact2_save')}</p>
                     </div>
                     <div class="block">
-                        <p><span class="textGrafik__lid">Строительно-монтажные работы:</span> собственный департамент строительно-монтажных работ + большой опыт
+                        <p><span class="textGrafik__lid">{$t('construction_installation_page.fact3_title')}</span> {$t('construction_installation_page.fact3_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 10% за счет наших компетенций</p>
+                        <p>{@html $t('construction_installation_page.fact3_save')}</p>
                     </div>
                     <div class="block">
-                        <p><span class="textGrafik__lid">Прочие издержки:</span> полное соответствие итоговой стоимости работ заявленной в тексте заключенного с заказчиком договора
+                        <p><span class="textGrafik__lid">{$t('construction_installation_page.fact4_title')}</span> {$t('construction_installation_page.fact4_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 5% за счет отсутствия неучтенных издержек, которые выявляются в процессе выполнения работ</p>
+                        <p>{@html $t('construction_installation_page.fact4_save')}</p>
                     </div>       
                 </div>
             </div>
@@ -865,7 +855,7 @@
             <div class="container consult">
                 <div class="button3 btn2">
                     <ContactFormButton onClick={onContactButtonClick} class="">
-                        <div slot="button">Остались вопросы? <br>Получите консультацию специалиста </div>
+                        <div slot="button">{@html $t('construction_installation_page.questions_cta')}</div>
                     </ContactFormButton>
                 </div>
             </div>
@@ -875,28 +865,28 @@
     <section class="section command">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mb-2">Наша команда</h2>
+                <h2 class="has-text-weight-bold mb-2">{$t('construction_installation_page.team_title')}</h2>
             </div>
             <div class="columns is-multiline is-centered">
                 <div class="column is-narrow is-3">
                     <img class="command__image" src="/images/command/Харитонов.png">
-                    <p class="command__text">Харитонов Николай</p>
-                    <p class="command__text2">Технический директор</p>
+                    <p class="command__text">{$t('construction_installation_page.team_member1_name')}</p>
+                    <p class="command__text2">{$t('construction_installation_page.team_member1_role')}</p>
                 </div>
                 <div class="column is-narrow is-3">
                     <img class="command__image" src="/images/command/Зайков.png">
-                    <p class="command__text">Тарас Зайков</p>
-                    <p class="command__text2">Производитель работ</p>
+                    <p class="command__text">{$t('construction_installation_page.team_member2_name')}</p>
+                    <p class="command__text2">{$t('construction_installation_page.team_member2_role')}</p>
                 </div>
                 <div class="column is-narrow is-3">
                     <img class="command__image" src="/images/command/Бачинин.png">
-                    <p class="command__text">Дмитрий Бачинин</p>
-                    <p class="command__text2">Начальник участка КИП</p>
+                    <p class="command__text">{$t('construction_installation_page.team_member3_name')}</p>
+                    <p class="command__text2">{$t('construction_installation_page.team_member3_role')}</p>
                 </div>
                 <div class="column is-narrow is-3">
                     <img class="command__image" src="/images/command/Петров.png">
-                    <p class="command__text">Евгений Петров</p>
-                    <p class="command__text2">Ведущий инженер</p>
+                    <p class="command__text">{$t('construction_installation_page.team_member4_name')}</p>
+                    <p class="command__text2">{$t('construction_installation_page.team_member4_role')}</p>
                 </div>
             </div>
         </div>
@@ -905,11 +895,11 @@
     <section class="section acreditac">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mb-2">Наши акредитации</h2>
+                <h2 class="has-text-weight-bold mb-2">{$t('construction_installation_page.accreditations_title')}</h2>
             </div>
             <div class="columns acreditac__columns">
                 <div class="column">
-                    <h3>Проектно-изыскательские работы</h3>
+                    <h3>{$t('construction_installation_page.acc_pir_title')}</h3>
                     <div class="acreditac__image">
                         <img alt="" src="/images/smr/acreditac1.png">
                     </div>
@@ -920,7 +910,7 @@
                             </div>
                             <div class="pl-3">
                                 <p>
-                                    СРО «СПЕЦПРОЕКТ&shy;ОБЪЕДИНЕНИЕ»
+                                    {$t('construction_installation_page.acc_pir_sro')}
                                 </p>
                             </div>
                         </li>
@@ -970,8 +960,7 @@
                             </div>
                             <div class="pl-3">
                                 <p>
-                                    Нормативно-технические и правовые акты для специалиста, занятого проектированием внутренних газопроводов и 
-                                    газ. оборудования многоквартирных домов и жилых домов
+                                    {$t('construction_installation_page.acc_pir_doc')}
                                 </p>
                             </div>
                         </li>
@@ -981,14 +970,14 @@
                             </div>
                             <div class="pl-3">
                                 <p>
-                                    Предквалификация ПАО «ГАЗПРОМ» по направлению деятельности "Проектирование объектов"
+                                    {$t('construction_installation_page.acc_pir_gazprom')}
                                 </p>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="column">
-                    <h3>Строительно-монтажные работы</h3>
+                    <h3>{$t('construction_installation_page.acc_smr_title')}</h3>
                     <div class="acreditac__image">
                         <img alt="" src="/images/smr/acreditac2.png">
                     </div>
@@ -1002,7 +991,7 @@
                             </div>
                             <div class="pl-3">
                                 <p>
-                                    СРО АС "СТРОЙ-АЛЬЯНС"
+                                    {$t('construction_installation_page.acc_smr_sro')}
                                 </p>
                             </div>
                         </li>
@@ -1045,7 +1034,7 @@
     <section class="section plus">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mb-2">Плюсы работы с нами</h2>
+                <h2 class="has-text-weight-bold mb-2">{$t('construction_installation_page.advantages_title')}</h2>
             </div>
             <div class="plus__store">
                 <div class="plus__block">
@@ -1053,16 +1042,16 @@
                         <img class="" src="/images/smr/plus3.png">
                     </div>
                     <div class="plus__text">
-                        <p>«Время-деньги»</p>
-                        <p>Лучшие условия по срокам исполнения работ</p>
+                        <p>{$t('construction_installation_page.adv1_title')}</p>
+                        <p>{$t('construction_installation_page.adv1_desc')}</p>
                     </div>
                 </div>
                 <div class="plus__block">
                     <div class="plus__image c1">
                     </div>
                     <div class="plus__text">
-                        <p>«Ничего лишнего»</p>
-                        <p>Гарантия выполнения СМР строго по технологии</p>
+                        <p>{$t('construction_installation_page.adv2_title')}</p>
+                        <p>{$t('construction_installation_page.adv2_desc')}</p>
                     </div>
                 </div>
                 <div class="plus__block">
@@ -1070,8 +1059,8 @@
                         <img class="" src="/images/smr/plus6.png">
                     </div>
                     <div class="plus__text">
-                        <p>«Цена-качество»</p>
-                        <p>Лучшее предложение на рынке инжиниринговых услуг</p>
+                        <p>{$t('construction_installation_page.adv3_title')}</p>
+                        <p>{$t('construction_installation_page.adv3_desc')}</p>
                     </div>
                 </div>
                 <div class="plus__block">
@@ -1079,8 +1068,8 @@
                         <img class="" src="/images/smr/plus2.png">
                     </div>
                     <div class="plus__text">
-                        <p>«100% гарантия»</p>
-                        <p>Сдачи объекта в промышленную эксплуатацию</p>
+                        <p>{$t('construction_installation_page.adv4_title')}</p>
+                        <p>{$t('construction_installation_page.adv4_desc')}</p>
                     </div>
                 </div>
                 <div class="plus__block">
@@ -1088,8 +1077,8 @@
                         <img class="" src="/images/smr/plus1.png">
                     </div>
                     <div class="plus__text">
-                        <p>«Снимаем головню боль»</p>
-                        <p>Решение всех технических и юридических вопросов с надзорными органами</p>
+                        <p>{$t('construction_installation_page.adv5_title')}</p>
+                        <p>{$t('construction_installation_page.adv5_desc')}</p>
                     </div>
                 </div>
                 <div class="plus__block">
@@ -1097,8 +1086,8 @@
                         <img class="" src="/images/smr/plus5.png">
                     </div>
                     <div class="plus__text">
-                        <p>«Работаем как часы»</p>
-                        <p>Сдача объекта точно в срок и бюджет</p>
+                        <p>{$t('construction_installation_page.adv6_title')}</p>
+                        <p>{$t('construction_installation_page.adv6_desc')}</p>
                     </div>
                 </div>
             </div>                       
@@ -1110,7 +1099,7 @@
             <div class="container consult">
                 <div class="button3">
                     <ContactFormButton onClick={onContactButtonClick} class="">
-                        <div slot="button">Заказать услугу «СМР»</div>
+                        <div slot="button">{$t('construction_installation_page.order_smr_btn')}</div>
                     </ContactFormButton>
                 </div>
             </div>

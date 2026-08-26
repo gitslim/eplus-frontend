@@ -1,28 +1,33 @@
 <script>
     import {onMount} from 'svelte'
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
     export let
         type = 2,
-        placeholder = 'Поиск по сайту',
+        placeholder = '',
         fontSize = 16,
         width = 'auto'
 
     let el,
         bem
 
+    $: currentLocale = $session?.locale || 'ru'
+    $: resolvedPlaceholder = placeholder || $t('nav.search') || 'Поиск...'
+
     onMount(async () => {
 
         (function (w, d, c) {
             bem = JSON.stringify(
                 {
-                    'action': d.location.origin + '/search',
+                    'action': d.location.origin + (currentLocale === 'en' ? '/en/search' : '/search'),
                     'arrow': false,
                     'bg': 'transparent',
                     'fontsize': fontSize,
                     'fg': '#4a4a4a',
-                    'language': 'ru',
+                    'language': currentLocale,
                     'logo': 'rb',
-                    'publicname': 'Поиск по сайту Энергияплюс.рф',
+                    'publicname': currentLocale === 'en' ? 'Search Energy-Plus' : 'Поиск по сайту Энергияплюс.рф',
                     'suggest': true,
                     'target': '_self',
                     'tld': 'ru',
@@ -33,7 +38,7 @@
                     'input_bg': '#ffffff',
                     'input_fontStyle': 'normal',
                     'input_fontWeight': 'normal',
-                    'input_placeholder': placeholder,
+                    'input_placeholder': resolvedPlaceholder,
                     'input_placeholderColor': '#4a4a4a',
                     'input_borderColor': '#4a4a4a'
                 }
@@ -71,7 +76,7 @@
      data-bem={bem}>
     <form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8">
         <input type="hidden" name="searchid" value="2531200"/>
-        <input type="hidden" name="l10n" value="ru"/>
+        <input type="hidden" name="l10n" value={currentLocale}/>
         <input type="hidden" name="reqenc" value=""/>
         <input type="search" name="text" value=""/>
         <input type="submit" value={placeholder}/>

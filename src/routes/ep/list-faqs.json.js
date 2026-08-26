@@ -3,11 +3,12 @@ import {client, gql} from '$lib/apollo'
 
 
 export const post = async request => {
+    const locale = request.body?.locale || 'ru'
 
     try {
         const query = gql`
-  query {
-    faqs {
+  query($locale: String!) {
+    faqs(locale: $locale) {
       slug
       title
       tags {
@@ -19,6 +20,7 @@ export const post = async request => {
 
         const result = await client.query({
             query,
+            variables: {locale},
             fetchPolicy: 'network-only'
         })
 

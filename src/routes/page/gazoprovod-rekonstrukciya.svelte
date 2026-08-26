@@ -15,15 +15,10 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
- let title = 'Реконструкция, модернизация или техническое перевооружение ГРС'
-
-    const meta = {
-        title: "Реконструкция, модернизация или техническое перевооружение ГРС",
-        description: "Проектная и рабочая документация. Проектирование. Строительство ГРС. Реконструкция газораспределительной станции. Техническое перевооружение газораспределительной станции",
-        h1: "Полный комплекс работ по реконструкции ГРС. Модернизация ГРС. Подбор оборудования. Составление смет. Экспертиза документации. ПД и РД. Техническое перевооружение ГРС"
-    }
-
+    $: currentLocale = $session.locale || 'ru'
 
     onMount(async () => {
 
@@ -425,8 +420,8 @@
 
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('pipeline_reconstruction_page.meta_title')}" description="{$t('pipeline_reconstruction_page.meta_description')}"/>
+<HiddenH1>{$t('pipeline_reconstruction_page.meta_h1')}</HiddenH1>
 
 
 <main>
@@ -435,11 +430,10 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Реконструкция, модернизация или техническое перевооружение ГРС, крановых узлов,
-                        участков магистральных газопроводов</h2>
-                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">в связи с истечением нормативного срока эксплуатации</h2>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">{$t('pipeline_reconstruction_page.hero_title')}</h2>
+                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">{$t('pipeline_reconstruction_page.hero_subtitle')}</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                        <div slot="button">Заказать проект</div>
+                        <div slot="button">{$t('pipeline_reconstruction_page.order_project')}</div>
                     </ContactFormButton>
                     <div class="subtitle py-6">
                         <a rel="external"
@@ -464,9 +458,7 @@
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-weight-medium has-text-justified">Рассчетный срок службы газопроводов принимается не менее <b>40 лет</b>, срок эксплуатации кранов составляет 
-                                не менее <b>30 лет</b>. По истечении нормативного срока эксплуатации проводится <b>замена участков газопроводов и оборудования</b> 
-                                в рамках капитального ремонта.</p>                            
+                            <p class="is-size-5 has-text-weight-medium has-text-justified">{@html $t('pipeline_reconstruction_page.lifespan_desc')}</p>                            
                         </span>
                     </div>
                 </div>
@@ -479,7 +471,7 @@
         <div class="container">
             <div class="content text-center">
                 <h3 class="is-uppercase titlefor has-text-centered has-text-weight-bold">
-                    Наши проекты:
+                    {$t('pipeline_reconstruction_page.projects_title')}
                 </h3>
                 <ul class="is-size-5 has-text-weight-medium">
 
@@ -489,8 +481,7 @@
                         </div>
                         <div class="pl-3">
                             <p class="has-text-justified">
-                                По заданию филиала ООО «Волготрансгаз» ОАО «Газпром» в 2003-2004 г. были выполнены проектно-изыскательские 
-                                работы по капитальному ремонту газораспределительных станций:
+                                {$t('pipeline_reconstruction_page.project1_intro')}
                             </p>
                         </div>                                                                 
                     </li>
@@ -502,98 +493,30 @@
                             <div class="column">
                                 <span>
                                     <ul class="is-size-6 has-text-weight-medium" style="line-height: initial;">
-        
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Восход» производительностью 3200м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Зарубино» производительностью 130250 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Козьмодемьянск» производительностью 25000 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Марпосад» производительностью 16500 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Хлебниково» производительностью 7400 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Большие Поляны» производительностью 11200 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Советский» производительностью 50000 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Шоршелы» производительностью 19400 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                        <li>
-                                            <div class="service-icon">
-                                                <img alt="" src="/images/form-checkbox.png">
-                                            </div>
-                                            <div class="pl-3">
-                                                <p class="">
-                                                    ГРС «Чебоксары ТЭЦ-2» производительностью 404000 м3/час
-                                                </p>
-                                            </div>                                                                 
-                                        </li>
-                                                                      
+                                        {#each [
+                                            { name: { ru: "Восход", en: "Voskhod" }, cap: "3 200" },
+                                            { name: { ru: "Зарубино", en: "Zarubino" }, cap: "130 250" },
+                                            { name: { ru: "Козьмодемьянск", en: "Kozmodemyansk" }, cap: "25 000" },
+                                            { name: { ru: "Марпосад", en: "Marposad" }, cap: "16 500" },
+                                            { name: { ru: "Хлебниково", en: "Khlebnikovo" }, cap: "7 400" },
+                                            { name: { ru: "Большие Поляны", en: "Bolshie Polyany" }, cap: "11 200" },
+                                            { name: { ru: "Советский", en: "Sovetsky" }, cap: "50 000" },
+                                            { name: { ru: "Шоршелы", en: "Shorshely" }, cap: "19 400" },
+                                            { name: { ru: "Чебоксары ТЭЦ-2", en: "Cheboksary CHP-2" }, cap: "404 000" }
+                                        ] as grs}
+                                            <li>
+                                                <div class="service-icon">
+                                                    <img alt="" src="/images/form-checkbox.png">
+                                                </div>
+                                                <div class="pl-3">
+                                                    <p class="">
+                                                        {currentLocale === 'en' 
+                                                            ? `GRS "${grs.name.en}" capacity ${grs.cap} m³/h`
+                                                            : `ГРС «${grs.name.ru}» производительностью ${grs.cap} м3/час`}
+                                                    </p>
+                                                </div>                                                                 
+                                            </li>
+                                        {/each}
                                     </ul>
                                 </span>
                             </div>
@@ -610,8 +533,7 @@
                         </div>
                         <div class="pl-3">
                             <p class="has-text-justified">
-                                По заданию филиала ООО «Мострансгаз» ОАО «Газпром» в 2005 г. выполнены проектные работы для строительства 
-                                газораспределительной станции АГРС «Суханово» производительностью 20000 м3/час.
+                                {$t('pipeline_reconstruction_page.project2_text')}
                             </p>
                         </div>                                                                 
                     </li>
@@ -621,8 +543,7 @@
                         </div>
                         <div class="pl-3">
                             <p class="has-text-justified">
-                                В рамках государственных программ по реконструкции федеральных трасс М5 «Урал», М7 «Волга», М9 «Балтия», 
-                                ЦКАД МО выполнены десятки проектов по переустройству и защите магистральных газопроводов, кабелей связи.
+                                {$t('pipeline_reconstruction_page.project3_text')}
                             </p>
                         </div>                                                                 
                     </li>
@@ -632,10 +553,7 @@
                         </div>
                         <div class="pl-3">
                             <p class="has-text-justified">
-                                В рамках Федеральной целевой программы «Развитие транспортной системы России (2010-2020 годы)» и Программой подготовки 
-                                к проведению в 2018 году в Российской Федерации чемпионата мира по футболу ООО «Энергия Плюс» выступала генеральной 
-                                проектной организацией по разработке проектно-сметной документации на вынос магистральных и распределительных 
-                                газопроводов, попадающих в зону строительства новой взлетно-посадочной полосы аэропорта «Шереметьево».
+                                {$t('pipeline_reconstruction_page.project4_text')}
                             </p>
                         </div>                                                                 
                     </li>                              
@@ -646,7 +564,7 @@
 
     <div style="text-align: center;">
         <ContactFormButton class="hiden2 button is-primary is-medium is-raunded button-raunded">
-            <div slot="button">Заказать проект</div>
+            <div slot="button">{$t('pipeline_reconstruction_page.order_project')}</div>
         </ContactFormButton>
     </div>
 
@@ -654,41 +572,41 @@
     <section class="section py-6 has-text-centered">
         <div class="container text-center">
             <div class="title titlefor">
-                <h2 class="">Алгоритм работы</h2>
+                <h2 class="">{$t('pipeline_reconstruction_page.workflow_title')}</h2>
             </div>
             <div class="columns is-desktop ">
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_01.png">
-                    <p class="logic__text svelte-rgyqg6">Бесплатная консультация</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step1')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_04.png">
-                    <p class="logic__text svelte-rgyqg6">Направляем коммерческое предложение в ответ на техническое задание</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step2')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6 vert"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_02.png">
-                    <p class="logic__text svelte-rgyqg6">Сбор исходно-разрешительной документации</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step3')}</p>
                 </div>
             </div>
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6 vert"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/gazoprovodi/podpis_icon.png">
-                    <p class="logic__text svelte-rgyqg6">Прохождение государственной экспертизы проектной документации</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step4')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6 left-item"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_09.png">
-                    <p class="logic__text svelte-rgyqg6">Получение необходимых согласований со всеми заинтересованными сторонами</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step5')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6 left-item"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/gazoprovodi/formirovanie_icon1.png"
                                                                         style="background: white;">
-                    <p class="logic__text svelte-rgyqg6">Формирование пакета проектной документации</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step6')}</p>
                 </div>
             </div>
             <div class="columns is-desktop">
@@ -696,12 +614,12 @@
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/gazoprovodi/formirovanie_icon2.png"
                                                                         style="background: white;">
-                    <p class="logic__text svelte-rgyqg6">Формирование пакета рабочей документации</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step7')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6 item-hide"><img alt=""
                                                                         class="logic__icon svelte-rgyqg6 mb-6"
                                                                         src="/images/kotel/icons/bmk_icon_05.png">
-                    <p class="logic__text svelte-rgyqg6">Сдача ПД и РД в производство работ</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('pipeline_reconstruction_page.step8')}</p>
                 </div>
                 <div class="column ">
                     
@@ -717,9 +635,9 @@
                     <img alt="Газопровод станция" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
                 </div>
                 <div class="column zayvka">
-                    <h4 class="title titlefor has-text-white">Отправить заявку</h4>
+                    <h4 class="title titlefor has-text-white">{$t('pipeline_reconstruction_page.form_title')}</h4>
                     <ContactForm/>
-                    <p class="is-size-7 has-text-centered has-text-white pt-3">Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных</p>
+                    <p class="is-size-7 has-text-centered has-text-white pt-3">{$t('pipeline_reconstruction_page.form_privacy')}</p>
                 </div>
             </div>
         </div>

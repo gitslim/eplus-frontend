@@ -8,6 +8,7 @@
     import * as icons from '@fortawesome/free-solid-svg-icons'
     import CalcResult from '$lib/components/calc/CalcResult.svelte'
     import {bitrixLead} from '$lib/utils.js'
+    import {t} from 'svelte-i18n'
 
     const dispatch = createEventDispatcher()
 
@@ -24,15 +25,15 @@
     $: {
         let _errs = {}
         if (vals.power === '')
-            _errs.power = 'Укажите мощность котельной'
+            _errs.power = $t('calculators.boiler.err_power')
         if (parseFloat(vals.power) < 0.4)
-            _errs.power = 'Минимальная мощность котельной 0.4 МВт'
+            _errs.power = $t('calculators.boiler.err_power_min')
         if (vals.name === '')
-            _errs.name = 'Введите имя'
+            _errs.name = $t('calculators.common.err_name')
         if (vals.phone === '') {
-            _errs.phone = 'Введите телефон'
+            _errs.phone = $t('calculators.common.err_phone')
         } else if (vals.phone.length < 10) {
-            _errs.phone = 'Введите 10 цифр номера'
+            _errs.phone = $t('calculators.common.err_phone_digits')
         }
 
         errs = _errs
@@ -97,7 +98,7 @@
             if (response.ok) {
                 console.debug('bitrix response', response)
             } else {
-                alert('Ошибка отправки формы. Попробуйте еще раз!')
+                alert($t('form.send_error'))
                 reset()
             }
         }
@@ -319,26 +320,24 @@
 <div class="container">
     {#if isCalculating}
         <div class="p-6 has-text-centered">
-            <span class="subtitle">Производим расчет</span>
+            <span class="subtitle">{$t('calculators.common.calculating')}</span>
             <progress class="progress is-small is-primary"></progress>
         </div>
     {:else if isDone}
-        <CalcResult {amount} on:complete={reset} text="Результат расчета"/>
+        <CalcResult {amount} on:complete={reset} text="{$t('calculators.common.result_title')}"/>
     {:else}
         <form on:submit={handleSubmit}>
-
-            <!--            <div class="is-divider" data-content="Внутриплощадочный газопровод"></div>-->
 
             {#if showType}
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Вид строительства:</label>
+                    <label class="label">{$t('calculators.boiler.const_type')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
                         <div class="field">
                             <input  type="radio" bind:group={$form.type} id="typeNew" name="typeNew" value="typeNew" class="is-checkradio is-medium" >
-                            <label for="typeNew">новое</label>
+                            <label for="typeNew">{$t('calculators.boiler.type_new')}</label>
                         </div>
                     </div>
                 </div>
@@ -352,7 +351,7 @@
                     <div class="field">
                         <div class="field">
                             <input  type="radio" bind:group={$form.type} id="typePer" name="typePer" value="typePer" class="is-checkradio is-medium" >
-                            <label for="typePer">тех. перевооружение</label>
+                            <label for="typePer">{$t('calculators.boiler.type_per')}</label>
                         </div>
                     </div>
                 </div>
@@ -366,7 +365,7 @@
                     <div class="field">
                         <div class="field">
                             <input  type="radio" bind:group={$form.type} id="typeRec" name="typeRec" value="typeRec" class="is-checkradio is-medium" >
-                            <label for="typeRec">реконструкция</label>
+                            <label for="typeRec">{$t('calculators.boiler.type_rec')}</label>
                         </div>
                     </div>
                 </div>
@@ -375,7 +374,7 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label" for="power">Мощность котельной, МВт</label>
+                    <label class="label" for="power">{$t('calculators.boiler.power_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
@@ -385,7 +384,7 @@
                                    use:imask={{mask: /^\d{0,3}[.,]{0,1}\d{0,3}$/}}
                                    class="input"
                                    class:is-danger={($touched.power || isDone) && errs.power}
-                                   placeholder="Мощность, МВт"
+                                   placeholder="{$t('calculators.boiler.power_placeholder')}"
                                    bind:value={$form.power}
                                    on:change={handleChange}
                                    on:blur={handleBlur}
@@ -406,13 +405,13 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Оборудование:</label>
+                    <label class="label">{$t('calculators.boiler.equipment_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
                         <div class="field">
                             <input  type="radio" bind:group={$form.hw} id="hwImport" name="hwImport" value="hwImport" class="is-checkradio is-medium" >
-                            <label for="hwImport">импортное</label>
+                            <label for="hwImport">{$t('calculators.boiler.hw_import')}</label>
                         </div>
                     </div>
                 </div>
@@ -426,7 +425,7 @@
                     <div class="field">
                         <div class="field">
                             <input  type="radio" bind:group={$form.hw} id="hwRus" name="hwRus" value="hwRus" class="is-checkradio is-medium" >
-                            <label for="hwRus">отечественное</label>
+                            <label for="hwRus">{$t('calculators.boiler.hw_rus')}</label>
                         </div>
                     </div>
                 </div>
@@ -434,11 +433,11 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Вид работ:</label>
+                    <label class="label">{$t('calculators.boiler.work_type')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="proj" value={$form.proj} on:change={handleChange}>проект</Switch>
+                        <Switch name="proj" value={$form.proj} on:change={handleChange}>{$t('calculators.boiler.proj')}</Switch>
                     </div>
                 </div>
             </div>
@@ -449,14 +448,14 @@
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="mont" value={$form.mont} on:change={handleChange}>монтаж</Switch>
+                        <Switch name="mont" value={$form.mont} on:change={handleChange}>{$t('calculators.boiler.mont')}</Switch>
                     </div>
                 </div>
             </div>
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label" for="userNameKotel">Ваше имя:</label>
+                    <label class="label" for="userNameKotel">{$t('calculators.common.name_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
@@ -466,7 +465,7 @@
                                    class="input"
                                    class:is-danger={($touched.name || isDone) && errs.name}
                                    use:imask={{mask: /^[А-яA-z]{0,30}$/}}
-                                   placeholder="Как к вам обращаться"
+                                   placeholder="{$t('calculators.common.name_placeholder')}"
                                    bind:value={$form.name}
                                    on:change={handleChange}
                                    on:blur={handleBlur}
@@ -491,7 +490,7 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label" for="userPhoneKotel">Телефон:</label>
+                    <label class="label" for="userPhoneKotel">{$t('calculators.common.phone_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field is-expanded">
@@ -508,12 +507,11 @@
                                        class:is-danger={($touched.phone || isDone) && errs.phone}
                                        type="tel"
                                        use:imask={{mask: /^\d{0,10}$/}}
-                                       placeholder="Максимум 10 цифр"
+                                       placeholder="{$t('calculators.common.phone_placeholder')}"
                                        bind:value={$form.phone}
                                        on:change={handleChange}
                                        on:blur={handleBlur}
                                 />
-                                <!--                        <span class="icon is-small is-left"><Icon icon="{icons.faPhone}"/></span>-->
                                 {#if ($touched.phone || isDone) && errs.phone}
                             <span class="icon is-small is-right has-text-danger">
                                 <Icon icon="{icons.faExclamationTriangle}"/>
@@ -540,7 +538,7 @@
                     <div class="field">
                         <div class="control">
                             <button type="submit" class="button is-primary is-rounded">
-                                Рассчитать
+                                {$t('calculators.common.submit_btn')}
                             </button>
                         </div>
                     </div>

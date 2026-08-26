@@ -4,8 +4,9 @@
   import SidebarRight from '$lib/components/SidebarRight.svelte'
   import {fetchEndpoint} from '$lib/utils'
 
-  export const load = async ({fetch, page}) => {
-      return await fetchEndpoint(fetch, '/ep/list-documents.json', {})
+  export const load = async ({fetch, page, session}) => {
+      const locale = session?.locale || 'ru'
+      return await fetchEndpoint(fetch, '/ep/list-documents.json', {locale})
   }
 </script>
 
@@ -19,27 +20,20 @@
         faFacebook,
     } from '@fortawesome/free-brands-svg-icons'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import { t } from 'svelte-i18n'
 
     export let data
-    let title = 'Нормативные документы'
-
-    const meta = {
-        title: "Нормативные документы. Газораспределение. Энергетика. Строительство",
-        description: "Нормативно-правовые документы. Регламенты по проектированию, строительству и эксплуатации. Опасные производственные объекты. ГОСТ, СНиП, регламенты для инженеров",
-        h1: "Нормативная база для строительства и проектирования. Газовая котельная. Дизельная котельная. Газопровод. БМК. Документы для инженеров и проектировщиков. Природный газ и дизельное топливо"
-    }
-
 </script>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('utility_pages.documents.meta_title')}" description="{$t('utility_pages.documents.meta_description')}"/>
+<HiddenH1>{$t('utility_pages.documents.meta_h1')}</HiddenH1>
 
 
 <main class="container pt-4">
     <section class="section">
         <div class="box">
-            <h2 class="title">{title}</h2>
+            <h2 class="title">{$t('utility_pages.documents.title')}</h2>
         </div>
 
         <div class="columns">

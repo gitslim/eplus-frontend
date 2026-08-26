@@ -13,15 +13,7 @@
     import LazyImage from 'svelte-lazy-image';
     import {Lightbox} from 'svelte-lightbox';
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
-
-    let title = 'ПРОЕКТИРОВАНИЕ ГАЗОПРОВОДОВ И ГРП'
-
-    const meta = {
-        title: "Проектирование газопроводов и ГРП",
-        description: "Разработка проектной документации для распределительных газопроводов и газорегуляторных пунктов. Изыскания, технико-экономическое обоснование, расчет сметы",
-        h1: "Газорегуляторный пункт для промышленного абонента. Газораспределительные сети. Проектирование, получение согласований, экспертиза документации. Расчет стоимости"
-    }
-
+    import {t} from 'svelte-i18n'
 </script>
 
 
@@ -396,17 +388,17 @@
 
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('gas_dist_grp_design_page.meta_title')}" description="{$t('gas_dist_grp_design_page.meta_description')}"/>
+<HiddenH1>{$t('gas_dist_grp_design_page.meta_h1')}</HiddenH1>
 
 <main>
 
     <section class="section hero caption">
         <div class="column hero-body">
-            <HeaderLanding caption="{title}">
+            <HeaderLanding caption="{$t('gas_dist_grp_design_page.title')}">
                 <div class="columns">
                     <div class="column is-half">
-                        <BtnZayavka btnText="Заказать" radius/>
+                        <BtnZayavka btnText="{$t('gas_dist_grp_design_page.order')}" radius/>
                     </div>
                 </div>
             </HeaderLanding>
@@ -417,24 +409,14 @@
         <div class="container content">
             <div class="columns">
                 <div class="column is-7">
-                    <img alt="Проект газопровода" src="/images/gazoprovodi/gazoprovod_grp2.jpg">
+                    <img alt={currentLocale === 'en' ? 'Gas pipeline design project' : 'Проект газопровода'} src="/images/gazoprovodi/gazoprovod_grp2.jpg">
                 </div>
                 <div class="column is-5 text-22">
-                    <p>Проектный отдел ООО «Энергия Плюс», уже более двух десятилетий успешно выполняет
-                        полный спектр работ по проектированию линейных объектов для всех видов строительства
-                        (новое строительство, реконструкция, капитальный ремонт, техническое перевооружение,
-                        консервация, ликвидация)
-                    </p>
+                    <p>{$t('gas_dist_grp_design_page.about_p1')}</p>
                 </div>
             </div>
-            <!--            <div class="column is-11">-->
-            <InfoBlock text="" subText="За годы работы мы накопили значительный опыт технических решений по переустройству
-                        (выносу, перекладке) действующих газопроводов, которые попадают в зону строительства
-                        автомобильных дорог и других объектов капитального строительства. В нашем портфолио
-                        также есть многочисленные примеры технических решений по устройству защитных
-                        мероприятий (футляров) на действующих газопроводах.">
+            <InfoBlock text="" subText="{$t('gas_dist_grp_design_page.about_sub')}">
             </InfoBlock>
-            <!--            </div>-->
         </div>
     </section>
     <section class="section tech-section bg-dark ">
@@ -443,37 +425,30 @@
                 <div class="content column">
                     <div class="container ">
                         <div class="px-6">
-                            <TitleLanding left white titleText="В раздел технологических решений входят"/>
+                            <TitleLanding left white titleText="{$t('gas_dist_grp_design_page.tech_title')}"/>
 
                             <div class="tech__content">
                                 <ul class="mb-5 list">
                                     <li class="list__item">
-                                        расчет схемы газоснабжения, подбор газового оборудования
+                                        {$t('gas_dist_grp_design_page.tech_item1')}
                                     </li>
                                     <li class="list__item">
-                                        разработка планов и профилей М1:1000, М1:500, М1:100
+                                        {$t('gas_dist_grp_design_page.tech_item2')}
                                     </li>
                                     <li class="list__item">
-                                        разработка проектов организации строительства
+                                        {$t('gas_dist_grp_design_page.tech_item3')}
                                     </li>
                                     <li class="list__item">
-                                        разработка ППР для закрытых переходов (методами ГНБ, микротоннелирования,
-                                        шнекового
-                                        бурения)
+                                        {$t('gas_dist_grp_design_page.tech_item4')}
                                     </li>
-                                    <li class="list__item">разработка проектов внутреннего газоснабжения</li>
-                                    <li class="list__item">подбор ГРП, ГРУ, ШРП заводской готовности</li>
-                                    <li class="list__item">выбор и расчет узлов учета газа</li>
-                                    <li class="list__item">антикоррозионая защита (СКЗ, протекторы)</li>
-                                    <li class="list__item">проект системы контроля загазованности</li>
-                                    <li class="list__item">проект системы диспетчеризации и телеметрии</li>
+                                    <li class="list__item">{$t('gas_dist_grp_design_page.tech_item5')}</li>
+                                    <li class="list__item">{$t('gas_dist_grp_design_page.tech_item6')}</li>
+                                    <li class="list__item">{$t('gas_dist_grp_design_page.tech_item7')}</li>
+                                    <li class="list__item">{$t('gas_dist_grp_design_page.tech_item8')}</li>
+                                    <li class="list__item">{$t('gas_dist_grp_design_page.tech_item9')}</li>
+                                    <li class="list__item">{$t('gas_dist_grp_design_page.tech_item10')}</li>
                                 </ul>
-                                <p>Для проектирования используется специализированное программное обеспечение,
-                                    позволяющее
-                                    создавать как двухмерные чертежи, так и визуализировать их трёхмерные модели.
-                                    Использование 3D-моделирования позволяет нам создавать более точные и функциональные
-                                    проекты, а также существенно сокращает время на согласование и реализацию проекта.
-                                </p>
+                                <p>{$t('gas_dist_grp_design_page.tech_software')}</p>
                                 <div class="objects-map ">
                                     <div class="objects-map__row">
                                         <div class="objects-map__item">
@@ -483,7 +458,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/map/object-map2.jpg'}
-                                                        alt={'Трасса газопровода'}/>
+                                                        alt={currentLocale === 'en' ? 'Gas pipeline route map' : 'Трасса газопровода'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -494,7 +469,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/gazoprovodi/gazoprovod_grp3.jpg'}
-                                                        alt={'Схема ГРП'}/>
+                                                        alt={currentLocale === 'en' ? 'Gas regulating point diagram' : 'Схема ГРП'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -505,7 +480,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/map/object-map5.jpg'}
-                                                        alt={'Магистральный газопровод на схеме'}/>
+                                                        alt={currentLocale === 'en' ? 'Main gas pipeline layout diagram' : 'Магистральный газопровод на схеме'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -517,7 +492,7 @@
                                                     <LazyImage
                                                         class="objects-map__img"
                                                         src={'/images/map/object-map3.jpg'}
-                                                        alt={'Газопровод на схеме'}/>
+                                                        alt={currentLocale === 'en' ? 'Gas pipeline on schematic map' : 'Газопровод на схеме'}/>
                                                 </figure>
                                             </Lightbox>
                                         </div>
@@ -539,7 +514,7 @@
             <div class="columns ">
                 <div class="content column is-10">
                     <div class="">
-                        <TitleLanding titleText="Калькуляторы расчета стоимости"/>
+                        <TitleLanding titleText="{$t('gas_dist_grp_design_page.calc_title')}"/>
                         <CalcTabs selected="gaz" classes="calc__tabs"/>
                     </div>
                 </div>
@@ -550,17 +525,16 @@
         <div class="container ">
             <div class="columns px-6">
                 <div class="column is-8">
-                    <TitleLanding left titleText="Наши услуги включают в себя" white/>
+                    <TitleLanding left titleText="{$t('gas_dist_grp_design_page.services_title')}" white/>
                     <ul class="solution__list">
                         <li class="solution__item">
-                            сбор всей необходимой исходно-разрешительной документации;
+                            {$t('gas_dist_grp_design_page.services_item1')}
                         </li>
                         <li class="solution__item">
-                            проведение инженерных изысканий;
+                            {$t('gas_dist_grp_design_page.services_item2')}
                         </li>
                         <li class="solution__item">
-                            разработку и согласование проектной документации в
-                            надзорных органах, таких как АО "Мосгаз", АО "Мособлгаз", ПАО "Газпром" и других ГРО
+                            {$t('gas_dist_grp_design_page.services_item3')}
                         </li>
                     </ul>
                 </div>
@@ -573,9 +547,7 @@
                 </div>
                 <div class="column is-11">
                     <p class="text-light ">
-                        Проектная документация выполняется в строгом соответствии с Заданием на проектирование,
-                        требованиями Постановления Правительства РФ №87, включая техническое сопровождение в органах
-                        экспертизы до получения положительного заключения.</p>
+                        {$t('gas_dist_grp_design_page.services_compliance')}</p>
                 </div>
             </div>
         </div>
@@ -588,62 +560,26 @@
                         <div class="flex-row">
                             <img width="100px" src="/images/bmk/bmk_icon_02.png"/>
 
-                            <p class=""> Рабочая документация и авторский надзор выполняются в объеме,
-                                необходимом для
-                                качественного
-                                производства строительно-монтажных работ. </p>
+                            <p class="">{$t('gas_dist_grp_design_page.docs_work_doc')}</p>
                         </div>
                         <div class="flex-row ">
                             <img width="100px" src="/images/bmk/bmk_icon_04.png"/>
 
                             <div>
-                                <p>По желанию Заказчика мы выполняем функции
-                                    Генерального проектировщика или Технического заказчика строительства и обеспечиваем
-                                    выполнение вспомогательных разделов :</p>
+                                <p>{$t('gas_dist_grp_design_page.docs_gen_role')}</p>
 
                                 <ul class="mb-5 list">
-                                    <li class="list__item"> Мероприятия по охране окружающей среды</li>
-                                    <li class="list__item"> Мероприятия по пожарной безопасности</li>
-                                    <li class="list__item"> Мероприятия по ГО и ЧС</li>
-                                    <li class="list__item"> Требования к безопасной эксплуатации объекта капитального
-                                        строительства
-                                    </li>
-                                    <li class="list__item"> Промышленная безопасность</li>
-                                    <li class="list__item"> Обеспечение сохранности объектов археологического и
-                                        культурного
-                                        наследия
-                                    </li>
-                                    <li class="list__item"> Проект организации дорожного движения</li>
-                                    <li class="list__item"> Сметная документация</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item1')}</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item2')}</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item3')}</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item4')}</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item5')}</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item6')}</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item7')}</li>
+                                    <li class="list__item"> {$t('gas_dist_grp_design_page.docs_item8')}</li>
                                 </ul>
                             </div>
                         </div>
-                        <!--                        <div class="objects-map ">-->
-                        <!--                            <div class="objects-map__row">-->
-                        <!--                                <div class="objects-map__item">-->
-                        <!--                                    <Lightbox noScroll="false"-->
-                        <!--                                              modalClasses="pipu">-->
-                        <!--                                        <figure class="image">-->
-                        <!--                                            <LazyImage-->
-                        <!--                                                class="objects-map__img"-->
-                        <!--                                                src={'/images/map/object-map.png'}-->
-                        <!--                                                alt={'Проект 2'}/>-->
-                        <!--                                        </figure>-->
-                        <!--                                    </Lightbox>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="objects-map__item">-->
-                        <!--                                    <Lightbox noScroll="false"-->
-                        <!--                                              modalClasses="pipu">-->
-                        <!--                                        <figure class="image">-->
-                        <!--                                            <LazyImage-->
-                        <!--                                                class="objects-map__img"-->
-                        <!--                                                src={'/images/map/object-map4.png'}-->
-                        <!--                                                alt={'Проект 2'}/>-->
-                        <!--                                        </figure>-->
-                        <!--                                    </Lightbox>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -655,14 +591,7 @@
                         <div class="px-6  ">
                             <div class="flex-row">
                                 <img src="/images/itc_ctp/i_bezopasnost128.png"/>
-                                <p>Наш подход позволяет нам гарантировать качество и
-                                    надежность
-                                    проектных решений, а также
-                                    своевременное и эффективное выполнение всех работ. <br>Мы гордимся нашим опытом и
-                                    репутацией, и
-                                    всегда рады помочь нашим клиентам в реализации проектов по газораспределению и
-                                    газопотреблению.
-                                </p>
+                                <p>{@html $t('gas_dist_grp_design_page.quality_text')}</p>
                             </div>
                         </div>
                     </div>
@@ -675,13 +604,12 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-6 order-form__img-container">
-                    <img alt="Прокладка газопровода" src="\images\gazoprovodi\gazoprovod-build.jpg"/>
+                    <img alt={currentLocale === 'en' ? 'Gas pipeline construction' : 'Прокладка газопровода'} src="\images\gazoprovodi\gazoprovod-build.jpg"/>
                 </div>
                 <div class="column">
-                    <h4 class="title has-text-white">Отправить заявку</h4>
+                    <h4 class="title has-text-white">{$t('gas_dist_grp_design_page.form_title')}</h4>
                     <ContactForm/>
-                    <p class="is-size-7 has-text-white pt-3">Нажимая кнопку "Отправить", я даю свое
-                        согласие на обработку моих персональных данных</p>
+                    <p class="is-size-7 has-text-white pt-3">{$t('gas_dist_grp_design_page.form_privacy')}</p>
                 </div>
             </div>
         </div>

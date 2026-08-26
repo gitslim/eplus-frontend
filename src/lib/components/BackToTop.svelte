@@ -1,6 +1,7 @@
 <script>
     import Icon from 'fa-svelte'
     import {faChevronUp} from '@fortawesome/free-solid-svg-icons'
+    import {t} from 'svelte-i18n'
 
     export let showOnPx = 800
     let hidden = true
@@ -42,5 +43,5 @@
     <span class="icon">
         <Icon icon={faChevronUp}/>
     </span>
-    <span>Наверх</span>
+    <span>{$t('common.to_top')}</span>
 </button>

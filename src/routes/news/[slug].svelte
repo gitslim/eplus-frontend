@@ -2,9 +2,10 @@
     import SvelteSeo from 'svelte-seo'
     import {fetchEndpoint} from '$lib/utils'
 
-    export const load = async ({fetch, page}) => {
+    export const load = async ({fetch, page, session}) => {
         const {slug} = page.params
-        return await fetchEndpoint(fetch, '/ep/get-news-article-by-slug.json', {slug})
+        const locale = session?.locale || 'ru'
+        return await fetchEndpoint(fetch, '/ep/get-news-article-by-slug.json', {slug, locale})
     }
 </script>
 

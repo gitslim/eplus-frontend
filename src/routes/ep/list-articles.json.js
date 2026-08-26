@@ -3,11 +3,12 @@ import {client, gql} from '$lib/apollo'
 
 
 export const post = async request => {
+    const locale = request.body?.locale || 'ru'
 
     try {
         const query = gql`
-  query {
-    articles(sort: "date:desc") {
+  query($locale: String!) {
+    articles(sort: "date:desc", locale: $locale) {
       slug
       title
       image {
@@ -21,6 +22,7 @@ export const post = async request => {
 
         const result = await client.query({
             query,
+            variables: {locale},
             fetchPolicy: 'network-only'
         })
 

@@ -2,9 +2,10 @@
     import SvelteSeo from 'svelte-seo'
     import {fetchEndpoint} from '$lib/utils'
 
-    export const load = async ({fetch, page}) => {
+    export const load = async ({fetch, page, session}) => {
         const {slug} = page.params
-        return await fetchEndpoint(fetch, '/ep/get-article-by-slug.json', {slug})
+        const locale = session?.locale || 'ru'
+        return await fetchEndpoint(fetch, '/ep/get-article-by-slug.json', {slug, locale})
     }
 </script>
 
@@ -12,6 +13,7 @@
     import DynamicZone from '$lib/components/DynamicZone.svelte'
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
+    import {t} from 'svelte-i18n'
 
     export let data
 
@@ -19,14 +21,14 @@
      * TODO Временно. Удалить после добавления полей description и h1 в STRAPI
      */
     let meta = {
-        title:data.article.title, description: data.article.title, h1: data.article.title
+        title: data.article.title, description: data.article.title, h1: data.article.title
     }
 
-    if (data.article.slug === "pochemu-sostavlenie-smetnoj-dokumentacii-neobhodimo-poruchat-tolko-razrabotchiku-proekta-a-ne-frilanseru-ili-storonnemu-smetnomu-byuro") {
+    if (data.article.slug === "pochemu-sostavlenie-smetnoj-dokumentacii-neobhodimo-poruchat-tolko-razrabotchiku-proekta-a-ne-frilanseru-ili-storonnemu-smetnomu-byuro" || data.article.slug === "why-cost-estimation-documentation-must-be-entrusted-only-to-the-project-developer") {
         meta = {
-            title: 'Сметная документация. Котельные и газопроводы. Особенности составления сметы. Почему доверить смету лучше разработчику проекта',
-            description: 'Сметную документацию для объекта энергетики лучше доверить специалистам, разрабатывающим проект. Материал написан опытным энергетиком. Более 20 лет работы со сметами',
-            h1: 'Разработка сметной документации для котельной или газопровода требует полного погружения в специфику проекта. «Энергия Плюс» — сметы для промышленного объекта любой сложности'
+            title: $t('articles_page.meta_estimate_title'),
+            description: $t('articles_page.meta_estimate_desc'),
+            h1: $t('articles_page.meta_estimate_h1')
         }
     }
 </script>

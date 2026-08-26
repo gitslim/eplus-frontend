@@ -6,17 +6,16 @@
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import { t } from 'svelte-i18n'
+    import { session } from '$app/stores'
 
-    const meta = {
-        title: "Рассчитать стоимость котельной. Рассчитать стоимость газопровода",
-        description: "Выполнить расчет стоимости газопровода любого давления. Выполнить расчет стоимости промышленной котельной онлайн. Консультация и расчет",
-        h1: "Расчет стоимости газовой, дизельной промышленной котельной онлайн. Расчет стоимости газопровода онлайн. Стоимость газопровода. Стоимость котельной. Москва"
-    }
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 </script>
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<SvelteSeo title="{$t('utility_pages.calculate_cost.meta_title')}" description="{$t('utility_pages.calculate_cost.meta_description')}"/>
 
-<HiddenH1>{meta.h1}</HiddenH1>
+<HiddenH1>{$t('utility_pages.calculate_cost.meta_h1')}</HiddenH1>
 
 <style lang="scss">
   .content-block {
@@ -59,19 +58,17 @@
             <section>
                 <div class="widget">
                     <h2 class="title">
-                        <span><span>Калькуляторы расчета</span></span>
+                        <span><span>{$t('utility_pages.calculate_cost.title')}</span></span>
                         <span class="heading-line"></span>
                     </h2>
                 </div>
                 <div class="builder-element-inside">
                     <div class="builder-element-children-wrapper">
                         <h3>
-                            <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет стоимости
-                                газопровода</a>
+                            <a href="{p}/page/kalkulyator-rascheta-stoimosti-gazoprovoda">{$t('utility_pages.calculate_cost.pipeline_calc_title')}</a>
                         </h3>
                         <h3>
-                            <a href="/page/kalkulyator-rascheta-stoimosti-stroitelstva-i-proektirovaniya-kotelnoj">Расчет стоимости
-                                котельной</a>
+                            <a href="{p}/page/kalkulyator-rascheta-stoimosti-stroitelstva-i-proektirovaniya-kotelnoj">{$t('utility_pages.calculate_cost.boiler_calc_title')}</a>
                         </h3>
                     </div>
                 </div>

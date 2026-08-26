@@ -1,0 +1,62 @@
+{
+  "utility_pages": {
+    "poleznoe": {
+      "meta_title": "Useful Materials for Boiler House & Gas Pipeline Engineering & Procurement",
+      "meta_description": "Expert engineering reference materials, regulatory norms and standards, and online calculators for boiler and pipeline construction.",
+      "meta_h1": "Boiler plant and gas pipeline design and construction. Permitting, expert reviews, engineering technical reference materials.",
+      "title": "Resources & Knowledge",
+      "faq": "Frequently Asked Questions (FAQ)",
+      "calculators": "Engineering Calculators",
+      "pipeline_calc": "Gas Pipeline Calculation",
+      "boiler_calc": "Boiler Plant Calculation",
+      "documents": "Regulatory & Technical Standards",
+      "articles": "Engineering Articles"
+    },
+    "calculate_cost": {
+      "meta_title": "Calculate Boiler Plant Cost. Calculate Gas Pipeline Cost Online",
+      "meta_description": "Online estimation of industrial gas pipelines and boiler houses across all pressures and capacities. Expert consultation and quotes.",
+      "meta_h1": "Online cost estimation for industrial gas and diesel boiler rooms and gas pipelines. Turnkey capital expenditure calculations.",
+      "title": "Cost Calculators",
+      "pipeline_calc_title": "Gas Pipeline Cost Calculator",
+      "boiler_calc_title": "Boiler House Cost Calculator"
+    },
+    "special_offers": {
+      "meta_title": "Special Offers. Boiler Modernization. On-Site Gas Networks. Modular Boilers",
+      "meta_description": "Exclusive terms on block-modular boiler plants, technical upgrades of industrial boiler rooms, on-site gas distribution lines, and rapid delivery.",
+      "meta_h1": "Gas pipeline engineering, industrial boiler upgrades, hazardous facility registration, equipment selection, turnkey delivery.",
+      "title": "Special Offers",
+      "item1": "Boiler House Technical Upgrades & Retrofitting",
+      "item2": "On-Site & Internal Gas Pipelines",
+      "item3": "Containerized Boiler Rooms In-Stock"
+    },
+    "documents": {
+      "meta_title": "Regulatory & Technical Standards. Gas Distribution. Power & Heat. Construction",
+      "meta_description": "Statutory codes, GOST, SNiP standards, and technical regulations for engineering design, construction, and operation of hazardous industrial facilities.",
+      "meta_h1": "Regulatory and technical framework for industrial boiler houses and gas pipelines. Codes and standards for engineers and project managers.",
+      "title": "Regulatory Documents"
+    },
+    "faq": {
+      "meta_title": "Frequently Asked Questions. Boiler Plants, Gas Pipelines, Regulatory Compliance",
+      "meta_description": "Answers to critical questions regarding design, construction, and operation of industrial gas pipelines and boiler rooms.",
+      "meta_h1": "Technical questions on gas pipelines, working drawings, statutory approvals, and industrial safety regulations.",
+      "title": "Frequently Asked Questions",
+      "all_questions": "All Questions",
+      "consult_btn": "Get Detailed <br> Expert Consultation"
+    },
+    "news": {
+      "meta_title": "Energy & Gas Industry News. Engineering Codes & Regulations. Energy Plus Updates",
+      "meta_description": "Industry news on gasification, industrial boiler plants, energy centers, and power grid developments.",
+      "meta_h1": "Energy sector news in Russia and globally. Oil & gas developments, regulatory updates, and technical insights.",
+      "title": "News"
+    },
+    "articles": {
+      "meta_title": "Engineering Articles. Natural Gas. Energy & Heat Supply",
+      "meta_description": "Technical insights on industrial heat supply, plant gasification, and energy efficiency by expert engineers.",
+      "meta_h1": "Technical and managerial articles for engineers, energy managers, and industrial plant owners.",
+      "title": "Articles"
+    },
+    "search": {
+      "title": "Site Search"
+    }
+  }
+}

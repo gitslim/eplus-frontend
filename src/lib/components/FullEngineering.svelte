@@ -5,6 +5,7 @@
     import LazyImage from 'svelte-lazy-image'
     import {showModal} from '$lib/stores'
     import BtnZayavka from '$lib/components/BtnZayavka.svelte'
+    import {t} from 'svelte-i18n'
 </script>
 
 
@@ -12,39 +13,39 @@
     <div class="column is-5">
         <figure class="image is-4by3">
             <LazyImage
-                    alt="Инжиниринг полного цикла в энергетике"
+                    alt="{$t('full_engineering.img_alt')}"
                     src="/images/Инжиниринг полного цикла.png"/>
         </figure>
     </div>
     <div class="column is-6 is-offset-1">
-        <h2 class="title is-2">Инжиниринг полного цикла</h2>
-        <h3 class="subtitle is-4">Наши преимущества</h3>
+        <h2 class="title is-2">{$t('full_engineering.title')}</h2>
+        <h3 class="subtitle is-4">{$t('full_engineering.subtitle')}</h3>
 
         <ul>
             <li>
                 <Icon class="icon has-text-primary" icon={faBurn}/>
-                Получение тех. возможности подачи газа
+                {$t('full_engineering.adv1')}
             </li>
             <li>
                 <Icon class="icon has-text-primary" icon={faDraftingCompass}/>
-                Оптимальные технические решения в 2D, 3D
+                {$t('full_engineering.adv2')}
             </li>
             <li>
                 <Icon class="icon has-text-primary" icon={faBattleNet}/>
-                Комплексные проекты энергообеспечения
+                {$t('full_engineering.adv3')}
             </li>
             <li>
                 <Icon class="icon has-text-primary" icon={faUserShield}/>
-                Своевременная сдача результата работ
+                {$t('full_engineering.adv4')}
             </li>
             <li>
                 <Icon class="icon has-text-primary" icon={faMedal}/>
-                Гарантия положительного заключения экспертизы
+                {$t('full_engineering.adv5')}
             </li>
         </ul>
 
         <p class="has-text-centered pt-6">
-            <BtnZayavka btnText="Заказать проект"/>
+            <BtnZayavka btnText="{$t('full_engineering.btn')}"/>
         </p>
     </div>
 </div>

@@ -28,6 +28,3 @@ Disallow: /*?utm_*
 Disallow: /*?_openstat=*
 
 Sitemap: https://xn--c1adkmgpem4hrai.xn--p1ai/sitemap.xml
-```
-
----

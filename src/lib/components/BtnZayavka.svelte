@@ -1,12 +1,15 @@
 <script>
     import Modal from '$lib/components/Modal.svelte'
     import ContactForm from '$lib/components/ContactForm.svelte'
+    import {t} from 'svelte-i18n'
 
-    export let btnText = 'Заказать',
+    export let btnText = '',
         radius = false,
         btnWhite
 
     let isFormSubmitted
+
+    $: resolvedBtnText = btnText || $t('common.order') || 'Заказать'
 
     function handleSuccessSubmit(event) {
         window.ym(54841009, 'reachGoal', 'lidformsiteyagtm')
@@ -101,17 +104,17 @@
 <Modal>
     <div class="btn-wrap" slot="trigger" let:open>
         <a href="/" class="btn__zayavka {radius ? 'btn__zayavka-radius' : ''}{btnWhite ? 'btn-white' : ''}"
-           on:click|preventDefault={()=>{open()}}>{btnText}</a>
+           on:click|preventDefault={()=>{open()}}>{resolvedBtnText}</a>
     </div>
     <div slot="content" class="modal-content" let:store={{close}}>
         <div class="box">
             {#if isFormSubmitted}
                 <div class="notification is-light is-success">
                     <button class="delete" on:click={close}></button>
-                    Ваша заявка принята. Мы свяжемся с вами в ближайшее время.
+                    {$t('form.request_accepted')}
                 </div>
             {:else}
-                <h1 class="title align-content-center">Оставить заявку</h1>
+                <h1 class="title align-content-center">{$t('form.leave_request')}</h1>
                 <ContactForm on:success={handleSuccessSubmit}/>
             {/if}
         </div>

@@ -1,8 +1,13 @@
 <script>
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
+
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 </script>
 
 <svelte:head>
-    <title>Спасибо за заявку! | ООО Энергия Плюс</title>
+    <title>{$t('thanks.page_title')}</title>
 </svelte:head>
 
 <div id="ep-thanks-page">
@@ -16,13 +21,13 @@
                     </svg>
                 </div>
                 
-                <h1 class="thanks-title">Спасибо за Вашу заявку!</h1>
+                <h1 class="thanks-title">{$t('thanks.title')}</h1>
                 <p class="thanks-subtitle">
-                    Ваши данные успешно отправлены. Наши специалисты свяжутся с Вами в самое ближайшее время для уточнения деталей.
+                    {$t('thanks.message')}
                 </p>
                 
                 <div class="thanks-btn-wrap">
-                    <a href="/" class="btn-home">Вернуться на главную</a>
+                    <a href="{p}/" class="btn-home">{$t('thanks.go_home')}</a>
                 </div>
             </div>
         </div>

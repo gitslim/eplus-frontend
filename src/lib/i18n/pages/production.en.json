@@ -1,0 +1,31 @@
+{
+  "production_page": {
+    "meta_title": "MANUFACTURING of Boiler Houses under Factory Conditions",
+    "meta_description": "In-house manufacturing of boiler houses in factory conditions. Reliability, high quality, and assembly speed. Factory tours available.",
+    "meta_h1": "Manufacturing of Boiler Houses under Factory Conditions",
+    "caption": "MANUFACTURING",
+    "subtitle": "of boiler houses under factory conditions",
+    "order_boiler": "ORDER A BOILER HOUSE",
+    "adv_title": "ADVANTAGES OF FACTORY ASSEMBLY",
+    "adv_subtitle": "For modular block boiler houses, factory assembly is a key argument in favor of reliability and speed",
+    "adv_item1": "Continuous quality control of workmanship: welds, joints, and connections",
+    "adv_item2": "Assembly is carried out in optimal controlled conditions, eliminating corrosive weather effects on construction and installation",
+    "adv_item3": "Compact technical solutions: simplified site selection for the placement and operation of hazardous production facilities",
+    "adv_item4": "Rapid erection speed of the boiler house at the customer's site",
+    "adv_item5": "Simplified logistics (especially critical for remote and hard-to-reach areas)",
+    "about_title": "ABOUT THE PRODUCTION FACILITY",
+    "loc_title": "Location",
+    "loc_value": "Moscow Region, Shchelkovo",
+    "stat1_unit": "m²",
+    "stat1_desc": "Production Area",
+    "stat2_unit": "units/mo",
+    "stat2_desc": "Production Capacity",
+    "stat3_unit": "units",
+    "stat3_desc": "Warehouse Capacity",
+    "stat4_unit": "people",
+    "stat4_desc": "Staff Count",
+    "tour_btn": "Book a Factory Tour",
+    "worker_alt": "Specialist in protective helmet",
+    "factory_alt": "Inside the production facility"
+  }
+}

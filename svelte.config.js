@@ -27,7 +27,7 @@ const config = {
         vite: {
             define: {__DEV__: dev},
             ssr: {
-                noExternal: Object.keys(pkg.dependencies || {})
+                noExternal: Object.keys(pkg.dependencies || {}).filter(dep => dep !== 'svelte-i18n' && dep !== 'deepmerge')
             }
         },
         // vite: { optimizeDeps: { include: ['@apollo'] }}

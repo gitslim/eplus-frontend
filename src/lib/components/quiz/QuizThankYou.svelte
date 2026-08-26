@@ -1,5 +1,6 @@
 <script>
     import {createEventDispatcher} from 'svelte'
+    import {t} from 'svelte-i18n'
 
     const dispatch = createEventDispatcher()
 
@@ -17,7 +18,7 @@
 {/if}
 
 <div class="subtitle has-text-centered has-text-dark">
-    <span>Уточнить детали можно по телефону</span>
+    <span>{$t('calculators.quiz.clarify_details')}</span>
     <br/>
     <a rel="external"
        class="has-text-centered has-text-primary zphone"
@@ -27,6 +28,6 @@
 </div>
 <div class="field has-text-centered">
     <div class="control">
-        <a class="button is-primary" on:click={handleClick}>Начать сначала</a>
+        <a class="button is-primary" on:click={handleClick}>{$t('calculators.quiz.start_over')}</a>
     </div>
 </div>

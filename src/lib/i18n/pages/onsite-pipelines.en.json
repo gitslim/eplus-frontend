@@ -1,0 +1,22 @@
+{
+  "onsite_pipelines_page": {
+    "title": "On-Site and Internal Gas Pipelines",
+    "meta_title": "On-Site and Internal Gas Pipelines. Pipeline Design. Cost Calculation",
+    "meta_description": "Gas pipeline design. Engineering surveys. Budget documentation. Distribution pipelines. Cooperation with Mosgaz, Mosoblgaz, Gazprom. Approvals",
+    "meta_h1": "On-Site and Internal Gas Pipelines for Industrial Facilities. Cost Estimates. Expert Examination and Approvals. Technical Specifications for Connection. Pipeline Design",
+    "order": "Order",
+    "info_text": "Under current connection regulations, all duties and responsibilities for connection within the plot boundaries rest with the developer-customer, rather than the gas distribution organization.",
+    "info_sub": "With the approval of the connection rules for capital construction projects to gas distribution networks, connection activities within the plot boundary are carried out by the applicant (developer), while activities up to the plot boundary are performed by the gas distribution organization.",
+    "section_title": "What does connection within the land plot boundaries involve for the applicant?",
+    "section_desc": "Activities involve engineering design and construction by the applicant of on-site gas pipelines, corrosion protection systems, gas pressure regulation stations, metering units, internal piping, gas pressure regulating devices, and automated safety and combustion control systems.",
+    "item1": "On-site gas pipeline - a section of distribution pipeline (inlet) located inside the industrial grounds of an enterprise, supplying gas to consumers.",
+    "item2": "Internal gas pipeline - a pipeline routed inside a building from the inlet (on-site) pipeline to the gas-consuming equipment.",
+    "item3": "Gas pressure reduction unit - a technological device of gas distribution and consumption networks designed to reduce gas pressure and maintain it within specified limits regardless of flow rate.",
+    "item4": "Gas metering station - an integrated set of measuring instruments that converts sensor output under operating conditions, measures stream/medium parameters, and calculates gas volume and flow rate normalized to standard conditions.",
+    "help_desc": "Along with prompt execution of works, we provide comprehensive expert support:",
+    "help_step1": "Technical Support",
+    "help_step2": "Legal Support",
+    "help_step3": "Author's Supervision",
+    "cost_calc": "COST ESTIMATE"
+  }
+}

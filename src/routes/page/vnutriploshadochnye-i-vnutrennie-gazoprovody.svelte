@@ -17,14 +17,11 @@
     import LazyImage from 'svelte-lazy-image'
     import {Lightbox} from 'svelte-lightbox'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
- let title = 'Газоснабжение'
-
-    const meta = {
-        title: "Проектирование внутриплощадочного и внутреннего газопровода",
-        description: "Разработка проектной и рабочей документации для внутриплощадочного газопровода. Узел учета газа. Пункт редуцирования газа. Гарантия качества",
-        h1: "Газоснабжение промышленного объекта. Расчет стоимости проекта газопровода. УУГ и ПРГ. Экспертиза от профессионалов."
-    }
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 
     onMount(async () => {
 
@@ -613,8 +610,8 @@
 
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('onsite_internal_pipelines_page.meta_title')}" description="{$t('onsite_internal_pipelines_page.meta_description')}"/>
+<HiddenH1>{$t('onsite_internal_pipelines_page.meta_h1')}</HiddenH1>
 
 <main>
     
@@ -623,21 +620,21 @@
             <div class="columns">
                 <div class="column is-7 udal ">
                     <h2 style="font-size: 60px" class="has-text-white has-text-weight-medium title titlefor">
-                        Газоснабжение
+                        {$t('onsite_internal_pipelines_page.hero_title')}
                     </h2>
                     <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">
-                        ПРОМЫШЛЕННЫХ и ГРАЖДАНСКИХ ОБЪЕКТОВ
+                        {$t('onsite_internal_pipelines_page.hero_subtitle')}
                     </h2>
                     <div align="">
 
                         <Modal>
                             <div class="" slot="trigger" let:open >
                                 <button class="button-ssilka" on:click={()=>{open()}}>
-                                    Онлайн расчет стоимости газоснабжения объекта
+                                    {$t('onsite_internal_pipelines_page.online_calc_btn')}
                                 </button>
                             </div>
                             <div slot="content" class="modal-content" let:store={{close}}>
-                                <QuizArea title="Онлайн расчет стоимости газоснабжения объекта" quizId={1}/>
+                                <QuizArea title="{$t('onsite_internal_pipelines_page.online_calc_btn')}" quizId={1}/>
                             </div>
                         </Modal>
                     </div>
@@ -658,50 +655,40 @@
     <section class="section">
         <div class="container pt-3 text-center">
             <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-                ПОДКЛЮЧЕНИЕ ОБЪЕКТА К ГАЗОВЫМ СЕТЯМ
+                {$t('onsite_internal_pipelines_page.connection_section_title')}
             </h2>
             <div class="columns is-vcentered pt-5">
                 <div class="column is-4 hiden1">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="ГРПШ" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt={currentLocale === 'en' ? 'Gas regulating cabinet (GRPSH)' : 'ГРПШ'} style="max-width:450px;"/>
                     </div>
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
                     <span>
                         <p>
-                            Вопрос <b><span style="color: rgb(195, 83, 28);">подключения к сетям газоснабжения</span></b> существующего либо проектируемого объекта 
-                            <b><span style="color: rgb(195, 83, 28);">потребует привлечения к решению задачи специалистов, 
-                            имеющих профессиональные знания и опыт в области промышленной безопасности</span></b>, поскольку речь идет о строительстве и эксплуатации опасного 
-                            производственного объекта. В реализации таких проектов <b><span style="color: rgb(195, 83, 28);">задействованы инженеры всех строительных 
-                            специальностей</span></b>, а их работа контролируется 
-                            службами технического и строительного надзоров, в том числе Ростехнадзором РФ.
+                            {@html $t('onsite_internal_pipelines_page.conn_p1')}
                         </p>
                     </span>
                 </div>
                 <div class="column is-4 hiden2">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt="ГРПШ" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/profi.jpg" alt={currentLocale === 'en' ? 'Gas regulating cabinet (GRPSH)' : 'ГРПШ'} style="max-width:450px;"/>
                     </div>
                 </div>
             </div>
             <div class="columns is-vcentered pt-5">
                 <div class="column is-4">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок13.jpg" alt="ГРП" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок13.jpg" alt={currentLocale === 'en' ? 'Gas regulating station (GRP)' : 'ГРП'} style="max-width:450px;"/>
                     </div>
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
                     <span>
                         <p class="pb-2">
-                            Процедура газоснабжения, как правило, включает в себя комплекс мероприятий, выполняемых газоснабжающей организацией, а также 
-                            мероприятиями, выполняемых Заявителем. Согласно Правил подключения (технологического присоединения) объектов капитального 
-                            строительства к газораспределительным сетям (Постановления РФ от 13.09.21 №1547)  мероприятия по подключению в пределах границ 
-                            земельного участка осуществляются Заявителем (Заказчиком-застройщиком).
+                            {$t('onsite_internal_pipelines_page.conn_p2_1')}
                         </p>
                         <p>
-                            Компания <b><span style="color: rgb(195, 83, 28);">«Энергия Плюс» выполняет полный комплекс мероприятий по проектированию и строительству систем наружного и внутреннего 
-                            газоснабжения Вашего предприятия</span></b>, начиная с расчета годового потребления газового топлива до ввода объекта в промышленную 
-                            эксплуатацию.
+                            {@html $t('onsite_internal_pipelines_page.conn_p2_2')}
                         </p>
                     </span>
                 </div>
@@ -709,25 +696,19 @@
             <div class="columns is-vcentered py-5">
                 <div class="column is-4 hiden1">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt="Проектирование" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt={currentLocale === 'en' ? 'Gas pipeline design' : 'Проектирование'} style="max-width:450px;"/>
                     </div>
                 </div>
                 <div class="column has-text-justified has-text-weight-semibold">
                     <span>
                         <p>
-                            В некоторых случаях по соглашению с газоснабжающей организацией ООО «Энергия Плюс» выступает в роли 
-                            <b><span style="color: rgb(195, 83, 28);">единого Исполнителя на проектирование и строительство, как внутриплощадочного, 
-                            так и внеплощадочного газопровода</span></b>. В этих случаях помимо 
-                            технологических и конструктивных  решений наша организация оформляет всю необходимую исходно-разрешительную и землеустроительную 
-                            документацию, выполняет инженерные изыскания, разрабатывает проектную и рабочую документацию на весь газопровод, как на линейный 
-                            объект, а также осуществляет процесс согласования проектной документации с заинтересованными организациям, региональными 
-                            и федеральными органами власти, включая получение положительного заключения государственной/негосударственной экспертизы.
+                            {@html $t('onsite_internal_pipelines_page.conn_p3')}
                         </p>
                     </span>
                 </div>
                 <div class="column is-4 hiden2">
                     <div class="image-box" style="height: 250px;">
-                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt="Проектирование" style="max-width:450px;"/>
+                        <img class="image-box__item" src="/images/interGazoprovod/soglas.jpg" alt={currentLocale === 'en' ? 'Gas pipeline design' : 'Проектирование'} style="max-width:450px;"/>
                     </div>
                 </div>
             </div>  
@@ -739,28 +720,16 @@
         <div class="hero-body">
             <div class="container pad text-center">
                 <h2 class="title titlefor has-text-centered has-text-white">
-                    Объекты которые мы газифицируем
+                    {$t('onsite_internal_pipelines_page.objects_section_title')}
                 </h2>
-                <!-- <div class="hero2__text">
-                    <p class="has-text-justified has-text-weight-medium">
-                        Процесс <b>газоснабжения</b> подразумевает собой комплекс мероприятий по подключению Заявителя 
-                        к газораспределительным сетям, а также строительство <b>внутренних и внутриплощадочных 
-                        газопроводов.</b> Согласно Правил подключения (технологического присоединения) объектов 
-                        капитального строительства к газораспределительным сетям (Постановления 
-                        РФ от 13.09.21 №1547) мероприятия по подключению в пределах границ земельного 
-                        участка осуществляются заявителем (заказчиком-застройщиком). Компания «Энергия плюс» 
-                        оказывает <b>полный комплекс работ</b> по получению исходно-разрешительной документации, 
-                        проектированию, монтажу, наладке и сдаче в эксплуатацию систем газоснабжения.
-                    </p>
-                </div>                 -->
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
                             <div class="tile is-child is-vertical box">
                                 <figure class="image">
-                                    <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок3.jpg" alt="Газоснабжение ЖК"/>
+                                    <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок3.jpg" alt={currentLocale === 'en' ? 'Residential complex gas supply' : 'Газоснабжение ЖК'}/>
                                         <div style="position:relative">
                                             <div class="line-image">
-                                                <p class="has-text-weight-medium">ГРАЖДАНСКИЕ </p>
+                                                <p class="has-text-weight-medium">{$t('onsite_internal_pipelines_page.cat_civil')}</p>
                                             </div>
                                         </div>
                                 </figure>
@@ -773,7 +742,7 @@
                                             </div>
                                             <div class="pl-3">
                                                 <p>
-                                                    Жилые комплексы
+                                                    {$t('onsite_internal_pipelines_page.civil_item1')}
                                                 </p>
                                             </div>
                                         </li>
@@ -783,7 +752,7 @@
                                             </div>
                                             <div class="pl-3">
                                                 <p>
-                                                    Общежития, HoReCa
+                                                    {$t('onsite_internal_pipelines_page.civil_item2')}
                                                 </p>
                                             </div>
                                         </li>
@@ -793,7 +762,7 @@
                                             </div>
                                             <div class="pl-3">
                                                 <p>
-                                                    Общественные (ФОКи, рестораны, ТРЦ)
+                                                    {$t('onsite_internal_pipelines_page.civil_item3')}
                                                 </p>
                                             </div>
                                         </li>                                       
@@ -804,10 +773,10 @@
                     <div class="tile is-parent">
                         <div class="tile is-child is-vertical box">
                             <figure class="image">
-                                <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок4.jpg"  alt="Газопровод картинка"/>
+                                <img class="hero2__img" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок4.jpg"  alt={currentLocale === 'en' ? 'Industrial gas pipeline' : 'Газопровод промышленный'}/>
                                     <div style="position:relative">
                                         <div class="line-image">
-                                            <p class="has-text-weight-medium">ПРОМЫШЛЕННЫЕ </p>
+                                            <p class="has-text-weight-medium">{$t('onsite_internal_pipelines_page.cat_industrial')}</p>
                                         </div>
                                     </div>
                             </figure>
@@ -820,7 +789,7 @@
                                                 </div>
                                                 <div class="pl-3">
                                                     <p>
-                                                        Производственные
+                                                        {$t('onsite_internal_pipelines_page.ind_item1')}
                                                     </p>
                                                 </div>
                                             </li>
@@ -830,7 +799,7 @@
                                                 </div>
                                                 <div class="pl-3">
                                                     <p>
-                                                        Энергетические (котельные, энергоцентры)
+                                                        {$t('onsite_internal_pipelines_page.ind_item2')}
                                                     </p>
                                                 </div>
                                             </li>
@@ -840,7 +809,7 @@
                                                 </div>
                                                 <div class="pl-3">
                                                     <p>
-                                                        Складские, логистические комплексы
+                                                        {$t('onsite_internal_pipelines_page.ind_item3')}
                                                     </p>
                                                 </div>
                                             </li>
@@ -851,10 +820,10 @@
                     <div class="tile is-parent">
                         <div class="tile is-child is-vertical box">
                             <figure class="image">
-                                <img class="hero2__img"  src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок5.jpg"  alt="Сельское хозяйство"/>
+                                <img class="hero2__img"  src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок5.jpg"  alt={currentLocale === 'en' ? 'Agricultural gas infrastructure' : 'Сельское хозяйство'}/>
                                     <div style="position:relative">
                                         <div class="line-image">
-                                            <p class="has-text-weight-medium">СЕЛЬСКОХОЗЯЙСТВЕННЫЕ </p>
+                                            <p class="has-text-weight-medium">{$t('onsite_internal_pipelines_page.cat_agr')}</p>
                                         </div>
                                     </div>
                             </figure>
@@ -867,7 +836,7 @@
                                         </div>
                                         <div class="pl-3">
                                             <p>
-                                                Агро фабрики
+                                                {$t('onsite_internal_pipelines_page.agr_item1')}
                                             </p>
                                         </div>
                                     </li> 
@@ -877,7 +846,7 @@
                                         </div>
                                         <div class="pl-3">
                                             <p>
-                                                Фермы
+                                                {$t('onsite_internal_pipelines_page.agr_item2')}
                                             </p>
                                         </div>
                                     </li> 
@@ -887,7 +856,7 @@
                                         </div>
                                         <div class="pl-3">
                                             <p>
-                                                Тепличные комплексы
+                                                {$t('onsite_internal_pipelines_page.agr_item3')}
                                             </p>
                                         </div>
                                     </li> 
@@ -897,9 +866,7 @@
                     </div>
                 </div>
                 <p class="hero2__text2 has-text-white has-text-centered has-text-weight-medium">
-                    По каждому типу объектов <b><span style="color: rgb(255, 138, 80);">нами накоплен опыт реализации проектов по принципу «под ключ»</span></b>, 
-                    а многочисленные благодарственные письма 
-                    наших Заказчиков свидетельствуют о профессиональном отношении к делу и своевременному предоставлению результата работ.
+                    {@html $t('onsite_internal_pipelines_page.objects_footer')}
                 </p>
             </div>
         </div>
@@ -911,11 +878,11 @@
         <div class="container">
             <div class="content text-center">
                 <h2 class="title titlefor has-text-centered has-text-weight-bold">
-                    Оказываемые услуги
+                    {$t('onsite_internal_pipelines_page.services_title')}
                 </h2>               
                 <div class="columns is-3">
                     <div class="column box2 ">
-                        <h4 class="title has-text-centered">Предпроектные работы</h4>
+                        <h4 class="title has-text-centered">{$t('onsite_internal_pipelines_page.pre_project_works')}</h4>
                         <div class="__image">
                             <img src="/images/interGazoprovod/icons1.svg" alt=""/>
                         </div>
@@ -926,7 +893,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Расчет потребления газа
+                                        {$t('onsite_internal_pipelines_page.pre_p1')}
                                     </p>
                                 </div>
                             </li>
@@ -936,7 +903,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Получение технических условий
+                                        {$t('onsite_internal_pipelines_page.pre_p2')}
                                     </p>
                                 </div>
                             </li>
@@ -946,7 +913,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Инженерные изыскания
+                                        {$t('onsite_internal_pipelines_page.pre_p3')}
                                     </p>
                                 </div>
                             </li>
@@ -956,7 +923,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Технико-экономическое обоснование инвестиций
+                                        {$t('onsite_internal_pipelines_page.pre_p4')}
                                     </p>
                                 </div>
                             </li>
@@ -966,14 +933,14 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Разработка землеустроительной документации
+                                        {$t('onsite_internal_pipelines_page.pre_p5')}
                                     </p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="column box2 ">
-                        <h4 class="title has-text-centered">Проектные работы</h4>
+                        <h4 class="title has-text-centered">{$t('onsite_internal_pipelines_page.project_works')}</h4>
                         <div class="__image">
                             <img src="/images/interGazoprovod/icons2.svg" alt=""/>
                         </div>                        
@@ -984,7 +951,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Разработка Проектной и Рабочей документации
+                                        {$t('onsite_internal_pipelines_page.proj_p1')}
                                     </p>
                                 </div>
                             </li>
@@ -994,7 +961,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Согласование ПД и РД
+                                        {$t('onsite_internal_pipelines_page.proj_p2')}
                                     </p>
                                 </div>
                             </li>
@@ -1004,7 +971,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Получение заключения государственной экспертизы
+                                        {$t('onsite_internal_pipelines_page.proj_p3')}
                                     </p>
                                 </div>
                             </li>
@@ -1012,7 +979,7 @@
                     </div>
                     <div class="column box2 ">
                         <h4 class="title has-text-centered">
-                            Строительно-монтажные работы
+                            {$t('onsite_internal_pipelines_page.smr_works')}
                         </h4>
                         <div class="__image">
                             <img src="/images/interGazoprovod/icons3.png" alt=""/>
@@ -1023,7 +990,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Функции технического заказчика
+                                        {$t('onsite_internal_pipelines_page.smr_p1')}
                                     </p>
                                 </div>
                             </li>
@@ -1033,7 +1000,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Функции генерального подрядчика
+                                        {$t('onsite_internal_pipelines_page.smr_p2')}
                                     </p>
                                 </div>
                             </li>
@@ -1043,7 +1010,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Функции генерального проектировщика
+                                        {$t('onsite_internal_pipelines_page.smr_p3')}
                                     </p>
                                 </div>
                             </li>                          
@@ -1059,20 +1026,19 @@
             <div class="columns is-vcentered">
                 <div class="column py-0">
                     <div class="image-box" style="height: 350px;">
-                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок11.jpg" alt="Вентиль газопровод" style="max-width: 700px;"/>
+                        <img class="image-box__item" src="/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок11.jpg" alt={currentLocale === 'en' ? 'Gas pipeline valve' : 'Вентиль газопровод'} style="max-width: 700px;"/>
                     </div>
                 </div>
                 <div class="column">
                     <span class="is-size-5 has-text-centered is-uppercase has-text-weight-bold">
                         <p class="pr-2">
-                            ООО «Энергия Плюс» предоставляет <span style="color: rgb(195, 83, 28);">полный комплекс работ по газоснабжению объектов капитального 
-                            строительства</span> по всей территории РФ.
+                            {@html $t('onsite_internal_pipelines_page.rf_turnkey_banner')}
                         </p>
                     </span>
 
                     <div class="section" style="max-width: 300px; margin: 40px auto 0 auto;">        
                         <ContactFormButton class="hiden2 button is-primary is-medium is-fullwidth is-raunded button-raunded">
-                            <div slot="button">Заказать консультацию</div>
+                            <div slot="button">{$t('onsite_internal_pipelines_page.order_consultation')}</div>
                         </ContactFormButton>
                     </div>
                 </div>
@@ -1084,35 +1050,34 @@
     <section class="section has-text-centered">
         <div class="container pt-4 text-center">
             <div class="title titlefor">
-                <h2 class="has-text-weight-bold">Этапы выполнения работ</h2>
+                <h2 class="has-text-weight-bold">{$t('onsite_internal_pipelines_page.stages_title')}</h2>
             </div>
-            <p class="mb-5">Алгоритм газоснабжения предприятий вместе с «Энергией Плюс»</p>
+            <p class="mb-5">{$t('onsite_internal_pipelines_page.stages_subtitle')}</p>
             <div class="columns is-desktop ">
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_01.png">
-                    <p class="logic__text svelte-rgyqg6">Оставляете заявку</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage1')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_04.png">
-                    <p class="logic__text svelte-rgyqg6">Получаете технико-коммерческое предложение
-                        (ТКП)</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage2')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_02.png">
-                    <p class="logic__text svelte-rgyqg6">Утверждаем Задание на проектирование</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage3')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_09.png">
-                    <p class="logic__text svelte-rgyqg6">Заключаем договор</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage4')}</p>
                 </div>
             </div>
 
@@ -1125,35 +1090,35 @@
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_06.png">
-                    <p class="logic__text svelte-rgyqg6">Утверждаете принципиальные технические решения</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage5')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_03.png">
-                    <p class="logic__text svelte-rgyqg6">Разрабатываем проектную и рабочую документацию</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage6')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_07.png">
-                    <p class="logic__text svelte-rgyqg6">Получаем необходимые согласования и экспертизы</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage7')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_05.png">
-                    <p class="logic__text svelte-rgyqg6">Оформляем разрешение на строительство</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage8')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6 rgyqg7">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_10.png">
-                    <p class="logic__text svelte-rgyqg6">Закупаем материалы и оборудование</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage9')}</p>
                 </div>
             </div>
 
@@ -1166,21 +1131,21 @@
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_11.png">
-                    <p class="logic__text svelte-rgyqg6">Выполняем строительно-монтажные работы</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage10')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_12.png">
-                    <p class="logic__text svelte-rgyqg6">Выполняем пуско-наладочные работы</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage11')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/interGazoprovod/bmk_icon_13.png">
-                    <p class="logic__text svelte-rgyqg6">Оформляем исполнительную документацию и сдаем объект в промышленную эксплуатацию</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('onsite_internal_pipelines_page.stage12')}</p>
                 </div>
             </div>
         </div>
@@ -1190,7 +1155,7 @@
         <div class="container text-center">
 
             <div class="title titlefor has-text-centered ">
-                <h2 class="">Выполненные объекты</h2>
+                <h2 class="">{$t('onsite_internal_pipelines_page.completed_objects_title')}</h2>
             </div>
 
             <Carousel perPage={{1000:4, 800:3, 500:2, 400:1}}
@@ -1210,9 +1175,9 @@
                             <LazyImage
                                     style="aspect-ratio: 316/209; object-fit: cover"
                                     src={'/images/pages/vnutriploshadochnye-i-vnutrennie-gazoprovody/Рисунок7.jpg'}
-                                    alt={'Проект 1'}/>
+                                    alt={$t('onsite_internal_pipelines_page.proj1_alt')}/>
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 1</strong>
+                                <strong class="item-title">{$t('onsite_internal_pipelines_page.proj1_alt')}</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -1224,9 +1189,9 @@
                             <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/interGazoprovod/projects/02.jpg'}
-                                    alt={'Проект 2'}/>
+                                    alt={$t('onsite_internal_pipelines_page.proj2_alt')}/>
                 <span class="item-content-2">
-					<strong class="item-title">Проект 2</strong>
+					<strong class="item-title">{$t('onsite_internal_pipelines_page.proj2_alt')}</strong>
                 </span>
                         </figure>
                     </Lightbox>
@@ -1238,9 +1203,9 @@
                             <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/04.jpg'}
-                                    alt={'Газовая котельная'}/>
+                                    alt={$t('onsite_internal_pipelines_page.proj3_alt')}/>
                 <span class="item-content-2">
-					<strong class="item-title">Проект 3</strong>
+					<strong class="item-title">{$t('onsite_internal_pipelines_page.proj3_alt')}</strong>
                 </span>
                         </figure>
                     </Lightbox>
@@ -1252,9 +1217,9 @@
                             <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/interGazoprovod/projects/04.jpg'}
-                                    alt={'Проект 4'}/>
+                                    alt={$t('onsite_internal_pipelines_page.proj4_alt')}/>
                 <span class="item-content-2">
-					<strong class="item-title">Проект 4</strong>
+					<strong class="item-title">{$t('onsite_internal_pipelines_page.proj4_alt')}</strong>
                 </span>
                         </figure>
                     </Lightbox>
@@ -1266,9 +1231,9 @@
                             <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/interGazoprovod/projects/05.jpg'}
-                                    alt={'Проект 5'}/>
+                                    alt={$t('onsite_internal_pipelines_page.proj5_alt')}/>
                 <span class="item-content-2">
-					<strong class="item-title">Проект 5</strong>
+					<strong class="item-title">{$t('onsite_internal_pipelines_page.proj5_alt')}</strong>
                 </span>
                         </figure>
                     </Lightbox>
@@ -1280,9 +1245,9 @@
                             <div class="shtora"></div>
                             <LazyImage
                                     src={'/images/kotel/projects/07.jpg'}
-                                    alt={'Проект 6'}/>
+                                    alt={$t('onsite_internal_pipelines_page.proj6_alt')}/>
                 <span class="item-content-2">
-					<strong class="item-title">Проект 6</strong>
+					<strong class="item-title">{$t('onsite_internal_pipelines_page.proj6_alt')}</strong>
                 </span>
                         </figure>
                     </Lightbox>
@@ -1310,12 +1275,12 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img alt="Манометр газопровод" src="/images/interGazoprovod/wp_gazoprovod2.jpg"/>
+                    <img alt={currentLocale === 'en' ? 'Gas pipeline pressure gauge' : 'Манометр газопровод'} src="/images/interGazoprovod/wp_gazoprovod2.jpg"/>
                 </div>
                 <div class="column zayvka">
-                    <h4 class="title titlefor has-text-white">Отправить заявку</h4>
+                    <h4 class="title titlefor has-text-white">{$t('onsite_internal_pipelines_page.submit_request')}</h4>
                     <ContactForm/>
-                    <p class="is-size-7 has-text-centered has-text-white pt-3">Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных</p>
+                    <p class="is-size-7 has-text-centered has-text-white pt-3">{$t('onsite_internal_pipelines_page.personal_data_agreement')}</p>
                 </div>
             </div>
         </div>    

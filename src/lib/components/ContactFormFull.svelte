@@ -7,12 +7,17 @@
     import {bitrixLead} from '$lib/utils'
     import {goto} from '$app/navigation'
     import {imask} from '@imask/svelte'
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
     const dispatch = createEventDispatcher()
 
-    export let btnText = 'Отправить'
+    export let btnText = ''
     export let inverted = false
     export let lead = {}
+
+    $: currentLocale = $session.locale || 'ru'
+    $: resolvedBtnText = btnText || $t('form.submit')
 
     const maskOptions = {
         mask: '+7 (000) 000-00-00'
@@ -36,11 +41,11 @@
             email:''
         },
         validationSchema: yup.object().shape({
-            name: yup.string().required('Обязательное поле'),
+            name: yup.string().required($t('form.required')),
             phone: yup.string()
-                .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, 'Некорректный номер телефона')
-                .required('Обязательное поле'),
-            email: yup.string().email('Неверный формат Email')
+                .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, $t('form.invalid_phone'))
+                .required($t('form.required')),
+            email: yup.string().email($t('form.invalid_email'))
         }),
         onSubmit: async values => {
             let data = {
@@ -58,9 +63,9 @@
                     values,
                     response
                 })
-                goto('/thanks')
+                goto(currentLocale === 'en' ? '/en/thanks' : '/thanks')
             } else {
-                alert('Ошибка отправки формы. Попробуйте еще раз!')
+                alert($t('form.send_error'))
             }
         }
     })
@@ -75,7 +80,7 @@
                    class:is-danger={$touched.name && $errors.name}
                    id="name"
                    name="name"
-                   placeholder="Ваше имя"
+                   placeholder="{$t('form.your_name')}"
                    on:blur={handleBlur}
                    bind:value={$form.name}>
             <span class="icon is-small is-left">
@@ -97,7 +102,7 @@
         <div class="control has-icons-left has-icons-right">
             <input id="phone"
                    name="phone"
-                   placeholder="Телефон"
+                   placeholder="{$t('form.phone')}"
                    use:imask={maskOptions}
                    on:accept={(e) => {
                         $form.phone = e.detail.value;
@@ -147,7 +152,7 @@
         <div class="control">
             <button class="button is-link" class:is-inverted={inverted} type="submit"
                     class:is-loading={$isSubmitting}>
-                {btnText}
+                {resolvedBtnText}
             </button>
         </div>
         <!--    <div class="control">-->

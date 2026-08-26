@@ -1,10 +1,21 @@
 <script>
     import Link from './Link.svelte'
     import Icon from 'fa-svelte'
-    import {faPhone, faSearch} from '@fortawesome/free-solid-svg-icons'
+    import {faPhone, faSearch, faGlobe} from '@fortawesome/free-solid-svg-icons'
+    import {t, locale} from 'svelte-i18n'
+    import {page, session} from '$app/stores'
 
     let menuOpen = false
     let showDropdown = false
+
+    $: currentLocale = isEn ? 'en' : 'ru'
+    $: isEn = ($session?.locale === 'en') || (Boolean($page?.path) && $page.path.startsWith('/en'))
+    $: cleanPath = ($page?.path || '/')
+        .replace(/^\/en(\/|$)/, '')
+        .replace(/^\/+/, '')
+    $: switchPath = isEn
+        ? (cleanPath ? `/${cleanPath}` : '/')
+        : (cleanPath ? `/en/${cleanPath}` : '/en')
 
     function toggleMenu() {
         menuOpen = !menuOpen
@@ -25,7 +36,7 @@
         class="navbar has-centered-menu has-shadow is-fixed-top"
         role="navigation">
     <div class="navbar-brand">
-        <a class="main-logo" href="/">«Энергия Плюс» - Инжиниринговая компания</a>
+        <a class="main-logo" href="{currentLocale === 'en' ? '/en/' : '/'}">{$t('nav.brand')}</a>
         <a href={'#'}
            aria-expanded="false"
            aria-label="menu"
@@ -49,7 +60,7 @@
                     on:mouseleave={() => toggleDropdown(false)}
                     on:mouseover={() => toggleDropdown(true)}
                     on:focus={() => toggleDropdown(true)}>
-                <Link cls="navbar-link" title="Услуги">Услуги</Link>
+                <Link cls="navbar-link" title="Услуги">{$t('nav.services')}</Link>
                 <div
                         class="navbar-dropdown is-boxed"
                         class:is-hidden={!showDropdown}>
@@ -59,53 +70,53 @@
                                     cls="navbar-item navbar-title"
                                     path="page"
                                     title="Проектирование">
-                                Проектирование
+                                {$t('nav.design')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Проектирование магистральных газопроводов и ГРС">
-                                Магистральные газопроводы и ГРС
+                                {$t('nav.main_gas_pipelines')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Проектирование Газораспределительных Систем И ГРП">
-                                Газораспределительные системы и ГРП
+                                {$t('nav.gas_distribution')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     slug="vnutriploshadochnye-i-vnutrennie-gazoprovody"
                                     title="Газоснабжение объектов кап. строительства">
-                                Газоснабжение объектов кап. строительства
+                                {$t('nav.gas_supply')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     slug="proektirovanie-avtonomnyh-kotelnyh"
                                     title="Котельные">
-                                Котельные
+                                {$t('nav.boiler_rooms')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     slug="proektirovanie-energocentrov"
                                     title="Энергоцентры">
-                                Энергоцентры
+                                {$t('nav.power_centers')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     slug="individualnye-i-centralnye-teplovye-punkty"
                                     title="Тепловые пункты">
-                                Тепловые пункты
+                                {$t('nav.heat_points')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Функции генерального проектировщика">
-                                Функции генерального проектировщика
+                                {$t('nav.general_designer')}
                             </Link>
                         </div>
                         <div class="column">
@@ -113,28 +124,28 @@
                                     cls="navbar-item navbar-title"
                                     path="page"
                                     title="Строительство">
-                                Строительство
+                                {$t('nav.construction')}
                             </Link>
                             <Link cls="navbar-item" path="page" title="Поставка оборудования">
-                                Поставка оборудования
+                                {$t('nav.equipment_supply')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Строительно-монтажные работы">
-                                Строительно-монтажные работы
+                                {$t('nav.construction_works')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Пуско-наладочные работы">
-                                Пуско-наладочные работы
+                                {$t('nav.commissioning')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Функции технического заказчика">
-                                Функции технического заказчика
+                                {$t('nav.technical_customer')}
                             </Link>
                         </div>
                         <div class="column">
@@ -142,13 +153,13 @@
                                     cls="navbar-item navbar-title"
                                     path="page"
                                     title="Производство">
-                                Производство
+                                {$t('nav.manufacturing')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Изготовление блочно-модульных котельных">
-                                Изготовление блочно-модульных котельных
+                                {$t('nav.modular_boilers')}
                             </Link>
                         </div>
                         <!-- <div class="column">
@@ -165,13 +176,13 @@
                                     cls="navbar-item navbar-title"
                                     slug="rasschitat-stoimost"
                                     title="Экспресс расчет">
-                                Экспресс расчет
+                                {$t('nav.express_calc')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Теплотехнический расчет">
-                                Теплотехнический расчет
+                                {$t('nav.heat_calc')}
                             </Link>
                         </div>
                     </div>
@@ -183,7 +194,7 @@
                     on:mouseover={() => toggleDropdown(true)}
                     on:focus={() => toggleDropdown(true)}>
                 <Link cls="navbar-link" title="Специальные предложения">
-                    Специальные предложения
+                    {$t('nav.special_offers')}
                 </Link>
                 <div
                         class="navbar-dropdown is-boxed"
@@ -194,20 +205,20 @@
                                     cls="navbar-item"
                                     path="page"
                                     title="Техническое перевооружение котельной">
-                                Техническое перевооружение котельной
+                                {$t('nav.boiler_upgrade')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Внутриплощадочные газопроводы">
-                                Внутриплощадочные газопроводы
+                                {$t('nav.onsite_pipelines')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     slug="konteynernaya-kotelnaya"
                                     title="Контейнерная котельная в наличии">
-                                Контейнерная котельная в наличии
+                                {$t('nav.container_boiler')}
                             </Link>
                         </div>
                     </div>
@@ -218,26 +229,26 @@
                     on:mouseleave={() => toggleDropdown(false)}
                     on:mouseover={() => toggleDropdown(true)}
                     on:focus={() => toggleDropdown(true)}>
-                <Link cls="navbar-link" title="Полезное">Полезное</Link>
+                <Link cls="navbar-link" title="Полезное">{$t('nav.useful')}</Link>
                 <div
                         class="navbar-dropdown is-boxed"
                         class:is-hidden={!showDropdown}>
                     <div class="container is-fluid columns">
                         <div class="column">
                             <Link cls="navbar-item" slug="faq" title="Вопросы и ответы">
-                                Вопросы и ответы
+                                {$t('nav.faq')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     slug="documents"
                                     title="Нормативные документы">
-                                Нормативные документы
+                                {$t('nav.documents')}
                             </Link>
                             <Link cls="navbar-item" slug="articles" title="Статьи">
-                                Статьи
+                                {$t('nav.articles')}
                             </Link>
                             <Link cls="navbar-item" slug="search">
-                                Поиск...
+                                {$t('nav.search')}
                             </Link>
                         </div>
                     </div>
@@ -249,7 +260,7 @@
                     on:mouseover={() => toggleDropdown(true)}
                     on:focus={() => toggleDropdown(true)}>
                 <Link cls="navbar-link" title="Рассчитать стоимость">
-                    Рассчитать стоимость
+                    {$t('nav.cost_calc')}
                 </Link>
                 <div
                         class="navbar-dropdown is-boxed"
@@ -260,26 +271,26 @@
                                     cls="navbar-item"
                                     path="page"
                                     title="Калькулятор расчета стоимости строительства и проектирования котельной">
-                                Калькулятор расчета стоимости строительства и проектирования котельной
+                                {$t('nav.boiler_calc')}
                             </Link>
                             <Link
                                     cls="navbar-item"
                                     path="page"
                                     title="Калькулятор расчета стоимости газопровода">
-                                Калькулятор расчета стоимости газопровода
+                                {$t('nav.pipeline_calc')}
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <Link cls="navbar-item" slug="news" title="Новости">Новости</Link>
+            <Link cls="navbar-item" slug="news" title="Новости">{$t('nav.news')}</Link>
             <div
                     class="navbar-item has-dropdown is-hoverable"
                     on:mouseleave={() => toggleDropdown(false)}
                     on:mouseover={() => toggleDropdown(true)}
                     on:focus={() => toggleDropdown(true)}>
                 <Link cls="navbar-link" slug="company" title="О компании">
-                    О компании
+                    {$t('nav.about')}
                 </Link>
                 <div
                         class="navbar-dropdown is-boxed is-hidden-mobile"
@@ -312,23 +323,23 @@
                             <!--                                    href="/presentation/Энергия%20Плюс.pdf"-->
                             <!--                                    target="_blank">Презентация</a>-->
                             <Link cls="navbar-item" path="company" title="Отзывы клиентов">
-                                Отзывы клиентов
+                                {$t('nav.reviews')}
                             </Link>
                             <Link cls="navbar-item" path="page" slug="referens-list" title="Референс-лист">
-                                Референс-лист
+                                {$t('nav.reference_list')}
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <Link cls="navbar-item" slug="contacts">Контакты</Link>
+            <Link cls="navbar-item" slug="contacts">{$t('nav.contacts')}</Link>
             <Link cls="navbar-item is-hidden-mobile has-text-primary" slug="search">
                 <Icon icon="{faSearch}"/>
             </Link>
             <!--            <div class="navbar-item is-hidden-mobile">-->
             <!--                <SearchInput placeholder="Поиск..." fontSize={14} type={3} width="14em"/>-->
             <!--            </div>-->
-            <Link cls="navbar-item is-hidden-desktop" slug="search">Поиск...</Link>
+            <Link cls="navbar-item is-hidden-desktop" slug="search">{$t('nav.search')}</Link>
         </div>
         <div class="navbar-end">
             <a rel="external"
@@ -338,10 +349,25 @@
                 <span class="callibri_phone zphone">+7 (495) 790-76-97</span>
                 <br/>
             </a>
+            <a rel="external" class="navbar-item lang-switch" href="{switchPath}">
+                <Icon icon={faGlobe}/>
+                <span class="lang-switch-label">{currentLocale === 'ru' ? 'EN' : 'RU'}</span>
+            </a>
         </div>
     </div>
 </nav>
 
 <style>
-
+    .lang-switch {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    .lang-switch-label {
+        margin-left: 4px;
+    }
 </style>
+

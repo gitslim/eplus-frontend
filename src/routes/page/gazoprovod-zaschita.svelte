@@ -15,15 +15,7 @@
     import Carousel from '$lib/components/Carousel.svelte'
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
-
- let title = 'Устройство защитных мероприятий'
-
-    const meta = {
-        title: "Устройство защитных мероприятий. Газопроводы. Проектная документация. Согласования и экспертиза",
-        description: "Разработка проектной документации. Защитные мероприятия для газопроводов. Согласование ПД. Допуски СРО. Аттестация ПАО «ГАЗПРОМ»",
-        h1: "Разработка проекта. Устройство защитных мероприятий на действующих магистральных газопроводах. Сотрудничаем с ПАО «Газпром». Аккредитация и допуски СРО на проектные работы. Расчет стоимости"
-    }
-
+    import {t} from 'svelte-i18n'
 
     onMount(async () => {
 
@@ -275,8 +267,8 @@
 </style>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('pipeline_protection_page.meta_title')}" description="{$t('pipeline_protection_page.meta_description')}"/>
+<HiddenH1>{$t('pipeline_protection_page.meta_h1')}</HiddenH1>
 
 
 <main>
@@ -285,10 +277,10 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Устройство защитных мероприятий на действующих магистральных газопроводах</h2>
-                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">(установка защитных футляров (кожухов))</h2>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">{$t('pipeline_protection_page.hero_title')}</h2>
+                    <h2 class="has-text-white has-text-weight-medium is-uppercase titleb">{$t('pipeline_protection_page.hero_subtitle')}</h2>
                     <ContactFormButton class="button is-primary is-large is-raunded button-raunded">
-                        <div slot="button">Заказать проект</div>
+                        <div slot="button">{$t('pipeline_protection_page.order_project')}</div>
                     </ContactFormButton>
                     <div class="subtitle py-6">
                         <a rel="external"
@@ -309,15 +301,12 @@
             <div class="content">
                 <div class="columns is-vcentered vramku-columns-right">
                     <div class="column vramku-column">
-                        <img src="\images\gazoprovodi\zaschita-gaza.jpeg" alt="Защита газопровода"/>
+                        <img src="\images\gazoprovodi\zaschita-gaza.jpeg" alt={currentLocale === 'en' ? 'Gas pipeline corrosion and mechanical protection' : 'Защита газопровода'}/>
                     </div>
                     <div class="column">
                         <span>
-                            <p class="is-size-5 has-text-justified">На переходах действующих магистральных газопроводов <b>через автомобильные дороги 3-5 категории</b> 
-                                при необходимости установки защитных футляров <b>без остановки транспорта</b> газа возможно использование конструкции 
-                                футляра из 2-х половин трубы.</p>
-                            <p class="is-size-5 has-text-justified">Такая необходимость может возникнуть при капитальном ремонте газопроводов, 
-                                реконструкции автомобильной дороги.</p>                           
+                            <p class="is-size-5 has-text-justified">{@html $t('pipeline_protection_page.desc_p1')}</p>
+                            <p class="is-size-5 has-text-justified">{$t('pipeline_protection_page.desc_p2')}</p>                           
                         </span>
                     </div>
                 </div>
@@ -330,12 +319,12 @@
         <div class="container">
             <div class="content text-center">
                 <h3 class="is-uppercase titlefor has-text-centered">
-                    Пример разреза установки разрезного футляра на действующий газопровод-отвод:
+                    {$t('pipeline_protection_page.section_example')}
                 </h3>
                 <div style="max-width: 956px; margin:0 auto;">
                     <Lightbox   noScroll="false"
                                     modalClasses = "pipu">
-                        <img class="is-block img-center" src="\images\gazoprovodi\gazoprovod-futlyar.png" >
+                        <img class="is-block img-center" src="\images\gazoprovodi\gazoprovod-futlyar.png" alt={currentLocale === 'en' ? 'Gas pipeline casing schematic' : 'Газопровод в футляре'}>
                     </Lightbox>
                 </div>
             </div>
@@ -346,12 +335,12 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img alt="Газопровод станция" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
+                    <img alt={currentLocale === 'en' ? 'Gas pipeline facility' : 'Газопровод станция'} src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
                 </div>
                 <div class="column zayvka">
-                    <h4 class="title titlefor has-text-white">Отправить заявку</h4>
+                    <h4 class="title titlefor has-text-white">{$t('pipeline_protection_page.form_title')}</h4>
                     <ContactForm/>
-                    <p class="is-size-7 has-text-centered has-text-white pt-3">Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных</p>
+                    <p class="is-size-7 has-text-centered has-text-white pt-3">{$t('pipeline_protection_page.form_privacy')}</p>
                 </div>
             </div>
         </div>

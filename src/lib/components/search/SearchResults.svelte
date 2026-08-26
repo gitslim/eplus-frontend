@@ -1,14 +1,17 @@
 <script>
     import {onMount} from 'svelte'
+    import {session} from '$app/stores'
 
     let el,
         bem
 
+    $: currentLocale = $session?.locale || 'ru'
+
     onMount(async () => {
         (function (w, d, c) {
             bem = JSON.stringify({
-                'tld': 'ru',
-                'language': 'ru',
+                'tld': currentLocale === 'en' ? 'com' : 'ru',
+                'language': currentLocale,
                 'encoding': '',
                 'htmlcss': '1.x',
                 'updatehash': true

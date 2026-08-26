@@ -3,11 +3,12 @@ import {client, gql} from '$lib/apollo'
 
 
 export const post = async request => {
+    const locale = request.body?.locale || 'ru'
 
     try {
         const query = gql`
-  query {
-    newsArticles(sort: "date:desc") {
+  query($locale: String!) {
+    newsArticles(sort: "date:desc", locale: $locale) {
       slug
       title
       date
@@ -22,7 +23,7 @@ export const post = async request => {
 `
         const result = await client.query({
             query,
-            variables: {},
+            variables: {locale},
             fetchPolicy: 'network-only'
         })
 

@@ -14,45 +14,37 @@
     import Icon from 'fa-svelte'
     import {faDownload} from '@fortawesome/free-solid-svg-icons'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
-
-    let title = 'Теплотехнический расчёт'
-
-    const meta = {
-        title: "Теплотехнический расчёт. МЧРГ. ТТР. Расчет потребности в тепле и топливе",
-        description: "Расчет потребности в тепле и топливе. Выполнение МЧРГ для получения ТУ в «Мосгаз», «Мособлгаз». Выписка из СРО. Стоимость онлайн",
-        h1: "ТТР для промышленного объекта. Расчет потребности в тепле и топливе для получения технических условий на присоединение к газовым сетям. Допуски СРО."
-    }
-
+    import {t} from 'svelte-i18n'
 
     //белый цвет текста
     let white = true
 
-    const headerCaption = {
-        caption: 'Расчет потребности в тепле и топливе',
-        subtitle: 'Максимальный часовой расчет газа',
+    $: headerCaption = {
+        caption: $t('heat_calculation_page.hero_title'),
+        subtitle: $t('heat_calculation_page.hero_sub1'),
     }
 
-    const footerCaption = {
-        caption: 'Оставьте заявку на теплотехнический расчет до конца недели и получите скидку 30%',
+    $: footerCaption = {
+        caption: $t('heat_calculation_page.order_caption'),
         order: true,
     }
 
-    const functionsCard = [
+    $: functionsCard = [
         {
             id: 1,
-            text: 'Определение потребности объекта в тепловой энергии (Гкал) на нужды отопления, вентиляции, горячего водоснабжения, технологические нужды(максимально-часовые и годовые нагрузки)',
+            text: $t('heat_calculation_page.purpose_card1'),
             alt: 'image-card',
             src: '/images/teplotehnicheskijRaschet/target__img1.png',
         },
         {
             id: 2,
-            text: 'Определение количества природного газа (м3), необходимого для выработки тепловой энергии и технологические нужды (максимально-часовой и годовой расход газа)',
+            text: $t('heat_calculation_page.purpose_card2'),
             alt: 'image-card',
             src: '/images/teplotehnicheskijRaschet/target__img2.png',
         },
         {
             id: 3,
-            text: 'Подбор газоиспользующего оборудования для выработки тепловой энергии',
+            text: $t('heat_calculation_page.purpose_card3'),
             alt: 'image-card',
             src: '/images/teplotehnicheskijRaschet/target__img3.png',
         },
@@ -62,10 +54,6 @@
     function activeForm() {
       isActiveForm = !isActiveForm
     }
-
-    onMount(async () => {
-
-    })
 </script>
 
 
@@ -546,8 +534,8 @@
 </style>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('heat_calculation_page.meta_title')}" description="{$t('heat_calculation_page.meta_description')}"/>
+<HiddenH1>{$t('heat_calculation_page.meta_h1')}</HiddenH1>
 
 
 <main>
@@ -555,23 +543,23 @@
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-7">
-                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">Расчет потребности в тепле и топливе</h2>
+                    <h2 style="font-size: 40px" class="has-text-white has-text-weight-medium title titlefor">{$t('heat_calculation_page.hero_title')}</h2>
                     <div>
-                      <h2 class="subtitle">Максимальный часовой расход газа-МЧРГ (м<sup>3</sup>/ч)</h2>
-                      <h3 class="subtitle">Для получения ТУ ПАО «Газпром», АО «Мосгаз», АО «Мособлгаз»</h3>
+                      <h2 class="subtitle">{@html $t('heat_calculation_page.hero_sub1')}</h2>
+                      <h3 class="subtitle">{$t('heat_calculation_page.hero_sub2')}</h3>
                     </div>
                 </div>
             </div>
             <div class="hero-table">
-              <h3>Онлайн калькулятор теплотехнического расчета</h3>
+              <h3>{$t('heat_calculation_page.calc_title')}</h3>
               <Modal>
                 <div class="has-text-left" slot="trigger" let:open>
                     <button class="button is-large " on:click={()=>{open()}}>
-                        Рассчитать
+                        {$t('heat_calculation_page.calc_btn')}
                     </button>
                 </div>
                 <div slot="content" class="modal-content" let:store={{close}}>
-                    <QuizArea title="Онлайн калькулятор расчёта стоимости ТТР" quizId={2}/>
+                    <QuizArea title="{$t('heat_calculation_page.calc_modal_title')}" quizId={2}/>
                 </div>
             </Modal>
 
@@ -582,15 +570,11 @@
 
     <section class="section">
         <div class="container is-widescreen functions">
-            <TitleLanding titleText="Назначение"/>
+            <TitleLanding titleText="{$t('heat_calculation_page.purpose_title')}"/>
             <p class="functions__desc first-desc has-text-centered">
-                Расчет потребности в тепле и топливе (ТТР) требуется для объектов, на
-                которых предполагается использование природного газа в качестве топлива
-                и/или на технологические нужды, а также в случаях реконструкции или
-                технического перевооружения действующих объектов, при которых
-                производится замена газоиспользующего оборудования.
+                {$t('heat_calculation_page.purpose_desc1')}
             </p>
-            <h3 class="functions__title has-text-centered">Цель расчета:</h3>
+            <h3 class="functions__title has-text-centered">{$t('heat_calculation_page.purpose_target_title')}</h3>
             <div class="functions__card has-text-centered columns">
                 {#each functionsCard as item}
                     <PurposeCard text={item.text} alt={item.alt} src={item.src}/>
@@ -598,15 +582,13 @@
             </div>
         </div>
         <p class="functions__desc has-text-centered">
-            ТТР является основанием для обращения в газоснабжающую организацию (АО
-            «Мосгаз», АО «Мособлгаз», ПАО «Газпром») при технологическом присоединении
-            к газовым сетям или реконструкции существующих сетей газопотребления.
+            {$t('heat_calculation_page.purpose_desc2')}
         </p>
     </section>
     <section class="section steps">
         <div class="steps__icon">
             <div class="container is-max-widescreen has-text-centered">
-                <TitleLanding titleText="Этапы работы"/>
+                <TitleLanding titleText="{$t('heat_calculation_page.steps_title')}"/>
                 <div class="steps__all">
                     <div class="steps__elem">
                         <img
@@ -614,7 +596,7 @@
                                 class="steps__img"
                                 src="/images/teplotehnicheskijRaschet/steps-icon1.png"/>
                         <p class="steps__info">
-                            Оставляете заявку на сайте или по телефону
+                            {$t('heat_calculation_page.step1')}
                         </p>
                     </div>
                     <div class="steps__elem">
@@ -623,7 +605,7 @@
                                 class="steps__img"
                                 src="/images/teplotehnicheskijRaschet/steps-icon2.png"/>
                         <p class="steps__info">
-                            Высылаем опросный лист в зависимости от типа здания
+                            {$t('heat_calculation_page.step2')}
                         </p>
                     </div>
                     <div class="steps__elem">
@@ -631,14 +613,14 @@
                                 alt="icon3.png"
                                 class="steps__img"
                                 src="/images/teplotehnicheskijRaschet/steps-icon3.png"/>
-                        <p class="steps__info">Направляем типовой договор</p>
+                        <p class="steps__info">{$t('heat_calculation_page.step3')}</p>
                     </div>
                     <div class="steps__elem">
                         <img
                                 alt="icon4.png"
                                 class="steps__img"
                                 src="/images/teplotehnicheskijRaschet/steps-icon4.png"/>
-                        <p class="steps__info">Выполняем теплотехнический рассчет</p>
+                        <p class="steps__info">{$t('heat_calculation_page.step4')}</p>
                     </div>
                     <div class="steps__elem">
                         <img
@@ -646,7 +628,7 @@
                                 class="steps__img"
                                 src="/images/teplotehnicheskijRaschet/steps-icon5.png"/>
                         <p class="steps__info">
-                            Направляем 2 экземпляра расчета вместе с актами и счетом на оплату
+                            {$t('heat_calculation_page.step5')}
                         </p>
                     </div>
                 </div>
@@ -655,17 +637,16 @@
     </section>
     <section class="section documentation">
       <div class="documentation__button" on:click={activeForm}>
-        <p>Скачать методику выполнения ТТР<p>
+        <p>{$t('heat_calculation_page.download_methodology')}<p>
         <span class="documentation__icon"><Icon icon="{faDownload}"/></span>       
       </div>
       <div class="documentation__form" class:isActive={isActiveForm}>
         <button class="delete" on:click={activeForm}></button>
       <script data-b24-form="inline/20/7g4prs" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b9447275/crm/form/loader_20.js');</script>
       </div>
-        <TitleLanding titleText="Нормативная документация" white/>
+        <TitleLanding titleText="{$t('heat_calculation_page.norm_docs_title')}" white/>
         <p class="documentation__desc has-text-centered">
-            Расчет потребности в тепле и топливе выполняется по определенной методике
-            и в соответствии с требованиями нормативной документациb:
+            {$t('heat_calculation_page.norm_docs_desc')}
         </p>
         <div class="container has-text-centered">
             <div class="documentation__wrap">
@@ -673,33 +654,28 @@
                     <p class="documentation__num">1</p>
                     <p class="documentation__title">МДК 4-05.2004</p>
                     <p class="documentation__info">
-                        «Методика определения потребности в топливе, электрической энергии и
-                        воде при производстве и передаче тепловой энергии и теплоносителей в
-                        системах коммунального теплоснабжения» (Госстрой РФ 2004 год)
+                        {$t('heat_calculation_page.doc1_info')}
                     </p>
                 </div>
                 <div class="documentation__item">
                     <p class="documentation__num">2</p>
                     <p class="documentation__title">СП 131.13330.2012</p>
                     <p class="documentation__info">
-                        «Строительная климатология» (Актуализированная редакция СНиП
-                        23-01-99*)
+                        {$t('heat_calculation_page.doc2_info')}
                     </p>
                 </div>
                 <div class="documentation__item">
                     <p class="documentation__num">3</p>
                     <p class="documentation__title">СП 60.13330.2012</p>
                     <p class="documentation__info">
-                        «Отопление, вентиляция и кондиционирование воздуха»
-                        (Актуализированная редакция СНиП 41-01-2003)
+                        {$t('heat_calculation_page.doc3_info')}
                     </p>
                 </div>
                 <div class="documentation__item">
                     <p class="documentation__num">4</p>
                     <p class="documentation__title">СП 30.13330.2012</p>
                     <p class="documentation__info">
-                        «Внутренний водопровод и канализация зданий» (Актуализированная
-                        редакция СНиП 2.04.01-85*).
+                        {$t('heat_calculation_page.doc4_info')}
                     </p>
                 </div>
             </div>
@@ -711,11 +687,9 @@
                 <div class="order__wrap">
                     <HeaderLanding {...footerCaption}/>
                     <p class="order__desc">
-                        Оставьте заявку и мы свяжемся с вами для уточнения деталей, вышлем
-                        опросный лист и произведем расчет. Оплата производится после
-                        получения расчета.
+                        {$t('heat_calculation_page.order_desc')}
                     </p>
-                    <BtnZayavka btnText="Оставить заявку"/>
+                    <BtnZayavka btnText="{$t('heat_calculation_page.submit_btn')}"/>
                 </div>
             </div>
         </div>

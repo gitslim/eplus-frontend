@@ -4,6 +4,12 @@
 <script>
   import { bitrixLead } from '$lib/utils.js';
   import { imask } from '@imask/svelte';
+  import { onMount } from 'svelte';
+  import { t } from 'svelte-i18n';
+  import { session } from '$app/stores';
+
+  $: currentLocale = $session.locale || 'ru';
+  $: p = currentLocale === 'en' ? '/en' : '';
 
   const maskOptions = {
     mask: '+7 (000) 000-00-00'
@@ -24,14 +30,14 @@
     
     const rawName = formData.get("username") || "";
     if (!rawName.trim()) {
-      modalErrors.name = "Обязательное поле";
+      modalErrors.name = $t('home_page.modal_err_name');
       hasError = true;
     }
 
     const rawPhone = formData.get("phone") || "";
     const phoneDigits = rawPhone.replace(/\D/g, "");
     if (phoneDigits.length < 11) {
-      modalErrors.phone = "Введите 10 цифр номера телефона";
+      modalErrors.phone = $t('home_page.modal_err_phone');
       hasError = true;
     }
 
@@ -54,7 +60,7 @@
             window.ym(54841009, 'reachGoal', 'lidformsiteyagtm');
         }
         alert(
-          "Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.",
+          $t('home_page.modal_success_msg'),
         );
         form.reset();
         showModal = false;
@@ -63,7 +69,7 @@
       }
     } catch (error) {
       alert(
-        "Произошла ошибка при отправке. Пожалуйста, попробуйте позже или позвоните нам.",
+        $t('home_page.modal_error_msg'),
       );
     }
   }
@@ -78,8 +84,6 @@
   // — Hero плеер —
   let heroEl, heroSeekEl;
   let heroPlaying = false, heroCurrentTime = 0, heroDuration = 0;
-  // userWantsMuted = true изначально (autoplay требует muted)
-  // но как только пользователь нажал звук — false
   let heroVolume = 1, heroMuted = true, heroSpeed = 1, heroSpeedMenu = false;
 
   // Обновляем полоску напрямую — берём duration прямо с элемента
@@ -108,7 +112,6 @@
   const heroLoadedMetadata = () => {
     const d = heroEl.duration;
     if (isFinite(d) && d > 0) { heroDuration = d; heroUpdateSeek(); }
-    else { heroEl.currentTime = 1e101; }
   };
   const heroDurationChange = () => {
     const d = heroEl.duration;
@@ -121,7 +124,6 @@
       if (heroEl.currentTime > d - 0.5) heroEl.currentTime = 0;
     }
     heroUpdateSeek();
-    // Восстанавливаем звук — браузер мог сбросить при seek
     heroEl.muted = heroMuted;
     if (!heroMuted) heroEl.volume = heroVolume;
   };
@@ -175,7 +177,6 @@
   const bmkLoadedMetadata = () => {
     const d = bmkEl.duration;
     if (isFinite(d) && d > 0) { bmkDuration = d; bmkUpdateSeek(); }
-    else { bmkEl.currentTime = 1e101; }
   };
   const bmkDurationChange = () => {
     const d = bmkEl.duration;
@@ -205,10 +206,6 @@
   const bmkSetSpeed = (s) => { bmkSpeed = s; bmkEl.playbackRate = s; bmkSpeedMenu = false; };
   const bmkFullscreen = () => { if (!document.fullscreenElement) bmkEl.closest(".bmk-video-box").requestFullscreen(); else document.exitFullscreen(); };
 
-  // bmkUpdateSeek вызывается напрямую из timeUpdate и seeked
-
-  // — JSON-LD через onMount (обход бага svelte-preprocess) —
-  import { onMount } from 'svelte';
   onMount(() => {
     // Автозапуск hero видео
     if (heroEl) {
@@ -216,7 +213,6 @@
       heroMuted = true;
       const tryPlay = () => {
         heroEl.play().then(() => { heroPlaying = true; }).catch(() => {
-          // Если не сработало — ждём canplay
           heroEl.addEventListener('canplay', () => {
             heroEl.play().then(() => { heroPlaying = true; }).catch(() => {});
           }, { once: true });
@@ -243,83 +239,82 @@
   });
 
   // — Данные —
-  const services = [
+  $: services = [
     {
       img: "/fotoandvideo/proectotp.jpg",
-      alt: "Проектирование котельных и систем газоснабжения",
-      title: "Проектирование котельных и систем газоснабжения",
-      href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/proektirovanie-avtonomnyh-kotelnyh",
+      alt: $t('home_page.svc1_title'),
+      title: $t('home_page.svc1_title'),
+      href: `${p}/page/proektirovanie-avtonomnyh-kotelnyh`,
     },
     {
       img: "/fotoandvideo/creating.jpg",
-      alt: "Производство блочно-модульных котельных и ГРПШ",
-      title: "Производство блочно-модульных котельных и ГРПШ",
-      href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/izgotovlenie-blochno-modulnyh-kotelnyh",
+      alt: $t('home_page.svc2_title'),
+      title: $t('home_page.svc2_title'),
+      href: `${p}/page/izgotovlenie-blochno-modulnyh-kotelnyh`,
     },
     {
       img: "/fotoandvideo/create.png",
-      alt: "Строительство котельных по индивидуальным проектам",
-      title: "Строительство котельных по индивидуальным проектам",
-      href: "https://xn--c1adkmgpem4hrai.xn--p1ai/page/stroitelno-montazhnye-raboty",
+      alt: $t('home_page.svc3_title'),
+      title: $t('home_page.svc3_title'),
+      href: `${p}/page/stroitelno-montazhnye-raboty`,
     },
   ];
 
-  const stats = [
-    { number: "22", unit: "", label: "года работы" },
-    { number: "45", unit: "", label: "построенных котельных" },
-    { number: "750", unit: "км", label: "проектов газопроводов" },
-    { number: "225", unit: "", label: "довольных заказчиков" },
+  $: stats = [
+    { number: "22", unit: "", label: $t('home_page.stat1_label') },
+    { number: "45", unit: "", label: $t('home_page.stat2_label') },
+    { number: "750", unit: $t('home_page.stat3_unit'), label: $t('home_page.stat3_label') },
+    { number: "225", unit: "", label: $t('home_page.stat4_label') },
   ];
 
-  const advantages = [
-    { faIcon: "fa-fire", text: "Получение тех. возможности подачи газа" },
-    { svgIcon: "/ickonandlogo/newsrtikon/architecture.svg", text: "Оптимальные технические решения в 2D, 3D" },
-    { svgIcon: "/ickonandlogo/newsrtikon/diversity.svg", text: "Комплексные проекты энергообеспечения" },
-    { svgIcon: "/ickonandlogo/newsrtikon/person.svg", text: "Своевременная сдача результата работ" },
-    { svgIcon: "/ickonandlogo/newsrtikon/leaderboart.svg", text: "Гарантия положительного заключения экспертизы" },
+  $: advantages = [
+    { faIcon: "fa-fire", text: $t('home_page.adv1') },
+    { svgIcon: "/ickonandlogo/newsrtikon/architecture.svg", text: $t('home_page.adv2') },
+    { svgIcon: "/ickonandlogo/newsrtikon/diversity.svg", text: $t('home_page.adv3') },
+    { svgIcon: "/ickonandlogo/newsrtikon/person.svg", text: $t('home_page.adv4') },
+    { svgIcon: "/ickonandlogo/newsrtikon/leaderboart.svg", text: $t('home_page.adv5') },
   ];
 
-  const schemeItems = [
+  $: schemeItems = [
     {
       svgSrc: "/ickonandlogo/newsrtikon/document.svg",
-      label: "Сбор исходно-разрешительной<br/>документации",
+      label: $t('home_page.scheme_doc'),
       satStyle: "transform: translate(-50%, -50%) translate(0px, -190px);",
       midStyle: "transform: translate(-50%, -50%) translate(95px, -165px);",
       labelStyle: "transform: translate(-50%, -100%) translate(0px, -235px); text-align: center;",
-      link: "/page/funkcii-generalnogo-proektirovshika",
+      link: `${p}/page/funkcii-generalnogo-proektirovshika`,
       arrowDeg: 75,
-
     },
     {
       svgSrc: "/ickonandlogo/newsrtikon/magnifier.svg",
-      label: "Проектно-изыскательские<br/>работы, экспертиза,<br/>авторский надзор",
+      label: $t('home_page.scheme_survey'),
       satStyle: "transform: translate(-50%, -50%) translate(165px, -95px);",
       midStyle: "transform: translate(-50%, -50%) translate(190px, 0px);",
       labelStyle: "transform: translate(0%, -50%) translate(215px, -95px); text-align: left;",
-      link: "/page/proektirovanie",
+      link: `${p}/page/proektirovanie`,
       arrowDeg: 135,
     },
     {
       svgSrc: "/ickonandlogo/newsrtikon/crane.svg",
-      label: "Строительство,<br/>комплектация,<br/>монтаж",
+      label: $t('home_page.scheme_build'),
       satStyle: "transform: translate(-50%, -50%) translate(165px, 95px);",
       midStyle: "transform: translate(-50%, -50%) translate(95px, 165px);",
       labelStyle: "transform: translate(0%, -50%) translate(215px, 95px); text-align: left;",
-      link: "/page/proektirovanie-avtonomnyh-kotelnyh",
+      link: `${p}/page/proektirovanie-avtonomnyh-kotelnyh`,
       arrowDeg: 195,
     },
     {
       svgSrc: "/ickonandlogo/newsrtikon/gears.svg",
-      label: "Наладка,<br/>режимные<br/>испытания",
+      label: $t('home_page.scheme_tune'),
       satStyle: "transform: translate(-50%, -50%) translate(0px, 190px);",
       midStyle: "transform: translate(-50%, -50%) translate(-95px, 165px);",
       labelStyle: "transform: translate(-50%, 0%) translate(0px, 235px); text-align: center;",
-      link: "/page/pusko-naladochnye-raboty",
+      link: `${p}/page/pusko-naladochnye-raboty`,
       arrowDeg: 255,
     },
     {
       svgSrc: "/ickonandlogo/newsrtikon/tools.svg",
-      label: "Сервис, ремонт",
+      label: $t('home_page.scheme_service'),
       satStyle: "transform: translate(-50%, -50%) translate(-165px, 95px);",
       midStyle: "transform: translate(-50%, -50%) translate(-190px, 0px);",
       labelStyle: "transform: translate(-100%, -50%) translate(-215px, 95px); text-align: right;",
@@ -327,7 +322,7 @@
     },
     {
       svgSrc: "/ickonandlogo/newsrtikon/panel.svg",
-      label: "Обследования,<br/>энергоаудит",
+      label: $t('home_page.scheme_audit'),
       satStyle: "transform: translate(-50%, -50%) translate(-165px, -95px);",
       midStyle: "transform: translate(-50%, -50%) translate(-95px, -165px);",
       labelStyle: "transform: translate(-100%, -50%) translate(-215px, -95px); text-align: right;",
@@ -335,26 +330,26 @@
     },
   ];
 
-  const booklets = [
+  $: booklets = [
     {
       video: "/fotoandvideo/B4v1.mp4",
-      alt: "Блочно-модульные котельные ООО Энергия Плюс",
-      heading: "Блочно-модульные котельные «ООО Энергия Плюс»",
-      desc: "Автоматизированные контейнерные котельные полной заводской готовности. В комплектации оборудования для работы как на природном газе, так и на дизельном топливе в соответствии с СП «Котельные установки» и СП «Газораспределительные системы» по принципу «Включил и забыл».",
+      alt: $t('home_page.booklet1_heading'),
+      heading: $t('home_page.booklet1_heading'),
+      desc: $t('home_page.booklet1_desc'),
       href: null,
     },
     {
       img: "/fotoandvideo/bucletenerge2.png",
-      alt: "Буклет с услугами и продукцией ГК «Энергия Плюс»",
-      heading: "Буклет с услугами и продукцией ГК «Энергия Плюс»",
-      desc: " ГК «Энергия Плюс» выполняет производство и поставку БМК «под ключ»: от составления задания на проектирование до запуска котельной на объекте. Выполняем проект привязки котельной с сетями, получаем необходимые согласования",
+      alt: $t('home_page.booklet2_heading'),
+      heading: $t('home_page.booklet2_heading'),
+      desc: $t('home_page.booklet2_desc'),
       href: "https://xn--c1adkmgpem4hrai.xn--p1ai/presentation/ГК_ЭнергияПлюс_2.pdf",
     },
     {
       img: "/fotoandvideo/bukletgaz.png",
-      alt: "Проекты газоснабжения ООО Энергия Плюс — буклет",
-      heading: "Проекты газоснабжения ООО «Энергия Плюс»",
-      desc: "Полный спектр работ по проектированию линейных объектов для всех видов строительства (изыскания, проекты планировки территории, проектно-сметная документация, государственная/негосударственная экспертиза, рабочая документация, авторский надзор).",
+      alt: $t('home_page.booklet3_heading'),
+      heading: $t('home_page.booklet3_heading'),
+      desc: $t('home_page.booklet3_desc'),
       href: "https://xn--c1adkmgpem4hrai.xn--p1ai/presentation/%D0%91%D1%83%D0%BA%D0%BB%D0%B5%D1%82%20%D1%81%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8%20%D0%B3%D0%B0%D0%B7%D0%BE%D1%81%D0%BD%D0%B0%D0%B1%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
     },
   ];
@@ -362,19 +357,19 @@
 
 <svelte:head>
   <!-- SEO -->
-  <title>ООО Энергия Плюс — проектирование и строительство котельных, газоснабжение</title>
-  <meta name="description" content="Инжиниринг полного цикла: проектирование котельных, строительство газопроводов, блочно-модульные котельные под ключ. 22 года работы, 225 заказчиков." />
-  <meta name="keywords" content="котельные, проектирование котельных, строительство котельных, газоснабжение, блочно-модульные котельные, ГРПШ, газопровод" />
+  <title>{$t('home_page.meta_title')}</title>
+  <meta name="description" content="{$t('home_page.meta_description')}" />
+  <meta name="keywords" content="{$t('home_page.meta_keywords')}" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://xn--c1adkmgpem4hrai.xn--p1ai/" />
+  <link rel="canonical" href="https://xn--c1adkmgpem4hrai.xn--p1ai/{currentLocale === 'en' ? 'en' : ''}" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="ООО Энергия Плюс — проектирование и строительство котельных" />
-  <meta property="og:description" content="Инжиниринг полного цикла: проектирование, строительство, сервис котельных и газопроводов. 22 года работы." />
-  <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/" />
+  <meta property="og:title" content="{$t('home_page.og_title')}" />
+  <meta property="og:description" content="{$t('home_page.og_description')}" />
+  <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/{currentLocale === 'en' ? 'en' : ''}" />
   <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/logo-512.png" />
-  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale" content="{currentLocale === 'en' ? 'en_US' : 'ru_RU'}" />
   <meta property="og:site_name" content="ООО Энергия Плюс" />
 
   <!-- Fonts -->
@@ -395,13 +390,13 @@
 <!-- ================================================================
      HERO — ограничен по ширине как .site-container--wide
      ================================================================ -->
-<section class="hero-section" aria-label="Главный баннер">
+<section class="hero-section" aria-label="{$t('home_page.hero_tagline')}">
   <div class="video-box">
     <div class="hero-head">
       <p class="video-top-bar__title">
-        Разработка и реализация современных энергетических и инженерных решений
+        {$t('home_page.hero_tagline')}
       </p>
-      <a href="https://xn--c1adkmgpem4hrai.xn--p1ai/uslugi" target="_blank" rel="noopener" class="video-top-bar__link">Перечень выполняемых работ</a>
+      <a href="{p}/uslugi" class="video-top-bar__link">{$t('home_page.hero_works_link')}</a>
     </div>
           <video
             bind:this={heroEl}
@@ -414,60 +409,13 @@
             on:loadedmetadata={heroLoadedMetadata}
             on:durationchange={heroDurationChange}
             on:seeked={heroSeeked}
-            aria-label="Видео о компании Энергия Плюс"
+            aria-label={$t('home_page.hero_tagline')}
           >
             <track kind="captions" />
           </video>
 
-<!--          <button class="play-btn" on:click={heroTogglePlay} aria-label="Воспроизвести / Пауза">-->
-<!--            <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>-->
-<!--          </button>-->
-<!-- -->
-<!--          <div class="video-controls">-->
-<!--            <div class="vc-progress-wrap">-->
-<!--              <input-->
-<!--                bind:this={heroSeekEl}-->
-<!--                class="vc-seek"-->
-<!--                type="range"-->
-<!--                min="0"-->
-<!--                max={heroDuration || 100}-->
-<!--                step="0.1"-->
-<!--                value={heroCurrentTime}-->
-<!--                on:input={(e) => {-->
-<!--                  heroEl.currentTime = parseFloat(e.target.value);-->
-<!--                }}-->
-<!--                aria-label="Перемотка"-->
-<!--              />-->
-<!--            </div>-->
-<!--            <div class="vc-row">-->
-<!--              <button class="vc-btn" on:click={heroTogglePlay} aria-label="Play/Pause">-->
-<!--                <i class="fa-solid {heroPlaying ? 'fa-pause' : 'fa-play'}"></i>-->
-<!--              </button>-->
-<!--              <span class="vc-time">{fmt(heroCurrentTime)} / {fmt(heroDuration)}</span>-->
-<!--              <div class="vc-spacer"></div>-->
-<!--              <button class="vc-btn vc-mute-btn" on:click={heroToggleMute} aria-label="Звук" title={heroMuted ? 'Включить звук' : 'Выключить звук'}>-->
-<!--                <i class="fa-solid {heroMuted || heroVolume === 0 ? 'fa-volume-xmark' : heroVolume < 0.5 ? 'fa-volume-low' : 'fa-volume-high'}"></i>-->
-<!--                {#if heroMuted}<span class="vc-unmute-hint">Включить звук</span>{/if}-->
-<!--              </button>-->
-<!--              <input class="vc-volume" type="range" min="0" max="1" step="0.05" value={heroVolume} on:input={heroChangeVolume} aria-label="Громкость" />-->
-<!--              <div class="vc-speed-wrap">-->
-<!--                <button class="vc-btn vc-speed-btn" on:click={() => (heroSpeedMenu = !heroSpeedMenu)} aria-label="Скорость">{heroSpeed}x</button>-->
-<!--                {#if heroSpeedMenu}-->
-<!--                  <div class="vc-speed-menu">-->
-<!--                    {#each speeds as s}-->
-<!--                      <button class="vc-speed-option {s === heroSpeed ? 'active' : ''}" on:click={() => heroSetSpeed(s)}>{s}x</button>-->
-<!--                    {/each}-->
-<!--                  </div>-->
-<!--                {/if}-->
-<!--              </div>-->
-<!--              <button class="vc-btn" on:click={heroFullscreen} aria-label="Полный экран">-->
-<!--                <i class="fa-solid fa-expand"></i>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
-
           <!-- Scroll down arrow -->
-          <a href="#services" class="hero-scroll-btn" aria-label="Скролл вниз">
+          <a href="#services" class="hero-scroll-btn" aria-label="{$t('home_page.hero_scroll_aria')}">
             <i class="fa-solid fa-chevron-down"></i>
           </a>
   </div>
@@ -480,7 +428,7 @@
   <div class="site-container--wide">
     <div class="top-services-grid">
       {#each services as svc}
-        <a href={svc.href} target="_blank" rel="noopener" class="top-service-card" aria-label={svc.title}>
+        <a href={svc.href} class="top-service-card" aria-label={svc.title}>
           <img loading="lazy" src={svc.img} alt={svc.alt} class="top-service-img" width="400" height="533" />
           <div class="top-service-overlay">
             <span class="top-service-title">{svc.title}</span>
@@ -566,8 +514,8 @@
       </div>
 
       <div class="text-block">
-        <h2 class="eng-title">Инжиниринг полного<br />цикла</h2>
-        <p class="eng-subtitle">Наши преимущества</p>
+        <h2 class="eng-title">{@html $t('home_page.eng_title')}</h2>
+        <p class="eng-subtitle">{$t('home_page.eng_subtitle')}</p>
         <ul class="eng-list">
           {#each advantages as adv}
             <li>
@@ -580,7 +528,7 @@
             </li>
           {/each}
         </ul>
-        <button class="btn-order" on:click={() => (showModal = true)}>Заказать котельную</button>
+        <button class="btn-order" on:click={() => (showModal = true)}>{$t('home_page.order_boiler_btn')}</button>
       </div>
     </div>
   </div>
@@ -705,24 +653,24 @@
 {#if showModal}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="order-modal-overlay" on:click|self={() => (showModal = false)} role="dialog" aria-modal="true" aria-label="Форма заказа котельной">
+  <div class="order-modal-overlay" on:click|self={() => (showModal = false)} role="dialog" aria-modal="true" aria-label={$t('home_page.modal_title')}>
     <div class="order-modal">
-      <button class="order-modal__close" on:click={() => (showModal = false)} aria-label="Закрыть">&times;</button>
-      <h2 class="order-modal__title">Заказать котельную</h2>
-      <p class="order-modal__sub">Оставьте заявку — мы свяжемся с вами в ближайшее время</p>
+      <button class="order-modal__close" on:click={() => (showModal = false)} aria-label={$t('common.close')}>&times;</button>
+      <h2 class="order-modal__title">{$t('home_page.modal_title')}</h2>
+      <p class="order-modal__sub">{$t('home_page.modal_sub')}</p>
       <form class="order-modal__form" on:submit={handleFormSubmit}>
         <div class="order-modal__field">
-          <input type="text" name="username" placeholder="Ваше имя" class="order-modal__input {modalErrors.name ? 'is-danger' : ''}" autocomplete="name" on:input={() => modalErrors.name = null} />
+          <input type="text" name="username" placeholder="{$t('home_page.modal_name_ph')}" class="order-modal__input {modalErrors.name ? 'is-danger' : ''}" autocomplete="name" on:input={() => modalErrors.name = null} />
           {#if modalErrors.name}<p class="help is-danger order-modal__error-text">{modalErrors.name}</p>{/if}
         </div>
         <div class="order-modal__field">
-          <input type="tel" name="phone" placeholder="Ваш телефон" class="order-modal__input {modalErrors.phone ? 'is-danger' : ''}" autocomplete="tel" use:imask={maskOptions} on:input={() => modalErrors.phone = null} />
+          <input type="tel" name="phone" placeholder="{$t('home_page.modal_phone_ph')}" class="order-modal__input {modalErrors.phone ? 'is-danger' : ''}" autocomplete="tel" use:imask={maskOptions} on:input={() => modalErrors.phone = null} />
           {#if modalErrors.phone}<p class="help is-danger order-modal__error-text">{modalErrors.phone}</p>{/if}
         </div>
         <div class="order-modal__field">
-          <textarea name="message" placeholder="Расскажите о вашем проекте" class="order-modal__input order-modal__textarea"></textarea>
+          <textarea name="message" placeholder="{$t('home_page.modal_message_ph')}" class="order-modal__input order-modal__textarea"></textarea>
         </div>
-        <button type="submit" class="order-modal__submit">Отправить заявку</button>
+        <button type="submit" class="order-modal__submit">{$t('home_page.modal_submit')}</button>
       </form>
     </div>
   </div>

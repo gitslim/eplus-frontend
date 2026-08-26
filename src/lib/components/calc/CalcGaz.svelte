@@ -8,6 +8,7 @@
     import * as icons from '@fortawesome/free-solid-svg-icons'
     import CalcResult from '$lib/components/calc/CalcResult.svelte'
     import {bitrixLead} from '$lib/utils.js'
+    import {t} from 'svelte-i18n'
 
     const dispatch = createEventDispatcher()
 
@@ -23,22 +24,22 @@
         let _errs = {}
         if (vals.projVp || vals.montVp) {
             if (vals.lenVp === '')
-                _errs.lenVp = 'Укажите протяженность газопровода'
+                _errs.lenVp = $t('calculators.pipeline.err_len')
         }
         if (vals.projV || vals.montV) {
             if (vals.lenV === '')
-                _errs.lenV = 'Укажите протяженность газопровода'
+                _errs.lenV = $t('calculators.pipeline.err_len')
         }
         if (!(vals.projVp || vals.montVp || vals.projV || vals.montV)) {
-            _errs.common = 'Выберите вид работ'
+            _errs.common = $t('calculators.pipeline.err_work_type')
         }
 
         if (vals.name === '')
-            _errs.name = 'Введите имя'
+            _errs.name = $t('calculators.common.err_name')
         if (vals.phone === '') {
-            _errs.phone = 'Введите телефон'
+            _errs.phone = $t('calculators.common.err_phone')
         } else if (vals.phone.length < 10) {
-            _errs.phone = 'Введите 10 цифр номера'
+            _errs.phone = $t('calculators.common.err_phone_digits')
         }
 
         errs = _errs
@@ -135,7 +136,7 @@
             if (response.ok) {
                 console.debug('bitrix response', response)
             } else {
-                alert('Ошибка отправки формы. Попробуйте еще раз!')
+                alert($t('form.send_error'))
                 reset()
             }
         }
@@ -188,25 +189,21 @@
 <div class="container">
     {#if isCalculating}
         <div class="p-6 has-text-centered">
-            <span class="subtitle">Производим расчет</span>
+            <span class="subtitle">{$t('calculators.common.calculating')}</span>
             <progress class="progress is-small is-primary"></progress>
         </div>
     {:else if isDone}
-        <CalcResult {amount} on:complete={reset} text="Результат расчета"/>
+        <CalcResult {amount} on:complete={reset} text="{$t('calculators.common.result_title')}"/>
     {:else}
         <form on:submit={handleSubmit}>
 
-<!--            <div class="is-divider" data-content="Внутриплощадочный газопровод"></div>-->
-
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Вид работ:</label>
+                    <label class="label">{$t('calculators.pipeline.work_type')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="projVp" value={$form.projVp} on:change={handleChange}>проект на
-                            внутриплощадочный газопровод
-                        </Switch>
+                        <Switch name="projVp" value={$form.projVp} on:change={handleChange}>{$t('calculators.pipeline.proj_vp')}</Switch>
                     </div>
                 </div>
             </div>
@@ -217,17 +214,14 @@
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="montVp" value={$form.montVp} on:change={handleChange}>монтаж
-                            внутриплощадочного
-                            газопровода
-                        </Switch>
+                        <Switch name="montVp" value={$form.montVp} on:change={handleChange}>{$t('calculators.pipeline.mont_vp')}</Switch>
                     </div>
                 </div>
             </div>
 
             <div class="field is-horizontal" class:is-hidden={!($form.projVp || $form.montVp)}>
                 <div class="field-label is-expanded">
-                    <label class="label" for="lenVp">Ориентировочная протяженность внутриплощадочного газопровода, м</label>
+                    <label class="label" for="lenVp">{$t('calculators.pipeline.len_vp_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
@@ -237,7 +231,7 @@
                                    use:imask={{mask: /^\d{0,5}$/}}
                                    class="input"
                                    class:is-danger={($touched.lenVp || isDone) && errs.lenVp}
-                                   placeholder="Протяженность, м"
+                                   placeholder="{$t('calculators.pipeline.len_vp_placeholder')}"
                                    bind:value={$form.lenVp}
                                    on:change={handleChange}
                                    on:blur={handleBlur}
@@ -262,24 +256,18 @@
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="needGrpsh" value={$form.needGrpsh} on:change={handleChange}>Необходимость
-                            установки ГРПШ
-                        </Switch>
+                        <Switch name="needGrpsh" value={$form.needGrpsh} on:change={handleChange}>{$t('calculators.pipeline.need_grpsh')}</Switch>
                     </div>
                 </div>
             </div>
 
-<!--            <div class="is-divider" data-content="Внутренний газопровод"></div>-->
-
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Вид работ:</label>
+                    <label class="label">{$t('calculators.pipeline.work_type')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="projV" value={$form.projV} on:change={handleChange}>проект на внутренний
-                            газопровод
-                        </Switch>
+                        <Switch name="projV" value={$form.projV} on:change={handleChange}>{$t('calculators.pipeline.proj_v')}</Switch>
                     </div>
                 </div>
             </div>
@@ -290,17 +278,14 @@
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="montV" value={$form.montV} on:change={handleChange}>монтаж внутреннего
-                            газопровода
-                        </Switch>
+                        <Switch name="montV" value={$form.montV} on:change={handleChange}>{$t('calculators.pipeline.mont_v')}</Switch>
                     </div>
                 </div>
             </div>
 
-
             <div class="field is-horizontal" class:is-hidden={!($form.projV || $form.montV)}>
                 <div class="field-label is-expanded">
-                    <label class="label" for="lenV">Ориентировочная протяженность внутреннего газопровода, м</label>
+                    <label class="label" for="lenV">{$t('calculators.pipeline.len_v_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
@@ -310,7 +295,7 @@
                                    use:imask={{mask: /^\d{0,5}$/}}
                                    class="input"
                                    class:is-danger={($touched.lenV || isDone) && errs.lenV}
-                                   placeholder="Протяженность, м"
+                                   placeholder="{$t('calculators.pipeline.len_v_placeholder')}"
                                    bind:value={$form.lenV}
                                    on:change={handleChange}
                                    on:blur={handleBlur}
@@ -335,10 +320,7 @@
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="needGru" value={$form.needGru} on:change={handleChange}>Необходимость
-                            установки
-                            ГРУ
-                        </Switch>
+                        <Switch name="needGru" value={$form.needGru} on:change={handleChange}>{$t('calculators.pipeline.need_gru')}</Switch>
                     </div>
                 </div>
             </div>
@@ -349,18 +331,14 @@
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <Switch name="needUchet" value={$form.needUchet} on:change={handleChange}>Необходимость
-                            установки коммерческого узла учета газа
-                        </Switch>
+                        <Switch name="needUchet" value={$form.needUchet} on:change={handleChange}>{$t('calculators.pipeline.need_uchet')}</Switch>
                     </div>
                 </div>
             </div>
 
-<!--            <div class="is-divider" data-content="Контактные данные"></div>-->
-
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label" for="userNameGaz">Ваше имя:</label>
+                    <label class="label" for="userNameGaz">{$t('calculators.common.name_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
@@ -370,7 +348,7 @@
                                    class="input"
                                    class:is-danger={($touched.name || isDone) && errs.name}
                                    use:imask={{mask: /^[А-яA-z]{0,30}$/}}
-                                   placeholder="Как к вам обращаться"
+                                   placeholder="{$t('calculators.common.name_placeholder')}"
                                    bind:value={$form.name}
                                    on:change={handleChange}
                                    on:blur={handleBlur}
@@ -395,7 +373,7 @@
 
             <div class="field is-horizontal">
                 <div class="field-label is-expanded">
-                    <label class="label" for="userPhoneGaz">Телефон:</label>
+                    <label class="label" for="userPhoneGaz">{$t('calculators.common.phone_label')}</label>
                 </div>
                 <div class="field-body">
                     <div class="field is-expanded">
@@ -412,12 +390,11 @@
                                        class:is-danger={($touched.phone || isDone) && errs.phone}
                                        type="tel"
                                        use:imask={{mask: /^\d{0,10}$/}}
-                                       placeholder="Максимум 10 цифр"
+                                       placeholder="{$t('calculators.common.phone_placeholder')}"
                                        bind:value={$form.phone}
                                        on:change={handleChange}
                                        on:blur={handleBlur}
                                 />
-                                <!--                        <span class="icon is-small is-left"><Icon icon="{icons.faPhone}"/></span>-->
                                 {#if ($touched.phone || isDone) && errs.phone}
                             <span class="icon is-small is-right has-text-danger">
                                 <Icon icon="{icons.faExclamationTriangle}"/>
@@ -444,7 +421,7 @@
                     <div class="field">
                         <div class="control">
                             <button type="submit" class="button is-primary is-rounded">
-                                Рассчитать
+                                {$t('calculators.common.submit_btn')}
                             </button>
                         </div>
                     </div>

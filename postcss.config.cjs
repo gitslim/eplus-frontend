@@ -15,7 +15,7 @@ const config = {
         !dev && purgecss({
             content: ['./src/**/*.html', './src/**/*.svelte'],
             safelist: {
-                standard: [/svelte/]
+                standard: [/svelte/, /i18n/]
             }
         }),
         !dev && cssnano({

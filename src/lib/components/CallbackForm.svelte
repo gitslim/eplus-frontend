@@ -1,6 +1,7 @@
 <script>
     import BtnZayavka from './BtnZayavka.svelte'
     import TitleLanding from './TitleLanding.svelte'
+    import {t} from 'svelte-i18n'
 
     $: white
     $: left
@@ -8,9 +9,11 @@
     $: radius
     $: bWhite
     $: btnWhite = true
-    export let titleText='Нужна консультация?'
+    export let titleText = ''
     export let white, left, btnText, radius, bWhite, btnWhite
     let modal
+
+    $: resolvedTitle = titleText || $t('common.need_consultation')
 </script>
 
 <style lang="scss">
@@ -27,11 +30,11 @@
 </style>
 
 <div class="contact-link" class:bWhite>
-    <TitleLanding {left} {titleText} {white}/>
+    <TitleLanding {left} titleText={resolvedTitle} {white}/>
     <div class="desc">
-        Позвоните нам по телефону:<br/>
+        {$t('common.call_us')}<br/>
         <b class="roistat-phone" style="font-size:15px;">+7 (495) 790-76-97</b><br/>
-        или воспользуйтесь формой обратной связи
+        {$t('common.or_use_feedback_form')}
     </div>
     <div class="mt-4">
         <BtnZayavka {btnText} {btnWhite} {radius}/>

@@ -1,6 +1,7 @@
 <script>
     import Modal from '$lib/components/Modal.svelte'
     import ContactFormFull from '$lib/components/ContactFormFull.svelte'
+    import {t} from 'svelte-i18n'
 
     let isFormSubmitted
     export let onClick;
@@ -25,13 +26,13 @@
                 <div class="notification is-light is-success">
                     <button class="delete" on:click={close}></button>
                     <slot name="success">
-                    Ваша заявка принята. Мы свяжемся с вами в ближайшее время.
+                        {$t('form.request_accepted')}
                     </slot>
                 </div>
             {:else}
                 <div class="title align-content-center">
                     <slot name="title">
-                        Оставить заявку
+                        {$t('form.leave_request')}
                     </slot>
                 </div>
                 <ContactFormFull lead = {lead} on:success={handleSuccessSubmit}/>

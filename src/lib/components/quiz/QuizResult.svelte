@@ -1,5 +1,6 @@
 <script>
     import {createEventDispatcher} from 'svelte'
+    import {t} from 'svelte-i18n'
 
     const dispatch = createEventDispatcher()
 
@@ -9,9 +10,6 @@
     const formatter = new Intl.NumberFormat('ru-RU', {
         style: 'currency',
         currency: 'RUB',
-        // These options are needed to round to whole numbers if that's what you want.
-        //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-        //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
     })
 
     $: sum = formatter.format(answers[item.answer])
@@ -32,7 +30,7 @@
 </div>
 
 <div class="subtitle has-text-centered has-text-dark">
-    <span>Закажите точный расчет по телефону</span>
+    <span>{$t('calculators.quiz.order_phone_prompt')}</span>
     <a rel="external"
        class="has-text-centered has-text-primary zphone"
        href="tel:+74957907697">
@@ -41,6 +39,6 @@
 </div>
 <div class="field has-text-centered">
     <div class="control">
-        <a class="button is-primary" on:click={handleClick}>Начать сначала</a>
+        <a class="button is-primary" on:click={handleClick}>{$t('calculators.quiz.start_over')}</a>
     </div>
 </div>

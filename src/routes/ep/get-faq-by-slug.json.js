@@ -3,12 +3,13 @@ import {client, gql} from '$lib/apollo'
 
 
 export const post = async request => {
-    const {slug} = request.body
+    const {slug, locale} = request.body
+    const resolvedLocale = locale || 'ru'
 
     try {
         const query = gql`
-  query($slug: String!) {
-    faqs(where: { slug: $slug }) {
+  query($slug: String!, $locale: String!) {
+    faqs(where: { slug: $slug }, locale: $locale) {
       slug
       title
       content {
@@ -29,19 +30,65 @@ export const post = async request => {
           videoId
         }
       }
+      localizations {
+        locale
+        slug
+        title
+        content {
+          __typename
+          ... on ComponentDefaultParagraph {
+            class
+            content
+          }
+          ... on ComponentDefaultImage {
+            class
+            image {
+              formats
+              alternativeText
+            }
+          }
+          ... on ComponentDefaultYoutube {
+            class
+            videoId
+          }
+        }
+      }
     }
   }
 `
-        const result = await client.query({
+        let result = await client.query({
             query,
-            variables: {slug},
+            variables: {slug, locale: resolvedLocale},
             fetchPolicy: 'network-only'
         })
 
-        if (result.data.faqs.length > 0) {
+        if (result?.data?.faqs && result.data.faqs.length > 0) {
             return {
                 status: 200,
                 body: {faq: result.data.faqs[0]}
+            }
+        }
+
+        // If not found in target locale, query RU with localizations
+        if (resolvedLocale !== 'ru') {
+            result = await client.query({
+                query,
+                variables: {slug, locale: 'ru'},
+                fetchPolicy: 'network-only'
+            })
+
+            if (result?.data?.faqs && result.data.faqs.length > 0) {
+                const enLoc = (result.data.faqs[0].localizations || []).find(l => l.locale === resolvedLocale)
+                if (enLoc) {
+                    return {
+                        status: 200,
+                        body: {faq: enLoc}
+                    }
+                }
+                return {
+                    status: 200,
+                    body: {faq: result.data.faqs[0]}
+                }
             }
         }
 

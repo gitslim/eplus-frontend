@@ -7,16 +7,11 @@
   import BtnZayavka from "$lib/components/BtnZayavka.svelte";
   import HeaderLanding from "$lib/components/HeaderLanding.svelte";
   import HiddenH1 from "$lib/components/HiddenH1.svelte";
+  import { t } from "svelte-i18n";
 
-  const meta = {
-    title: "ПРОИЗВОДСТВО котельных в заводских условиях",
-    description: "Собственное производство котельных в заводских условиях. Надежность, высокое качество и скорость сборки. Экскурсия на производство.",
-    h1: "Производство котельных в заводских условиях",
-  };
-
-  const headerCaption = {
-    caption: "ПРОИЗВОДСТВО",
-    subtitle: "котельных в заводских условиях"
+  $: headerCaption = {
+    caption: $t('production_page.caption'),
+    subtitle: $t('production_page.subtitle')
   };
 </script>
 
@@ -273,8 +268,8 @@
   }
 </style>
 
-<SvelteSeo title={meta.title} description={meta.description} />
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('production_page.meta_title')}" description="{$t('production_page.meta_description')}" />
+<HiddenH1>{$t('production_page.meta_h1')}</HiddenH1>
 
 <main>
   <!-- Hero Section -->
@@ -283,7 +278,7 @@
       <HeaderLanding {...headerCaption}>
         <div class="columns mt-4">
           <div class="column">
-            <BtnZayavka btnText="ЗАКАЗАТЬ КОТЕЛЬНУЮ" radius />
+            <BtnZayavka btnText="{$t('production_page.order_boiler')}" radius />
           </div>
         </div>
       </HeaderLanding>
@@ -295,22 +290,22 @@
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-6 text-content">
-          <h2 class="title is-3" style="text-transform: uppercase;">ПРЕИМУЩЕСТВА ЗАВОДСКОЙ СБОРКИ</h2>
+          <h2 class="title is-3" style="text-transform: uppercase;">{$t('production_page.adv_title')}</h2>
           <p class="is-size-5 mb-5 mt-4">
-            Для блочно-модульных котельных заводская сборка — это ключевой аргумент в пользу надежности и скорости
+            {$t('production_page.adv_subtitle')}
           </p>
           <ul class="advantage-list">
-            <li>Непрерывный контроль качества производства работ: сварных швов, соединений и подключений</li>
-            <li>Сборка осуществляется в оптимальных условиях, исключено коррозирующее воздействие погодных условий на строительно-монтажный процесс</li>
-            <li>Компактность технических решений: упрощается процесс выбора участка для размещения и эксплуатации ОПО</li>
-            <li>Быстрая скорость возведения котельной на площадке заказчика</li>
-            <li>Упрощенная логистика (особенно актуально для изолированных и труднодоступных территорий)</li>
+            <li>{$t('production_page.adv_item1')}</li>
+            <li>{$t('production_page.adv_item2')}</li>
+            <li>{$t('production_page.adv_item3')}</li>
+            <li>{$t('production_page.adv_item4')}</li>
+            <li>{$t('production_page.adv_item5')}</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="image-wrapper">
-      <img src="/images/proizvodstvo/worker.png" alt="Специалист в каске" />
+      <img src="/images/proizvodstvo/worker.png" alt="{$t('production_page.worker_alt')}" />
     </div>
   </section>
 
@@ -319,43 +314,43 @@
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-5">
-          <h2 class="title is-3" style="text-transform: uppercase;">О ПРОИЗВОДСТВЕ</h2>
+          <h2 class="title is-3" style="text-transform: uppercase;">{$t('production_page.about_title')}</h2>
           <div class="production-stats mb-5">
             <div class="stat-row">
               <div class="stat-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
               <div class="stat-info">
-                <span class="stat-title">Расположение</span>
-                <span class="stat-value">Московская область, г. Щелково</span>
+                <span class="stat-title">{$t('production_page.loc_title')}</span>
+                <span class="stat-value">{$t('production_page.loc_value')}</span>
               </div>
             </div>
             
             <div class="stats-grid">
               <div class="stat-card">
-                <div class="stat-num">500<span class="stat-unit">м²</span></div>
-                <div class="stat-desc">Площадь производства</div>
+                <div class="stat-num">500<span class="stat-unit">{$t('production_page.stat1_unit')}</span></div>
+                <div class="stat-desc">{$t('production_page.stat1_desc')}</div>
               </div>
               <div class="stat-card">
-                <div class="stat-num">3<span class="stat-unit">шт/мес</span></div>
-                <div class="stat-desc">Производительность</div>
+                <div class="stat-num">3<span class="stat-unit">{$t('production_page.stat2_unit')}</span></div>
+                <div class="stat-desc">{$t('production_page.stat2_desc')}</div>
               </div>
               <div class="stat-card">
-                <div class="stat-num">5<span class="stat-unit">шт</span></div>
-                <div class="stat-desc">Вместимость склада</div>
+                <div class="stat-num">5<span class="stat-unit">{$t('production_page.stat3_unit')}</span></div>
+                <div class="stat-desc">{$t('production_page.stat3_desc')}</div>
               </div>
               <div class="stat-card">
-                <div class="stat-num">20<span class="stat-unit">чел</span></div>
-                <div class="stat-desc">Штат сотрудников</div>
+                <div class="stat-num">20<span class="stat-unit">{$t('production_page.stat4_unit')}</span></div>
+                <div class="stat-desc">{$t('production_page.stat4_desc')}</div>
               </div>
             </div>
           </div>
           <div>
-            <BtnZayavka btnText="Получить экскурсию на производство" />
+            <BtnZayavka btnText="{$t('production_page.tour_btn')}" />
           </div>
         </div>
         <div class="column is-6 is-offset-1">
-          <img src="/images/proizvodstvo/boiler.jpg" alt="Производство изнутри" style="border-radius: 4px; width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
+          <img src="/images/proizvodstvo/boiler.jpg" alt="{$t('production_page.factory_alt')}" style="border-radius: 4px; width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
         </div>
       </div>
     </div>

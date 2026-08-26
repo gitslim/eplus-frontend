@@ -8,98 +8,51 @@
     import Icon from "fa-svelte";
     import { faFile } from "@fortawesome/free-regular-svg-icons";
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import { t } from "svelte-i18n";
+    import { session } from "$app/stores";
 
-    let title = "О компании";
-
-    const meta = {
-        title: "«Энергия Плюс». Инжиниринговая компания полного цикла. Проектирование газопроводов. Строительство котельных.",
-        description: "Инжиниринговая компания «Энергия Плюс». Комплексный инжиниринг для промышленных объектов. Газификация. Промышленная газовая котельная. Природный газ и дизельное топливо. Поставка оборудования",
-        h1: "«Энергия Плюс». Газификация производства. ТТР и ТУ «Мосгаз», «Мособлгаз», «Газпром». Проект котельной. Строительство энергоцентра. УУГ, ИТП, ЦТП. Производство и поставка. Котельная контейнерного типа. Поставка котельного оборудования"
-    }
-
-
+    $: currentLocale = $session.locale || "ru";
+    $: p = currentLocale === "en" ? "/en" : "";
 </script>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('company_page.meta_about_title')}" description="{$t('company_page.meta_about_description')}"/>
+<HiddenH1>{$t('company_page.meta_about_h1')}</HiddenH1>
 
 <section class="section">
     <div class="container">
-        <h2 class="title">{title}</h2>
+        <h2 class="title">{$t('company_page.about_title')}</h2>
         <div class="columns">
             <div class="column is-8">
-                <!--            <ul class="columns">
-                                    <li class="column is-4">
-                                        <Link cls="button is-fullwidth" path="company" slug="history" title="История">История</Link>
-                                    </li>
-                                    <li class="column is-4">
-                                        <Link cls="button is-fullwidth" path="company" slug="dopuski-sro"
-                                              title="Допуски СРО и аттестаты">Допуски
-                                            СРО и аттестаты
-                                        </Link>
-                                    </li>
-                                    <li class="column is-4">
-                                        <Link cls="button is-fullwidth" path="page" slug="referens-list" title="Референс-лист">
-                                            Референс-лист
-                                        </Link>
-                                    </li>
-                                </ul>
-
-                                <div class="is-divider"></div>  -->
-
                 <div class="block">
-                    ООО «Энергия Плюс» - компания, оказывающая услуги по
-                    проектированию и строительству инженерных систем. В первую
-                    очередь – это системы газо-, тепло- и электроснабжения
-                    объектов различного назначения, в том числе котельные и
-                    мини-ТЭС.
+                    {$t('company_page.about_p1')}
                 </div>
                 <div class="block">
-                    Наличие экспертизы в вопросах промышленной безопасности,
-                    позволяет нам предоставлять инжиниринговые услуги по самым
-                    высоким стандартам энергоэффективности, надежности,
-                    автоматизации и экологичности, а двадцатилетний опыт работы
-                    в отрасли помогает находить оптимальные технические решения,
-                    оптимизировать затраты, прогнозировать риски, оперативно
-                    формировать проектные группы и самое главное своевременно
-                    предоставлять ожидаемый результат.
+                    {$t('company_page.about_p2')}
                 </div>
                 <div class="block">
-                    Для достижения таких результатов мы успешно используем
-                    EPC-контрактирование, как инструмент управления
-                    строительством на всех этапах реализации проекта.
-                    Комплексное управление проектированием и строительством
-                    позволяет в значительной мере сократить сроки реализации
-                    проекта и полностью исключить непредвиденные расходы
-                    Заказчика. Более подробный перечень комплекса услуг - <Link
-                        path="page"
-                        slug="funkcii-tehnicheskogo-zakazchika">здесь</Link
-                    >.
+                    {@html $t('company_page.about_p3', {values: {p}})}
                 </div>
                 <div class="block">
-                    Наша команда состоит из профессионалов: изыскателей,
-                    проектировщиков, инженеров, монтажников и управленцев,
-                    которые имеют все необходимые формы допуска и аттестаций на
-                    право выполнения работ на опасных производственных объектах
+                    {$t('company_page.about_p4')}
                 </div>
 
-                <h3 class="title has-text-centered pt-6">Презентации</h3>
+                <h3 class="title has-text-centered pt-6">{$t('company_page.presentations_title')}</h3>
                 <div class="tile is-ancestor mb-3">
                     <div class="tile is-6 p-3">
                         <a
                             href="/presentation/Буклет%20с%20услугами%20в%20области%20газоснабжения.pdf"
                             target="_blank"
-                            title="Буклет с услугами в области газоснабжения"
+                            title="{$t('company_page.booklet_gas_title')}"
                         >
                             <figure class="image">
                                 <LazyImage
-                                    alt="Буклет с услугами в области газоснабжения"
+                                    alt="{$t('company_page.booklet_gas_title')}"
                                     src="/presentation/gaz-cover.png"
                                 />
                                 <div class="is-overlay p-1">
                                     <span class="tag is-primary"
-                                        >Газоснабжение</span
+                                        >{$t('company_page.tag_gas')}</span
                                     >
                                 </div>
                             </figure>
@@ -109,66 +62,22 @@
                         <a
                             href="/presentation/Буклет%20с%20услугами%20в%20области%20энергетики.pdf"
                             target="_blank"
-                            title="Буклет с услугами в области энергетики"
+                            title="{$t('company_page.booklet_energy_title')}"
                         >
                             <figure class="image">
                                 <LazyImage
-                                    alt="Буклет с услугами в области энергетики"
+                                    alt="{$t('company_page.booklet_energy_title')}"
                                     src="/presentation/energy-cover.png"
                                 />
                                 <div class="is-overlay p-1">
                                     <span class="tag is-primary"
-                                        >Энергетика</span
+                                        >{$t('company_page.tag_energy')}</span
                                     >
                                 </div>
                             </figure>
                         </a>
                     </div>
                 </div>
-
-                <!-- <div class="box mt-4">
-                     <h2 class="subtitle is-4">Презентации:</h2>
-                     <ul class="panel-list">
-                     <li>
-                     <Icon icon={faFile} class="" />
-                     <a
-                     class="is-underlined has-text-link"
-                     href="/presentation/Буклет%20с%20услугами%20в%20области%20газоснабжения.pdf"
-                     target="_blank"
-                     title="Буклет с услугами в области газоснабжения"
-                     >
-                     Буклет с услугами в области газоснабжения
-                     </a>
-                     </li>
-                     <li>
-                     <Icon icon={faFile} class="" />
-                     <a
-                     class="is-underlined has-text-link"
-                     href="/presentation/Буклет%20с%20услугами%20в%20области%20энергетики.pdf"
-                     target="_blank"
-                     title="Буклет с услугами в области энергетики"
-                     >
-                     Буклет с услугами в области энергетики
-                     </a>
-                     </li>
-                     </ul>
-                     </div>
-                -->
-                <!-- <br /><br /> -->
-
-                <!-- <h3 class="subtitle has-text-centered">Презентация (pdf)</h3>
-                     <a
-                     href="/presentation/Энергия%20Плюс.pdf"
-                     target="_blank"
-                     title="Презентация Энергия Плюс"
-                     >
-                     <figure class="image">
-                     <LazyImage
-                     alt="Презентация Энергия Плюс"
-                     src="/presentation/presentation-cover.jpg"
-                     />
-                     </figure>
-                     </a> -->
             </div>
 
             <div class="column">
@@ -183,11 +92,6 @@
                     />
                 </figure>
                 <div class="is-divider" />
-                <!--                <figure class="image is-16by9">
-                                    <iframe allowfullscreen class="has-ratio" frameborder="0"
-                                            height="360"
-                                            src="https://www.youtube.com/embed/p4ZEccCeO2E?showinfo=0" width="640"></iframe>
-                                </figure>  -->
             </div>
         </div>
     </div>

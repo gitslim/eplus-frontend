@@ -12,15 +12,39 @@
     import {Lightbox, LightboxImage, LightboxGallery} from 'svelte-lightbox'
     import LazyImage from 'svelte-lazy-image'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
- let title = 'Индивидуальные и центральные тепловые пункты'
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 
-    const meta = {
-        title: "Индивидуальные и центральные тепловые пункты. Проектирование и монтаж",
-        description: "Обследование тепловых пунктов, Получение ТУ в ПАО «МОЭК». Проектирование ИТП, ЦТП, тепловых сетей, Согласование ПД в ПАО «МОЭК». Поставка оборудования и комплектация материалами. Монтажные работы. Пуско-наладочные работы. Сдача объекта в ПАО «МОЭК». Ростехнадзор.",
-        h1: "Индивидуальные и центральные тепловые пункты. Проектирование строительство. Расчет стоимости. Экспертиза. Смета"
-    }
-
+    $: block_in = [
+      {
+        img: '/images/itc_ctp/shema/itp_6.jpg',
+        head: $t('heating_substations_page.module1_head'),
+        text: $t('heating_substations_page.module1_text'),
+      },
+      {
+        img: '/images/itc_ctp/shema/itp_4.jpg',
+        head: $t('heating_substations_page.module2_head'),
+        text: $t('heating_substations_page.module2_text'),
+      },
+      {
+        img: '/images/itc_ctp/shema/itp_5.jpg',
+        head: $t('heating_substations_page.module3_head'),
+        text: $t('heating_substations_page.module3_text'),
+      },
+      {
+        img: '/images/itc_ctp/shema/itp_2.jpg',
+        head: $t('heating_substations_page.module4_head'),
+        text: $t('heating_substations_page.module4_text'),
+      },
+      {
+        img: '/images/itc_ctp/shema/itp_7.jpg',
+        head: $t('heating_substations_page.module5_head'),
+        text: $t('heating_substations_page.module5_text'),
+      },
+    ];
 
     onMount(async () => {
 
@@ -52,34 +76,6 @@
         let svg_i_prev = document.querySelector('.svg_i_prev');
         let svg_i_next = document.querySelector('.svg_i_next');
         let svg_s_text = document.querySelector('.svg_s_text');
-
-        let block_in = [
-          {
-            img: '/images/itc_ctp/shema/itp_6.jpg',
-            head: 'Модуль ввода и учета тепла',
-            text: '<p class="svg_i_block_p-p">Основное назначение модуля ввода и учета тепла - учет тепловой энергии, которую потребитель забрал на свои нужды. Также он, как правило, комплектуется регуляторами перепада давления для Кроме того, модуль отвечает за поддержание заданных параметров по давлению в обратной ветке теплосети.</p><p>Сам модуль ввода и учёта тепла конструктивно достаточно прост: запорная арматура (как правило - в виде шаровых кранов), по две на каждую линию; фильтры и контрольно-измерительные приборы (термометры и монометры). Также модуль в своём составе имеет фильтры на каждой линии и КИП - термометры и манометры, установленные через кран и импульсную трубку.</p><p>В состав модуля обязательно входит система учёта тепла — это преобразователи расхода, вычислители количества теплоты, блоки управления и расчета, а также требуемые датчики давления и температуры.</p>',
-          },
-          {
-            img: '/images/itc_ctp/shema/itp_4.jpg',
-            head: 'Модуль горячего водоснабжения',
-            text: '<p>Основная функция - обеспечение потребителей горячей водой, поддержание заданной температуры при изменяющемся расходе.</p><p>Модуль состоит из теплообменника, запорной арматуры, двухходового клапана для регулирования расхода теплоносителя на теплообменник, насосов и контрольно-измерительных приборов.</p>',
-          },
-          {
-            img: '/images/itc_ctp/shema/itp_5.jpg',
-            head: 'Модуль подпитки',
-            text: '<p>Если к тепловому пункту необходимо подключить и систему вентиляции, то он оснащается еще одним пластинчатым теплообменником - это и есть модуль подпитки. Контур вентиляции подключается аналогично отопительному с добавлением необходимых контрольно-измерительных приборов.</p>',
-          },
-          {
-            img: '/images/itc_ctp/shema/itp_2.jpg',
-            head: 'Модуль отопления',
-            text: '<p>Предназначен для подключения системы отопления здания к теплосети. Регулирование качества теплоносителя обеспечивается c помощью регулирующего клапана. Использование датчика наружного воздуха позволяет осуществлять погодозависимое регулирование: температура теплоносителя зависит от температуры наружного воздуха, что обеспечивает значительную экономию тепловой энергии.</p>',
-          },
-          {
-            img: '/images/itc_ctp/shema/itp_7.jpg',
-            head: 'Модуль компенсации температурных расширений',
-            text: '<p>Предназначен для поддержания заданных эксплуатационных показателей. А именно, для компенсации температурного расширения теплоносителя в закрытых (изолированных от атмосферы) водяных системах.</p>',
-          },
-        ];
 
         [].forEach.call(karta, function (el) {
           //вешаем событие
@@ -897,27 +893,25 @@
 </style>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('heating_substations_page.meta_title')}" description="{$t('heating_substations_page.meta_description')}"/>
+<HiddenH1>{$t('heating_substations_page.meta_h1')}</HiddenH1>
 
 <main>
     <section class="hero hero1">
         <div class="hero-body">
             <div class="columns">
                 <div class="column is-10">
-                    <h1 style="font-size: 60px; max-width: 900px;" class="has-text-white has-text-weight-normal title titlefor">ИНДИВИДУАЛЬНЫЕ И ЦЕНТРАЛЬНЫЕ ТЕПЛОВЫЕ ПУНКТЫ (ИТП и ЦТП)</h1>
+                    <h1 style="font-size: 60px; max-width: 900px;" class="has-text-white has-text-weight-normal title titlefor">{$t('heating_substations_page.hero_title')}</h1>
                 </div>
             </div>
             <div class="columns hero__text">
                 <div class="column is-7">
-                    <h2 class="block has-text-white has-text-weight-medium has-text-left titleb">ПРОЕКТИРОВАНИЕ, ПОСТАВКА,
-                        МОНТАЖ, НАЛАДКА
-                         </h2>
+                    <h2 class="block has-text-white has-text-weight-medium has-text-left titleb">{$t('heating_substations_page.hero_sub')}</h2>
                 </div>
             </div>
             <div class="button3">
                 <ContactFormButton>
-                    <div slot="button">Заказать консультацию</div>
+                    <div slot="button">{$t('heating_substations_page.order_consultation')}</div>
                 </ContactFormButton>
             </div>
             <div class="subtitle py-6">
@@ -936,28 +930,26 @@
             <div class="columns is-vcentered">
                 <div class="column is-half">
                     <p class="has-text-weight-medium has-text-justified section2__text">
-                        <span>Тепловой пункт</span> - это узел подключения потребителей тепловой энергии к тепловым сетям, предназначенный для подготовки теплоносителя, 
-                        регулирования его параметров перед подачей в местные системы, а также для учета потребления тепла
+                        {@html $t('heating_substations_page.def_desc')}
                     <p>
-                        <h3 class="has-text-weight-bold has-text-centered pt-4">ВИДЫ СТРОИТЕЛЬСТВА</h3>
+                        <h3 class="has-text-weight-bold has-text-centered pt-4">{$t('heating_substations_page.types_title')}</h3>
                         <div class="columns is-align-items-stretch has-text-centered pt-2 has-text-weight-medium">
                             <div class="column">
                                 <img class="section2__icon" alt="" src="/images/itc_ctp/i_techpere_c.png">
-                                <p>Техническое присоединение</p>
+                                <p>{$t('heating_substations_page.type_connection')}</p>
                             </div>
                             <div class="column">
                                 <img class="section2__icon" alt="" src="/images/itc_ctp/i_rekonstrukt_c2.png">
-                                <p>Реконструкция</p>
+                                <p>{$t('heating_substations_page.type_reconstruction')}</p>
                             </div>
                             <div class="column">
                                 <img class="section2__icon" alt="" src="/images/itc_ctp/i_tehras_c.png">
-                                <p>Техническое перевооружение</p>
+                                <p>{$t('heating_substations_page.type_rearming')}</p>
                             </div>
                         </div>
                 </div>
                 <div class="column is-half">
-                    <img class="spisok1_img" alt="ИТП" src="/images/itc_ctp/teplovoy_punkt.png">
-                    
+                    <img class="spisok1_img" alt={currentLocale === 'en' ? 'Individual heating substation (ITP)' : 'ИТП'} src="/images/itc_ctp/teplovoy_punkt.png">
                 </div> 
         </div>        
         </div>
@@ -966,7 +958,7 @@
 
     <section class="modelITP">
         <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-            Схема ИТП
+            {$t('heating_substations_page.schema_title')}
         </h2>
             <div class="modelITP__shema">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="1920px" height="1080px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 1920 1080">
@@ -989,7 +981,7 @@
                   <circle class="circle_svg" data-id="data5" r="10" cx="1681.49" cy="718.434" />
                 </g>
               </svg>
-              <div class="svg_s_text">kz kz kz</div>
+              <div class="svg_s_text"></div>
     
               <div class="modelITP__svg_i_block">
                 <div class="svg_i_close"></div>
@@ -1011,9 +1003,7 @@
 
     <section class="section3"> 
         <p>
-            Компания <span>«Энергия Плюс»</span> является партером ПАО «МОЭК» и имеет все необходимые допуски к работе 
-            с опасными производственными объектами (ОПО) по этому мы успешно работаем, в том числе, 
-            с оборудованием, работающим под давлением и с теплоносителями в тепловых пунктах температурой свыше 115<sup>o</sup>С.
+            {@html $t('heating_substations_page.moek_partner_p')}
         </p>
     </section>
 
@@ -1021,7 +1011,7 @@
     <section class=" section section4">
         <div class="container pt-3 text-center spisok1">
             <h2 class="title titlefor has-text-centered has-text-weight-bold mb-2">
-                НАШИ УСЛУГИ
+                {$t('heating_substations_page.services_title')}
             </h2>
             <div class="content">
                 <div class="columns is-vcentered">
@@ -1033,7 +1023,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Обследование тепловых пунктов
+                                        {$t('heating_substations_page.srv1')}
                                     </p>
                                 </div>
                             </li>
@@ -1043,7 +1033,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Получение ТУ в ПАО «МОЭК»
+                                        {$t('heating_substations_page.srv2')}
                                     </p>
                                 </div>
                             </li>
@@ -1053,7 +1043,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Проектирование ИТП, ЦТП, тепловых сетей
+                                        {$t('heating_substations_page.srv3')}
                                     </p>
                                 </div>
                             </li>
@@ -1063,7 +1053,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Согласование ПД в ПАО «МОЭК»
+                                        {$t('heating_substations_page.srv4')}
                                     </p>
                                 </div>
                             </li>
@@ -1073,7 +1063,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Поставка оборудования и комплектация материалами
+                                        {$t('heating_substations_page.srv5')}
                                     </p>
                                 </div>
                             </li>
@@ -1083,7 +1073,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Монтажные работы
+                                        {$t('heating_substations_page.srv6')}
                                     </p>
                                 </div>
                             </li>
@@ -1093,7 +1083,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Пуско-наладочные работы
+                                        {$t('heating_substations_page.srv7')}
                                     </p>
                                 </div>
                             </li>
@@ -1103,7 +1093,7 @@
                                 </div>
                                 <div class="pl-3">
                                     <p>
-                                        Сдача объекта в ПАО «МОЭК», Ростехнадзор
+                                        {$t('heating_substations_page.srv8')}
                                     </p>
                                 </div>
                             </li>
@@ -1115,7 +1105,7 @@
                 </div>
                 <div class="button3 is-justify-content-center">
                     <ContactFormButton class="">
-                        <div slot="button">Заказать ИТП/ЦТП</div>
+                        <div slot="button">{$t('heating_substations_page.order_itp_btn')}</div>
                     </ContactFormButton>
                 </div>
             </div>                
@@ -1126,7 +1116,7 @@
     <section class="section py-6 project">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mt-4 mb-2">Реализованные проекты</h2>
+                <h2 class="has-text-weight-bold mt-4 mb-2">{$t('heating_substations_page.projects_title')}</h2>
             </div>
             <Carousel perPage={{1000:4, 800:3, 500:2, 400:1}}
                       dots={false}
@@ -1140,7 +1130,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan1.jpg'}
-                                    alt={'Проект 1'}/>                          
+                                    alt={$t('heating_substations_page.proj1_alt')}/>                          
                         </figure>
                     </Lightbox>
                 </div>
@@ -1150,7 +1140,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan2.jpg'}
-                                    alt={'Проект 2'}/>
+                                    alt={$t('heating_substations_page.proj2_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -1160,7 +1150,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan3.jpg'}
-                                    alt={'Проект 3'}/>
+                                    alt={$t('heating_substations_page.proj3_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -1170,7 +1160,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan4.jpg'}
-                                    alt={'Проект 4'}/>
+                                    alt={$t('heating_substations_page.proj4_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>              
@@ -1180,7 +1170,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan5.jpg'}
-                                    alt={'Проект 6'}/>
+                                    alt={$t('heating_substations_page.proj5_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -1190,7 +1180,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan6.jpg'}
-                                    alt={'Проект 7'}/>
+                                    alt={$t('heating_substations_page.proj6_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -1200,7 +1190,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan7.jpg'}
-                                    alt={'Проект 8'}/>
+                                    alt={$t('heating_substations_page.proj7_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -1210,7 +1200,7 @@
                         <figure class="image">
                             <LazyImage
                                     src={'/images/itc_ctp/plan8.jpg'}
-                                    alt={'Проект 9'}/>
+                                    alt={$t('heating_substations_page.proj8_alt')}/>
                         </figure>
                     </Lightbox>
                 </div>
@@ -1225,10 +1215,10 @@
     <section class="section5">
         <div class="container pt-3 text-center spisok1">
             <div class="content">
-                <img class="" alt="ИТП блочно-модульный" src="/images/itc_ctp/difference.jpg">
+                <img class="" alt={currentLocale === 'en' ? 'Modular block heating substation' : 'ИТП блочно-модульный'} src="/images/itc_ctp/difference.jpg">
                 <div class="button3 is-justify-content-center py-4">
                     <ContactFormButton class="">
-                        <div slot="button">Заказать звонок</div>
+                        <div slot="button">{$t('heating_substations_page.request_callback')}</div>
                     </ContactFormButton>
                 </div>
             </div>                
@@ -1239,26 +1229,26 @@
     <section class="section has-text-centered section6">
         <div class="container pt-4 text-center">
             <div class="title titlefor">
-                <h2 class="has-text-weight-bold">ЭТАПЫ РАБОТ</h2>
+                <h2 class="has-text-weight-bold">{$t('heating_substations_page.stages_title')}</h2>
             </div>
             <div class="columns is-desktop ">
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/itc_ctp/i_poisk.png">
-                    <p class="logic__text svelte-rgyqg6">Обследование объекта. Расчет нагрузок</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('heating_substations_page.stage1')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_04.png">
-                    <p class="logic__text svelte-rgyqg6">Разработка технического задания</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('heating_substations_page.stage2')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/kotel/icons/bmk_icon_02.png">
-                    <p class="logic__text svelte-rgyqg6">Получение технических условий ресурсоснабжающих организаций</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('heating_substations_page.stage3')}</p>
                 </div>
             </div>
 
@@ -1271,26 +1261,26 @@
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/itc_ctp/bmk_icon_05-3.png">
-                    <p class="logic__text svelte-rgyqg6">Разработка проектной документации</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('heating_substations_page.stage4')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/itc_ctp/bmk_icon_09-2.png">
-                    <p class="logic__text svelte-rgyqg6">Согласование проектной документации в ресурсоснабжающих организациях</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('heating_substations_page.stage5')}</p>
                 </div>
                 <div class="hiden3">
                     <img alt="" class="" src="/images/interGazoprovod/strelka2.svg">
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img alt="" class="logic__icon svelte-rgyqg6 mb-3" src="/images/itc_ctp/i_bezopasnost.png">
-                    <p class="logic__text svelte-rgyqg6">Экспертиза промышленной безопасности c регистрацией в Ростехнадзор (при необходимости)</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('heating_substations_page.stage6')}</p>
                 </div>
             </div>
         </div>
         <div align="center" class="pt-5">
-            <a class="button is-primary is-medium is-raunded" href="/page/referens-list">Наши проекты</a>
+            <a class="button is-primary is-medium is-raunded" href="{p}/page/referens-list">{$t('heating_substations_page.our_projects')}</a>
         </div>
     </section>
 
@@ -1298,11 +1288,11 @@
     <section class="section grafik">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="has-text-weight-bold mb-2">РАСЧЕТ ЭКОНОМИИ В ЦИФРАХ</h2>
+                <h2 class="has-text-weight-bold mb-2">{$t('heating_substations_page.chart_title')}</h2>
             </div>
             <div class="columns is-vcentered">
                 <div class="column is-flex blockGrafik">
-                    <p class="blockGrafik__head">Стоимость реализации проекта</p>
+                    <p class="blockGrafik__head">{$t('heating_substations_page.chart_project_cost')}</p>
                     <div class="columns is-vcentered">
                         <div class="column">
                             <ul>
@@ -1310,7 +1300,7 @@
                                     <div class="blockGrafik__grafColor c1"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            Оборудование
+                                            {$t('heating_substations_page.chart_equipment')}
                                         </p>
                                     </div>
                                 </li>
@@ -1318,7 +1308,7 @@
                                     <div class="blockGrafik__grafColor c2"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            ИРД и ПИР
+                                            {$t('heating_substations_page.chart_ird_pir')}
                                         </p>
                                     </div>
                                 </li>
@@ -1326,7 +1316,7 @@
                                     <div class="blockGrafik__grafColor c3"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            СМР
+                                            {$t('heating_substations_page.chart_smr')}
                                         </p>
                                     </div>
                                 </li>
@@ -1334,7 +1324,7 @@
                                     <div class="blockGrafik__grafColor c4"></div>
                                     <div>
                                         <p class="blockGrafik__history">
-                                            Прочие расходы
+                                            {$t('heating_substations_page.chart_other')}
                                         </p>
                                     </div>
                                 </li>
@@ -1342,37 +1332,35 @@
                         </div>
                         <div class="column">
                             <div>
-                                <img class="blockGrafik__img" alt="Реализация проекта" src="/images/smr/grafikSMR.svg">
+                                <img class="blockGrafik__img" alt={currentLocale === 'en' ? 'Project implementation stages' : 'Реализация проекта'} src="/images/smr/grafikSMR.svg">
                             </div>
                         </div>
                     </div>
                     <div>
-                        <p class="blockGrafik__footer"> Итоговая экономия:</p>
+                        <p class="blockGrafik__footer"> {$t('heating_substations_page.total_savings')}</p>
                         <p class="blockGrafik__footerNumber">38%</p>
                     </div>                
                 </div>
                 <div class="column textGrafik">
                     <div class="block">
-                        <p><span class="textGrafik__lid">Поставка оборудования:</span> ООО "Энергия Плюс" имеет широкий спектр компаний-производителей оборудования для тепловых пунктов, 
-                            готовых предоставить продукцию с максимальными скидками
+                        <p><span class="textGrafik__lid">{$t('heating_substations_page.fact1_title')}</span> {$t('heating_substations_page.fact1_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 10-15% стоимости оборудования за счет наших наработанных контактов с крупнейшими производителями</p>
+                        <p>{@html $t('heating_substations_page.fact1_save')}</p>
                     </div> 
                     <div class="block">
-                        <p><span class="textGrafik__lid">Функции технического заказчика, Генерального проектировщика и Генерального подрядчика:</span> собственная ERP-система 
-                            (система управления проектом) + инженерным составом узкой и широкой специализации
+                        <p><span class="textGrafik__lid">{$t('heating_substations_page.fact2_title')}</span> {$t('heating_substations_page.fact2_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 7-8% средств за счет сокращения сроков выполнения работ</p>
+                        <p>{@html $t('heating_substations_page.fact2_save')}</p>
                     </div>
                     <div class="block">
-                        <p><span class="textGrafik__lid">Строительно-монтажные работы:</span> собственный департамент строительно-монтажных работ + большой опыт
+                        <p><span class="textGrafik__lid">{$t('heating_substations_page.fact3_title')}</span> {$t('heating_substations_page.fact3_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 10% за счет наших компетенций</p>
+                        <p>{@html $t('heating_substations_page.fact3_save')}</p>
                     </div>
                     <div class="block">
-                        <p><span class="textGrafik__lid">Прочие издержки:</span> полное соответствие итоговой стоимости работ заявленной в тексте заключенного с заказчиком договора
+                        <p><span class="textGrafik__lid">{$t('heating_substations_page.fact4_title')}</span> {$t('heating_substations_page.fact4_desc')}
                         </p>
-                        <p><b>ЭКОНОМИЯ:</b> 5% за счет отсутствия неучтенных издержек, которые выявляются в процессе выполнения работ</p>
+                        <p>{@html $t('heating_substations_page.fact4_save')}</p>
                     </div>       
                 </div>
             </div>

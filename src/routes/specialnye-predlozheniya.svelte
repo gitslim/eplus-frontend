@@ -6,14 +6,11 @@
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import { t } from 'svelte-i18n'
+    import { session } from '$app/stores'
 
-    let title = 'Специальные предложения'
-    const meta = {
-        title: "Специальные предложения. Техническое перевооружение котельной. Внутриплощадочные газопроводы. БМК",
-        description: "Особые условия. Поставка блочно-модульной котельной. Проектирование внутриплощадочного и внутреннего газопровода. Техническое перевооружение котельной. Смета и экспертиза",
-        h1: "Проектирование и строительство газопроводов. Техническое перевооружение котельной. Реестр ОПО. Подбор оборудования. Составление сметы. Поставка БМК"
-    }
-
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 </script>
 
 <style lang="scss">
@@ -61,30 +58,28 @@
   }
 </style>
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<SvelteSeo title="{$t('utility_pages.special_offers.meta_title')}" description="{$t('utility_pages.special_offers.meta_description')}"/>
 <main class="container">
-    <HiddenH1>{meta.h1}</HiddenH1>
+    <HiddenH1>{$t('utility_pages.special_offers.meta_h1')}</HiddenH1>
     <div class="content__wrap">
         <div class="content-block is-max-desctop">
             <section>
                 <div class="widget">
                     <h2 class="title">
-                        <span><span>{title}</span> </span>
+                        <span><span>{$t('utility_pages.special_offers.title')}</span> </span>
                         <span class="heading-line"></span>
                     </h2>
                 </div>
                 <div class="column-content">
                     <ul>
                         <li>
-                            <a href="/page/tehnicheskoe-perevooruzhenie-kotelnoj">Техническое
-                                перевооружение котельной</a>
+                            <a href="{p}/page/tehnicheskoe-perevooruzhenie-kotelnoj">{$t('utility_pages.special_offers.item1')}</a>
                         </li>
                         <li>
-                            <a href="/page/vnutriploshadochnye-gazoprovody">Внутриплощадочные
-                                и внутренние газопроводы</a>
+                            <a href="{p}/page/vnutriploshadochnye-gazoprovody">{$t('utility_pages.special_offers.item2')}</a>
                         </li>
                         <li>
-                          <a href="/page/konteynernaya-kotelnaya"> Контейнерная котельная в наличии </a>
+                          <a href="{p}/page/konteynernaya-kotelnaya">{$t('utility_pages.special_offers.item3')}</a>
                       </li>
                     </ul>
                 </div>

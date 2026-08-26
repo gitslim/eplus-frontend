@@ -18,15 +18,11 @@
     import Carousel from "$lib/components/Carousel.svelte";
     import CalcTabs from "$lib/components/calc/CalcTabs.svelte";
     import HiddenH1 from "$lib/components/HiddenH1.svelte";
+    import { t } from "svelte-i18n";
+    import { session } from "$app/stores";
 
-    const meta = {
-        title: "Проектирование промышленных газовых котельных. Разработка проектной и рабочей документации. Экспертиза",
-        description:
-            "Подготовка проектной документации. Газовые и дизельные котельные. Полный цикл. Расчет стоимости проекта",
-        h1: "Проектирование водогрейных и паровых котельных. Подготовка сметной документации. Консультация. Расчет стоимости котельной",
-    };
-
-    let title = "Проектирование автономных котельных";
+    $: currentLocale = $session.locale || "ru";
+    $: p = currentLocale === "en" ? "/en" : "";
 
     onMount(async () => {
         let containerElement = document.getElementsByClassName("btn__zayavka");
@@ -34,7 +30,6 @@
             containerElement[i].style.padding = "0";
             containerElement[i].style.fontSize = "1.25rem";
             containerElement[i].style.fontWeight = "400";
-            console.log(containerElement + " Onmount");
         }
 
         let buttonraunded = document.getElementsByClassName("button-raunded");
@@ -44,8 +39,6 @@
 
         let right = document.getElementsByClassName("right");
         for (var i = 0; i < right.length; i++) {
-            // right[i].style.borderRadius = '50%';
-            // right[i].style.backgroundColor = '#f86923';
             right[i].style.right = "2vw";
             right[i].style.color = "#f86923";
             right[i].style.top = "-4%";
@@ -56,8 +49,6 @@
 
         let left = document.getElementsByClassName("left");
         for (var i = 0; i < left.length; i++) {
-            // left[i].style.borderRadius = '50%';
-            // left[i].style.backgroundColor = '#f86923';
             left[i].style.left = "";
             left[i].style.right = "6vw";
             left[i].style.color = "#f86923";
@@ -69,8 +60,8 @@
     });
 </script>
 
-<SvelteSeo title={meta.title} description={meta.description} />
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('autonomous_boiler_design_page.meta_title')}" description="{$t('autonomous_boiler_design_page.meta_description')}" />
+<HiddenH1>{$t('autonomous_boiler_design_page.meta_h1')}</HiddenH1>
 
 <main>
     <section class="hero is-medium hero1">
@@ -81,12 +72,12 @@
                         style="font-size: 40px"
                         class="has-text-white has-text-weight-normal title titlefor"
                     >
-                        ВОДОГРЕЙНЫЕ И ПАРОВЫЕ КОТЕЛЬНЫЕ
+                        {$t('autonomous_boiler_design_page.hero_title')}
                     </h2>
                     <ContactFormButton
                         class="button is-primary is-large is-raunded button-raunded"
                     >
-                        <div slot="button">Заказать проект</div>
+                        <div slot="button">{$t('autonomous_boiler_design_page.order_project')}</div>
                     </ContactFormButton>
                     <div class="subtitle py-6">
                         <a
@@ -117,21 +108,15 @@
                 </div>
                 <div class="column is-6">
                     <h1 class="title has-text-weight-normal titlefor">
-                        Проектирование промышленных газовых котельных
+                        {$t('autonomous_boiler_design_page.section1_h1')}
                     </h1>
                     <p class="has-text-justified">
-                        Наша компания выполняет полный комплекс
-                        проектно-изыскательских работ и разрабатывает проектную
-                        документацию в полном соответствии с ПП РФ №87, начиная
-                        с подготовки Задания на проектирование до получения
-                        положительного заключения государственной либо
-                        негосударственной экспертизы, а также всех необходимых
-                        согласований для строительства любого типа котельной.
+                        {$t('autonomous_boiler_design_page.section1_text')}
                     </p>
                     <ContactFormButton
                         class="button is-raunded is-primary is-medium mt-6 is-fullwidth button-raunded"
                     >
-                        <div slot="button">Заказать проект</div>
+                        <div slot="button">{$t('autonomous_boiler_design_page.order_project')}</div>
                     </ContactFormButton>
                 </div>
             </div>
@@ -144,21 +129,12 @@
                 <div class="columns is-vcentered">
                     <div class="column">
                         <p class="text-white has-text-justified">
-                            Автономная газовая котельная – здание или помещение,
-                            в котором расположен комплекс устройств для
-                            выработки пара или горячей воды, используемых для
-                            энергоснабжения объекта. Кроме того, в современных
-                            котельных существует <a
-                                href="/articles/kombinirovannoe-proizvodstvo-teplovoj-elektricheskoj-i-holodilnoj-energii-kogeneraciya-i-trigeneraciya-dlya-promyshlennogo-obuekta"
-                                >опция использования технологии когенерации</a
-                            > (единовременной генерации тепловой и электрической
-                            энергии).
+                            {@html $t('autonomous_boiler_design_page.intro_definition', {values: {p}})}
                         </p>
                         <h4
                             class="item-title text-white is-uppercase is-size-4 mt-6 mb-5"
                         >
-                            Мы предлагаем услуги по проектированию следующих
-                            видов промышленных газовых котельных:
+                            {$t('autonomous_boiler_design_page.types_intro')}
                         </h4>
                         <div class="columns">
                             <div class="column fix-column-p">
@@ -175,7 +151,7 @@
                                             <h4
                                                 class="has-text-white has-text-weight-medium pt-3"
                                             >
-                                                Крышная
+                                                {$t('autonomous_boiler_design_page.type_roof')}
                                             </h4>
                                         </div>
                                     </li>
@@ -191,7 +167,7 @@
                                             <h4
                                                 class="has-text-white has-text-weight-medium pt-3"
                                             >
-                                                Отдельностоящая
+                                                {$t('autonomous_boiler_design_page.type_standalone')}
                                             </h4>
                                         </div>
                                     </li>
@@ -211,7 +187,7 @@
                                             <h4
                                                 class="has-text-white has-text-weight-medium pt-3"
                                             >
-                                                Пристроенная
+                                                {$t('autonomous_boiler_design_page.type_attached')}
                                             </h4>
                                         </div>
                                     </li>
@@ -227,7 +203,7 @@
                                             <h4
                                                 class="has-text-white has-text-weight-medium pt-3"
                                             >
-                                                Встроенная
+                                                {$t('autonomous_boiler_design_page.type_builtin')}
                                             </h4>
                                         </div>
                                     </li>
@@ -252,7 +228,7 @@
                 target="_blank"
                 class="has-text-white"
                 href="/docs/Опросный лист котельная.xls"
-                >Получить опросный лист</a
+                >{$t('autonomous_boiler_design_page.get_questionnaire')}</a
             >
         </div>
     </section>
@@ -261,7 +237,7 @@
         <div class="container">
             <div class="content">
                 <h2 class="title titlefor pb-6 mb-1">
-                    Преимущества индивидуальной котельной:
+                    {$t('autonomous_boiler_design_page.advantages_title')}
                 </h2>
                 <ul class="">
                     <li>
@@ -274,9 +250,7 @@
                         </div>
                         <div class="pl-3">
                             <p>
-                                Получение тепловой энергии по себестоимости,
-                                т.е. без переплат теплоснабжающим организациям
-                                за тепло по завышенным тарифам;
+                                {$t('autonomous_boiler_design_page.adv1')}
                             </p>
                         </div>
                     </li>
@@ -290,9 +264,7 @@
                         </div>
                         <div class="pl-3">
                             <p class="mb-0">
-                                Возможность эффективного регулирования объёма
-                                теплопотребления по погода-зависимому графику и
-                                экономии на расходе топлива;
+                                {$t('autonomous_boiler_design_page.adv2')}
                             </p>
                         </div>
                     </li>
@@ -306,8 +278,7 @@
                         </div>
                         <div class="pl-3">
                             <p class="">
-                                Возможность использования когенерации и
-                                тригенерации, повышающих КПД объекта генерации;
+                                {$t('autonomous_boiler_design_page.adv3')}
                             </p>
                         </div>
                     </li>
@@ -321,10 +292,7 @@
                         </div>
                         <div class="pl-3">
                             <p class="mb-0">
-                                Возможность сбыта тепловой и электрической
-                                энергии сторонним потребителям (при условии
-                                получении статуса ресурсоснабжающей
-                                организации);
+                                {$t('autonomous_boiler_design_page.adv4')}
                             </p>
                         </div>
                     </li>
@@ -338,8 +306,7 @@
                         </div>
                         <div class="pl-3 mb-0">
                             <p>
-                                Инвестиционная льгота, позволяющая снижать налог
-                                на прибыль.
+                                {$t('autonomous_boiler_design_page.adv5')}
                             </p>
                         </div>
                     </li>
@@ -351,7 +318,7 @@
     <section class="section partners">
         <div class="container">
             <div class="content text-center">
-                <h2 class="title titlefor has-text-centered">Наши партнёры</h2>
+                <h2 class="title titlefor has-text-centered">{$t('autonomous_boiler_design_page.partners_title')}</h2>
                 <Carousel
                     perPage={{ 800: 4, 500: 3, 400: 2 }}
                     dots={false}
@@ -390,13 +357,6 @@
                             src="/images/kotel/partners/НОРД.png"
                         />
                     </div>
-<!--                    <div class="slide-content">-->
-<!--                        <img-->
-<!--                            alt=""-->
-<!--                            class="before-image"-->
-<!--                            src="/images/kotel/partners/БМК.jpg"-->
-<!--                        />-->
-<!--                    </div>-->
                     <div class="slide-content">
                         <img
                             alt=""
@@ -435,12 +395,7 @@
                         <h4
                             class="is-uppercase has-text-justified titlefor mb-6"
                         >
-                            В необходимых ситуациях специалисты «Энергия Плюс»
-                            готовы выполнить проект и обеспечить изготовление и
-                            поставку блочно-модульных котельных <a
-                                href="/page/stroitelno-montazhnye-raboty"
-                                >(БМК) мощностью от 0,3-8 МВт</a
-                            >
+                            {@html $t('autonomous_boiler_design_page.bmk_banner_title', {values: {p}})}
                         </h4>
                     </div>
                     <div class="columns fix-column-row">
@@ -449,11 +404,11 @@
                                 target="_blank"
                                 class="button is-primary is-medium is-raunded is-fullwidth"
                                 href="/docs/Опросный лист БМК.xlsx"
-                                >Скачать опросный лист</a
+                                >{$t('autonomous_boiler_design_page.download_questionnaire_bmk')}</a
                             >
                         </div>
                         <div class="column fix-button">
-                            <BtnZayavka radius btnText="Оставить заявку" />
+                            <BtnZayavka radius btnText="{$t('autonomous_boiler_design_page.leave_request')}" />
                         </div>
                     </div>
                 </div>
@@ -477,13 +432,9 @@
                         <h4
                             class="pt-6 mb-6 has-text-centered is-size-5 has-text-weight-medium"
                         >
-                            ООО «Энергия Плюс» осуществляет комплекс <a
-                                href="/page/stroitelno-montazhnye-raboty"
-                                >строительно-монтажных работ</a
-                            > по разработанным проектам в соответствии с требованиями
-                            СНиП.
+                            {@html $t('autonomous_boiler_design_page.smr_box_text', {values: {p}})}
                         </h4>
-                        <BtnZayavka radius btnText="Оставить заявку" />
+                        <BtnZayavka radius btnText="{$t('autonomous_boiler_design_page.leave_request')}" />
                     </div>
                 </div>
             </div>
@@ -493,7 +444,7 @@
     <section class="section py-6">
         <div class="container text-center">
             <div class="title titlefor has-text-centered">
-                <h2 class="">Наши проекты</h2>
+                <h2 class="">{$t('autonomous_boiler_design_page.projects_title')}</h2>
             </div>
 
             <Carousel
@@ -510,10 +461,10 @@
                         <figure class="image">
                             <LazyImage
                                 src={"/images/kotel/projects/02.jpg"}
-                                alt={"Газовый котел Висман"}
+                                alt={$t('autonomous_boiler_design_page.proj2_alt')}
                             />
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 2</strong>
+                                <strong class="item-title">{$t('autonomous_boiler_design_page.proj2_title')}</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -523,10 +474,10 @@
                         <figure class="image">
                             <LazyImage
                                 src={"/images/kotel/projects/03.jpg"}
-                                alt={"Газовый котел 1 МВт"}
+                                alt={$t('autonomous_boiler_design_page.proj3_alt')}
                             />
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 3</strong>
+                                <strong class="item-title">{$t('autonomous_boiler_design_page.proj3_title')}</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -536,10 +487,10 @@
                         <figure class="image">
                             <LazyImage
                                 src={"/images/kotel/projects/04.jpg"}
-                                alt={"Газовая котельная"}
+                                alt={$t('autonomous_boiler_design_page.proj4_alt')}
                             />
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 4</strong>
+                                <strong class="item-title">{$t('autonomous_boiler_design_page.proj4_title')}</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -549,10 +500,10 @@
                         <figure class="image">
                             <LazyImage
                                 src={"/images/kotel/projects/05.jpg"}
-                                alt={"Котельная для загородного дома"}
+                                alt={$t('autonomous_boiler_design_page.proj5_alt')}
                             />
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 5</strong>
+                                <strong class="item-title">{$t('autonomous_boiler_design_page.proj5_title')}</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -562,10 +513,10 @@
                         <figure class="image">
                             <LazyImage
                                 src={"/images/kotel/projects/06.jpg"}
-                                alt={"Проект 6"}
+                                alt={$t('autonomous_boiler_design_page.proj6_alt')}
                             />
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 6</strong>
+                                <strong class="item-title">{$t('autonomous_boiler_design_page.proj6_title')}</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -575,10 +526,10 @@
                         <figure class="image">
                             <LazyImage
                                 src={"/images/kotel/projects/07.jpg"}
-                                alt={"Проект 7"}
+                                alt={$t('autonomous_boiler_design_page.proj7_alt')}
                             />
                             <span class="item-content-2">
-                                <strong class="item-title">Проект 7</strong>
+                                <strong class="item-title">{$t('autonomous_boiler_design_page.proj7_title')}</strong>
                             </span>
                         </figure>
                     </Lightbox>
@@ -591,7 +542,7 @@
         <div align="center" class="pt-4">
             <a
                 class="button is-primary is-medium is-raunded"
-                href="/page/referens-list/#object_teplo">Наши проекты</a
+                href="{p}/page/referens-list/#object_teplo">{$t('autonomous_boiler_design_page.projects_title')}</a
             >
         </div>
     </section>
@@ -599,11 +550,10 @@
     <section class="section py-6 has-text-centered">
         <div class="container text-center">
             <div class="title titlefor">
-                <h2 class="">Этапы работы</h2>
+                <h2 class="">{$t('autonomous_boiler_design_page.work_stages_title')}</h2>
             </div>
             <p class="mb-5">
-                Алгоритм проектирования автономной котельной вместе с «Энергией
-                Плюс»
+                {$t('autonomous_boiler_design_page.work_stages_subtitle')}
             </p>
             <div class="columns is-desktop">
                 <div class="column logic__item svelte-rgyqg6">
@@ -613,7 +563,7 @@
                         src="/images/kotel/icons/bmk_icon_01.png"
                     />
                     <p class="logic__text svelte-rgyqg6">
-                        Оставляете заявку / заполняете опросный лист
+                        {$t('autonomous_boiler_design_page.step1')}
                     </p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
@@ -623,8 +573,7 @@
                         src="/images/kotel/icons/bmk_icon_04.png"
                     />
                     <p class="logic__text svelte-rgyqg6">
-                        Получаете на рассмотрение технико-коммерческое
-                        предложение (ТКП)
+                        {$t('autonomous_boiler_design_page.step2')}
                     </p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
@@ -634,7 +583,7 @@
                         src="/images/kotel/icons/bmk_icon_02.png"
                     />
                     <p class="logic__text svelte-rgyqg6">
-                        Утверждаем задание на проектирование
+                        {$t('autonomous_boiler_design_page.step3')}
                     </p>
                 </div>
             </div>
@@ -645,7 +594,7 @@
                         class="logic__icon svelte-rgyqg6 mb-6"
                         src="/images/kotel/icons/bmk_icon_09.png"
                     />
-                    <p class="logic__text svelte-rgyqg6">Заключаем договор</p>
+                    <p class="logic__text svelte-rgyqg6">{$t('autonomous_boiler_design_page.step4')}</p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
                     <img
@@ -654,7 +603,7 @@
                         src="/images/kotel/icons/bmk_icon_06.png"
                     />
                     <p class="logic__text svelte-rgyqg6">
-                        Утверждаем принципиальные технические решения
+                        {$t('autonomous_boiler_design_page.step5')}
                     </p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
@@ -664,7 +613,7 @@
                         src="/images/kotel/icons/bmk_icon_03.png"
                     />
                     <p class="logic__text svelte-rgyqg6">
-                        Разрабатываем проектную и рабочую документацию
+                        {$t('autonomous_boiler_design_page.step6')}
                     </p>
                 </div>
             </div>
@@ -676,7 +625,7 @@
                         src="/images/kotel/icons/bmk_icon_07.png"
                     />
                     <p class="logic__text svelte-rgyqg6">
-                        Получаем необходимые согласования и экспертизы
+                        {$t('autonomous_boiler_design_page.step7')}
                     </p>
                 </div>
                 <div class="column logic__item svelte-rgyqg6">
@@ -686,7 +635,7 @@
                         src="/images/kotel/icons/bmk_icon_05.png"
                     />
                     <p class="logic__text svelte-rgyqg6">
-                        Выдаём проект в производство работ
+                        {$t('autonomous_boiler_design_page.step8')}
                     </p>
                 </div>
             </div>
@@ -695,14 +644,7 @@
         <div class="section p-4">
             <div class="box">
                 <h5 class="title mb-15">
-                    ТАКЖЕ «ЭНЕРГИЯ ПЛЮС» ОСУЩЕСТВЛЯЕТ<br />
-                    <a href="/page/funkcii-generalnogo-proektirovshika"
-                        >ФУНКЦИИ ГЕНЕРАЛЬНОГО ПРОЕКТИРОВЩИКА</a
-                    >
-                    И<br />
-                    <a href="/page/funkcii-tehnicheskogo-zakazchika"
-                        >ФУНКЦИИ ТЕХНИЧЕСКОГО ЗАКАЗЧИКА</a
-                    >
+                    {@html $t('autonomous_boiler_design_page.gen_designer_box', {values: {p}})}
                 </h5>
             </div>
         </div>
@@ -714,7 +656,7 @@
     >
         <div class="container">
             <div class="section mb-60">
-                <h2 class="title pb-6 titlefor">Отзывы</h2>
+                <h2 class="title pb-6 titlefor">{$t('autonomous_boiler_design_page.testimonials_title')}</h2>
             </div>
 
             <Carousel perPage={{ 1000: 2, 700: 1 }} dots={false}>
@@ -722,215 +664,118 @@
                     <Icon icon={faChevronLeft} />
                 </span>
 
-                <div class="slide-content">
-                    <div class="testimonial-boxed">
-                        <h4 class="has-text-weight-medium">Бабин В.Н.</h4>
-                        <span class="person-title is-size-7"
-                            >Главный энергетик АО "Салют"</span
-                        >
-                        <div class="person-comment has-text-justified">
-                            <p>
-                                Выражаем благодарность руководству и коллективу
-                                Общества с ограниченной ответственностью
-                                «Энергия Плюс» за успешное выполнение проектных
-                                работ по техническому перевооружению котельной
-                                АО «НПЦ газотурбостроения «Салют» по адресу: г.
-                                Москва, проспект Буденного, 16 корп.2.
-                            </p>
-                            <p>
-                                Работы были проведены своевременно, с учетом
-                                пожеланий Заказчика. Разработка проектной
-                                документации произведена в строгом соответствии
-                                с требованиями законодательства, что позволило
-                                получить положительное заключение экспертизы
-                                Проекта и перейти к этапу строительства объекта.
-                            </p>
-                            <p>
-                                Хочется отметить слаженность и оперативность в
-                                работе коллектива, нацеленность на результат,
-                                высокую квалификацию специалистов, аккуратность
-                                исполнения работ.
-                            </p>
-                            <p>
-                                Надеемся на дальнейшее взаимовыгодное и
-                                плодотворное сотрудничество.
-                            </p>
+                {#each [
+                    {
+                        author: { ru: "Бабин В.Н.", en: "Babin V.N." },
+                        title: { ru: 'Главный энергетик АО "Салют"', en: 'Chief Power Engineer, JSC "Salyut"' },
+                        paragraphs: {
+                            ru: [
+                                'Выражаем благодарность руководству и коллективу Общества с ограниченной ответственностью «Энергия Плюс» за успешное выполнение проектных работ по техническому перевооружению котельной АО «НПЦ газотурбостроения «Салют» по адресу: г. Москва, проспект Буденного, 16 корп.2.',
+                                'Работы были проведены своевременно, с учетом пожеланий Заказчика. Разработка проектной документации произведена в строгом соответствии с требованиями законодательства, что позволило получить положительное заключение экспертизы Проекта и перейти к этапу строительства объекта.',
+                                'Хочется отметить слаженность и оперативность в работе коллектива, нацеленность на результат, высокую квалификацию специалистов, аккуратность исполнения работ.',
+                                'Надеемся на дальнейшее взаимовыгодное и плодотворное сотрудничество.'
+                            ],
+                            en: [
+                                'We express our gratitude to the management and team of LLC "Energy Plus" for the successful execution of design works for the technical retrofitting of the boiler house of JSC "Gas-Turbine Engineering RPC "Salyut" located at: Moscow, Budyonny Avenue, 16 bldg. 2.',
+                                'The work was carried out on schedule and tailored to the Customer’s requirements. Design documentation was developed in strict compliance with legal requirements, enabling us to obtain positive project expertise approval and proceed to construction.',
+                                'We would like to highlight the teamwork, efficiency, results-oriented approach, high qualifications of specialists, and meticulous execution.',
+                                'We look forward to continued fruitful and mutually beneficial cooperation.'
+                            ]
+                        }
+                    },
+                    {
+                        author: { ru: "Лукомский В.В.", en: "Lukomsky V.V." },
+                        title: { ru: "Генеральный директор ЗАО «Сити-Арх»", en: "General Director, CJSC City-Arch" },
+                        paragraphs: {
+                            ru: [
+                                'Настоящим письмом выражаем благодарность коллективу ООО «Энергия Плюс» за оперативное и качественное исполнение работ по проектированию газовой котельной для объекта: «Многофункциональный торгово-развлекательный центр с зоной отдыха выходного дня по адресу: Московская обл., г.Жуковский, ул. Гудкова, к юго-западу от микрорайона № 5А».',
+                                'Коллектив ООО «Энергия Плюс» отличает высокий профессионализм, умелое взаимодействие с экспертными организациями, внимательное отношение к пожеланиям Заказчика при неукоснительном соблюдении требований нормативных актов Российской Федерации и Московской области. Все это позволило своевременно получить положительное заключение негосударственной экспертизы по объекту строительства.',
+                                'Надеемся на дальнейшее плодотворное сотрудничество.'
+                            ],
+                            en: [
+                                'We hereby express our gratitude to LLC "Energy Plus" for the prompt and high-quality design of a gas boiler house for the project: "Multifunctional shopping and entertainment center with a weekend recreation area in Zhukovsky, Moscow Region".',
+                                'The team at LLC "Energy Plus" demonstrates outstanding professionalism, effective interaction with expert bodies, and close attention to the Customer\'s requirements while adhering strictly to Russian and regional regulations. This ensured timely non-governmental expertise approval for the facility.',
+                                'We look forward to continued fruitful cooperation.'
+                            ]
+                        }
+                    },
+                    {
+                        author: { ru: "МГТУ им. Н.Э. Баумана", en: "Bauman Moscow State Technical University" },
+                        title: { ru: "Шахдеров О.Л.", en: "Shakhderov O.L." },
+                        paragraphs: {
+                            ru: [
+                                'МГТУ им. Н.Э. Баумана выражает благодарность Вашей организации за профессиональное и надежное исполнение работ по проектированию технического перевооружения котельной.',
+                                'Работы были выполнены в срок и в строгом соответствии с требованиями заказчика. Мы довольны сотрудничеством с Вами, и при необходимости обратимся к Вам еще.'
+                            ],
+                            en: [
+                                'Bauman MSTU expresses its gratitude to your company for the professional and reliable design work on the technical retrofitting of our boiler house.',
+                                'The work was completed on time and in strict accordance with the customer\'s requirements. We are satisfied with our cooperation and will gladly reach out again in the future.'
+                            ]
+                        }
+                    },
+                    {
+                        author: { ru: 'ООО "Альтэра"', en: 'LLC "Altera"' },
+                        title: { ru: "Директор Трошин В.И.", en: "Director Troshin V.I." },
+                        paragraphs: {
+                            ru: [
+                                'Выражаем коллективу ООО «Энергия Плюс» благодарность за успешное сотрудничество в реализации проекта строительства газовой котельной для теплоснабжения складского комплекса ООО «Альтэра».',
+                                'В рамках Договора подряда, компанией ООО «Энергия Плюс», выполнен комплекс проектных и строительно-монтажных работ. При разработке проекта котельной и газопровода учтены все пожелания и замечания Заказчика, требования согласующих организаций и инстанций.',
+                                'Работу ООО «Энергия Плюс» отличает детальный и всесторонний подход к поставленной задаче, быстрое решение возникающих вопросов на основе глубокого знания законодательства и нормативных документов, а также четкое взаимодействие всех подразделений, аккуратность исполнения и ориентированность на конечный результат.',
+                                'Выражаем уверенность в развитии сложившихся дружественных отношений и надеемся на дальнейшее взаимовыгодное и плодотворное сотрудничество.'
+                            ],
+                            en: [
+                                'We thank LLC "Energy Plus" for successful cooperation in delivering the gas boiler plant project for the heating supply of the LLC "Altera" warehouse complex.',
+                                'Under the general contract, LLC "Energy Plus" carried out comprehensive design, construction, and installation works. All customer requirements and regulatory authority conditions were carefully integrated into the boiler house and pipeline design.',
+                                'The work of LLC "Energy Plus" is distinguished by its meticulous approach, rapid resolution of technical issues based on deep normative knowledge, coordinated department efforts, and dedication to final results.',
+                                'We look forward to continued fruitful partnership.'
+                            ]
+                        }
+                    },
+                    {
+                        author: { ru: 'ООО "ВТМ дорпроект СТОЛИЦА"', en: 'LLC "VTM Dorproekt STOLITSA"' },
+                        title: { ru: "Отзыв Заказчика", en: "Client Review" },
+                        paragraphs: {
+                            ru: [
+                                'Выражаем коллективу ООО «Энергия Плюс» благодарность за профессиональную разработку документации на газовую котельную мощностью 17,2 МВт в составе проекта: «Строительство комплекса общественно-административных зданий по адресу: Московская область, г.о. Красногорск, 65-66 км МКАД».',
+                                'В рамках государственного контракта специалистами ООО «Энергия Плюс» был выполнен комплекс проектно-изыскательских работ, который позволил своевременно получить положительное заключение ГАУ МО «Мособлгосэкспертиза».',
+                                'Желаем дальнейших успехов в работе, будем рады сотрудничеству на новых объектах.'
+                            ],
+                            en: [
+                                'We thank the team of LLC "Energy Plus" for the professional development of documentation for a 17.2 MW gas boiler house as part of the administrative complex construction project in Krasnogorsk, Moscow Region.',
+                                'Under the state contract, LLC "Energy Plus" engineers carried out comprehensive survey and design works that secured timely state expertise approval from Mosoblgosexpertiza.',
+                                'We wish you continued success and will be pleased to collaborate on future projects.'
+                            ]
+                        }
+                    },
+                    {
+                        author: { ru: 'ООО "Перспектива"', en: 'LLC "Perspektiva"' },
+                        title: { ru: "Управляющий директор Ополько М.В.", en: "Managing Director Opolko M.V." },
+                        paragraphs: {
+                            ru: [
+                                'Компанией ООО «Энергия Плюс» были выполнены работы по разработке проектной документации на техническое перевооружение системы внутреннего газоснабжения котельной. Проект выполнен в установленный срок и в полном соответствии с техническим заданием.',
+                                'В ходе исполнения договорных обязательств компания показала себя как надежный деловой партнер. Профессиональный подход сотрудников способствовал оперативному решению вопросов.',
+                                'Мы можем рекомендовать ООО «Энергия Плюс» как надежного и ответственного исполнителя по проектированию объектов газоснабжения.'
+                            ],
+                            en: [
+                                'LLC "Energy Plus" completed the design documentation for the technical retrofitting of the internal gas supply system of the boiler plant. The project was executed on schedule and in full compliance with the terms of reference.',
+                                'Throughout the contract, the company demonstrated high reliability and expertise. The team’s professional approach facilitated rapid problem solving.',
+                                'We confidently recommend LLC "Energy Plus" as a reliable and qualified contractor for gas facility engineering.'
+                            ]
+                        }
+                    }
+                ] as review}
+                    <div class="slide-content">
+                        <div class="testimonial-boxed">
+                            <h4 class="has-text-weight-medium">{review.author[currentLocale] || review.author.ru}</h4>
+                            <span class="person-title is-size-7">{review.title[currentLocale] || review.title.ru}</span>
+                            <div class="person-comment has-text-justified">
+                                {#each (review.paragraphs[currentLocale] || review.paragraphs.ru) as paragraph}
+                                    <p>{paragraph}</p>
+                                {/each}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-content">
-                    <div class="testimonial-boxed">
-                        <h4 class="has-text-weight-medium">Лукомский В.В.</h4>
-                        <span class="person-title is-size-7"
-                            >Генеральный директор ЗАО «Сити-Арх»</span
-                        >
-                        <div class="person-comment has-text-justified">
-                            <p>
-                                Настоящим письмом выражаем благодарность
-                                коллективу ООО «Энергия Плюс» за оперативное и
-                                качественное исполнение работ по проектированию
-                                газовой котельной для объекта:
-                                «Многофункциональный торгово-развлекательный
-                                центр с зоной отдыха выходного дня по адресу:
-                                Московская обл., г.Жуковский, ул. Гудкова, к
-                                юго-западу от микрорайона № 5А».
-                            </p>
-                            <p>
-                                Коллектив ООО «Энергия Плюс» отличает высокий
-                                профессионализм, умелое взаимодействие с
-                                экспертными организациями, внимательное
-                                отношение к пожеланиям Заказчика при
-                                неукоснительном соблюдении требований
-                                нормативных актов Российской Федерации и
-                                Московской области. Все это позволило
-                                своевременно получить положительное заключение
-                                негосударственной экспертизы по объекту
-                                строительства.
-                            </p>
-                            <p>
-                                Надеемся на дальнейшее плодотворное
-                                сотрудничество.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-content">
-                    <div class="testimonial-boxed">
-                        <h4 class="has-text-weight-medium">
-                            МГТУ им. Н.Э. Баумана
-                        </h4>
-                        <span class="person-title is-size-7">Шахдеров О.Л.</span
-                        >
-                        <div class="person-comment has-text-justified">
-                            <p>
-                                МГТУ им. Н.Э. Баумана выражает благодарность
-                                Вашей организации за профессиональное и надежное
-                                исполнение работ по проектированию технического
-                                перевооружения котельной.
-                            </p>
-                            <p>
-                                Работы были выполнены в срок и в строгом
-                                соответствии с требованиями заказчика. Мы
-                                довольны сотрудничеством с Вами, и при
-                                необходимости обратимся к Вам еще.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-content">
-                    <div class="testimonial-boxed">
-                        <h4 class="has-text-weight-medium">ООО "Альтэра"</h4>
-                        <span class="person-title is-size-7"
-                            >Директор Трошин В.И.</span
-                        >
-                        <div class="person-comment has-text-justified">
-                            <p>
-                                Выражаем коллективу ООО «Энергия Плюс»
-                                благодарность за успешное сотрудничество в
-                                реализации проекта строительства газовой
-                                котельной для теплоснабжения складского
-                                комплекса ООО «Альтэра».
-                            </p>
-                            <p>
-                                В рамках Договора подряда, компанией ООО
-                                «Энергия Плюс», выполнен комплекс проектных и
-                                строительно-монтажных работ. При разработке
-                                проекта котельной и газопровода учтены все
-                                пожелания и замечания Заказчика, требования
-                                согласующих организаций и инстанций.
-                            </p>
-                            <p>
-                                Работу ООО «Энергия Плюс» отличает детальный и
-                                всесторонний подход к поставленной задаче,
-                                быстрое решение возникающих вопросов на основе
-                                глубокого знания законодательства и нормативных
-                                документов, а также четкое взаимодействие всех
-                                подразделений, аккуратность исполнения и
-                                ориентированность на конечный резулыат.
-                                Специалисты проектной группы и
-                                строительно-монтажного отдела компании, работали
-                                с высоким профессионализмом и ответственностью.
-                            </p>
-                            <p>
-                                Выражаем уверенность в развитии сложившихся
-                                дружественных отношений и надеемся на дальнейшее
-                                взаимовыгодное и плодотворное сотрудничество.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slide-content">
-                    <div class="testimonial-boxed">
-                        <h4 class="has-text-weight-medium">
-                            ООО "ВТМ дорпроект СТОЛИЦА"
-                        </h4>
-                        <span class="person-title is-size-7">Описание</span>
-                        <div class="person-comment has-text-justified">
-                            <p>
-                                Выражаем коллективу ООО «Энергия Плюс»
-                                благодарность за профессиональный документации
-                                на газовую котельную мощностью 17,2 МВт в
-                                составе проекта: «Строительство комплекса
-                                общественно-административных зданий по адресу:
-                                Московская область, г.о. Красногорск, 65-66 км
-                                МКАД».
-                            </p>
-                            <p>
-                                В рамках государственного контракта
-                                специалистами ООО «Энергия Плюс» был выполнен
-                                комплекс проектно-изыскательских работ, который
-                                позволил своевременно получить положительное
-                                заключение ГАУ МО «Мособлгосэкспертиза».
-                            </p>
-                            <p>
-                                Проектная документация выполнены с надлежащим
-                                качеством и с соблюдением треоований
-                                законодательства в области проектирования и
-                                строительства.
-                            </p>
-                            <p>
-                                Желаем дальнейших успехов в работе, будем рады
-                                сотрудничеству на новых объектах.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-content">
-                    <div class="testimonial-boxed">
-                        <h4 class="has-text-weight-medium">
-                            ООО "Перспектива"
-                        </h4>
-                        <span class="person-title is-size-7"
-                            >Управляющий директор Ополько М.В.</span
-                        >
-                        <div class="person-comment has-text-justified">
-                            <p>
-                                Компанией ООО «Энергия Плюс» были выполнены
-                                работы по разработке проектной документации на
-                                техническое перевооружение системы внутреннего
-                                газоснабжения котельной. Проект выполнен в
-                                установленный срок и в полном соответствии с
-                                технических заданием.
-                            </p>
-                            <p>
-                                В ходе исполнения договорных обязательств
-                                компания показала себя как надежный деловой
-                                партнер. Профессиональный подход сотрудников
-                                способствовал оперативному решению вопросов,
-                                связанных с исполнением договора. Завершение
-                                работ 8 установленный срок позволило
-                                своевременно приступить к строительно-монтажным
-                                работам.
-                            </p>
-                            <p>
-                                Мы можем рекомендовать ООО «Энергия Плюс» как
-                                надежного и ответственного исполнителя по
-                                проектированию объектов газоснабжения.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                {/each}
 
                 <span class="control" slot="right-control">
                     <Icon icon={faChevronRight} />
@@ -940,19 +785,14 @@
         <div align="center">
             <a
                 class="button is-primary is-medium is-raunded has-text-white"
-                href="/company/otzyvy-klientov">Читать рекомендации</a
+                href="{p}/company/otzyvy-klientov">{$t('autonomous_boiler_design_page.read_recommendations')}</a
             >
         </div>
     </section>
 
-    <!--    <section class="section calculation">-->
-    <!--        <div class="container is-max-widescreen">-->
-    <!--            <CalculationBlock/>-->
-    <!--        </div>-->
-    <!--    </section>-->
     <section class="section">
         <div class="title has-text-centered has-text-weight-bold">
-            РАСЧЕТ СТОИМОСТИ
+            {$t('autonomous_boiler_design_page.cost_calc_title')}
         </div>
         <div class="container is-max-widescreen">
             <CalcTabs />

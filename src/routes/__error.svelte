@@ -4,7 +4,6 @@
         // console.error('In error page', error)
         return {
             props: {
-                title: status === 404 ? 'Страница не найдена!' : 'Ошибка сервера!',
                 status: status,
                 // stack: error.stack
             }
@@ -14,8 +13,13 @@
 
 <script>
     import {goto} from '$app/navigation'
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
-    export let title, status, stack
+    export let status, stack
+
+    $: currentLocale = $session.locale || 'ru'
+    $: title = status === 404 ? $t('error.page_not_found') : $t('error.server_error')
 </script>
 
 <svelte:head>
@@ -31,7 +35,7 @@
                 <p class="title">
                     {title}
                 </p>
-                <button class="button is-link" on:click={()=>goto('/')}>Вернуться на главную страницу</button>
+                <button class="button is-link" on:click={()=>goto(currentLocale === 'en' ? '/en/' : '/')}>{$t('error.go_home')}</button>
             </div>
         </div>
 

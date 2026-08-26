@@ -1,9 +1,10 @@
 <script>
     import Icon from 'fa-svelte'
     import {faChartBar, faHistory, faRoad, faUsers} from '@fortawesome/free-solid-svg-icons'
+    import {t} from 'svelte-i18n'
 </script>
 
-<style lang="scss">
+<style>
   :global(.portfolio-counter-icon) {
     font-size: xx-large;
   }
@@ -25,8 +26,8 @@
                             <h3 class="title is-1 has-text-info">21</h3>
                         </div>
                     </div>
-                    <h4 class="title">Год</h4>
-                    <h5 class="subtitle">на рынке</h5>
+                    <h4 class="title">{$t('portfolio_counters.years_title')}</h4>
+                    <h5 class="subtitle">{$t('portfolio_counters.years_subtitle')}</h5>
                     <progress aria-label="on-market" class="progress is-info" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>
@@ -42,8 +43,8 @@
                             <h3 class="title is-1 has-text-danger">225</h3>
                         </div>
                     </div>
-                    <h4 class="title">Организаций</h4>
-                    <h5 class="subtitle">заказчиков</h5>
+                    <h4 class="title">{$t('portfolio_counters.clients_title')}</h4>
+                    <h5 class="subtitle">{$t('portfolio_counters.clients_subtitle')}</h5>
                     <progress aria-label="organizations" class="progress is-danger" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>
@@ -59,8 +60,8 @@
                             <h3 class="title is-1 has-text-success">485</h3>
                         </div>
                     </div>
-                    <h4 class="title">Проектов</h4>
-                    <h5 class="subtitle">выполнено</h5>
+                    <h4 class="title">{$t('portfolio_counters.projects_title')}</h4>
+                    <h5 class="subtitle">{$t('portfolio_counters.projects_subtitle')}</h5>
                     <progress aria-label="projects" class="progress is-success" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>
@@ -76,8 +77,8 @@
                             <h3 class="title is-1 has-text-info">750</h3>
                         </div>
                     </div>
-                    <h4 class="title">Километров</h4>
-                    <h5 class="subtitle">запроектировано</h5>
+                    <h4 class="title">{$t('portfolio_counters.km_title')}</h4>
+                    <h5 class="subtitle">{$t('portfolio_counters.km_subtitle')}</h5>
                     <progress aria-label="kilometers" class="progress is-info" max="100" role="progressbar" value="75"></progress>
                 </div>
             </div>

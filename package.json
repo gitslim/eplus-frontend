@@ -38,6 +38,7 @@
 		"graphql": "^15.5.3",
 		"marked": "^3.0.2",
 		"svelte-forms-lib": "^2.0.0",
+		"svelte-i18n": "^4.0.1",
 		"ymaps": "^0.2.1"
 	}
 }

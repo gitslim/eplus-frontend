@@ -3,6 +3,7 @@
     import * as icons from '@fortawesome/free-solid-svg-icons'
     import CalcGaz from '$lib/components/calc/CalcGaz.svelte'
     import CalcKotel from '$lib/components/calc/CalcKotel.svelte'
+    import {t} from 'svelte-i18n'
 
     export let selected = 'kotel'
     export let classes = 'is-centered'
@@ -17,7 +18,7 @@
                 <span class="icon is-small">
                     <Icon icon="{icons.faCity}"/>
                 </span>
-                    <span>Котельные</span>
+                    <span>{$t('calculators.tabs.boiler')}</span>
                 </a>
             </li>
             <li class:is-active={selected==='gaz'}>
@@ -25,7 +26,7 @@
                 <span class="icon is-small">
                     <Icon icon="{icons.faRoute}"/>
                 </span>
-                    <span>Газопроводы</span>
+                    <span>{$t('calculators.tabs.pipeline')}</span>
                 </a>
             </li>
         </ul>

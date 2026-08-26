@@ -4,52 +4,44 @@
 
 <script>
     import LazyImage from 'svelte-lazy-image'
+    import { t } from 'svelte-i18n'
+    import { session } from '$app/stores'
 
-    let title = 'Буклет о компании'
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 </script>
 
 <SvelteSeo
-        title="{title}"
+        title="{$t('company_page.booklet_page_title')}"
 />
 
 <section class="section">
     <div class="container">
-        <h1 class="title">{title}</h1>
+        <h1 class="title">{$t('company_page.booklet_page_title')}</h1>
         <div class="columns">
             <div class="column is-8">
                 <div class="block">
-                    ООО «Энергия Плюс» основано в 2003 году.
+                    {$t('company_page.history_p1')}
                 </div>
                 <div class="block">
-                    С момента образования компания динамично развивается и успешно работает на рынке инжиниринговых
-                    услуг. За это
-                    время накоплен уникальный опыт в реализации проектов топливно-энергетического комплекса, создан
-                    потенциал
-                    управленческих, инженерно-технических и рабочих кадров.
+                    {$t('company_page.history_p2')}
                 </div>
                 <div class="block">
-                    Нами выполнены более 100 комплексных проектов, введены в эксплуатацию десятки энергетических
-                    объектов. Мы
-                    сотрудничаем с такими компаниями, как ОАО Корпорация «Трансстой», ОАО «Союздорпроект», ООО
-                    «Росмикс», ОАО
-                    «Мосгаз», ГУП МО «Мособлгаз» и другими.
+                    {$t('company_page.history_p3')}
                 </div>
                 <div class="block">
-                    Партнёры отмечают стабильность, надёжность и качество сотрудничества с ООО «Энергия Плюс», которое
-                    достигается
-                    комплексным подходом к реализации проектов, высоким уровнем качества и использованием передовых
-                    технологий.
+                    {$t('company_page.history_p4')}
                 </div>
 
                 <LazyImage
-                        alt="История компании"
+                        alt="{$t('company_page.history_img_alt')}"
                         src="/images/company/history.jpg"
                 />
             </div>
 
             <div class="column">
                 <figure class="image is-16by9">
-                    <iframe allowfullscreen class="has-ratio" frameborder="0"
+                    <iframe title="{$t('company_page.video_title')}" allowfullscreen class="has-ratio" frameborder="0"
                             height="360"
                             src="https://www.youtube.com/embed/L8tZf_xNUWQ?showinfo=0" width="640"></iframe>
                 </figure>

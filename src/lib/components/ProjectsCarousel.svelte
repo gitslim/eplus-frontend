@@ -8,38 +8,39 @@
     } from "@fortawesome/free-solid-svg-icons";
     import LazyImage from "svelte-lazy-image";
     import Link from "./Link.svelte";
+    import { t } from "svelte-i18n";
 
     export let startIndex = 0;
     let carousel;
 
-    const items = [
+    $: items = [
         {
             image: "/images/projects/1.jpg",
-            title: "Линейные объекты",
-            subtitle: "новое строительство",
+            title: $t('projects_carousel.linear_new_title'),
+            subtitle: $t('projects_carousel.linear_new_sub'),
             slug: "page/linejnye-obuekty-novoe-stroitelstvo",
         },
         {
             image: "/images/projects/2.jpg",
-            title: "Линейные объекты",
-            subtitle: "реконструкция",
+            title: $t('projects_carousel.linear_rec_title'),
+            subtitle: $t('projects_carousel.linear_rec_sub'),
             slug: "page/linejnye-obuekty-rekonstrukciya",
         },
         {
             image: "/images/projects/3.jpg",
-            title: "Газопроводы",
-            subtitle: "в границах участка заказчика",
+            title: $t('projects_carousel.pipelines_title'),
+            subtitle: $t('projects_carousel.pipelines_sub'),
             slug: "page/gazoprovody-v-granicah-uchastka-zakazchika",
         },
         {
             image: "/images/projects/4.jpg",
-            title: "Котельные",
-            subtitle: "",
+            title: $t('projects_carousel.boilers_title'),
+            subtitle: $t('projects_carousel.boilers_sub'),
             slug: "page/kotelnye",
         },
     ];
 
-    const perPage = {
+    $: perPage = {
         800: Math.min(items.length, 1),
         500: Math.min(items.length, 1),
     };
@@ -87,7 +88,7 @@
                             <div class="subtitle">
                                 {item.subtitle}
                             </div>
-                            <button class="button is-primary">Подробнее</button>
+                            <button class="button is-primary">{$t('common.read_more')}</button>
                         </Link>
                     </div>
                 </div>
@@ -98,6 +99,3 @@
         </span>
     </Carousel>
 </div>
-
-<style lang="scss">
-</style>

@@ -11,92 +11,74 @@
     import CalcTabs from '$lib/components/calc/CalcTabs.svelte'
     import LazyImage from "svelte-lazy-image"
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import {t} from 'svelte-i18n'
 
-    let title = 'Техническое переворужение котельной'
-
-    const meta = {
-        title: "Техническое перевооружение котельной. Газовая или дизельная котельная. Допуски СРО. Консультация",
-        description: "Изыскания, проектные работы. Экспертиза. Монтаж котельной. Пуско-наладочные работы и сдача в эксплуатацию. Техническое перевооружение газовой котельной",
-        h1: "Техническое перевооружение котельной. Природный газ или дизельное топливо. Согласования. Составление сметы. Экспертиза. Подбор и поставка оборудования. Расчет стоимости котельной"
+    $: headerCaption = {
+        caption: $t('boiler_upgrade.title'),
     }
 
-
-    const headerCaption = {
-        caption: title,
+    $: info = {
+        text: $t('boiler_upgrade.info_text'),
+        subText: $t('boiler_upgrade.info_sub'),
     }
 
-    const info = {
-        text:
-            'Техническое перевооружение опасного производственного объекта - приводящие к изменению технологического процесса на опасном производственном объекте внедрение новой технологии, автоматизация опасного производственного объекта или его отдельных частей, модернизация или замена применяемых на опасном производственном объекте технических устройств.',
-        subText:
-            'Источник: Федеральный закон от 21.07.1997 № 116-ФЗ «О промышленной безопасности опасных производственных объектов» // СЗ РФ. 1997. № 30. Ст. 3588. (абзац девятый статьи 1) (абзац дополнен Федеральным законом от 04.03.2013 № 22-ФЗ)',
-    }
-
-    const questions = [
+    $: questions = [
         {
             id: '01',
-            text:
-                'Как в условиях работы действующего предприятия провести модернизацию без останова основной деятельности предприятия?',
+            text: $t('boiler_upgrade.q1'),
         },
         {
             id: '02',
-            text: 'Как осуществить модернизацию с наименьшими затратами?',
+            text: $t('boiler_upgrade.q2'),
         },
         {
             id: '03',
-            text:
-                'Какие технические решения позволят достичь максимальной энергоэффективности, т.е. позволят достичь оптимального соотношения потребления энергоресурсов на 1кВт вырабатываемой мощности?',
+            text: $t('boiler_upgrade.q3'),
         },
         {
             id: '04',
-            text: 'Как увеличить производительность котельной?',
+            text: $t('boiler_upgrade.q4'),
         },
         {
             id: '05',
-            text:
-                'Какой набор документов потребуется для выполнения полного комплекса работ?',
+            text: $t('boiler_upgrade.q5'),
         },
     ]
 
-    const functionsCard = [
+    $: functionsCard = [
         {
             id: 1,
-            text:
-                'Энергоаудит, выбор оборудования, проведение технико-экономических расчетов и обоснований технического перевооружения/ модернизации объекта',
+            text: $t('boiler_upgrade.step1'),
             alt: 'image-card',
             src: '/images/tehnicheskoePerevooruzhenie/steps-kot-1.png',
         },
         {
             id: 2,
-            text:
-                'Проведение инженерных изысканий с целью определения свойств грунтов, состояния фундаментов в объеме, необходимом для проведения работ по техническому перевооружению, обследование и сбор (получение) заключений экспертизы промышленной безопасности на отдельные конструктивные элементы объекта, которые не затрагиваются проводимой модернизацией',
+            text: $t('boiler_upgrade.step2'),
             alt: 'image-card',
             src: '/images/tehnicheskoePerevooruzhenie/steps-kot-2.png',
         },
         {
             id: 3,
-            text:
-                'Разработка проектной документации на техническое перевооружения, в которой предусмотрены организационные и технические меры, обеспечивающие экологическую и промышленную безопасность.',
+            text: $t('boiler_upgrade.step3'),
             alt: 'image-card',
             src: '/images/tehnicheskoePerevooruzhenie/steps-kot-3.png',
         },
         {
             id: 4,
-            text:
-                'Сопровождение и получение положительного заключения экспертизы по проектной документации на техническое перевооружение. Регистрация заключения экспертизы промышленной безопасности проекта на техническое перевооружение опасного объекта в территориальном органе Ростехнадзора',
+            text: $t('boiler_upgrade.step4'),
             alt: 'image-card',
             src: '/images/tehnicheskoePerevooruzhenie/steps-kot-4.png',
         },
         {
             id: 5,
-            text: 'Выполнение строительно-монтажных и пуско-наладочных работ',
+            text: $t('boiler_upgrade.step5'),
             alt: 'image-card',
             src: '/images/tehnicheskoePerevooruzhenie/steps-kot-5.png',
         },
         {
             id: 6,
-            text:
-                'Сдача объекта Федеральной службе по экологическому, технологическому и атомному надзору',
+            text: $t('boiler_upgrade.step6'),
             alt: 'image-card',
             src: '/images/tehnicheskoePerevooruzhenie/steps-kot-6.png',
         },
@@ -225,14 +207,14 @@
 </style>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('boiler_upgrade.meta_title')}" description="{$t('boiler_upgrade.meta_description')}"/>
+<HiddenH1>{$t('boiler_upgrade.meta_h1')}</HiddenH1>
 
 <main class="main">
     <section class="section caption">
         <div class="container is-widescreen">
             <HeaderLanding {...headerCaption}/>
-            <BtnZayavka btnText="Заказать" radius="true"/>
+            <BtnZayavka btnText="{$t('boiler_upgrade.order')}" radius="true"/>
         </div>
     </section>
 
@@ -245,9 +227,7 @@
     <section class="section questions">
         <div class="container is-max-widescreen">
             <p class="questions__desc">
-                В настоящее время множество предприятий сталкивается с необходимостью
-                замены выработавшего парковый ресурс теплогенерирующего оборудования. В
-                этом случае на повестку дня ставится ряд вопросов:
+                {$t('boiler_upgrade.questions_intro')}
             </p>
             <div class="questions__wrap">
                 <div class="columns questions__items">
@@ -260,19 +240,13 @@
                 </div>
             </div>
             <p class="questions__desc">
-                Специалисты ООО «Энергия Плюс» готовы предложить решения этих и многих
-                других вопросов, возникающих при проведении подобного вида работ. С
-                учетом конструктивных особенностей объекта и пожеланий Заказчика нами
-                будут оптимизированы затраты на вышеуказанные мероприятия, особенно в
-                части оформления требуемой надзорными органами документации, по
-                трудоемкости сопоставимой со строительно-монтажными работами, а по
-                длительности - часто превосходящей их.
+                {$t('boiler_upgrade.questions_outro')}
             </p>
         </div>
     </section>
     <section class="section functions">
         <div class="container is-widescreen">
-            <TitleLanding titleText="Этапы Перевооружения котельной"/>
+            <TitleLanding titleText="{$t('boiler_upgrade.stages_title')}"/>
             <div class="columns functions__items">
                 {#each functionsCard as item}
                     <PurposeCard text={item.text} alt={item.alt} src={item.src}/>
@@ -286,7 +260,7 @@
 <!--        </div>-->
 <!--    </section>-->
     <section class="section">
-        <div class="title has-text-centered has-text-weight-bold">РАСЧЕТ СТОИМОСТИ</div>
+        <div class="title has-text-centered has-text-weight-bold">{$t('boiler_upgrade.cost_calc')}</div>
         <div class="container is-max-widescreen">
             <CalcTabs/>
         </div>

@@ -5,16 +5,7 @@
 <script>
     import CalcKotel from '$lib/components/calc/CalcKotel.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
-
-    const title = 'Калькулятор расчета стоимости строительства и проектирования котельной'
-    const titlePart1 = 'Калькулятор расчета стоимости'
-    const titlePart2 = 'Проектирования и строительства котельной'
-
-    const meta = {
-        title: "Калькулятор стоимости котельной «Энергии Плюс» — получите расчет стоимости онлайн",
-        description: "Промышленная котельная для производства. Получите расчет стоимости котельной от профессионалов. Более 20 лет на рынке.",
-        h1: "Проект и монтаж котельной. Получить точный расчет затрат на реализацию инвестиционного проекта."
-    }
+    import {t} from 'svelte-i18n'
 </script>
 
 <style lang="scss">
@@ -41,17 +32,17 @@
   }
 </style>
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
+<SvelteSeo title="{$t('calculators.boiler_page.meta_title')}" description="{$t('calculators.boiler_page.meta_description')}"/>
 
 <main class="main-content calc">
-    <HiddenH1>{meta.h1}</HiddenH1>
+    <HiddenH1>{$t('calculators.boiler_page.meta_h1')}</HiddenH1>
     <div class="container is-widescreen">
         <div class="columns">
             <div class="widget column">
                 <h2 class="title title-wrapper ">
                     <span>
-                        <span><span>{titlePart1}</span></span>
-                         <span><span>{titlePart2}</span></span>
+                        <span><span>{$t('calculators.boiler_page.title_part1')}</span></span>
+                         <span><span>{$t('calculators.boiler_page.title_part2')}</span></span>
                         <span class="heading-line"></span>
                     </span>
                 </h2>

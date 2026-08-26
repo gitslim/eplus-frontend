@@ -6,31 +6,23 @@
     import CallbackForm from '$lib/components/CallbackForm.svelte'
     import SidebarRight from '$lib/components/SidebarRight.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import { t } from 'svelte-i18n'
+    import { session } from '$app/stores'
 
-    const meta = {
-        title: "Полезные материалы для тех, кто планирует строить котельную, проектировать газопровод или купить блочно-модульную котельную",
-        description: "Полезные материалы от профессионалов. Актуальные нормативные акты для проектирования и строительства. Калькуляторы расчета стоимости котельной и газопровода.",
-        h1: "Проектирование и строительство котельной и газопровода. Согласование. Экспертиза. Полезные материалы для инженеров, энергетиков. Узнайте стоимость проекта на сайте."
-    }
-
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 </script>
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('utility_pages.poleznoe.meta_title')}" description="{$t('utility_pages.poleznoe.meta_description')}"/>
+<HiddenH1>{$t('utility_pages.poleznoe.meta_h1')}</HiddenH1>
 
 
 <style lang="scss">
-  // .content__wrap {
-  //   display: flex;
-  // }
-
   .content-block {
-    // width: 65%;
     margin-right: 10px;
   }
 
   .block-sidebar {
-    // width: 370px;
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -66,23 +58,21 @@
             <section>
                 <div class="widget">
                     <h2 class="title">
-                        <span><span>Полезное</span></span><span class="heading-line"/>
+                        <span><span>{$t('utility_pages.poleznoe.title')}</span></span><span class="heading-line"/>
                     </h2>
                 </div>
                 <div class="builder-element-inside">
                     <div class="builder-element-children-wrapper">
-                        <h3><a href="/faq">Вопросы и ответы</a></h3>
-                        <h3><a href="/rasschitat-stoimost">Калькуляторы</a></h3>
+                        <h3><a href="{p}/faq">{$t('utility_pages.poleznoe.faq')}</a></h3>
+                        <h3><a href="{p}/rasschitat-stoimost">{$t('utility_pages.poleznoe.calculators')}</a></h3>
                         <h3>
-                            <a href="/page/kalkulyator-rascheta-stoimosti-gazoprovoda">Расчет
-                                газопровода</a>
+                            <a href="{p}/page/kalkulyator-rascheta-stoimosti-gazoprovoda">{$t('utility_pages.poleznoe.pipeline_calc')}</a>
                         </h3>
                         <h3>
-                            <a href="/page/kalkulyator-rascheta-stoimosti-stroitelstva-i-proektirovaniya-kotelnoj">Расчет
-                                котельной</a>
+                            <a href="{p}/page/kalkulyator-rascheta-stoimosti-stroitelstva-i-proektirovaniya-kotelnoj">{$t('utility_pages.poleznoe.boiler_calc')}</a>
                         </h3>
-                        <h3><a href="/documents">Нормативные документы</a></h3>
-                        <h3><a href="/articles">Статьи</a></h3>
+                        <h3><a href="{p}/documents">{$t('utility_pages.poleznoe.documents')}</a></h3>
+                        <h3><a href="{p}/articles">{$t('utility_pages.poleznoe.articles')}</a></h3>
                     </div>
                 </div>
             </section>

@@ -6,26 +6,22 @@
     import LazyImage from 'svelte-lazy-image'
     import Lightbox from 'svelte-lightbox/src/Lightbox.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import { t } from 'svelte-i18n'
+    import { session } from '$app/stores'
 
-    let title = 'Допуски СРО и аттестаты'
-
-    const meta = {
-        title: "Допуски СРО и аттестаты. Инжиниринговая компания Энергия Плюс",
-        description: "документы, необходимые для проектирования газопроводов и котельных. Допуски СРО для монтажа промышленных газовых котельных. Сертифицированная БМК на комбинированном топливе. Поставка и монтаж БМК",
-        h1: "Допуски СРО и аттестаты для выполнения проектных и монтажных работ. Газопроводы малого, среднего и высокого давления. Котельные газовые. Котельные дизельные. Получение технических условий на подключение к газу. Расчет МЧРГ. ТТР и ТУ «Мосгаз», «Мособлгаз»"
-    }
-
+    $: currentLocale = $session.locale || 'ru'
+    $: p = currentLocale === 'en' ? '/en' : ''
 </script>
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('company_page.meta_sro_title')}" description="{$t('company_page.meta_sro_description')}"/>
+<HiddenH1>{$t('company_page.meta_sro_h1')}</HiddenH1>
 
 <section class="section">
     <div class="container">
-        <h2 class="title">{title}</h2>
+        <h2 class="title">{$t('company_page.sro_title')}</h2>
         <div class="columns">
             <div class="column is-8">
-                <h2 class="subtitle">Допуски СРО</h2>
+                <h2 class="subtitle">{$t('company_page.sro_subtitle_sro')}</h2>
                 <div class="columns">
                     <div class="column is-4">
                         <Lightbox>
@@ -50,7 +46,7 @@
                     </div>
                 </div>
 
-                <h2 class="subtitle">Сертификация ISO 9001</h2>
+                <h2 class="subtitle">{$t('company_page.sro_subtitle_iso')}</h2>
                 <div class="columns">
                     <div class="column is-4">
                         <Lightbox>
@@ -68,7 +64,7 @@
                     </div>
                 </div>
 
-                <h2 class="subtitle">Аттестаты сварочных технологий</h2>
+                <h2 class="subtitle">{$t('company_page.sro_subtitle_welding_tech')}</h2>
                 <div class="columns">
                     <div class="column is-3">
                         <Lightbox>
@@ -100,7 +96,7 @@
                     </div>
                 </div>
 
-                <h2 class="subtitle">Аттестаты сварочного оборудования</h2>
+                <h2 class="subtitle">{$t('company_page.sro_subtitle_welding_equip')}</h2>
                 <div class="columns">
                     <div class="column is-4">
                         <Lightbox>
@@ -122,7 +118,7 @@
 
             <div class="column">
                 <figure class="image is-16by9">
-                    <iframe title="Презентация компании Энергия Плюс"
+                    <iframe title="{$t('company_page.video_title')}"
                             allowfullscreen
                             class="has-ratio"
                             height="360"

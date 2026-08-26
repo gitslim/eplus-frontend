@@ -4,35 +4,28 @@
     import SidebarRight from '$lib/components/SidebarRight.svelte'
     import {fetchEndpoint} from '$lib/utils'
 
-    export const load = async ({fetch, page}) => {
-        return await fetchEndpoint(fetch, '/ep/list-news-articles.json', {})
+    export const load = async ({fetch, page, session}) => {
+        const locale = session?.locale || 'ru'
+        return await fetchEndpoint(fetch, '/ep/list-news-articles.json', {locale})
     }
 </script>
 
 <script>
     import NewsIndexItem from '$lib/components/NewsIndexItem.svelte'
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
+    import { t } from 'svelte-i18n'
 
     export let data
-
-    let title = 'Новости'
-
-    const meta = {
-        title: "Новости энергетики, природного газа. Изменения в стандартах, СНиП, ГОСТ по проектированию и строительству. Полезные материалы для инженеров, энергетиков и директоров предприятий",
-        description: "Новостные материалы. Газификация. Промышленные котельные и энергоцентры. Электросетевой комплекс.",
-        h1: "Новости энергетики России и мира. Новости нефтегазовой отрасли. Изменения в законодательстве и нормативных документах. Читать новости о природном газе, СПГ, ESG и политике"
-    }
-
 </script>
 
 
-<SvelteSeo title="{meta.title}" description="{meta.description}"/>
-<HiddenH1>{meta.h1}</HiddenH1>
+<SvelteSeo title="{$t('utility_pages.news.meta_title')}" description="{$t('utility_pages.news.meta_description')}"/>
+<HiddenH1>{$t('utility_pages.news.meta_h1')}</HiddenH1>
 
 
 <section class="section">
     <div class="container .is-widescreen">
-        <h2 class="title">{title}</h2>
+        <h2 class="title">{$t('utility_pages.news.title')}</h2>
 
         <div class="columns is-desktop">
             <div class="column is-8">

@@ -6,12 +6,17 @@
     import * as yup from 'yup'
     import {bitrixLead} from '$lib/utils'
     import {goto} from '$app/navigation'
+    import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
 
     const dispatch = createEventDispatcher()
 
-    export let btnText = 'Отправить'
+    export let btnText = ''
     export let inverted = false
     export let lead = {}
+
+    $: currentLocale = $session.locale || 'ru'
+    $: resolvedBtnText = btnText || $t('form.submit')
 
     const {
         form,
@@ -29,7 +34,7 @@
             email:''
         },
         validationSchema: yup.object().shape({
-            email: yup.string().email('Обязательное поле')
+            email: yup.string().email($t('form.required'))
         }),
         onSubmit: async values => {
             let data = {
@@ -47,9 +52,9 @@
                     values,
                     response
                 })
-                goto('/thanks')
+                goto(currentLocale === 'en' ? '/en/thanks' : '/thanks')
             } else {
-                alert('Ошибка отправки формы. Попробуйте еще раз!')
+                alert($t('form.send_error'))
             }
             
         }
@@ -86,7 +91,7 @@
         <div class="control">
             <button class="button is-link" class:is-inverted={inverted} type="submit"
                     class:is-loading={$isSubmitting}>
-                {btnText}
+                {resolvedBtnText}
             </button>
         </div>
         <!--    <div class="control">-->

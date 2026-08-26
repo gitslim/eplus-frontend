@@ -1,5 +1,6 @@
 <script>
     import QuizItem from '$lib/components/quiz/QuizItem.svelte'
+    import {t} from 'svelte-i18n'
 
     export let quizId = 0
     export let title = ''
@@ -9,44 +10,44 @@
     let answers = {}
     let log = []
 
-    let items = {
+    $: items = {
         0: {
             0: {
-                title: 'Укажите количество зданий для теплотехнического расчета',
+                title: $t('calculators.quiz.q0_buildings_count'),
                 widget: 'input',
                 mask: '00',
-                placeholder: 'Количество зданий',
+                placeholder: $t('calculators.quiz.q0_buildings_count_ph'),
                 next: 1,
             },
             1: {
-                title: 'Укажите назначение зданий',
+                title: $t('calculators.quiz.q0_buildings_purpose'),
                 widget: 'radio',
                 options: [
-                    {title: 'офисное', val: 0, next: 2},
-                    {title: 'складское', val: 1, next: 2},
-                    {title: 'жилое', val: 2, next: 2},
-                    {title: 'промышленное', val: 3, next: 2}]
+                    {title: $t('calculators.quiz.opt_office'), val: 0, next: 2},
+                    {title: $t('calculators.quiz.opt_warehouse'), val: 1, next: 2},
+                    {title: $t('calculators.quiz.opt_residential'), val: 2, next: 2},
+                    {title: $t('calculators.quiz.opt_industrial'), val: 3, next: 2}]
             },
             2: {
-                title: 'Укажите общую площадь здания',
+                title: $t('calculators.quiz.q0_area'),
                 widget: 'input',
                 mask: '00000',
                 next: 3
             },
             3: {
-                title: 'Укажите высоту здания',
+                title: $t('calculators.quiz.q0_height'),
                 widget: 'input',
                 mask: '000',
                 next: 4
             },
             4: {
-                title: 'Укажите количество точек потребления горячей воды',
+                title: $t('calculators.quiz.q0_hot_water'),
                 widget: 'input',
                 mask: '000',
                 next: 5
             },
             5: {
-                title: 'Производим расчет...',
+                title: $t('calculators.quiz.calculating'),
                 widget: 'calc',
                 next: 6,
                 delay: 5000,
@@ -71,63 +72,63 @@
                 }
             },
             6: {
-                title: 'В течение 5 минут расчёт будет готов. Для получения результатов укажите Ваши контактные данные',
+                title: $t('calculators.quiz.contact_form_title_5min'),
                 widget: 'contact-form',
                 next: 7
             },
             7: {
-                title: 'Спасибо за обращение!',
+                title: $t('calculators.quiz.thank_you_title'),
                 widget: 'thank-you',
-                text: 'В ближайшее время мы сообщим вам результат расчета',
+                text: $t('calculators.quiz.thank_you_text'),
             }
         },
         1: {
             0: {
-                title: 'Укажите наименование объекта',
+                title: $t('calculators.quiz.q1_object_name'),
                 widget: 'input',
                 mask: /.*/,
-                placeholder: 'Наименование объекта',
+                placeholder: $t('calculators.quiz.q1_object_name_ph'),
                 next: 1,
             },
             1: {
-                title: 'Укажите регион расположения объекта',
+                title: $t('calculators.quiz.q1_region'),
                 widget: 'input',
                 mask: /.*/,
-                placeholder: 'Регион объекта',
+                placeholder: $t('calculators.quiz.q1_region_ph'),
                 next: 2,
             },
             2: {
-                title: 'Укажите объект газоснабжения',
+                title: $t('calculators.quiz.q1_gas_object'),
                 widget: 'radio',
                 options: [
-                    {title: 'котельная', val: 0, next: 3},
-                    {title: 'технологическое оборудование', val: 1, next: 3}
+                    {title: $t('calculators.quiz.opt_boiler'), val: 0, next: 3},
+                    {title: $t('calculators.quiz.opt_tech_equip'), val: 1, next: 3}
                 ]
             },
             3: {
-                title: 'Есть ли технические условия на газ?',
+                title: $t('calculators.quiz.q1_tu'),
                 widget: 'radio',
                 options: [
-                    {title: 'да', val: 0, next: 4},
-                    {title: 'нет', val: 1, next: 5}
+                    {title: $t('calculators.quiz.opt_yes'), val: 0, next: 4},
+                    {title: $t('calculators.quiz.opt_no'), val: 1, next: 5}
                 ]
             },
             4: {
-                title: 'Укажите объем планируемого потребления газа',
+                title: $t('calculators.quiz.q1_gas_volume'),
                 widget: 'input',
                 mask: '000000',
-                placeholder: 'Объем потребления газа (куб.м)',
+                placeholder: $t('calculators.quiz.q1_gas_volume_ph'),
                 next: 5,
             },
             5: {
-                title: 'Укажите ориентировочную протяженность газопровода',
+                title: $t('calculators.quiz.q1_pipe_len'),
                 widget: 'input',
                 mask: '00000',
-                placeholder: 'Протяженность газопровода (м)',
+                placeholder: $t('calculators.quiz.q1_pipe_len_ph'),
                 next: 6,
             },
             6: {
-                title: 'Пожалуйста подождите...',
+                title: $t('calculators.quiz.please_wait'),
                 widget: 'calc',
                 next: 7,
                 delay: 5000,
@@ -137,53 +138,53 @@
                 }
             },
             7: {
-                title: 'В течение нескольких минут расчёт будет готов. Для получения результатов укажите Ваши контактные данные',
+                title: $t('calculators.quiz.contact_form_title'),
                 widget: 'contact-form',
                 next: 8
             },
             8: {
-                title: 'Спасибо за обращение!',
+                title: $t('calculators.quiz.thank_you_title'),
                 widget: 'thank-you',
-                text: 'В ближайшее время мы сообщим вам результат расчета',
+                text: $t('calculators.quiz.thank_you_text'),
             }
         },
         2: {           
             0: {
-                title: 'Укажите количество зданий для теплотехнического расчета',
+                title: $t('calculators.quiz.q0_buildings_count'),
                 widget: 'input',
                 mask: '00',
-                placeholder: 'Количество зданий',
+                placeholder: $t('calculators.quiz.q0_buildings_count_ph'),
                 next: 1,
             },
             1: {
-                title: 'Укажите назначение зданий',
+                title: $t('calculators.quiz.q0_buildings_purpose'),
                 widget: 'radio',
                 options: [
-                    {title: 'офисное', val: 0, next: 2},
-                    {title: 'складское', val: 1, next: 2},
-                    {title: 'жилое', val: 2, next: 2},
-                    {title: 'промышленное', val: 3, next: 2}]
+                    {title: $t('calculators.quiz.opt_office'), val: 0, next: 2},
+                    {title: $t('calculators.quiz.opt_warehouse'), val: 1, next: 2},
+                    {title: $t('calculators.quiz.opt_residential'), val: 2, next: 2},
+                    {title: $t('calculators.quiz.opt_industrial'), val: 3, next: 2}]
             },
             2: {
-                title: 'Укажите общую площадь здания',
+                title: $t('calculators.quiz.q0_area'),
                 widget: 'input',
                 mask: '00000',
                 next: 3
             },
             3: {
-                title: 'Укажите высоту здания',
+                title: $t('calculators.quiz.q0_height'),
                 widget: 'input',
                 mask: '000',
                 next: 4
             },
             4: {
-                title: 'Укажите количество точек потребления горячей воды',
+                title: $t('calculators.quiz.q0_hot_water'),
                 widget: 'input',
                 mask: '000',
                 next: 5
             },
             5: {
-                title: 'Пожалуйста подождите...',
+                title: $t('calculators.quiz.please_wait'),
                 widget: 'calc',
                 next: 6,
                 delay: 3000,
@@ -191,22 +192,21 @@
                     console.debug('fn', answers)
                     return 0
                 }
-                },
+            },
             6: {
-                title: 'Расчет стоимости определения максимального часового расхода газа произведен',
+                title: $t('calculators.quiz.heat_calc_done'),
                 widget: 'email-form',
                 next: 7
             },
             7: {
-                title: 'Спасибо за обращение!',
+                title: $t('calculators.quiz.thank_you_title'),
                 widget: 'thank-you',
-                text: 'В ближайшее время мы сообщим вам результат расчета',
+                text: $t('calculators.quiz.thank_you_text'),
             }
-
         }
     }
 
-    $: item = items[quizId][currentItemId]
+    $: item = items[quizId] ? items[quizId][currentItemId] : null
 
     function handleAnswer(event) {
         const answer = event.detail
