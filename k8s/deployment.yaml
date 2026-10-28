@@ -43,6 +43,19 @@ spec:
           terminationMessagePolicy: File
       #      imagePullSecrets:
       #        - name: global-secret
+      # SSR (SvelteKit) ходит в Strapi по публичному URL https://api.<домен>/graphql
+      # (запечён в образ на этапе сборки, website.js). hostAliases резолвит этот
+      # hostname внутри пода напрямую в ClusterIP traefik (тот же TLS-сертификат):
+      # рендер страниц не зависит от внешнего DNS и не ходит hairpin-ом через
+      # публичный IP. Внешние клиенты (браузеры, API-потребители) не затронуты.
+      # Первопричина 503 CMS-страниц 2025-2026 — флап Google-DNS на ноде, апстримы
+      # переведены на 77.88.8.8 — runbook: eplus-backend#4.
+      # Если traefik будет пересоздан и получит новый ClusterIP — обновить IP здесь
+      # и в живом deployment (kubectl -n energyplus patch deployment energyplus-frontend).
+      hostAliases:
+        - ip: 10.43.39.85
+          hostnames:
+            - api.xn--c1adkmgpem4hrai.xn--p1ai
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
