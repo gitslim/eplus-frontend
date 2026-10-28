@@ -69,8 +69,7 @@ export const handle = async ({request, resolve}) => {
             }
         }
     } catch (e) {
-        // console.error('error', e)
-        return {status: 503}
+        // If Strapi is unavailable (e.g. during build or downtime), continue without redirects
     }
 
     // console.log('response', response)

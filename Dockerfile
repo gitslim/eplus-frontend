@@ -2,8 +2,6 @@ FROM node:20-bookworm-slim AS build-app
 
 WORKDIR /app
 COPY . .
-# Убедитесь, что установлены все необходимые для сборки зависимости
-RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
 RUN npm ci --no-audit
 RUN npm run build
 
