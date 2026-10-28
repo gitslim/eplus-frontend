@@ -230,11 +230,11 @@
 </script>
 
 <svelte:head>
-    <meta name="description" content="{meta.description}">
+    <meta name="description" content="{$t('heating_substations_page.meta_description')}">
     <meta property="og:locale" content="{currentLocale === 'en' ? 'en_US' : 'ru_RU'}">
     <meta property="og:type" content="article">
-    <meta property="og:title" content={meta.title}>
-    <meta property="og:description" content="{meta.description}">
+    <meta property="og:title" content="{$t('heating_substations_page.meta_title')}">
+    <meta property="og:description" content="{$t('heating_substations_page.meta_description')}">
     <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai{p}/page/individualnye-i-centralnye-teplovye-punkty">
     <meta property="og:site_name" content="{currentLocale === 'en' ? 'Energy Plus LLC' : 'ООО Энергия Плюс'}">
     <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/images/itc_ctp/teplovoy_punkt-og.png">

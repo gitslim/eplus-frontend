@@ -14,6 +14,9 @@
     import {Lightbox} from 'svelte-lightbox';
     import HiddenH1 from "$lib/components/HiddenH1.svelte"
     import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
+
+    $: currentLocale = $session.locale || 'ru'
 </script>
 
 

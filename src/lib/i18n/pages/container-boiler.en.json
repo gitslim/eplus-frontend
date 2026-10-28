@@ -60,6 +60,25 @@
     "about_p1": "Engineering company <span>Energy Plus</span> has specialized for over twenty years in the <span>design and construction of gas boiler plants</span>, including block-modular, built-in, attached, roof-mounted, and standalone boiler rooms, as well as onsite and offsite gas transmission pipelines.",
     "about_p2": "<span>Our company delivers a full turnkey cycle in thermal power generation</span>: from obtaining statutory baseline approvals to commissioning boiler houses into commercial operation. <span>We operate our own design bureau and manufacturing facility</span>, enabling us to deliver modular boiler houses with superior cost-effectiveness and reliability.",
     "booklet_title": "Brochure on Energy Engineering Services",
-    "booklet_tag": "Energy"
+    "booklet_tag": "Energy",
+    "hero_title_mfg": "CONTAINER BOILER HOUSES",
+    "price_title": "PRICE LIST FOR MODULAR BOILER PRODUCTION",
+    "price_sub": "Capacity range: 600 kW, 800 kW, 1000 kW, 1200 kW, 2000 kW",
+    "th_system": "Independent System",
+    "th_fuel": "Fuel",
+    "th_uug": "GMS",
+    "th_price_600": "Price 600 kW (RUB)",
+    "th_price_800": "Price 800 kW (RUB)",
+    "th_price_1000": "Price 1000 kW (RUB)",
+    "price_row1_system": "4-pipe, heating + DHW",
+    "price_gas": "Gas",
+    "price_yes": "Yes",
+    "price_row2_system": "2-pipe, without DHW",
+    "price_gas_diesel": "Gas / diesel",
+    "price_no": "No",
+    "download_full_price": "Download Full Price List",
+    "price_lead_title": "Full Price List Download",
+    "price_lead_comments": "Full price list download request (Container boiler house)",
+    "price_pdf_name": "Price-list-boiler-houses.pdf"
   }
 }

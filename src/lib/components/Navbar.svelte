@@ -165,8 +165,8 @@
                                     cls="navbar-item"
                                     path="page"
                                     slug="izgotovlenie-konteynernyh-kotelnyh"
-                                    title="Изготовление контейнерных котельных">
-                                Изготовление контейнерных котельных
+                                    title="{$t('nav.container_boilers_mfg')}">
+                                {$t('nav.container_boilers_mfg')}
                             </Link>
                         </div>
                         <!-- <div class="column">
