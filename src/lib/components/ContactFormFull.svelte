@@ -33,14 +33,16 @@
         initialValues: {
             name: '',
             phone: '',
-            email:''
+            email:'',
+            agree: false
         },
         validationSchema: yup.object().shape({
             name: yup.string().required('Обязательное поле'),
             phone: yup.string()
                 .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, 'Некорректный номер телефона')
                 .required('Обязательное поле'),
-            email: yup.string().email('Неверный формат Email')
+            email: yup.string().email('Неверный формат Email'),
+            agree: yup.boolean().oneOf([true], 'Необходимо согласие на обработку персональных данных')
         }),
         onSubmit: async values => {
             let data = {
@@ -54,6 +56,14 @@
             // console.debug('lead data', data)
             let response = await bitrixLead(data)
             if (response.ok) {
+                if (lead.downloadUrl) {
+                    const a = document.createElement('a')
+                    a.href = lead.downloadUrl
+                    a.download = lead.downloadName || lead.downloadUrl.split('/').pop()
+                    document.body.appendChild(a)
+                    a.click()
+                    document.body.removeChild(a)
+                }
                 dispatch('success', {
                     values,
                     response
@@ -140,6 +150,22 @@
         </div>
         {#if $touched.email && $errors.email}
             <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.email}</p>
+        {/if}
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <label class="checkbox is-size-7" class:has-text-white={inverted}>
+                <input type="checkbox"
+                       id="agreeFull"
+                       name="agree"
+                       on:change={handleChange}
+                       bind:checked={$form.agree}>
+                Я даю согласие на <a href="/page/soglasie-na-obrabotku-personalnyh-dannyh" target="_blank" class={inverted ? 'has-text-white is-underlined' : 'has-text-link'}>обработку персональных данных</a> и соглашаюсь с <a href="/page/politika-konfidencialnosti" target="_blank" class={inverted ? 'has-text-white is-underlined' : 'has-text-link'}>политикой конфиденциальности</a>
+            </label>
+        </div>
+        {#if $touched.agree && $errors.agree}
+            <p class="help" class:is-white={inverted} class:is-danger={!inverted}>{$errors.agree}</p>
         {/if}
     </div>
 

@@ -66,6 +66,8 @@
                             <li><a href="/documents">Документы</a></li>
                             <li><a href="/articles">Статьи</a></li>
                             <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/page/politika-konfidencialnosti">Политика конфиденциальности</a></li>
+                            <li><a href="/page/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку ПДн</a></li>
                         </ul>
                     </div>
 

@@ -150,6 +150,13 @@
                                     title="Изготовление блочно-модульных котельных">
                                 Изготовление блочно-модульных котельных
                             </Link>
+                            <Link
+                                    cls="navbar-item"
+                                    path="page"
+                                    slug="izgotovlenie-konteynernyh-kotelnyh"
+                                    title="Изготовление контейнерных котельных">
+                                Изготовление контейнерных котельных
+                            </Link>
                         </div>
                         <!-- <div class="column">
                           <Link

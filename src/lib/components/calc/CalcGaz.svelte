@@ -40,6 +40,9 @@
         } else if (vals.phone.length < 10) {
             _errs.phone = 'Введите 10 цифр номера'
         }
+        if (!vals.agree) {
+            _errs.agree = 'Необходимо согласие на обработку персональных данных'
+        }
 
         errs = _errs
     }
@@ -59,7 +62,8 @@
             needUchet: false,
 
             name: '',
-            phone: ''
+            phone: '',
+            agree: false
         },
         onSubmit: async values => {
             // Mark all fields as touched so errors are visible
@@ -67,6 +71,7 @@
             $touched.lenV = true;
             $touched.name = true;
             $touched.phone = true;
+            $touched.agree = true;
 
             if (!valid) {
                 return;
@@ -431,6 +436,27 @@
                         </div>
                         {#if ($touched.phone || isDone) && errs.phone}
                             <p class="help is-danger">{errs.phone}</p>
+                        {/if}
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label"></div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <label class="checkbox is-size-7">
+                                <input type="checkbox"
+                                       id="agreeGaz"
+                                       name="agree"
+                                       bind:checked={$form.agree}
+                                       on:change={handleChange}>
+                                Я даю согласие на <a href="/page/soglasie-na-obrabotku-personalnyh-dannyh" target="_blank" class="has-text-link">обработку персональных данных</a> и соглашаюсь с <a href="/page/politika-konfidencialnosti" target="_blank" class="has-text-link">политикой конфиденциальности</a>
+                            </label>
+                        </div>
+                        {#if ($touched.agree || isDone) && errs.agree}
+                            <p class="help is-danger">{errs.agree}</p>
                         {/if}
                     </div>
                 </div>

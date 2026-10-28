@@ -35,6 +35,11 @@
       hasError = true;
     }
 
+    if (!formData.get("agree")) {
+      modalErrors.agree = "Необходимо согласие на обработку персональных данных";
+      hasError = true;
+    }
+
     if (hasError) {
       modalErrors = modalErrors;
       return;
@@ -721,6 +726,13 @@
         </div>
         <div class="order-modal__field">
           <textarea name="message" placeholder="Расскажите о вашем проекте" class="order-modal__input order-modal__textarea"></textarea>
+        </div>
+        <div class="order-modal__field" style="margin-bottom: 16px;">
+          <label class="checkbox is-size-7" style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer; text-align: left; color: #4a4a4a;">
+            <input type="checkbox" name="agree" style="margin-top: 3px;" on:change={() => modalErrors.agree = null} />
+            <span>Я даю согласие на <a href="/page/soglasie-na-obrabotku-personalnyh-dannyh" target="_blank" style="color: #ff6600; text-decoration: underline;">обработку персональных данных</a> и соглашаюсь с <a href="/page/politika-konfidencialnosti" target="_blank" style="color: #ff6600; text-decoration: underline;">политикой конфиденциальности</a></span>
+          </label>
+          {#if modalErrors.agree}<p class="help is-danger order-modal__error-text">{modalErrors.agree}</p>{/if}
         </div>
         <button type="submit" class="order-modal__submit">Отправить заявку</button>
       </form>
