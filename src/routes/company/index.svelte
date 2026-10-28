@@ -83,11 +83,14 @@
             <div class="column">
                 <figure class="image is-16by9">
                     <iframe
+                        allow="clipboard-write; autoplay"
+                        webkitAllowFullScreen
+                        mozallowfullscreen
                         allowfullscreen
                         class="has-ratio"
                         frameborder="0"
                         height="360"
-                        src="https://www.youtube.com/embed/L8tZf_xNUWQ?showinfo=0"
+                        src="https://rutube.ru/play/embed/e247b39d967fafacd4a173db1c5c06a9/"
                         width="640"
                     />
                 </figure>

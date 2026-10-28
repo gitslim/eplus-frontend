@@ -161,6 +161,13 @@
                                     title="Изготовление блочно-модульных котельных">
                                 {$t('nav.modular_boilers')}
                             </Link>
+                            <Link
+                                    cls="navbar-item"
+                                    path="page"
+                                    slug="izgotovlenie-konteynernyh-kotelnyh"
+                                    title="Изготовление контейнерных котельных">
+                                Изготовление контейнерных котельных
+                            </Link>
                         </div>
                         <!-- <div class="column">
                           <Link

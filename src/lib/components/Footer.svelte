@@ -67,6 +67,8 @@
                             <li><a rel={currentLocale === 'en' ? 'external' : undefined} href="{p}/documents">{$t('footer.documents')}</a></li>
                             <li><a rel={currentLocale === 'en' ? 'external' : undefined} href="{p}/articles">{$t('footer.articles')}</a></li>
                             <li><a rel={currentLocale === 'en' ? 'external' : undefined} href="{p}/faq">{$t('footer.faq')}</a></li>
+                            <li><a rel={currentLocale === 'en' ? 'external' : undefined} href="{p}/page/politika-konfidencialnosti">{$t('footer.privacy_policy')}</a></li>
+                            <li><a rel={currentLocale === 'en' ? 'external' : undefined} href="{p}/page/soglasie-na-obrabotku-personalnyh-dannyh">{$t('footer.consent_pdn')}</a></li>
                         </ul>
                     </div>
 
