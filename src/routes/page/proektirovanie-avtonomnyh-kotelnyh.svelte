@@ -102,7 +102,7 @@
             <div class="columns is-vcentered">
                 <div class="column is-6">
                     <img
-                        alt="Котельная рисунок"
+                        alt="{currentLocale === 'en' ? 'Boiler plant drawing' : 'Котельная рисунок'}"
                         src="/images/kotel/u-bmk-image_01.png"
                     />
                 </div>
@@ -213,7 +213,7 @@
                     </div>
                     <div class="column">
                         <img
-                            alt="Картинка котельная"
+                            alt="{currentLocale === 'en' ? 'Boiler plant picture' : 'Картинка котельная'}"
                             src="/images/kotel/bmk_image_003.png"
                         />
                     </div>
@@ -422,7 +422,7 @@
                 <div class="column is-6">
                     <div class="box">
                         <img
-                            alt="Котельная изнутри"
+                            alt="{currentLocale === 'en' ? 'Boiler house interior' : 'Котельная изнутри'}"
                             src="/images/kotel/projects/01.jpg"
                         />
                     </div>

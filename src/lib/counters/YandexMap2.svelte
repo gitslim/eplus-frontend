@@ -1,6 +1,10 @@
 <script>
     import {onMount} from 'svelte'
     import ymaps from 'ymaps'
+    import {session} from '$app/stores'
+    import {t} from 'svelte-i18n'
+
+    $: currentLocale = $session.locale || 'ru'
 
     let container
     export let center = [55.758134, 37.772855]
@@ -11,8 +15,9 @@
 
     onMount(async () => {
         // container = document.createElement('div')
+        const mapLang = currentLocale === 'en' ? 'en_RU' : 'ru_RU'
         ymaps
-            .load('https://api-maps.yandex.ru/2.1/?lang=ru_RU')
+            .load(`https://api-maps.yandex.ru/2.1/?lang=${mapLang}`)
             .then(maps => {
                 let map = new maps.Map(container, {
                         center: center,
@@ -265,7 +270,7 @@
 </style>
 
 {#if loaded === false}
-    <h1>Загрузка карты...</h1>
+    <h1>{$t('common.loading_map')}</h1>
     <progress class="progress is-small is-primary"></progress>
 {/if}
 

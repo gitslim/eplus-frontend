@@ -815,7 +815,7 @@
                         </div>
                         <div class="column">
                             <div>
-                                <img class="blockGrafik__img" alt="график СМР" src="/images/smr/grafikSMR.svg">
+                                <img class="blockGrafik__img" alt="{currentLocale === 'en' ? 'Construction and installation schedule' : 'график СМР'}" src="/images/smr/grafikSMR.svg">
                             </div>
                         </div>
                     </div>

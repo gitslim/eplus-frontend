@@ -18,10 +18,9 @@
 
     $: currentLocale = $session.locale || 'ru'
     $: resolvedBtnText = btnText || $t('form.submit')
-
-    const maskOptions = {
-        mask: '+7 (000) 000-00-00'
-    }
+    $: maskOptions = currentLocale === 'en'
+        ? { mask: /^\+?[0-9\s\-\(\)]*$/ }
+        : { mask: '+7 (000) 000-00-00' }
 
     const {
         form,
@@ -42,7 +41,13 @@
         validationSchema: yup.object().shape({
             name: yup.string().required($t('form.required')),
             phone: yup.string()
-                .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, $t('form.invalid_phone'))
+                .test('phone-valid', $t('form.invalid_phone'), val => {
+                    if (!val) return false
+                    if (currentLocale === 'en') {
+                        return /^\+?[0-9\s\-\(\)]{7,20}$/.test(val)
+                    }
+                    return /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(val)
+                })
                 .required($t('form.required'))
         }),
         onSubmit: async values => {
@@ -53,9 +58,11 @@
                 webvisor: true,
             })
 
+            let baseTitle = lead.title || 'Форма контактов'
+            let title = currentLocale === 'en' ? `${baseTitle} [EN]` : baseTitle
             let data = {
                 type: lead.type || 'lead.contactForm',
-                title: lead.title || 'Форма контактов',
+                title: title,
                 comments: lead.comments || '',
                 email: '',
                 name: values.name,
@@ -68,7 +75,11 @@
                     values,
                     response
                 })
-                goto(currentLocale === 'en' ? '/en/thanks' : '/thanks')
+                if (currentLocale === 'en') {
+                    window.location.href = '/en/thanks'
+                } else {
+                    goto('/thanks')
+                }
             } else {
                 alert($t('form.send_error'))
             }

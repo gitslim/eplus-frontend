@@ -79,7 +79,9 @@
     "request_accepted": "Your request has been received. We will contact you shortly.",
     "order": "Order",
     "order_call": "Request a Call",
-    "order_project": "Request a Project"
+    "order_project": "Request a Project",
+    "need_consultation": "Need Consultation?",
+    "we_will_call_you": "We will call you back!"
   },
   "error": {
     "page_not_found": "Page Not Found!",
@@ -107,10 +109,12 @@
     "order": "Order",
     "read_more": "Learn More",
     "to_top": "To Top",
+    "video_presentation": "COMPANY VIDEO PRESENTATION",
     "address": "111123, Moscow, 1st Vladimirskaya, 10A, bldg. 1",
     "ivanovo_address": "155800, Ivanovo, Kukonkovykh st., 10A, bldg 1",
     "ivanovo_icon": "Ivanovo icon",
-    "close": "Close"
+    "close": "Close",
+    "loading_map": "Loading map..."
   },
   "faq_page": {
     "get_expert_consultation": "Get Detailed Consultation <br> from a Specialist",

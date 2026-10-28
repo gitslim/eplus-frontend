@@ -454,7 +454,7 @@
             <div class="content">
                 <div class="columns is-vcentered vramku-columns-right">
                     <div class="column vramku-column">
-                        <img src="\images\gazoprovodi\burenie.jpg" alt="Магистральный газопровод"/>
+                        <img src="\images\gazoprovodi\burenie.jpg" alt="{currentLocale === 'en' ? 'Main gas pipeline' : 'Магистральный газопровод'}"/>
                     </div>
                     <div class="column">
                         <span>
@@ -521,7 +521,7 @@
                                 </span>
                             </div>
                             <div class="column hiden2">
-                                <img src="\images\gazoprovodi\projekt.jpg" alt="Газораспределительная станция"/>
+                                <img src="\images\gazoprovodi\projekt.jpg" alt="{currentLocale === 'en' ? 'Gas distribution station' : 'Газораспределительная станция'}"/>
                             </div>
         
                         </div>
@@ -632,7 +632,7 @@
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6 vramku-column">
-                    <img alt="Газопровод станция" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
+                    <img alt="{currentLocale === 'en' ? 'Gas pipeline station' : 'Газопровод станция'}" src="\images\gazoprovodi\gazoprovod-zapros.jpg"/>
                 </div>
                 <div class="column zayvka">
                     <h4 class="title titlefor has-text-white">{$t('pipeline_reconstruction_page.form_title')}</h4>

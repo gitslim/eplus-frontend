@@ -8,7 +8,7 @@
     import website from '$lib/config/website'
     import BackToTop from '$lib/components/BackToTop.svelte'
     import RoistatCounter from '$lib/counters/RoistatCounter.svelte'
-    import {afterUpdate} from 'svelte'
+    import {afterUpdate, onMount} from 'svelte'
     import {page, session} from '$app/stores'
     import {setupI18n, locale} from '$lib/i18n/index.js'
 
@@ -22,15 +22,32 @@
 
     const {disableAnalytics, gtmId} = website
 
-    function onRouteChange() {
-        alert('route changed')
-    }
+    onMount(() => {
+        function handleLinkClick(event) {
+            const anchor = event.target?.closest?.('a')
+            if (!anchor) return
+            const href = anchor.getAttribute('href')
+            if (!href) return
 
-    $: cleanBase = ($page?.path || '/')
+            if (href.startsWith('/en/') || href === '/en') {
+                const rel = anchor.getAttribute('rel') || ''
+                if (!rel.includes('external')) {
+                    anchor.setAttribute('rel', (rel ? rel + ' ' : '') + 'external')
+                }
+            }
+        }
+
+        document.addEventListener('click', handleLinkClick, {capture: true})
+        return () => {
+            document.removeEventListener('click', handleLinkClick, {capture: true})
+        }
+    })
+
+    $: cleanPath = ($page?.path || '/')
         .replace(/^\/en(\/|$)/, '/')
         .replace(/^\/+/, '/')
-    $: ruPath = cleanBase === '' ? '/' : '/' + cleanBase
-    $: enPath = cleanBase === '' ? '/en' : ('/en/' + cleanBase).replace(/\/+/g, '/')
+    $: ruPath = cleanPath
+    $: enPath = cleanPath === '/' ? '/en' : ('/en' + cleanPath)
 </script>
 
 <svelte:head>

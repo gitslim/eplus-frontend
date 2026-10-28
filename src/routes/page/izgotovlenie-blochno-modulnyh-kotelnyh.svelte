@@ -140,7 +140,7 @@
           </p>
         </div>
         <div class="seo__img column is-6">
-          <img alt="Картинка котельная" src="/images/bmk/bmk_image_003.png" />
+          <img alt="{currentLocale === 'en' ? 'Boiler plant picture' : 'Картинка котельная'}" src="/images/bmk/bmk_image_003.png" />
         </div>
       </div>
     </div>
@@ -450,7 +450,7 @@
           <div class="column is-7 py-6">
             <figure class="image advice__img">
               <img
-                alt="Блочно-модульная котельная"
+                alt="{currentLocale === 'en' ? 'Block-modular boiler plant' : 'Блочно-модульная котельная'}"
                 src="/images/bmk/kotelnay2.png"
               />
             </figure>

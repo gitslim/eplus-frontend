@@ -9,6 +9,9 @@
     import CalcResult from '$lib/components/calc/CalcResult.svelte'
     import {bitrixLead} from '$lib/utils.js'
     import {t} from 'svelte-i18n'
+    import {session} from '$app/stores'
+
+    $: currentLocale = $session.locale || 'ru'
 
     const dispatch = createEventDispatcher()
 
@@ -83,7 +86,7 @@
 
             let data = {
                 type: 'lead.calcKotel',
-                title: 'Калькулятор котельной',
+                title: currentLocale === 'en' ? 'Калькулятор котельной [EN]' : 'Калькулятор котельной',
                 comments: log.join(' '),
                 name: vals.name,
                 phone: vals.phone

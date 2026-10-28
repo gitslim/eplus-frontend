@@ -45,6 +45,13 @@
     "modal_err_name": "Required field",
     "modal_err_phone": "Please enter a valid phone number",
     "modal_success_msg": "Thank you! Your request has been submitted. We will contact you shortly.",
-    "modal_error_msg": "An error occurred while submitting. Please try again later or give us a call."
+    "modal_error_msg": "An error occurred while submitting. Please try again later or give us a call.",
+    "main_services_aria": "Core Services",
+    "full_cycle_engineering": "Full-Cycle Engineering",
+    "cycle_scheme_aria": "Engineering Cycle Diagram",
+    "engineer_icon_alt": "Engineer",
+    "company_stats_aria": "Company Statistics",
+    "products_services_aria": "Products and Services",
+    "open_booklet_aria": "Open booklet: {name}"
   }
 }

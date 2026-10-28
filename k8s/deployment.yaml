@@ -29,7 +29,7 @@ spec:
                 secretKeyRef:
                   name: energyplus
                   key: VITE_BITRIX_HOOK_URL
-          image: slim777/eplus-frontend
+          image: mrsky1002/eplus-frontend
           imagePullPolicy: Always
           name: energyplus-frontend
           resources:

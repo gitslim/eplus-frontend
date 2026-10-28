@@ -37,12 +37,14 @@
             email: yup.string().email($t('form.required'))
         }),
         onSubmit: async values => {
+            let baseTitle = lead.title || 'Форма контактов'
+            let title = currentLocale === 'en' ? `${baseTitle} [EN]` : baseTitle
             let data = {
                 type: lead.type || 'lead.contactForm',
-                title: lead.title || 'Форма контактов',
+                title: title,
                 comments: lead.comments || '',
                 email: values.email,
-                name:'Заказчик из формы',
+                name: currentLocale === 'en' ? 'Customer from email form' : 'Заказчик из формы',
                 phone: ''
             }
             // console.debug('lead data', data)
@@ -52,7 +54,11 @@
                     values,
                     response
                 })
-                goto(currentLocale === 'en' ? '/en/thanks' : '/thanks')
+                if (currentLocale === 'en') {
+                    window.location.href = '/en/thanks'
+                } else {
+                    goto('/thanks')
+                }
             } else {
                 alert($t('form.send_error'))
             }

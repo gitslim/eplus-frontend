@@ -49,10 +49,12 @@
     try {
       const response = await bitrixLead({
         type: 'lead.orderForm',
-        title: `Заявка с сайта от ${formData.get("username")}`,
+        title: currentLocale === 'en'
+          ? `Website lead [EN] from ${formData.get("username")}`
+          : `Заявка с сайта от ${formData.get("username")}`,
         name: formData.get("username"),
         phone: formData.get("phone"),
-        comments: formData.get("message") || "Без комментариев"
+        comments: formData.get("message") || (currentLocale === 'en' ? "No comments" : "Без комментариев")
       });
 
       if (response.ok) {
@@ -227,13 +229,17 @@
     script.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "ООО Энергия Плюс",
-      url: "https://xn--c1adkmgpem4hrai.xn--p1ai/",
+      name: currentLocale === 'en' ? "Energy Plus LLC" : "ООО Энергия Плюс",
+      url: `https://xn--c1adkmgpem4hrai.xn--p1ai/${currentLocale === 'en' ? 'en/' : ''}`,
       logo: "https://xn--c1adkmgpem4hrai.xn--p1ai/logo-512.png",
-      description: "Инжиниринг полного цикла: проектирование котельных, строительство газопроводов, блочно-модульные котельные.",
+      description: currentLocale === 'en'
+        ? "Full-cycle engineering: boiler plant design, gas pipeline construction, block-modular boiler houses."
+        : "Инжиниринг полного цикла: проектирование котельных, строительство газопроводов, блочно-модульные котельные.",
       foundingDate: "2002",
       areaServed: "RU",
-      serviceType: ["Проектирование котельных", "Строительство газопроводов", "Блочно-модульные котельные"],
+      serviceType: currentLocale === 'en'
+        ? ["Boiler plant design", "Gas pipeline construction", "Block-modular boiler houses"]
+        : ["Проектирование котельных", "Строительство газопроводов", "Блочно-модульные котельные"],
     });
     document.head.appendChild(script);
   });
@@ -370,7 +376,7 @@
   <meta property="og:url" content="https://xn--c1adkmgpem4hrai.xn--p1ai/{currentLocale === 'en' ? 'en' : ''}" />
   <meta property="og:image" content="https://xn--c1adkmgpem4hrai.xn--p1ai/logo-512.png" />
   <meta property="og:locale" content="{currentLocale === 'en' ? 'en_US' : 'ru_RU'}" />
-  <meta property="og:site_name" content="ООО Энергия Плюс" />
+  <meta property="og:site_name" content="{currentLocale === 'en' ? 'Energy Plus LLC' : 'ООО Энергия Плюс'}" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -424,7 +430,7 @@
 <!-- ================================================================
      3 КАРТОЧКИ УСЛУГ
      ================================================================ -->
-<section class="top-services-section" id="services" aria-label="Основные услуги">
+<section class="top-services-section" id="services" aria-label="{$t('home_page.main_services_aria')}">
   <div class="site-container--wide">
     <div class="top-services-grid">
       {#each services as svc}
@@ -442,11 +448,11 @@
 <!-- ================================================================
      ИНЖИНИРИНГ ПОЛНОГО ЦИКЛА — схема + преимущества
      ================================================================ -->
-<section class="engineering-section" aria-label="Инжиниринг полного цикла">
+<section class="engineering-section" aria-label="{$t('home_page.full_cycle_engineering')}">
   <div class="site-container--wide">
     <div class="engineering-wrapper">
       <div class="scheme-wrap">
-        <div class="scheme-system" role="img" aria-label="Схема инжинирингового цикла">
+        <div class="scheme-system" role="img" aria-label="{$t('home_page.cycle_scheme_aria')}">
           <svg style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;" viewBox="0 0 580 580" aria-hidden="true">
             <line x1="290" y1="290" x2="290" y2="100" stroke="#f07030" stroke-width="2" />
             <line x1="290" y1="290" x2="455" y2="195" stroke="#f07030" stroke-width="2" />
@@ -458,7 +464,7 @@
           </svg>
 
           <div class="center-circle">
-            <img src="/ickonandlogo/newsrtikon/worker.svg" alt="Инженер" class="center-icon" width="270" height="270" />
+            <img src="/ickonandlogo/newsrtikon/worker.svg" alt="{$t('home_page.engineer_icon_alt')}" class="center-icon" width="270" height="270" />
           </div>
 
           {#each schemeItems as item, idx}
@@ -537,7 +543,7 @@
 <!-- ================================================================
      СТАТИСТИКА
      ================================================================ -->
-<section class="stats-section" aria-label="Статистика компании">
+<section class="stats-section" aria-label="{$t('home_page.company_stats_aria')}">
   <div class="site-container--wide">
     <div class="stats-grid">
       {#each stats as s}
@@ -556,7 +562,7 @@
 <!-- ================================================================
      ПРОДУКТЫ — буклеты / видео БМК
      ================================================================ -->
-<section class="booklets-section" aria-label="Продукты и услуги">
+<section class="booklets-section" aria-label="{$t('home_page.products_services_aria')}">
   <div class="site-container--wide">
     {#each booklets as b, i}
       <div class="booklet-block">
@@ -623,7 +629,7 @@
         {:else}
           <div class="booklet-img">
             {#if b.href}
-              <a href={b.href} target="_blank" rel="noopener" aria-label="Открыть буклет: {b.heading}">
+              <a href={b.href} target="_blank" rel="noopener" aria-label="{$t('home_page.open_booklet_aria', { values: { name: b.heading } })}">
                 <img loading="lazy" src={b.img} alt={b.alt} width="520" height="340" />
               </a>
             {:else}

@@ -35,7 +35,7 @@
                 <p class="title">
                     {title}
                 </p>
-                <button class="button is-link" on:click={()=>goto(currentLocale === 'en' ? '/en/' : '/')}>{$t('error.go_home')}</button>
+                <a rel={currentLocale === 'en' ? 'external' : undefined} class="button is-link" href={currentLocale === 'en' ? '/en/' : '/'}>{$t('error.go_home')}</a>
             </div>
         </div>
 
